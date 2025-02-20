@@ -1,0 +1,10 @@
+apache-beam[gcp]==2.48.0
+earthengine-api==1.4.3
+geopandas==1.0.1
+google-cloud
+google-cloud-storage
+matplotlib==3.10.0
+numpy==1.26.4
+pandas==2.2.3
+seaborn==0.13.2
+segment-geospatial==0.12.3

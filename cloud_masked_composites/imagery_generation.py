@@ -5,12 +5,17 @@ same as imagery_generation.ipynb.
 The `s2cloudless` module contains an implementation of the s2cloudless method for performing cloud-masking.
 '''
 
+import sys 
+sys.path.insert(1, '/Users/rafidmahbub/Desktop/DataKind_Geospatial')
+import config
+
 import geopandas as gpd
 import ee 
 from s2cloudless import s2cloudless
 
+gee_project = config.gee_project
 ee.Authenticate()
-ee.Initialize(project='project503-430216')
+ee.Initialize(project=gee_project)
 
 def generate_feature_collection(gdf: gpd.GeoDataFrame) -> ee.FeatureCollection:
     ''' 
