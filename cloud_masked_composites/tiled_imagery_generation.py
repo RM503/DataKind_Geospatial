@@ -108,7 +108,7 @@ def export_to_cloud(
         '''
         export_params = {
             'image': img_vis,
-            'description': distributor_name + '_tile_' + str(i) + '_' + img_type,
+            'description': 'tile_' + str(i) + '_' + img_type,
             'bucket': export_bucket,
             'crs': 'EPSG:4326',
             'fileFormat': 'GeoTIFF',
@@ -120,30 +120,36 @@ def export_to_cloud(
         task = ee.batch.Export.image.toCloudStorage(**export_params)
         task.start()
 
-if __name__ == '__main___':
-    gdf = gpd.read_file('./../geocoding/distributor_locations_priority_geocoded.json')
 
-    # collection of distributor locations and names 
-    feature_col = generate_feature_collection(gdf)
-    N = feature_col.size().getInfo()
+gdf = gpd.read_file('./../geocoding/distributor_locations_priority_geocoded.json')
 
-    for i in range(N):
-        dist_loc = ee.Geometry.Point(
-            feature_col.getInfo()['features'][i]['geometry']['coordinates']
-        )
-        dist_name = feature_col.getInfo()['features'][i]['geometry']['names']
+# collection of distributor locations and names 
+feature_col = generate_feature_collection(gdf)
+N = feature_col.size().getInfo()
 
-        roi = dist_loc.buffer(1.5e4).bounds()
-        grid = roi.coveringGrid('EPSG:4326', 5000)
+for i in range(N):
+    ''' 
+    We loop over the the distributor locations, extracting their coordinates and generating 
+    covering grids around them. The function `generated_image_tiles()` exports tiled images
+    of the covering grid to cloud.
+    '''
+    dist_loc = ee.Geometry.Point(
+        feature_col.getInfo()['features'][i]['geometry']['coordinates']
+    )
+    dist_name = feature_col.getInfo()['features'][i]['properties']['name']
 
-        # Generate image tiles for location `i` for export to cloud
-        img_tiles = generate_image_tiles(covering_grid=grid, img_type='hsv-EVI')
-        vis_params = {'min': 0, 'max': 1.0}
-        export_to_cloud(
-            img_col=img_tiles,
-            feature_col=grid,
-            export_bucket='samgeo_trial_bucket/' + dist_name + '/',
-            distributor_name=dist_name, 
-            vis_params=vis_params,
-            img_type='hsv-EVI'
-        )
+    roi = dist_loc.buffer(1.5e4).bounds()
+    grid = roi.coveringGrid('EPSG:4326', 5000)
+
+    # Generate image tiles for location `i` for export to cloud
+    img_tiles = generate_image_tiles(covering_grid=grid, img_type='hsv-EVI')
+    vis_params = {'min': 0, 'max': 1.0}
+    
+    export_to_cloud(
+        img_col=img_tiles,
+        feature_col=grid,
+        export_bucket='s2_image_tiles/' + dist_name + '/',
+        distributor_name=dist_name, 
+        vis_params=vis_params,
+        img_type='hsv-EVI'
+    )
