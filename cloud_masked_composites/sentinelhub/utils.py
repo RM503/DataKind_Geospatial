@@ -32,7 +32,7 @@ ee.Initialize(project=gee_project)
 # SentinelHub configurations
 config = SHConfig('rmahbub503')
 
-def get_covering_grid(
+def generate_covering_grid(
         gdf: gpd.GeoDataFrame,
         buffer_size: float=1e4,
         scale: int=5000
