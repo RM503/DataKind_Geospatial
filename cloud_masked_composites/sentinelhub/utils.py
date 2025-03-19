@@ -1,6 +1,7 @@
 '''
 Utility functions
 '''
+import logging
 import time 
 import sys 
 sys.path.insert(1, '/Users/rafidmahbub/Desktop/DataKind_Geospatial')
@@ -19,10 +20,19 @@ from sentinelhub import (
     BBox,
     bbox_to_dimensions,
     CRS,
-    MimeType
+    MimeType,
+    geo_utils
 )
 import cv2 
-from typing import Generator
+from typing import Union, Generator
+import rasterio
+
+logging.basicConfig(
+    level=logging.INFO, 
+    filename='logs/utils_log.txt', 
+    filemode='w',
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 # GEE configurations
 gee_project = config.gee_project
@@ -51,10 +61,12 @@ def generate_covering_grid(
 
     # Setting default CRS where absent
     if gdf.crs is None:
+        #logging.INFO('CRS information missing from gdf; setting it to EPSG: 4326')
         gdf = gdf.set_crs('EPSG:4326')
 
     # Fix invalid geometries (if present)
     if (gdf.geometry.is_valid==False).any():
+        logging.INFO('Invalid geometries present; fixing them')
         gdf.geometry = make_valid(gdf.geometry)
 
     # Initializing tile_grid column
@@ -80,18 +92,90 @@ def generate_covering_grid(
 
         multipolygon = MultiPolygon(polygons)
         gdf.at[idx, 'tile_grids'] = multipolygon
-        #row['tile_grids'] = multipolygon
 
-    #gdf.to_file('tiles.csv', driver='GPKG')
     return gdf
+
+def generate_lon_lat(
+        AoI_bbox: BBox,
+        AoI_size: tuple,
+        resolution: int 
+) -> tuple[np.ndarray, np.ndarray]:
+    ''' 
+    This function generates longitude and latitude axes from bounding box and resolution
+    information to be used in the generation of raster tiles.
+
+    Args: (i) AoI_bbox - coordinates of the corners of bounding box
+          (ii) AoI_size - pixel size of the bounding box
+          (iii) resolution - resolution of the image in px/m
+
+     Returns: a tuple of longitude and latitude axes     
+    '''
+    # First convert the bbox to UTM
+    bbox_utm = geo_utils.to_utm_bbox(AoI_bbox)
+    transform = bbox_utm.get_transform_vector(resx=resolution, resy=resolution)
+
+    pix_lon = np.array(np.arange(0, AoI_size[0]))
+    lons = np.array([pix_lon]*AoI_size[1])
+
+    pix_lat = np.array(np.arange(0, AoI_size[1]))
+    lats = np.array([pix_lat] * AoI_size[0]).transpose()
+
+    lon, lat = geo_utils.pixel_to_utm(lats, lons, transform)
+
+    lon_degrees, lat_degrees = geo_utils.to_wgs84(lon, lat, bbox_utm.crs)
+
+    return lon_degrees[0,:], lat_degrees[:,0]
+
+def array_to_geotiff(
+        img: np.ndarray,
+        output_path: str,
+        lats: np.ndarray,
+        lons: np.ndarray
+) -> None:
+    '''
+    This function writes the image arrays into geotiff files.
+    '''
+
+    # Find image corners
+    left = np.min(lons)
+    right = np.max(lons)
+    bottom = np.min(lats)
+    top = np.max(lats)
+
+    # x_res = (right - left)/img.shape[1]
+    # y_res = (top - bottom)/img.shape[0]
+
+    band1 = img[:, :,0]
+    band2 = img[:, :,1]
+    band3 = img[:, :,2]
+
+    img_3bands = np.stack((band1, band2, band3))
+
+    transform = rasterio.transform.from_bounds(left, bottom, right, top, img.shape[1], img.shape[0])
+
+    metadata = {
+        'driver': 'GTiff',
+        'height': img.shape[0],
+        'width': img.shape[1],
+        'count': 3,
+        'dtype': img.dtype,
+        'crs': 'EPSG:4326',
+        'transform': transform
+    }
+
+    with rasterio.open(output_path, 'w', **metadata) as dst:
+        dst.write(img_3bands)
+
 
 def SH_request_builder(
         tiles: MultiPolygon,
         start_date: str,
         end_date: str,
+        export_dir: str,
+        evalscript_type: str,
+        img_type: str,
         resolution: int=5,
-        img_type: str='true_color_optimized',
-) -> Generator[np.ndarray, None, None]:
+) -> Generator[Union[np.ndarray, SentinelHubRequest], None, None]:
     '''
     This function acts a generator that yields image tiles stored in MultiPolygon geometries.
     It uses SentinelHub's request builder and user defined evalscripts for iamge generation.
@@ -99,8 +183,9 @@ def SH_request_builder(
     Args: (i) tiles - covering grid tiles of a distributor location buffer zone as a MultiPolygon geometry
           (ii) start_date
           (iii) end_date
-          (iv) resolution - pixel resolution of the images; defaults to 5 px/m
-          (v) img_type - type of image to generate where the choice picks out a particular evalscript; defaults to `true_color_optimized`
+          (iv) evalscript - type of image to generate where the choice picks out a particular evalscript
+          (v) img_type - type of image to produce; supported types are 'PNG' or 'TIFF'
+          (vi) resolution - pixel resolution of the images; defaults to 5 px/m
 
     Yields: image tiles as numpy arrays
     '''
@@ -115,15 +200,24 @@ def SH_request_builder(
         AoI_size = bbox_to_dimensions(AoI_bbox, resolution=resolution)
         
         # Read evalscript for request builder
-        # The evalscript read context-manager depends on the `img_type` parameter
-        with open('evalscripts/' + img_type + '.js', 'r') as f:
+        # The evalscript read context-manager depends on the `evalscript` parameter
+        with open('evalscripts/' + evalscript_type + '.js', 'r') as f:
             evalscript = f.read()
+
+        # Store the mimetypes here
+        mimetypes = {
+            'PNG': MimeType.PNG,
+            'TIFF': MimeType.TIFF
+        }
+        
+        mimetype = mimetypes[img_type]
 
         ''' 
         In `mosaickingOrder`, the `leastCC` implies image files with the lowest percentage
         of cloudy pixels. This is automatically handled using s2cloudless.
         '''
         request = SentinelHubRequest(
+            data_folder = export_dir,
             evalscript=evalscript,
             input_data=[
                 SentinelHubRequest.input_data(
@@ -134,17 +228,40 @@ def SH_request_builder(
                     other_args={"dataFilter": {"mosaickingOrder": "leastCC"}},
                 )
             ],
-            responses=[SentinelHubRequest.output_response("default", MimeType.PNG)],
+            responses=[SentinelHubRequest.output_response("default", mimetype)],
             bbox=AoI_bbox,
             size=AoI_size,
             config=config,
         )
 
-        img = request.get_data()[0]
-        yield img
+        ''' 
+        Subsequent processing will depend on mimetype. 
+        '''
+        if mimetype == MimeType.PNG:
+            # PNG images that require more processing will be yielded with longitude and latitude information
+            img = request.get_data()[0]
+            lon_array, lat_array = generate_lon_lat(
+                AoI_bbox=AoI_bbox,
+                AoI_size=AoI_size,
+                resolution=resolution
+            )
+            yield img, lon_array, lat_array
 
-        # Yields image and sleeps for 0.1 s to prevent Request error
-        time.sleep(0.1)
+            # Yields image and sleeps for 0.1 s to prevent Request error
+            time.sleep(0.1)
+
+        elif mimetype == MimeType.TIFF:
+            # GeoTIFF images that only require export
+            yield request
+
+            time.sleep(0.1)
+
+        else:
+            logging.WARNING('Workflow may not support this mimetype.')
+
+            yield img
+
+            time.sleep(0.1)
 
 def edge_enhance(img: np.ndarray, kernel_size: int=11, wf: int=2) -> np.ndarray:
     ''' 
@@ -161,3 +278,4 @@ def edge_enhance(img: np.ndarray, kernel_size: int=11, wf: int=2) -> np.ndarray:
 
     img_sharpened = img + wf * (img - img_blurred)
     return img_sharpened
+    

@@ -8,6 +8,8 @@ cloud_masked_composites/.ipynb_checkpoints
 cloud_masked_composites/demo
 cloud_masked_composites/imagery/*
 !cloud_masked_composites/imagery/priority_distributors.png
+cloud_masked_composites/sentinelhub/images
+cloud_masked_composites/sentinelhub/logs
 
 data/
 

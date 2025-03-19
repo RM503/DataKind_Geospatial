@@ -1,3 +1,6 @@
+''' 
+Main file for requesting and saving Sentinel Hub images.
+'''
 import os
 import logging
 from tqdm import tqdm
@@ -8,11 +11,16 @@ from shapely import wkt
 from utils import (
     generate_covering_grid,
     SH_request_builder,
-    edge_enhance
+    edge_enhance,
+    array_to_geotiff
 )
-from samgeo import array_to_image
 
-logging.basicConfig(level=logging.INFO, filename='main_log.log', filemode='w')
+logging.basicConfig(
+    level=logging.INFO, 
+    filename='logs/main_log.txt', 
+    filemode='w',
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 def append_running_count(
     gdf: gpd.GeoDataFrame,
@@ -38,7 +46,7 @@ def append_running_count(
     gdf.drop(columns=['running_count'], inplace=True)
     return gdf
 
-def main(gdf: gpd.GeoDataFrame) -> None:
+def main(gdf: gpd.GeoDataFrame, img_type: str) -> None:
     ''' 
     This function generates image tiles for each distributor location by using
     Sentinel Hub's request builder API.
@@ -58,7 +66,7 @@ def main(gdf: gpd.GeoDataFrame) -> None:
     
     gdf_w_grids = append_running_count(gdf_w_grids, 'County', 'County_enumerated')
     for idx, row in tqdm(gdf_w_grids.iterrows(), desc='Iterating over locations'):
-        print(f'Current location: {row['County_enumerated']}')
+        print(f"Current location: {row['County_enumerated']}")
 
         FOLDER_NAME = '_'.join(row['County_enumerated'].split(' '))
         EXPORT_DIR = 'images/' + FOLDER_NAME + '/' 
@@ -67,22 +75,44 @@ def main(gdf: gpd.GeoDataFrame) -> None:
         START_DATE = '2024/01/01'
         END_DATE = '2025/01/01'
 
-        tile_imgs = SH_request_builder(
-            tiles=tiles,
-            start_date=START_DATE,
-            end_date=END_DATE
-        )
+        if img_type == 'PNG':
+             # Tile-image generator object
+            tile_imgs = SH_request_builder(
+                    tiles=tiles,
+                    start_date=START_DATE,
+                    end_date=END_DATE,
+                    export_dir=EXPORT_DIR,
+                    evalscript='highlight_optimized',
+                    img_type=img_type
+                )
+            for count, (img, lon_array, lat_array) in enumerate(tile_imgs):
+                # Apply edge enhancement and export as GeoTIFF
+                img = edge_enhance(img)
+                IMG_PATH = EXPORT_DIR + 'tile_' + str(count) + '.tiff'
 
-        for count, img in enumerate(tile_imgs):
-            # Apply edge enhancement and export as GeoTIFF
-            img = edge_enhance(img)
-            IMG_PATH = EXPORT_DIR + 'tile_' + str(count) + '.tif'
+                if not os.path.exists(EXPORT_DIR):
+                    logging.INFO(f'Creating directory: {EXPORT_DIR}')
+                    os.makedirs(EXPORT_DIR)
 
-            if not os.path.exists(EXPORT_DIR):
-                logging.INFO(f'Creating directory: {EXPORT_DIR}')
-                os.makedirs(EXPORT_DIR)
-
-            array_to_image(img, IMG_PATH, coord_crs='epsg:4326')
+                array_to_geotiff(img, IMG_PATH, lat_array, lon_array)
+        elif img_type == 'TIFF':
+             # Tile-image generator object
+            tile_imgs = SH_request_builder(
+                    tiles=tiles,
+                    start_date=START_DATE,
+                    end_date=END_DATE,
+                    export_dir=EXPORT_DIR,
+                    evalscript_type='highlight_optimized',
+                    img_type=img_type
+                )
+            for count, request in enumerate(tile_imgs):
+                IMG_NAME = 'tile_' + str(count) + '.tiff'
+                
+                if not os.path.exists(EXPORT_DIR):
+                    logging.INFO(f'Creating directory: {EXPORT_DIR}')
+                    os.makedirs(EXPORT_DIR)
+                request.download_list[0].filename = IMG_NAME
+                request.save_data()
 
 if __name__ == '__main__':
 
@@ -90,4 +120,4 @@ if __name__ == '__main__':
     data_df.geometry = data_df.geometry.apply(wkt.loads)
     data_gdf = gpd.GeoDataFrame(data_df)
 
-    main(data_gdf)
+    main(data_gdf, 'TIFF')
