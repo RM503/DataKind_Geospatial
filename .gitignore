@@ -1,4 +1,8 @@
 # Files and folders to ignore in commits
+__pycache__/
+
+.DS_Store
+
 env/
 
 config.py
