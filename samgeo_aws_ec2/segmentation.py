@@ -13,7 +13,12 @@ from retrieve_from_S3 import download_s3_folder
 import logging
 import argparse 
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO,
+    filename='samgeo_run_logs.txt', 
+    filemode='w',
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 def folder_exists(output_bucket: str, path: str) -> bool:
     if not path.endswith('/'):
@@ -42,11 +47,11 @@ def samgeo_unit(
           (vi) erosion_kernel - the erosion kernel for filtering object masks and extract borders; defaults to (3, 3)
           (vii) mask_multiplier - multiplication factor for generated binary masks; defaults to 255
 
-    Returns: pandas dataframe containing segment vectors in wkt format
+    Returns: pandas dataframe containing segment vectors in wkt format and directory to csv file
     '''
 
     if not os.path.exists(output_folder):
-        logging.INFO(f"Creating ouput folder: {output_folder}")
+        logging.info(f"Creating ouput folder: {output_folder}")
         os.makedirs(output_folder)
 
     img_name = input_img_path.split('/')[-1].split('.')[0]
@@ -92,7 +97,7 @@ def segment_tiles(
     ''' 
 
     if not isinstance(input_img_tiles, list):
-        logging.ERROR(f"{input_img_tiles} must be of type list")
+        logging.error(f"{input_img_tiles} must be of type list")
 
     img_list = input_img_tiles 
 
@@ -100,23 +105,23 @@ def segment_tiles(
 
     if not folder_exists(output_bucket, output_folder):
         # Check if upload directory exists in output bucket
-        logging.INFO(f"{output_folder} does not exist in {output_bucket}")
+        logging.info(f"{output_folder} does not exist in {output_bucket}")
 
         s3_client.put_object(Bucket=output_bucket, Key=output_folder + '/')
 
-        logging.INFO(f"{output_folder} created in {output_bucket}")
+        logging.info(f"{output_folder} created in {output_bucket}")
 
     for idx, img, in enumerate(tqdm(img_list, desc="Processing images")):
-        logging.INFO(f"Working on tile {idx}")
+        logging.info(f"Working on tile {idx}")
 
-        df, output_csv_path = samgeo_unit(img, output_folder)
+        df, output_csv_path = samgeo_unit(sam, img, output_folder)
 
         # Upload file to S3 bucket in a try-except block
         try:
-            s3_client.upload_file(df, output_bucket, output_csv_path)
-            logging.INFO(f"Segmentation file for tile {idx} uploaded to output bucket")
+            s3_client.upload_file(output_csv_path, output_bucket, output_csv_path)
+            logging.info(f"Segmentation file for tile {idx} uploaded to output bucket")
         except Exception as e:
-            logging.ERROR(f"Error uploading segmentation file for tile {idx}: {e}")
+            logging.error(f"Error uploading segmentation file for tile {idx}: {e}")
 
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
@@ -124,7 +129,7 @@ def segment_tiles(
     end = time.time()
 
     execution_time = end - start
-    logging.INFO(f"Segmentation finished; execution time: {execution_time / 60} minutes")
+    logging.info(f"Segmentation finished; execution time: {execution_time / 60} minutes")
 
     # Remove contents after code is finished running
     #os.remove(output_folder)
@@ -150,7 +155,7 @@ if __name__ == '__main__':
     output_bucket = args.output_bucket
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    logging.INFO(f"Using device: {device}")
+    logging.info(f"Using device: {device}")
 
     sam_kwargs = {
 	    'points_per_side': 64,
@@ -165,9 +170,9 @@ if __name__ == '__main__':
     check_model = os.path.exists(model_path)
 
     if check_model:
-        logging.INFO(f"SAM model found at: {model_path}")
+        logging.info(f"SAM model found at: {model_path}")
     else:
-        logging.INFO(f"SAM model not found at: {model_path}")
+        logging.info(f"SAM model not found at: {model_path}")
 
     # Instantiate SAM automatic mask generator class
     sam = SamGeo(
@@ -179,10 +184,22 @@ if __name__ == '__main__':
 
     s3_client = boto3.client('s3')
 
-    test_region = 'Trans_Nzoia_1'
+    regions = [
+        'Bomet_1',
+        'Kajiado_1',
+        'Kajiado_2',
+        'Laikipia_1',
+        'Machakos_1',
+        'Mashuru_1',
+        'Nakuru_1',
+        'Narok_1',
+        'Trans_Nzoia_1',
+        'Uasin_Gishu_1'
+    ]
+    for count, region in enumerate(regions):
+        logging.info(f"Segmenting region {count + 1}: {region}")
+        download_s3_folder(input_bucket, region)
 
-    download_s3_folder(input_bucket, test_region)
+        img_tiles_list = glob.glob(f"{region}/*.tiff")
 
-    img_tiles_list = glob.glob(f"{test_region}/*.tiff")
-
-    segment_tiles(img_tiles_list, test_region, output_bucket)
+        segment_tiles(img_tiles_list, region, output_bucket)

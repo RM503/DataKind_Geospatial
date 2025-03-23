@@ -1,4 +1,4 @@
-#!/bin/bash
+# !/bin/bash
 
 cd ~
 
@@ -15,3 +15,5 @@ conda create -n samgeo python
 conda activate samgeo
 conda install -c conda-forge mamba
 mamba install -c conda-forge segment-geospatial "pytorch=*=cuda*"
+
+conda install boto3

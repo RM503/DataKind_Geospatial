@@ -1,5 +1,6 @@
 import os
-import boto3 
+import boto3
+import argparse 
 
 s3 = boto3.resource('s3')
 
@@ -23,3 +24,25 @@ def download_s3_folder(bucket_name: str, s3_folder: str, local_folder: str=None)
         if object.key.endswith('/'):
             continue 
         bucket.download_file(object.key, object.key)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        '--bucket_name',
+        required=True,
+        help='Name of the S3 bucket from which files will be retrieved.'
+    )
+
+    parser.add_argument(
+        '--s3_folder',
+        required=True,
+        help='Name of the S3 folder from which files will be retrieved.'
+    )
+
+    args = parser.parse_args()
+
+    bucket_name = args.bucket_name
+    s3_folder = args.s3_folder
+
+    download_s3_folder(bucket_name, s3_folder)
