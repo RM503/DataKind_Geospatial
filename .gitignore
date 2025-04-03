@@ -26,7 +26,10 @@ tiled_images/
 
 sales_leads_data_analysis
 
-samgeo_aws_ec2/Trans_Nzoia_1
+samgeo_aws_ec2/vectors
+samgeo_aws_ec2/comparisons
+
+initial_priority_distributor_polygons.qgz
 
 samgeo_outputs
 copernicus_hub_python_api.ipynb

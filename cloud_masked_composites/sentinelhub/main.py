@@ -56,7 +56,7 @@ def main(gdf: gpd.GeoDataFrame, img_type: str) -> None:
     gdf_w_grids = generate_covering_grid(gdf)
 
     if 'tile_grids' not in gdf_w_grids.columns.tolist():
-        logging.ERROR("'tilde_grids' column not present; tiles cannot be requested from SentinelHub")
+        logging.error("'tilde_grids' column not present; tiles cannot be requested from SentinelHub")
     
     '''
     The `County` information will be used to identify GeoTIFF tiles. However,
@@ -91,7 +91,7 @@ def main(gdf: gpd.GeoDataFrame, img_type: str) -> None:
                 IMG_PATH = EXPORT_DIR + 'tile_' + str(count) + '.tiff'
 
                 if not os.path.exists(EXPORT_DIR):
-                    logging.INFO(f'Creating directory: {EXPORT_DIR}')
+                    logging.info(f'Creating directory: {EXPORT_DIR}')
                     os.makedirs(EXPORT_DIR)
 
                 array_to_geotiff(img, IMG_PATH, lat_array, lon_array)
@@ -109,7 +109,7 @@ def main(gdf: gpd.GeoDataFrame, img_type: str) -> None:
                 IMG_NAME = 'tile_' + str(count) + '.tiff'
                 
                 if not os.path.exists(EXPORT_DIR):
-                    logging.INFO(f'Creating directory: {EXPORT_DIR}')
+                    logging.info(f'Creating directory: {EXPORT_DIR}')
                     os.makedirs(EXPORT_DIR)
                 request.download_list[0].filename = IMG_NAME
                 request.save_data()

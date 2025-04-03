@@ -61,12 +61,12 @@ def generate_covering_grid(
 
     # Setting default CRS where absent
     if gdf.crs is None:
-        #logging.INFO('CRS information missing from gdf; setting it to EPSG: 4326')
+        logging.info('CRS information missing from gdf; setting it to EPSG: 4326')
         gdf = gdf.set_crs('EPSG:4326')
 
     # Fix invalid geometries (if present)
     if (gdf.geometry.is_valid==False).any():
-        logging.INFO('Invalid geometries present; fixing them')
+        logging.info('Invalid geometries present; fixing them')
         gdf.geometry = make_valid(gdf.geometry)
 
     # Initializing tile_grid column
@@ -257,7 +257,7 @@ def SH_request_builder(
             time.sleep(0.1)
 
         else:
-            logging.WARNING('Workflow may not support this mimetype.')
+            logging.warning('Workflow may not support this mimetype.')
 
             yield img
 

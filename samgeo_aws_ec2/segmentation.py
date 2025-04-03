@@ -30,7 +30,7 @@ def samgeo_unit(
         sam: SamGeo,
         input_img_path: str,
         output_folder: str,
-        batch: bool=True,
+        batch: bool=False,
         foreground: bool=True,
         erosion_kernel: Tuple[int, int]=(3, 3),
         mask_multiplier: int=255
@@ -112,6 +112,7 @@ def segment_tiles(
         logging.info(f"{output_folder} created in {output_bucket}")
 
     for idx, img, in enumerate(tqdm(img_list, desc="Processing images")):
+        print(f"Working on tile {idx}")
         logging.info(f"Working on tile {idx}")
 
         df, output_csv_path = samgeo_unit(sam, img, output_folder)
