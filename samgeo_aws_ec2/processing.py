@@ -8,6 +8,10 @@ import pandas as pd
 import geopandas as gpd 
 import uuid
 import shapely
+from shutil import make_archive
+import logging 
+
+logging.basicConfig(level=logging.INFO)
 
 def vectors_list(base_path: str, file_extension, region: str='All') -> list[str]:
     ''' 
@@ -25,6 +29,33 @@ def vectors_list(base_path: str, file_extension, region: str='All') -> list[str]
         return glob.glob(f"{base_path}/*/*.{file_extension}")
     else:
         return glob.glob(f"{base_path}/{region}/*.{file_extension}")
+    
+def zip_csv_from_gdf(file_paths: list[str]) -> None:
+    if not isinstance(file_paths, list):
+        raise ValueError(f"{file_paths} should be a list of file paths")
+    
+    for file_path in file_paths:
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"{file_path} cannot be found")
+        
+        gdf = gpd.read_file(file_path)
+        # Group the dataframe by tile_name
+        gdf_grouped = gdf.groupby("tile_name")
+
+        FOLDER_NAME = file_path.split('/')[-1].split('.')[0]
+        os.makedirs(f"vectors/csv_files/{FOLDER_NAME}", exist_ok=True)
+
+        logging.info(f"Processing {FOLDER_NAME}")
+
+        for tile_name, group in gdf_grouped:
+            file_name = f"{tile_name}.csv"
+            group.to_csv(f"vectors/csv_files/{FOLDER_NAME}/{file_name}", index=False)
+
+    # make_archive(
+    #     base_name="csv_files_archived",
+    #     format="zip",
+    #     base_dir="csv_files"
+    # )
 
 def make_gdf(file_paths: list[str], export_gdf: bool=True) -> gpd.GeoDataFrame:
     '''
@@ -45,14 +76,14 @@ def make_gdf(file_paths: list[str], export_gdf: bool=True) -> gpd.GeoDataFrame:
     for file_path in file_paths:
         if not os.path.exists(file_path):
             raise FileNotFoundError(f"{file_path} cannot be found")
-        
-        if not 'uuid' in df.columns:
-            df['uuid'] = df.apply(lambda row: uuid.uuid4(), axis=1)
             
         df = (
             pd.read_csv(file_path)
             .drop(columns=['value'])
         )
+        if not 'uuid' in df.columns:
+            df['uuid'] = df.apply(lambda row: uuid.uuid4(), axis=1)
+
         df = df[['uuid', 'geometry']]
 
         # check if `region` and `tile_name` columns exist or not
@@ -99,105 +130,136 @@ def make_gdf(file_paths: list[str], export_gdf: bool=True) -> gpd.GeoDataFrame:
 
     return gdf
 
-def modify_tiled_polygons(
-        gpkg_files: str,
-        min_polygon_area: float=0.5,
-        max_polygon_area: float=200.0,
-        elongation_cutoff: float=150.0
+def aggregrate_polygons_between_gdfs(
+        gdf_1: gpd.GeoDataFrame, 
+        gdf_2: gpd.GeoDataFrame
     ) -> gpd.GeoDataFrame:
-    '''
-    This function reads in the list of SamGeo generated geopackage files, concatenates
-    them and calculates relevant geometric information for further filterning.
+    """ 
+    This function takes in two processed geopandas dataframes and finds non-overlapping
+    polygons between them. This allows polygons, that have been generated using different
+    parameters, to be intergrated into the final polygon data.
+    """
 
-    Args: (i) gpkg_files - a list of .gpkg file paths containing segmented polygons
-          (ii) min_polygon_area - minimum polygon area (in acres) to be considered
-          (iii) max_polygon_area - maximum polygon area (in acres) to be considered
-          (iv) elongation_cutoff - maximum allowed elongation ratio
+    if gdf_1.crs is None and gdf_2.crs is None:
+        gdf_1 = gdf_1.set_crs("EPSG:4326")
+        gdf_2 = gdf_2.set_crs("EPSG:4326")
 
-    Returns: a geopandas dataframe containing the filtered polygons
-    '''
-    # Create a list of geopandas dataframes
-    # geopandas does not contain a `concat()` operation; use pandas
-
-    gdf_list = []
-    for file in gpkg_files:
-        gdf = gpd.read_file(file)
-        tile_label = file.split('/')[-1].split('_')[1] # attach an identifier indicating which tile the data belongs to
-        gdf['tile_label'] = tile_label
-        gdf_list.append(gdf)
-
-    gdf_concat = pd.concat(gdf_list, ignore_index=True)
-    gdf_concat = gdf_concat.drop(columns='value')
-    gdf_concat['tile_label'] = gdf_concat['tile_label'].astype(int)
-
-    # Calculate relevant geometries
-    gdf_concat['centroid'] = gdf_concat.geometry.centroid
-    geom_pseudo_mercator = gdf_concat.geometry.to_crs('EPSG:3587') # convert the polygons to physical distance units
-    gdf_concat['area (sq. meters)'] = geom_pseudo_mercator.area
-    gdf_concat['area (acres)'] = geom_pseudo_mercator.area * 0.000247
-
-    '''
-    Even after filtering, there will be polygons which are elongated in nature (rivers, streets etc.).
-    From common experience, crop fields generally have quite regular shapes. One metric that can be used
-    is an elongation ration calculated as perimeter^2 / area. As a reference, such a ratio for a square is
-    16. We can set a custom cut-off to further filter out polygons which are very elongated and, hence, not
-    representative of fields.
-    '''
-
-    elongtation_ratio = (geom_pseudo_mercator.length ** 2) / gdf_concat['area (sq. meters)']
-    gdf_concat['elongation ratio'] = elongtation_ratio
-
-    # Filter polygons based on area and elongation_cutoff
-    gdf_filtered = gdf_concat[
-        (gdf_concat['area (acres)'] >= min_polygon_area) &
-        (gdf_concat['area (acres)'] <= max_polygon_area) &
-        (gdf_concat['elongation ratio'] <= elongation_cutoff)
-    ]
-
-    '''
-    Another processing step should include merging polygons separated at the edge of each tiles.
-    Hence, the tiles are arranged in a 5 x 5 grid with adjacent grids identified.
-    '''
-
-    def get_adjacent_cells(grid, i, j):
-        """
-        Returns a dictionary containing the adjacent cells
-        (left, right, above, below) of a given cell in a 2D grid.
-
-        Boundary conditions are handled to prevent out-of-bounds access.
-        """
-        height, width = grid.shape
-        adjacent_cells = {}
-
-        if i > 0:
-            adjacent_cells['T'] = grid[i - 1, j]
-        if i < height - 1:
-            adjacent_cells['B'] = grid[i + 1, j]
-        if j > 0:
-            adjacent_cells['L'] = grid[i, j - 1]
-        if j < width - 1:
-            adjacent_cells['R'] = grid[i, j + 1]
-
-        return adjacent_cells
-
-    tile_grid = np.arange(0, 25).reshape(5, 5) # reshaping grids 0 - 24 into a 5 x 5 array
-
-    #gdf_filtered['tile_grid'] = np.nan
-    grids = gdf_filtered['tile_label'].apply(
-        lambda x: (
-            np.where(tile_grid == x)[0][0],
-            np.where(tile_grid == x)[1][0]
-        )
+    # Perform spatial joins to search for intersections and extract unique uuid from left_df
+    gdf_sjoined = gpd.sjoin(
+        left_df=gdf_1,
+        right_gdf=gdf_2,
+        how="inner"
     )
-    gdf_filtered.insert(2, 'tile_grid', grids)
-    adjacent_tiles = gdf_filtered['tile_grid'].apply(
-        lambda x: get_adjacent_cells(tile_grid, x[0], x[1])
-    )
-    gdf_filtered.insert(3, 'adjacent_tiles', adjacent_tiles)
 
-    #return gdf_filtered
+    uuid_intersect = gdf_sjoined['uuid_left'].unique().tolist()
 
-def polygon_overlaps(gdf1:gpd.GeoDataFrame, gdf2: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+    # Polygons in gdf_2 without intersections with polygons in gdf_1
+    gdf_nonintersect=gdf_2[~gdf_2["uuid"].isin(uuid_intersect)] 
+
+    gdf_agg = pd.concat([gdf_1, gdf_nonintersect])
+
+    return gdf_agg
+
+
+# def modify_tiled_polygons(
+#         gpkg_files: str,
+#         min_polygon_area: float=0.5,
+#         max_polygon_area: float=200.0,
+#         elongation_cutoff: float=150.0
+#     ) -> gpd.GeoDataFrame:
+#     '''
+#     This function reads in the list of SamGeo generated geopackage files, concatenates
+#     them and calculates relevant geometric information for further filterning.
+
+#     Args: (i) gpkg_files - a list of .gpkg file paths containing segmented polygons
+#           (ii) min_polygon_area - minimum polygon area (in acres) to be considered
+#           (iii) max_polygon_area - maximum polygon area (in acres) to be considered
+#           (iv) elongation_cutoff - maximum allowed elongation ratio
+
+#     Returns: a geopandas dataframe containing the filtered polygons
+#     '''
+#     # Create a list of geopandas dataframes
+#     # geopandas does not contain a `concat()` operation; use pandas
+
+#     gdf_list = []
+#     for file in gpkg_files:
+#         gdf = gpd.read_file(file)
+#         tile_label = file.split('/')[-1].split('_')[1] # attach an identifier indicating which tile the data belongs to
+#         gdf['tile_label'] = tile_label
+#         gdf_list.append(gdf)
+
+#     gdf_concat = pd.concat(gdf_list, ignore_index=True)
+#     gdf_concat = gdf_concat.drop(columns='value')
+#     gdf_concat['tile_label'] = gdf_concat['tile_label'].astype(int)
+
+#     # Calculate relevant geometries
+#     gdf_concat['centroid'] = gdf_concat.geometry.centroid
+#     geom_pseudo_mercator = gdf_concat.geometry.to_crs('EPSG:3587') # convert the polygons to physical distance units
+#     gdf_concat['area (sq. meters)'] = geom_pseudo_mercator.area
+#     gdf_concat['area (acres)'] = geom_pseudo_mercator.area * 0.000247
+
+#     '''
+#     Even after filtering, there will be polygons which are elongated in nature (rivers, streets etc.).
+#     From common experience, crop fields generally have quite regular shapes. One metric that can be used
+#     is an elongation ration calculated as perimeter^2 / area. As a reference, such a ratio for a square is
+#     16. We can set a custom cut-off to further filter out polygons which are very elongated and, hence, not
+#     representative of fields.
+#     '''
+
+#     elongtation_ratio = (geom_pseudo_mercator.length ** 2) / gdf_concat['area (sq. meters)']
+#     gdf_concat['elongation ratio'] = elongtation_ratio
+
+#     # Filter polygons based on area and elongation_cutoff
+#     gdf_filtered = gdf_concat[
+#         (gdf_concat['area (acres)'] >= min_polygon_area) &
+#         (gdf_concat['area (acres)'] <= max_polygon_area) &
+#         (gdf_concat['elongation ratio'] <= elongation_cutoff)
+#     ]
+
+#     '''
+#     Another processing step should include merging polygons separated at the edge of each tiles.
+#     Hence, the tiles are arranged in a 5 x 5 grid with adjacent grids identified.
+#     '''
+
+#     def get_adjacent_cells(grid, i, j):
+#         """
+#         Returns a dictionary containing the adjacent cells
+#         (left, right, above, below) of a given cell in a 2D grid.
+
+#         Boundary conditions are handled to prevent out-of-bounds access.
+#         """
+#         height, width = grid.shape
+#         adjacent_cells = {}
+
+#         if i > 0:
+#             adjacent_cells['T'] = grid[i - 1, j]
+#         if i < height - 1:
+#             adjacent_cells['B'] = grid[i + 1, j]
+#         if j > 0:
+#             adjacent_cells['L'] = grid[i, j - 1]
+#         if j < width - 1:
+#             adjacent_cells['R'] = grid[i, j + 1]
+
+#         return adjacent_cells
+
+#     tile_grid = np.arange(0, 25).reshape(5, 5) # reshaping grids 0 - 24 into a 5 x 5 array
+
+#     #gdf_filtered['tile_grid'] = np.nan
+#     grids = gdf_filtered['tile_label'].apply(
+#         lambda x: (
+#             np.where(tile_grid == x)[0][0],
+#             np.where(tile_grid == x)[1][0]
+#         )
+#     )
+#     gdf_filtered.insert(2, 'tile_grid', grids)
+#     adjacent_tiles = gdf_filtered['tile_grid'].apply(
+#         lambda x: get_adjacent_cells(tile_grid, x[0], x[1])
+#     )
+#     gdf_filtered.insert(3, 'adjacent_tiles', adjacent_tiles)
+
+#     #return gdf_filtered
+
+def polygon_overlaps(gdf1: gpd.GeoDataFrame, gdf2: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     '''
     This function calculates the overlapping regions between the predefined polygons and
     the ones generated using SamGeo. This can be used for ground-truth validation.
@@ -273,3 +335,8 @@ def polygon_overlaps(gdf1:gpd.GeoDataFrame, gdf2: gpd.GeoDataFrame) -> gpd.GeoDa
     gdf_joined = gdf_joined.sort_values(by='IoU', ascending=False).reset_index(drop=True)
 
     return gdf_joined
+
+if __name__ == '__main__':
+    
+    gpkg_file_paths = glob.glob("vectors/*.gpkg")
+    zip_csv_from_gdf(gpkg_file_paths)

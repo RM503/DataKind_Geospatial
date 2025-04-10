@@ -6,7 +6,7 @@ This directory contains modules for running `segment-geospatial` on AWS EC2 inst
 
 For the code to run properly, one requires raster tiles of a particular geographic region in the form of `GeoTIFF` files. We suggest that these rasters be stored in an AWS S3 bucket from which they can be retrieve inside an EC2 instance. 
 
-Speaking of EC2 instance, since `segment-geospatial` is resource intensive, the instance should be one with GPU capabilities, the simplest one of which is the `g4dn.xlarge` instance. Furthermore, in order to keep the setup minimal, we recommend using a 'Deep Learning AMI' (DLAMI) which comes with CUDA preinstalled. 
+Speaking of EC2 instance, since `segment-geospatial` is resource intensive, the instance should be one with GPU capabilities, the simplest one of which is the `g4dn.xlarge` instance (or `g6.xlarge` for better performance). Furthermore, in order to keep the setup minimal, we recommend using a 'Deep Learning AMI' (DLAMI) which comes with CUDA preinstalled. 
 
 ## Package installations
 

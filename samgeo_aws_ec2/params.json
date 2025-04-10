@@ -1,0 +1,20 @@
+{
+    "params":[
+        {
+            "points_per_side": 64,
+            "pred_iou_thresh": 0.60,
+            "stability_score_thresh": 0.95,
+            "crop_n_layers": 1,
+            "crop_n_points_downscale_factor": 2,
+            "min_mask_region_area": 100
+        },
+        {
+            "points_per_side": 256,
+            "pred_iou_thresh": 0.80,
+            "stability_score_thresh": 0.95,
+            "crop_n_layers": 2,
+            "crop_n_points_downscale_factor": 2,
+            "min_mask_region_area": 100
+        }
+    ]
+}

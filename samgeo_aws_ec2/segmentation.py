@@ -10,6 +10,7 @@ import geopandas as gpd
 import uuid
 import boto3
 from retrieve_from_S3 import download_s3_folder
+import json
 import logging
 import argparse 
 
@@ -158,14 +159,18 @@ if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     logging.info(f"Using device: {device}")
 
-    sam_kwargs = {
-	    'points_per_side': 64,
-	    'pred_iou_thresh': 0.60,
-	    'stability_score_thresh': 0.95,
-	    'crop_n_layers': 1,
-	    'crop_n_points_downscale_factor': 2,
-	    'min_mask_region_area': 100,
-	}
+    """ 
+    For certain regions, due to geographic and image resolution issues, a different
+    parameter set must be used. 
+    """
+    if os.path.exists("params.json"):
+        with open("params.json", "r") as f:
+            params = json.load(f)
+    else:
+        logging.error("Parameter file not found")
+
+
+    sam_kwargs = params["params"][0]
 
     model_path = '/root/.cache/torch/hub/checkpoints/sam_vit_h_4b8939.pth'
     check_model = os.path.exists(model_path)
