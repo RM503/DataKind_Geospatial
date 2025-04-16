@@ -1,10 +1,9 @@
 '''
 Utility functions
 '''
+import dotenv
 import logging
 import time 
-import sys 
-sys.path.insert(1, '/Users/rafidmahbub/Desktop/DataKind_Geospatial')
 import config
 import numpy as np
 import geopandas as gpd
@@ -28,11 +27,16 @@ from typing import Union, Generator
 import rasterio
 
 logging.basicConfig(
-    level=logging.INFO, 
-    filename='logs/utils_log.txt', 
-    filemode='w',
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler("ndvi_series.log"),
+        logging.StreamHandler()
+    ]
 )
+
+dotenv.load_dotenv()
+GEE_PROJECT = os.getenv("GEE_PROJECT")
 
 # GEE configurations
 gee_project = config.gee_project
@@ -278,4 +282,3 @@ def edge_enhance(img: np.ndarray, kernel_size: int=11, wf: int=2) -> np.ndarray:
 
     img_sharpened = img + wf * (img - img_blurred)
     return img_sharpened
-    

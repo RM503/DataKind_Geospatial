@@ -16,10 +16,12 @@ from utils import (
 )
 
 logging.basicConfig(
-    level=logging.INFO, 
-    filename='logs/main_log.txt', 
-    filemode='w',
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler("ndvi_series.log"),
+        logging.StreamHandler()
+    ]
 )
 
 def append_running_count(
