@@ -5,7 +5,12 @@ __pycache__/
 
 env/
 
+.env
+
 config.py
+
+crop_classification/time_series_analyses/ndvi_series
+crop_classification/time_series_analyses/ndvi_series.log
 
 cloud_masked_composites/__pycache__
 cloud_masked_composites/.ipynb_checkpoints
