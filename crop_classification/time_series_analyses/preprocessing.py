@@ -1,6 +1,10 @@
+""" 
+Codes for data preprocessing and feature engineering.
+"""
 import numpy as np
 import pandas as pd
 import pandera as pa
+from pandera import Field, DataFrameModel
 from pandera.typing import Series
 from sklearn.ensemble import IsolationForest
 import logging
@@ -14,13 +18,13 @@ logging.basicConfig(
     ]
 )
 
-class ndvi_data_validation(pa.DataFrameModel):
+class ndvi_data_validation(DataFrameModel):
     """
     This class implements a pandera schema for data validation.
     """
-    uuid: Series[str] = pa.Field(nullable=False)
-    date: Series[pa.DateTime] = pa.Field(nullable=False)
-    ndvi: Series[float] = pa.Field(nullable=True, ge=0, le=1)
+    uuid: Series[str] = Field(nullable=False)
+    date: Series[pa.DateTime] = Field(nullable=False)
+    ndvi: Series[float] = Field(nullable=True, ge=0, le=1)
 
 def fill_dates(row: pd.Series) -> pd.Series:
     """ 
@@ -51,7 +55,7 @@ def find_outliers(col: pd.Series) -> np.ndarray:
     X = col.values.reshape(-1, 1) # Format input into required shape
     model = IsolationForest(
         n_estimators=150,
-        contamination=0.025,
+        contamination=0.1,
         random_state=10
     ) # Setting contamination to 0.1
     model.fit(X)
@@ -60,7 +64,25 @@ def find_outliers(col: pd.Series) -> np.ndarray:
     Y_preds = model.predict(X)
 
     return Y_preds
-    
+
+def date_resample(df: pd.DataFrame) -> pd.DataFrame:
+    """ 
+    This function performs resampling on chunks of the dataframe (based on uuid)
+    to remove irregular time samples by resample to 5 day intervals and interpolating
+    the additional fields.
+    """
+    if len(df["date"].diff().value_counts()) > 1:
+        # If there are multiple `periods` in the data
+        logging.info(f"Resampling {df['uuid'].iloc[0]}")
+
+        df = (
+            df.set_index("date").resample("5D")
+              .ffill()
+        )
+
+        return df.reset_index()
+    else:
+        return df
 
 def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
     """ 
@@ -84,6 +106,10 @@ def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
     )
     df_melted["date"] = pd.to_datetime(df_melted["date"])
     df_melted = df_melted.drop_duplicates(subset=["uuid", "date"], keep="first").reset_index(drop=True)
+    df_melted["ndvi"] = (
+        df_melted["ndvi"].apply(lambda x: x == 0 if x < 0 else x)
+                         .astype(float)
+    )
 
     """ 
     The outliers are tagged applying the `find_outliers` function to the `ndvi` column
@@ -98,7 +124,17 @@ def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
     condition = df_melted["outlier"] == -1
     df_melted.loc[condition, "ndvi"] = np.nan
 
-    df_clean = df_melted.fillna(method="bfill") 
+    df_clean = (
+        df_melted.fillna(method="bfill") 
+                 .drop(columns="outlier")
+    )
+
+    # Fix irregular time samples
+    groups = []
+    for idx, group in df_clean.groupby("uuid"):
+        groups.append(date_resample(group))
+    
+    df_clean = pd.concat(groups).reset_index(drop=True)
 
     # Check if cleaned data conforms to required schema
     try:
@@ -107,4 +143,10 @@ def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
 
         return df_clean
     except pa.errors.SchemaErrors as e:
-        logging.error(f"Data validation failed: {e}", exec_info=True)
+        logging.error(f"Data validation failed: {e}")
+
+if __name__ == "__main__":
+    df = pd.read_csv("/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series/ndvi_series_Trans_Nzoia_1_tile_0.csv")
+
+    df_cleaned = clean_ndvi_series(df)
+    df_cleaned.to_csv("df_clean.csv")
