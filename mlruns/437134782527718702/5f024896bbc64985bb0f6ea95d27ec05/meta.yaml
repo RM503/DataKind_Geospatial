@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/437134782527718702/5f024896bbc64985bb0f6ea95d27ec05/artifacts
+deleted_time: 1745347067116
+end_time: 1745345913848
+entry_point_name: ''
+experiment_id: '437134782527718702'
+lifecycle_stage: deleted
+run_id: 5f024896bbc64985bb0f6ea95d27ec05
+run_name: efficient-steed-711
+run_uuid: 5f024896bbc64985bb0f6ea95d27ec05
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745345913603
+status: 4
+tags: []
+user_id: rafidmahbub

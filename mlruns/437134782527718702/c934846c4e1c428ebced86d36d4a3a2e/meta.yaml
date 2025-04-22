@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/437134782527718702/c934846c4e1c428ebced86d36d4a3a2e/artifacts
+deleted_time: 1745347067116
+end_time: 1745346136661
+entry_point_name: ''
+experiment_id: '437134782527718702'
+lifecycle_stage: deleted
+run_id: c934846c4e1c428ebced86d36d4a3a2e
+run_name: wise-cub-698
+run_uuid: c934846c4e1c428ebced86d36d4a3a2e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745346080131
+status: 4
+tags: []
+user_id: rafidmahbub

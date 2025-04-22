@@ -34,13 +34,13 @@ def fill_dates(row: pd.Series) -> pd.Series:
     For others, it defaults to `bfill`.
     """
     if pd.isna(row.iloc[0]):
-        row = row.fillna(method="bfill")
+        row = row.bill()
         return row
     elif pd.isna(row.iloc[-1]):
-        row = row.fillna(method="ffill")
+        row = row.ffill()
         return row
     else:
-        row = row.fillna(method="bfill")
+        row = row.bfill()
         return row
     
 def find_outliers(col: pd.Series) -> np.ndarray:
@@ -55,9 +55,9 @@ def find_outliers(col: pd.Series) -> np.ndarray:
     X = col.values.reshape(-1, 1) # Format input into required shape
     model = IsolationForest(
         n_estimators=150,
-        contamination=0.1,
+        contamination=0.075,
         random_state=10
-    ) # Setting contamination to 0.1
+    ) # Setting contamination
     model.fit(X)
 
     # Predictions will consist of two values: +1 for inliers and -1 for outliers
@@ -107,7 +107,7 @@ def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
     df_melted["date"] = pd.to_datetime(df_melted["date"])
     df_melted = df_melted.drop_duplicates(subset=["uuid", "date"], keep="first").reset_index(drop=True)
     df_melted["ndvi"] = (
-        df_melted["ndvi"].apply(lambda x: x == 0 if x < 0 else x)
+        df_melted["ndvi"].apply(lambda x: 0 if x < 0 else x)
                          .astype(float)
     )
 
@@ -118,14 +118,14 @@ def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
     at the previous date. 
     """
 
-    df_melted["outlier"] = df_melted.groupby("uuid")["ndvi"].apply(find_outliers)
+    df_melted["outlier"] = df_melted.groupby("uuid")["ndvi"].transform(find_outliers)
 
     # Set outliers to NaN and then fill them using `bfill`
-    condition = df_melted["outlier"] == -1
-    df_melted.loc[condition, "ndvi"] = np.nan
+    #condition = df_melted["outlier"] == -1
+    df_melted.loc[df_melted["outlier"] == -1, "ndvi"] = np.nan
 
     df_clean = (
-        df_melted.fillna(method="bfill") 
+        df_melted.bfill()
                  .drop(columns="outlier")
     )
 
@@ -149,4 +149,4 @@ if __name__ == "__main__":
     df = pd.read_csv("/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series/ndvi_series_Trans_Nzoia_1_tile_0.csv")
 
     df_cleaned = clean_ndvi_series(df)
-    df_cleaned.to_csv("df_clean.csv")
+    df_cleaned.to_csv("df_clean.csv", index=False)

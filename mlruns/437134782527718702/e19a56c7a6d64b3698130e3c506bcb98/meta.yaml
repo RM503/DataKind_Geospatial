@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/437134782527718702/e19a56c7a6d64b3698130e3c506bcb98/artifacts
+deleted_time: 1745347067117
+end_time: 1745345877069
+entry_point_name: ''
+experiment_id: '437134782527718702'
+lifecycle_stage: deleted
+run_id: e19a56c7a6d64b3698130e3c506bcb98
+run_name: orderly-snake-234
+run_uuid: e19a56c7a6d64b3698130e3c506bcb98
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745345876900
+status: 4
+tags: []
+user_id: rafidmahbub

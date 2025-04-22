@@ -1,0 +1,25 @@
+artifact_path: kmeans_timeseries
+flavors:
+  mlflow_sktime:
+    code: null
+    pickled_model: model
+    serialization_format: pickle
+    sktime_version: 0.37.0
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: sktime.utils.mlflow_sktime
+    model_path: model
+    python_version: 3.11.8
+is_signature_from_type_hint: false
+mlflow_version: 2.21.3
+model_uuid: f97f277fab1347fd91f9b70db23502b4
+prompts: null
+run_id: 904bd73024714af49e38fa80074893da
+signature:
+  inputs: '[{"type": "double", "name": "ndvi", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-04-22 18:35:39.824311'

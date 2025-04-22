@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/437134782527718702/c91c382e018847f792d55f21e66ae516/artifacts
+deleted_time: 1745347067120
+end_time: 1745345786444
+entry_point_name: ''
+experiment_id: '437134782527718702'
+lifecycle_stage: deleted
+run_id: c91c382e018847f792d55f21e66ae516
+run_name: capricious-mare-858
+run_uuid: c91c382e018847f792d55f21e66ae516
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1745345786431
+status: 4
+tags: []
+user_id: rafidmahbub

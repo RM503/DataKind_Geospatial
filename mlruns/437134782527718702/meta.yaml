@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/437134782527718702
+creation_time: 1745345786335
+experiment_id: '437134782527718702'
+last_update_time: 1745345786335
+lifecycle_stage: active
+name: kmeans_clustering_timeseries
