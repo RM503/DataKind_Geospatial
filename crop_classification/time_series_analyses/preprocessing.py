@@ -3,8 +3,9 @@ Codes for data preprocessing and feature engineering.
 """
 import numpy as np
 import pandas as pd
+from scipy.signal import savgol_filter
 import pandera as pa
-from pandera import Field, DataFrameModel
+from pandera import (Field, DataFrameModel)
 from pandera.typing import Series
 from sklearn.ensemble import IsolationForest
 import logging
@@ -24,7 +25,7 @@ class ndvi_data_validation(DataFrameModel):
     """
     uuid: Series[str] = Field(nullable=False)
     date: Series[pa.DateTime] = Field(nullable=False)
-    ndvi: Series[float] = Field(nullable=True, ge=0, le=1)
+    ndvi: Series[float] = Field(nullable=True, ge=0, le=1) # NDVI ranges from 0 to 1
 
 def fill_dates(row: pd.Series) -> pd.Series:
     """ 
@@ -77,6 +78,7 @@ def date_resample(df: pd.DataFrame) -> pd.DataFrame:
 
         df = (
             df.set_index("date").resample("5D")
+              .asfreq()
               .ffill()
         )
 
@@ -111,6 +113,17 @@ def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
                          .astype(float)
     )
 
+    # Applying Savitzky-Golay filter for smoothing time-series data and resample time
+    WINDOW_SIZE = 7
+    POLY_ORDER = 3
+
+    groups = []
+    for _, group in df_melted.groupby("uuid"):
+        group["ndvi"] = savgol_filter(group["ndvi"], WINDOW_SIZE, POLY_ORDER)
+        groups.append(date_resample(group))
+
+    df_smoothed = pd.concat(groups).reset_index(drop=True)
+
     """ 
     The outliers are tagged applying the `find_outliers` function to the `ndvi` column
     in uuid groups. Since we expect the outliers to be incorrect calculations arising
@@ -118,23 +131,16 @@ def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
     at the previous date. 
     """
 
-    df_melted["outlier"] = df_melted.groupby("uuid")["ndvi"].transform(find_outliers)
+    df_smoothed["outlier"] = df_smoothed.groupby("uuid")["ndvi"].transform(find_outliers)
 
     # Set outliers to NaN and then fill them using `bfill`
     #condition = df_melted["outlier"] == -1
-    df_melted.loc[df_melted["outlier"] == -1, "ndvi"] = np.nan
+    df_smoothed.loc[df_melted["outlier"] == -1, "ndvi"] = np.nan
 
     df_clean = (
-        df_melted.bfill()
+        df_smoothed.bfill()
                  .drop(columns="outlier")
     )
-
-    # Fix irregular time samples
-    groups = []
-    for idx, group in df_clean.groupby("uuid"):
-        groups.append(date_resample(group))
-    
-    df_clean = pd.concat(groups).reset_index(drop=True)
 
     # Check if cleaned data conforms to required schema
     try:
@@ -146,6 +152,7 @@ def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
         logging.error(f"Data validation failed: {e}")
 
 if __name__ == "__main__":
+    # Test
     df = pd.read_csv("/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series/ndvi_series_Trans_Nzoia_1_tile_0.csv")
 
     df_cleaned = clean_ndvi_series(df)

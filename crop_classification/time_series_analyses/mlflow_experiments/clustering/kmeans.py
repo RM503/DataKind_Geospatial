@@ -29,7 +29,7 @@ def generate_random_sample(df: pd.DataFrame, n: int=500) -> pd.DataFrame:
 
     Returns: the random sample modified to the appropriate format
     """
-    RANDOM_SEED = 11
+    np.random.seed(11)
     if "Unnamed: 0" in df.columns:
         df.drop(columns=["Unnamed: 0"], inplace=True)
 
@@ -66,6 +66,7 @@ def dtw_matrix(df: pd.DataFrame) -> np.ndarray:
     return DtwDist().transform(df)
 
 if __name__ == "__main__":
+    # mlflow tracking uri
     mlflow.set_tracking_uri(uri="http://127.0.0.1:5000")
 
     # Create a new MLflow Experiment
