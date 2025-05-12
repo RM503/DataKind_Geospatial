@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from scipy.signal import savgol_filter
 import pandera as pa
-from pandera import (Field, DataFrameModel)
+from pandera import Field, DataFrameModel
 from pandera.typing import Series
 from sklearn.ensemble import IsolationForest
 import logging
@@ -19,7 +19,7 @@ logging.basicConfig(
     ]
 )
 
-class ndvi_data_validation(DataFrameModel):
+class NDVIDateValidation(DataFrameModel):
     """
     This class implements a pandera schema for data validation.
     """
@@ -32,10 +32,10 @@ def fill_dates(row: pd.Series) -> pd.Series:
     This function implements a smart imputation strategy such that
     rows with missing entries at starting date is imputed with `bfill`
     while those with missing entries at the end are imputed with `ffill`.
-    For others, it defaults to `bfill`.
+    For others, it defaults to `bfill`. To be used if interpolation is not used.
     """
     if pd.isna(row.iloc[0]):
-        row = row.bill()
+        row = row.bfill()
         return row
     elif pd.isna(row.iloc[-1]):
         row = row.ffill()
@@ -72,21 +72,29 @@ def date_resample(df: pd.DataFrame) -> pd.DataFrame:
     to remove irregular time samples by resample to 5 day intervals and interpolating
     the additional fields.
     """
+    if df["date"].dtype != "datetime64[ns]":
+        # Convert date column to datetime if not already 
+        df["date"] = pd.to_datetime(df["date"], coerce=True)
+
     if len(df["date"].diff().value_counts()) > 1:
         # If there are multiple `periods` in the data
-        logging.info(f"Resampling {df['uuid'].iloc[0]}")
 
         df = (
             df.set_index("date").resample("5D")
               .asfreq()
-              .ffill()
         )
+
+        df["ndvi"] = df["ndvi"].interpolate()
+        df["uuid"] = df["uuid"].fillna(df["uuid"].mode()[0])
 
         return df.reset_index()
     else:
         return df
 
-def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
+def clean_ndvi_series(
+        df: pd.DataFrame,
+        fill_method: str="interpolate"
+    ) -> pd.DataFrame:
     """ 
     Restructures the NDVI row-major table by melting the dataframe, in effect,
     stack time-series for each uuid vertically.
@@ -95,12 +103,20 @@ def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
         logging.info("Getting rid of useless columns")
         df = df.drop(columns=["system:index", ".geo"]) # Remove useless columns
 
-    uuid_col = df.columns[-1]
-    new_cols = [uuid_col] + list(df.columns[:-1])
-    df = df.reindex(columns=new_cols)
+    if "uuid" in df.columns:
+        new_cols = ["uuid"] + [col for col in df.columns if col != "uuid"]
+        df = df.reindex(columns=new_cols)
+    else:
+        logging.error("No uuid column found")
 
     # Isolate only the numerical portion of the dataframe
-    df.iloc[:, 1:] = df.iloc[:, 1:].apply(fill_dates, axis=1)
+    if fill_method == "interpolate":
+        
+        df.iloc[:, 1:] = df.iloc[:, 1:].interpolate(method="linear", axis=1)
+
+    elif fill_method == "simple":
+        
+        df.iloc[:, 1:] = df.iloc[:, 1:].apply(fill_dates, axis=1)
 
     df_melted = (
         df.melt(id_vars="uuid", var_name="date", value_name="ndvi")
@@ -131,20 +147,25 @@ def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
     at the previous date. 
     """
 
+
     df_smoothed["outlier"] = df_smoothed.groupby("uuid")["ndvi"].transform(find_outliers)
 
     # Set outliers to NaN and then fill them using `bfill`
     #condition = df_melted["outlier"] == -1
-    df_smoothed.loc[df_melted["outlier"] == -1, "ndvi"] = np.nan
+    df_smoothed.loc[df_smoothed["outlier"] == -1, "ndvi"] = np.nan
 
     df_clean = (
         df_smoothed.bfill()
-                 .drop(columns="outlier")
+                .drop(columns="outlier")
     )
+    # Even if there are negative NDVI after outlier removal, set them to 0
+    df_clean.loc[
+        df_clean["ndvi"] < 0, "ndvi"
+    ] = 0
 
     # Check if cleaned data conforms to required schema
     try:
-        ndvi_data_validation.validate(df_clean, lazy=True) # Allow lazy evaluation
+        NDVIDateValidation.validate(df_clean, lazy=True) # Allow lazy evaluation
         logging.info("Data validation passed")
 
         return df_clean
@@ -153,7 +174,7 @@ def clean_ndvi_series(df: pd.DataFrame) -> pd.DataFrame:
 
 if __name__ == "__main__":
     # Test
-    df = pd.read_csv("/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series/ndvi_series_Trans_Nzoia_1_tile_0.csv")
+    df = pd.read_csv("/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_raw/ndvi_series_Trans_Nzoia_1_tile_1.csv")
 
     df_cleaned = clean_ndvi_series(df)
-    df_cleaned.to_csv("df_clean.csv", index=False)
+    #df_cleaned.to_csv("df_clean.csv", index=False)

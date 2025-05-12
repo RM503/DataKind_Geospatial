@@ -81,8 +81,8 @@ def mask_cloud_and_shadow(img: ee.Image) -> ee.Image:
     """
     cloud_prob = img.select("MSK_CLDPRB")
     snow_prob = img.select("MSK_SNWPRB")
-    cloud = cloud_prob.lt(5)
-    snow = snow_prob.lt(5)
+    cloud = cloud_prob.lt(10)
+    snow = snow_prob.lt(10)
 
     # Use SCL to select shadows and cirrus cloud masks
     scl = img.select("SCL")
@@ -194,7 +194,8 @@ def main() -> None:
     Main function for performing all previous tasks and uploading calculation results to Google Drive.
     """
     # Regions with good satellite images
-    regions = ["Kajiado_1", "Kajiado_2", "Laikipia_1", "Machakos_1", "Mashuru_1", "Trans_Nzoia_1"]
+    #regions = ["Kajiado_1", "Kajiado_2", "Laikipia_1", "Machakos_1", "Mashuru_1", "Trans_Nzoia_1"]
+    regions = ["Mashuru_1"]
     tiles = [f"tile_{i}" for i in range(25)]
 
     GDF_DIR = "../../samgeo_aws_ec2/vectors/"
