@@ -1,0 +1,13 @@
+{
+    "reg_lambda": "float",
+    "max_delta_step": "float",
+    "colsample_bylevel": "float",
+    "max_depth": "int",
+    "learning_rate": "float",
+    "objective": "str",
+    "min_split_loss": "float",
+    "n_estimators": "int",
+    "colsample_bytree": "float",
+    "reg_alpha": "float",
+    "subsample": "float"
+}

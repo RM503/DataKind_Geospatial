@@ -99,6 +99,7 @@ def clean_ndvi_series(
     Restructures the NDVI row-major table by melting the dataframe, in effect,
     stack time-series for each uuid vertically.
     """
+    df = df.copy()
     if pd.Series(["system:index", ".geo"]).isin(df.columns).all():
         logging.info("Getting rid of useless columns")
         df = df.drop(columns=["system:index", ".geo"]) # Remove useless columns

@@ -1,38 +1,59 @@
-""" 
-Scripts for generating clean ndvi time-series data
 """
-#import numpy as np
-import pandas as pd 
-from preprocessing import clean_ndvi_series
+Scripts for generating clean NDVI time-series data from raw ones
+by using preprocessing codes
+"""
 
-def clean_train_samples(
-        region: str,
-        tile: int | list[int],
-        input_dir: str="ndvi_series_raw",
-        output_dir: str="ndvi_series_labeled"
-) -> None:
-    """ 
-    This function cleans a few tiles of NDVI data for the 
-    purposes of training classifiers. The data are read from
-    the `ndvi_series_raw` directory.
-    """
-    if isinstance(tile, int):
-        tile = [tile]
+import pandas as pd
+import data_processing.preprocessing as preprocessing
+import glob 
+from concurrent.futures import ProcessPoolExecutor 
+import logging
 
-    dfs = []
-    for t in tile:
-        fname = f"ndvi_series_{region}_tile_{t}.csv"
-        print(f"Tile_{t}")
-        df_tile = pd.read_csv(f"{input_dir}/{fname}")
-        df_tile = clean_ndvi_series(df_tile)
-        dfs.append(df_tile)
+logging.basicConfig(level=logging.INFO)
 
-    df_train = (
-        pd.concat(dfs)
-        .reset_index(drop=True)
-    )
+def get_file_paths(regions: str | list[str], input_dir: str="ndvi_series_raw") -> list[str]:
+    if isinstance(regions, str):
+        # Convert region to a singleton list
+        regions = [regions]
 
-    df_train.to_csv(f"{output_dir}/ndvi_series_{region}_clean.csv")
+    # Initialize an empty list to store file directories
+    all_files = []
+    for region in regions:
+        INPUT_FILE_PATH = f"{input_dir}/ndvi_series_{region}_*.csv"
+        region_files = glob.glob(INPUT_FILE_PATH)
+
+        all_files.extend(region_files)
+
+    return all_files
+
+def clean_data(input_file_path: str, output_dir: str="ndvi_series_clean") -> None:
+    logging.info(f"Processing file: {input_file_path}")
+
+    df_tile = pd.read_csv(input_file_path)
+    df_tile_cleaned = preprocessing.clean_ndvi_series(df_tile)
+
+    file_name = input_file_path.split("/")[-1]
+    OUTPUT_FILE_PATH = f"{output_dir}/{file_name}_clean.csv"
+
+    df_tile_cleaned.to_csv(OUTPUT_FILE_PATH, index=False)
 
 if __name__ == "__main__":
-    clean_train_samples("Trans_Nzoia_1", [0, 1])
+    import argparse 
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--regions",
+        required=True,
+        help="Enter the region(s) for cleaning. If multiple regions, enter a list."
+    )
+
+    args = parser.parse_args()
+    regions = args.regions
+
+    file_paths = get_file_paths(regions)
+
+    # Spawn multiple processes using ProcessPoolExecutor context manager
+    with ProcessPoolExecutor() as executor:
+        for path in file_paths:
+            logging.info(f"Spawning process for {path}")
+            executor.submit(clean_data, path)
