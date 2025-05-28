@@ -11,13 +11,20 @@ from sklearn.impute import SimpleImputer
 from sklearn.model_selection import StratifiedKFold
 from sklearn.pipeline import Pipeline
 from sklearn.multiclass import OneVsRestClassifier
-from plotting_utils import calculate_PR, plot_PR, plot_confusion_matrix
 from sklearn.neural_network import MLPClassifier
-from sklearn.metrics import accuracy_score, f1_score, classification_report, confusion_matrix
+from plotting_utils import calculate_PR, plot_PR, plot_confusion_matrix
+from sklearn.metrics import (
+    accuracy_score, 
+    f1_score, 
+    classification_report, 
+    confusion_matrix,
+    cohen_kappa_score
+)
 import warnings
 import logging
 import optuna
 from optuna.trial import Trial
+
 
 logging.basicConfig(
     level=logging.INFO,
@@ -34,11 +41,10 @@ def transform_data(df: pd.DataFrame, df_label: pd.DataFrame) -> pd.DataFrame:
     if "Unnamed: 0" in df.columns:
         df.drop(columns=["Unnamed: 0"], inplace=True)
 
-    # If labeled data does not contain all polygons
+    # Labeled data does not contain two cases
     missing_uuid = list(set(df["uuid"].unique()) - set(df_label["uuid"].unique()))
 
-    if len(missing_uuid) > 0:
-        df = df[~df["uuid"].isin(missing_uuid)]
+    df = df[~df["uuid"].isin(missing_uuid)]
 
     # Transform data into sktime scitype and check
     df_transformed = df.set_index(["uuid", "date"])[["ndvi"]]
@@ -79,6 +85,7 @@ def train_clf(
 
     val_accuracy_scores = []
     val_f1_scores = []
+    val_kappa_scores = []
 
     y_val_agg = []
     y_val_preds_agg = []
@@ -147,12 +154,15 @@ def train_clf(
 
         clf.fit(X_train_transformed, y_train)
 
+        y_train_preds = clf.predict(X_train_transformed)
         y_val_preds = clf.predict(X_val_transformed)
 
         # Extend to aggregate list
         y_val_agg.extend(y_val)
         y_val_preds_agg.extend(y_val_preds)
 
+        train_accuracy = accuracy_score(y_train, y_train_preds)
+        logging.info(f"Training accuracy in fold {fold+1}: {train_accuracy}")
         val_accuracy = accuracy_score(y_val, y_val_preds)
         mlflow.log_metric(f"Validation accuracy in fold {fold+1}", val_accuracy)
         logging.info(f"Validation accuracy in fold {fold+1}: {val_accuracy}")
@@ -162,8 +172,14 @@ def train_clf(
         mlflow.log_metric(f"Validation F1 score of class 0 in fold {fold+1}", val_f1)
         logging.info(f"Validation F1 score of class 0 in fold {fold+1}: {val_f1}")
 
+        # Cohen kappa
+        val_kappa = cohen_kappa_score(y_val, y_val_preds)
+        mlflow.log_metric(f"Validation kappa in fold {fold+1}", val_kappa)
+        logging.info(f"Validation kappa in fold {fold+1}: {val_kappa}")
+
         val_accuracy_scores.append(val_accuracy)
         val_f1_scores.append(val_f1)
+        val_kappa_scores.append(val_kappa)
 
         # Compute confusion matrix for the fold
         CM = confusion_matrix(y_val, y_val_preds)
@@ -245,8 +261,8 @@ def objective(
         return val_f1_scores_mean
 
 if __name__ == "__main__":
-    DATA_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_labeled/ndvi_series_Trans_Nzoia_1_clean.csv"
-    LABEL_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_labeled/ndvi_Trans_Nzoia_1_labels.csv"
+    DATA_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_labeled/Trans_Nzoia_1_ndvi_train.csv"
+    LABEL_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_labeled/Trans_Nzoia_1_label_train.csv"
     
     df = pd.read_csv(DATA_PATH)
     df["date"] = pd.to_datetime(df["date"])
@@ -256,9 +272,9 @@ if __name__ == "__main__":
 
     scaler = MinMaxScaler
     # mlflow tracking uri
-    mlflow.set_tracking_uri(uri="http://127.0.0.1:8080")
+    mlflow.set_tracking_uri(uri="http://127.0.0.1:5000")
 
-    mlflow.set_experiment("feature_based_classifier_baselines")
+    mlflow.set_experiment("feature_based_classifier_upgraded")
     with mlflow.start_run():
         study = optuna.create_study(direction="maximize")
         study.optimize(

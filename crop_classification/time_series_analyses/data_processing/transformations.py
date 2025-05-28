@@ -24,7 +24,7 @@ class RemoveNaNColumns(TransformerMixin, BaseEstimator):
         X = self._validate_input(X)
         # Identify columns where all elements are NaN
         nan_cols = np.where(np.all(np.isnan(X), axis=0))[0]
-
+   
         if len(nan_cols) > 0:
             logging.info("Removing columns with all NaN values")
         self.columns_to_drop = nan_cols 
@@ -57,8 +57,11 @@ def transform_data(df: pd.DataFrame, df_label: pd.DataFrame=None) -> pd.DataFram
     if "Unnamed: 0" in df.columns:
         df.drop(columns=["Unnamed: 0"], inplace=True)
 
-    if not df["date"].dtype == "datetime64[ns]":
+    if df["date"].dtype != "datetime64[ns]":
         df["date"] = pd.to_datetime(df["date"])
+
+    # Make sure date column in each uuid are monotonic increasing
+    df = df.sort_values(by=["uuid", "date"], ascending=True).reset_index(drop=True)
 
     if df_label is not None:
 

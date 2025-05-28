@@ -22,7 +22,7 @@ data_group = pn.widgets.RadioButtonGroup(
 region = pn.widgets.Select(
     description="Select region",
     name="Region",
-    options=["Laikipia_1", "Trans_Nzoia_1"]
+    options=["Kajiado_1", "Laikipia_1", "Trans_Nzoia_1"]
 )
 
 def read_file(data_group: str, region: str) -> gpd.GeoDataFrame:

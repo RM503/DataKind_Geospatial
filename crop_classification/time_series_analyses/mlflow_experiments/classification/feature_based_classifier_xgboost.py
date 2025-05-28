@@ -13,7 +13,13 @@ from sklearn.pipeline import Pipeline
 from sklearn.multiclass import OneVsRestClassifier
 from plotting_utils import calculate_PR, plot_PR, plot_confusion_matrix
 from xgboost import XGBClassifier
-from sklearn.metrics import accuracy_score, f1_score, classification_report, confusion_matrix
+from sklearn.metrics import (
+    accuracy_score, 
+    f1_score, 
+    classification_report, 
+    confusion_matrix,
+    cohen_kappa_score
+)
 import warnings
 import logging
 import optuna
@@ -79,6 +85,7 @@ def train_clf(
 
     val_accuracy_scores = []
     val_f1_scores = []
+    val_kappa_scores = []
 
     y_val_agg = []
     y_val_preds_agg = []
@@ -165,8 +172,14 @@ def train_clf(
         mlflow.log_metric(f"Validation F1 score of class 0 in fold {fold+1}", val_f1)
         logging.info(f"Validation F1 score of class 0 in fold {fold+1}: {val_f1}")
 
+        # Cohen kappa
+        val_kappa = cohen_kappa_score(y_val, y_val_preds)
+        mlflow.log_metric(f"Validation kappa in fold {fold+1}", val_kappa)
+        logging.info(f"Validation kappa in fold {fold+1}: {val_kappa}")
+
         val_accuracy_scores.append(val_accuracy)
         val_f1_scores.append(val_f1)
+        val_kappa_scores.append(val_kappa)
 
         # Compute confusion matrix for the fold
         CM = confusion_matrix(y_val, y_val_preds)
@@ -282,8 +295,8 @@ def data_for_fitting(
     return X_transformed, df_label["class_encoded"].values
 
 if __name__ == "__main__":
-    DATA_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_labeled/ndvi_series_Trans_Nzoia_1_clean.csv"
-    LABEL_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_labeled/ndvi_Trans_Nzoia_1_labels.csv"
+    DATA_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_labeled/Trans_Nzoia_1_ndvi_train.csv"
+    LABEL_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_labeled/Trans_Nzoia_1_label_train.csv"
     
     df = pd.read_csv(DATA_PATH)
     df["date"] = pd.to_datetime(df["date"])
@@ -293,9 +306,9 @@ if __name__ == "__main__":
 
     scaler = MinMaxScaler
     # mlflow tracking uri
-    mlflow.set_tracking_uri(uri="http://127.0.0.1:8080")
+    mlflow.set_tracking_uri(uri="http://127.0.0.1:5000")
 
-    mlflow.set_experiment("feature_based_classifier_baselines")
+    mlflow.set_experiment("feature_based_classifier_upgraded")
     with mlflow.start_run():
         study = optuna.create_study(direction="maximize")
         study.optimize(

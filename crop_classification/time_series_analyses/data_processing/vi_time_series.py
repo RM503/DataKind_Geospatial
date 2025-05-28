@@ -1,5 +1,5 @@
 """ 
-This file contains functions for generating NDVI time-series data from delineated polygons using
+This file contains functions for generating vegetation index time-series data from delineated polygons using
 capabilities of Google Earth Engine.
 """
 import os 
@@ -26,6 +26,58 @@ GEE_PROJECT = os.getenv("GEE_PROJECT")
 
 ee.Authenticate()
 ee.Initialize(project=GEE_PROJECT)
+
+class VIIndex:
+    """
+    This class packages functions for calculating various vegetation indices. 
+    The various functions are packaged as static methods.
+    """
+    @staticmethod
+    def add_NDVI(img: ee.Image) -> ee.Image:
+        """ 
+        This function takes an ee.Image object and adds an NDVI band to it.
+
+        Args: img - ee.Image object
+
+        Returns: same ee.Image object with an NDVI band 
+        """
+        ndvi = img.normalizedDifference(["B8", "B4"]).rename("ndvi")
+        return img.addBands([ndvi])
+    
+    @staticmethod
+    def add_NDMI(img: ee.Image) -> ee.Image:
+        """ 
+        This function takes an ee.Image object and adds an NDWI band to it. This uses
+        the following NDWI convention
+
+        NDMI = (NIR - SWIR) / (NIR + SWIR)
+
+        Args: img - ee.Image object
+
+        Returns: same ee.Image object with an NDWI band 
+        """
+        ndmi = img.normalizedDifference(["B8", "B11"]).rename("ndmi")
+        return img.addBands([ndmi])
+    
+    @staticmethod
+    def add_EVI(img: ee.Image) -> ee.Image:
+        """ 
+        This function takes an ee.Image object and adds an EVI band to it.
+
+        Args: img - ee.Image object
+
+        Returns: same ee.Image object with an EVI band 
+        """
+
+        # EVI calculations are sensitive to scaling
+        evi = img.expression(
+            "2.5 * ((NIR - RED) / (NIR + 6 * RED - 7.5 * BLUE + 1))", {
+                "NIR": img.select("B8").divide(10000),
+                "RED": img.select("B4").divide(10000),
+                "BLUE": img.select("B2").divide(10000)
+            }
+        ).rename("evi")
+        return img.addBands([evi])
 
 def return_ee_geometry(poly: Polygon) -> ee.Geometry:
 
@@ -56,7 +108,7 @@ def gdf_to_FeatureCollection(gdf: gpd.GeoDataFrame) -> ee.FeatureCollection:
 
     # Iterates through each row in the geodataframe and attaches metadata
     # Extermely important to retrieve information regarding polygons
-    for idx, row in gdf.iterrows():
+    for _, row in gdf.iterrows():
         feature = ee.Feature(row["RoI"])
         metadata = {
             "region": row["region"],
@@ -79,10 +131,12 @@ def mask_cloud_and_shadow(img: ee.Image) -> ee.Image:
 
     Returns: same ee.Image object with an updated mask
     """
+
+    # The amount of cloud probability will affect number of sample points
     cloud_prob = img.select("MSK_CLDPRB")
     snow_prob = img.select("MSK_SNWPRB")
-    cloud = cloud_prob.lt(10)
-    snow = snow_prob.lt(10)
+    cloud = cloud_prob.lt(30)
+    snow = snow_prob.lt(30)
 
     # Use SCL to select shadows and cirrus cloud masks
     scl = img.select("SCL")
@@ -93,21 +147,11 @@ def mask_cloud_and_shadow(img: ee.Image) -> ee.Image:
 
     return img.updateMask(mask)
 
-def add_NDVI(img: ee.Image) -> ee.Image:
-    """ 
-    This function takes an ee.Image object and adds an NDVI band to it.
-
-    Args: img - ee.Image object
-
-    Returns: same ee.Image object with an NDVI band 
-    """
-    ndvi = img.normalizedDifference(["B8", "B4"]).rename("ndvi")
-    return img.addBands([ndvi])
-
-def make_NDVICollection(
+def make_IndexCollection(
         start_date: str,
         end_date: str,
-        FeatureCollection: ee.FeatureCollection
+        FeatureCollection: ee.FeatureCollection,
+        index_type: str
 ) -> ee.ImageCollection:
     """ 
     This function returns an image collection between in the required date range
@@ -126,30 +170,48 @@ def make_NDVICollection(
     if not isinstance(FeatureCollection, ee.FeatureCollection):
         logging.error("FeatureCollection must be of type ee.FeatureCollection")
 
+    index_type = index_type.lower() # for consistency
+
+    index_funcs = {
+        "ndvi": (VIIndex.add_NDVI, "ndvi"),
+        "ndmi": (VIIndex.add_NDMI, "ndmi"),
+        "evi": (VIIndex.add_EVI, "evi")
+    }
+
+    if index_type not in index_funcs:
+        logging.error(f"Unsupported index type: {index_type}")
+
+    add_index_func, index_band = index_funcs[index_type]
+
     img_collection = (
         ee.ImageCollection("COPERNICUS/S2_SR_HARMONIZED").filterDate(start_date, end_date)
-          .filterBounds(FeatureCollection).map(mask_cloud_and_shadow).map(add_NDVI)
-    ).select("ndvi") # Create the image collection
+          .filterBounds(FeatureCollection).map(mask_cloud_and_shadow).map(add_index_func)
+    ).select(index_band) # Create the image collection
 
-    def map_ndvi(img: ee.Image):
+    def map_index(img: ee.Image):
         """ 
         This function applies a reducer to each image in a collection and
         performs a spatial mean of the NDVI.
         """
         stats = img.reduceRegions(
             collection=FeatureCollection,
-            reducer=ee.Reducer.mean().setOutputs(["ndvi"]),
+            reducer=ee.Reducer.mean().setOutputs([index_band]),
             scale=10
-        ).filter(ee.Filter.neq("ndvi", None)) # Filter out null NDVI values
+        ).filter(ee.Filter.neq(index_band, None)) # Filter out null NDVI values
 
         def set_date(feature: ee.Feature):
             return feature.set("date", img.date().format("YYYY-MM-dd"))
         
         return stats.map(set_date)
     
-    return img_collection.map(map_ndvi).flatten()
+    return img_collection.map(map_index).flatten()
 
-def format_table(table: ee.ImageCollection, row_id: str, col_id: str) -> ee.FeatureCollection:
+def format_table(
+        table: ee.ImageCollection,
+        row_id: str, 
+        col_id: str,
+        index_type: str
+) -> ee.FeatureCollection:
     """ 
     This function creates a table for storing time-series results for each polygon in a tile
     in a row-major order.
@@ -175,7 +237,7 @@ def format_table(table: ee.ImageCollection, row_id: str, col_id: str) -> ee.Feat
 
         def extract_values(feature):
             feature = ee.Feature(feature)
-            ndvi_val = ee.List([feature.get('ndvi'), -9999]).reduce(ee.Reducer.firstNonNull())
+            ndvi_val = ee.List([feature.get(index_type), -9999]).reduce(ee.Reducer.firstNonNull())
             return [feature.get(col_id), ee.Number(ndvi_val).format('%.3f')]
 
         # Get list of [colId, ndvi] pairs
@@ -189,16 +251,16 @@ def format_table(table: ee.ImageCollection, row_id: str, col_id: str) -> ee.Feat
 
     return ee.FeatureCollection(joined.map(map_row))
 
-def main() -> None:
+def main(index_type: str="ndvi") -> None:
     """ 
     Main function for performing all previous tasks and uploading calculation results to Google Drive.
     """
     # Regions with good satellite images
     #regions = ["Kajiado_1", "Kajiado_2", "Laikipia_1", "Machakos_1", "Mashuru_1", "Trans_Nzoia_1"]
-    regions = ["Mashuru_1"]
+    regions = ["Kajiado_2", "Machakos_1"]
     tiles = [f"tile_{i}" for i in range(25)]
 
-    GDF_DIR = "../../samgeo_aws_ec2/vectors/"
+    GDF_DIR = "../../../samgeo_aws_ec2/vectors/"
 
     # Iterate over regions for export
     for region in regions:
@@ -211,6 +273,7 @@ def main() -> None:
                    RoI = lambda x: x.geometry.apply(return_ee_geometry)
                ) 
         )
+        logging.info(f"Calculating {index_type} for {region}")
 
         for tile in tiles:
             logging.info(f"Processing {tile} for {region}")
@@ -221,20 +284,20 @@ def main() -> None:
             START_DATE = "2020-01-01"
             END_DATE = "2024-12-31" 
 
-            img_collection = make_NDVICollection(START_DATE, END_DATE, geometries)
-            ndvi_table = format_table(img_collection, "uuid", "date")
+            img_collection = make_IndexCollection(START_DATE, END_DATE, geometries, index_type)
+            index_table = format_table(img_collection, "uuid", "date", index_type)
 
             # Preparing for export
-            table_name = f"ndvi_series_{region}_{tile}"
+            table_name = f"{index_type}_series_{region}_{tile}"
             
             task = ee.batch.Export.table.toDrive(
-                collection=ndvi_table,
+                collection=index_table,
                 description=table_name,
-                folder="ndvi_series",
+                folder=f"{index_type}_series",
                 fileFormat="CSV"
             )
 
             task.start()
 
 if __name__ == "__main__":
-    main()
+    main(index_type="ndvi")

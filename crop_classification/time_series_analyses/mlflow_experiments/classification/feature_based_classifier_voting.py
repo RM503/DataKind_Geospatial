@@ -1,29 +1,34 @@
+# Voting classifier using SVC, MLP, XGBoost and LightGBM
 import mlflow 
-#from mlflow.models import infer_signature
-import pandas as pd
+import pandas as pd 
 import numpy as np
 from sktime.datatypes import check_is_scitype
+from sktime.transformations.panel.catch22 import Catch22 
 from sklearn.base import BaseEstimator, TransformerMixin
-from utils import RemoveNaNColumns
 from sklearn.preprocessing import MinMaxScaler
-from sktime.transformations.panel.catch22 import Catch22
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import StratifiedKFold
-from sklearn.pipeline import Pipeline
-from plotting_utils import plot_confusion_matrix
-from sklearn.svm import SVC
+from sklearn.pipeline import Pipeline 
+from sklearn.svm import SVC 
+from sklearn.ensemble import VotingClassifier
 from sklearn.metrics import (
     accuracy_score, 
     f1_score, 
-    classification_report, 
+    cohen_kappa_score, 
     confusion_matrix, 
-    cohen_kappa_score
+    classification_report
 )
+from sklearn.neural_network import MLPClassifier
+from xgboost import XGBClassifier
+from lightgbm import LGBMClassifier
+
 import warnings
 import logging
 import optuna
 from optuna.trial import Trial
 
+from utils import RemoveNaNColumns
+from plotting_utils import plot_confusion_matrix
 
 logging.basicConfig(
     level=logging.INFO,
@@ -89,7 +94,6 @@ def train_clf(
     y_val_agg = []
     y_val_preds_agg = []
 
-    # Initialize empty dictionaries for storing FPR, TPR and AUC
     n_classes = len(np.unique(labels))
 
     # Initialize confusion matrix for aggregation across folds
@@ -170,6 +174,11 @@ def train_clf(
 
     val_accuracy_scores_mean = np.mean(val_accuracy_scores)
     val_f1_scores_mean = np.mean(val_f1_scores)
+    val_kappa_scores_mean = np.mean(val_kappa_scores)
+
+    logging.info(f"Mean validation accuracy: {val_accuracy_scores_mean}")
+    logging.info(f"Mean validation F1 score: {val_f1_scores_mean}")
+    logging.info(f"Mean validation kappa: {val_kappa_scores_mean}")
 
     CM_plot = plot_confusion_matrix(CM_agg)
     mlflow.log_figure(CM_plot, "Confusion_matrix.png")
@@ -215,22 +224,88 @@ def objective(
             "C": trial.suggest_float("C", 1e-3, 1e3, log=True),
             "kernel": trial.suggest_categorical("kernel", ["linear", "poly", "rbf"]),
             "gamma": trial.suggest_categorical("gamma", ["scale", "auto"]),
-            "class_weight": trial.suggest_categorical("class_weight", ["balanced", None])
+            "class_weight": trial.suggest_categorical("class_weight", ["balanced", None]),
+            "probability": True
         }
 
-        model = SVC(**svc_clf_params)
+        xgb_clf_params = {
+            "num_class": 4,
+            "objective": trial.suggest_categorical("objective", ["multi:softmax", "multi:softprob"]),
+            "n_estimators": trial.suggest_int("n_estimators", 50, 125),
+            "learning_rate": trial.suggest_loguniform("learning_rate", 1e-2, 0.5),
+            "min_split_loss": trial.suggest_float("min_split_loss", 0.0, 5.0),
+            "max_depth": trial.suggest_int("max_depth", 5, 10),
+            "max_delta_step": trial.suggest_float("max_delta_step", 0, 5),
+            "reg_alpha": trial.suggest_float("reg_alpha", 1.0, 5.0),
+            "reg_lambda": trial.suggest_float("reg_lambda", 1.0, 5.0),
+            "subsample" : trial.suggest_float("subsample", 0.75, 1.0),
+            "colsample_bytree" : trial.suggest_float("colsample_bytree", 0.5, 1.0),
+            "colsample_bylevel" : trial.suggest_float("colsample_bylevel", 0.5, 1.0),
+        }
+
+        lgbm_clf_params = {
+            "objective": "multiclass", 
+            "num_class": 3, 
+            "metric": "multi_logloss",  
+            "verbosity": -1,
+            "boosting_type": "gbdt", 
+
+            "learning_rate": trial.suggest_float("learning_rate", 1e-2, 0.3, log=True),
+            "num_leaves": trial.suggest_int("num_leaves", 15, 256),
+            "max_depth": trial.suggest_int("max_depth", 3, 12),
+            "lambda_l1": trial.suggest_float("lambda_l1", 1e-8, 10.0, log=True),
+            "lambda_l2": trial.suggest_float("lambda_l2", 1e-8, 10.0, log=True),
+            "min_split_gain": trial.suggest_float("min_split_gain", 0.0, 1.0),
+            "min_child_samples": trial.suggest_int("min_child_samples", 5, 100),
+            "min_child_weight": trial.suggest_float("min_child_weight", 1e-3, 10.0, log=True),
+            "bagging_fraction": trial.suggest_float("bagging_fraction", 0.5, 1.0),
+            "bagging_freq": trial.suggest_int("bagging_freq", 1, 10),
+            "feature_fraction": trial.suggest_float("feature_fraction", 0.5, 1.0),
+
+            "boost_from_average": True,
+        }
+
+        mlp_clf_params = {
+            "hidden_layer_sizes": trial.suggest_int("hidden_layer_sizes", 25, 125),
+            "activation": trial.suggest_categorical("activation", ["logistic", "relu", "tanh"]),
+            "solver": trial.suggest_categorical("solver", ["adam", "sgd"]),
+            "alpha": trial.suggest_float("alpha", 0.0001, 0.1, log=True),
+            #"learning_rate": trial.suggest_categorical("learning_rate", ["constant", "adaptive"]),
+            "max_iter": trial.suggest_int("max_iter", 100, 1000)
+        }
+        svc_clf = SVC(**svc_clf_params)
+        lgbm_clf = LGBMClassifier(**lgbm_clf_params)
+        mlp_clf = MLPClassifier(**mlp_clf_params)
+        xgb_clf = XGBClassifier(**xgb_clf_params)
+
+        voting_clf = VotingClassifier(
+            estimators=[
+                ("svc", svc_clf),
+                ("lgbm", lgbm_clf),
+                ("mlp", mlp_clf),
+                ("xgb", xgb_clf)
+            ],
+            voting="soft",
+            weights=[3, 1, 2, 1]
+        )
+       
         val_accuracy_scores_mean, val_f1_scores_mean = train_clf(
             df_transformed,
             df_label,
             scaler,
-            model
+            voting_clf
         )
         metrics = {
             "val_accuracy_mean": val_accuracy_scores_mean,
             "val_f1_mean": val_f1_scores_mean
         }
         
-        mlflow.log_params(svc_clf_params)
+        mlflow.log_params({
+            "svc_clf_params": svc_clf_params,
+            "xgb_clf_params": xgb_clf_params,
+            "lgbm_clf_params": lgbm_clf_params,
+            "mlp_clf_params": mlp_clf_params
+        })
         mlflow.log_metrics(metrics)
 
         return val_f1_scores_mean
@@ -263,9 +338,9 @@ def data_for_fitting(
     return X_transformed, df_label["class_encoded"].values
 
 if __name__ == "__main__":
-    DATA_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_labeled/Trans_Nzoia_1_ndvi_train.csv"
-    LABEL_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_labeled/Trans_Nzoia_1_label_train.csv"
- 
+    DATA_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_labeled/ndvi_series_Trans_Nzoia_1_clean.csv"
+    LABEL_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_labeled/ndvi_Trans_Nzoia_1_labels.csv"
+    
     df = pd.read_csv(DATA_PATH)
     df["date"] = pd.to_datetime(df["date"])
     df_label = pd.read_csv(LABEL_PATH)
@@ -276,7 +351,7 @@ if __name__ == "__main__":
     # mlflow tracking uri
     mlflow.set_tracking_uri(uri="http://127.0.0.1:5000")
 
-    mlflow.set_experiment("feature_based_classifier_upgraded")
+    mlflow.set_experiment("feature_based_classifier_upgrades")
     with mlflow.start_run():
         study = optuna.create_study(direction="maximize")
         study.optimize(
@@ -286,9 +361,20 @@ if __name__ == "__main__":
         )
 
         mlflow.log_params(study.best_params)
-        mlflow.log_metric("best_val_accuracy", study.best_value)
+        mlflow.log_metric("best_val_f1", study.best_value)
 
-        model = SVC(**study.best_params)
+        best_params = study.best_params
+
+        model = VotingClassifier(
+            estimators=[
+                ("svc", SVC(**best_params["svc_clf_params"])),
+                ("lgbm", LGBMClassifier(**best_params["lgbm_clf_params"])),
+                ("mlp", MLPClassifier(**best_params["mlp_clf_params"])),
+                ("xgb", XGBClassifier(**best_params["xgb_clf_params"]))
+            ],
+            voting="soft",
+            weights=[3, 1, 2, 1]
+        )
 
         X_final, y_final = data_for_fitting(df_transformed, df_label, scaler)
 
@@ -299,7 +385,7 @@ if __name__ == "__main__":
         # # Log the model
         mlflow.sklearn.log_model(
             sk_model=model,
-            artifact_path="timeseries_classification_SVC",
-            registered_model_name="timeseries_classification_SVC",
+            artifact_path="timeseries_classification_voting",
+            registered_model_name="timeseries_classification_voting",
             #signature=signature
         )

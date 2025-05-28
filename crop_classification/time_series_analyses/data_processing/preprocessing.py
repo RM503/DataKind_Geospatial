@@ -2,11 +2,11 @@
 Codes for data preprocessing and feature engineering.
 """
 import numpy as np
+from numpy.typing import NDArray
 import pandas as pd
 from scipy.signal import savgol_filter
 import pandera as pa
-from pandera import Field, DataFrameModel
-from pandera.typing import Series
+from pandera import DataFrameSchema, Column
 from sklearn.ensemble import IsolationForest
 import logging
 
@@ -19,13 +19,27 @@ logging.basicConfig(
     ]
 )
 
-class NDVIDateValidation(DataFrameModel):
+class VIDataValidation:
+    """ 
+    This class validates the preprocessed time-series data containing any
+    vegetation index useful for the study.
     """
-    This class implements a pandera schema for data validation.
-    """
-    uuid: Series[str] = Field(nullable=False)
-    date: Series[pa.DateTime] = Field(nullable=False)
-    ndvi: Series[float] = Field(nullable=True, ge=0, le=1) # NDVI ranges from 0 to 1
+    def __init__(self, vi_index: str):
+        self.vi_index = vi_index
+        self.schema = self._build_schema()
+
+    def _build_schema(self) -> DataFrameSchema:
+        # Returns the desired dataframe schema
+        return DataFrameSchema(
+            {
+                "uuid": Column(str, nullable=False),
+                "date": Column(pa.DateTime, nullable=False),
+                self.vi_index: Column(float, checks=pa.Check.in_range(-1, 1), nullable=True)
+            }
+        )
+    
+    def validate(self, df: pd.DataFrame) -> pd.DataFrame:
+        return self.schema.validate(df)
 
 def fill_dates(row: pd.Series) -> pd.Series:
     """ 
@@ -44,7 +58,7 @@ def fill_dates(row: pd.Series) -> pd.Series:
         row = row.bfill()
         return row
     
-def find_outliers(col: pd.Series) -> np.ndarray:
+def find_outliers(col: pd.Series) -> NDArray[np.float64]:
     """ 
     This function applies the Isolation Forest algorith on the
     time-series data for detecting possible outliers.
@@ -66,11 +80,14 @@ def find_outliers(col: pd.Series) -> np.ndarray:
 
     return Y_preds
 
-def date_resample(df: pd.DataFrame) -> pd.DataFrame:
+def date_resample(df: pd.DataFrame, vi: str) -> pd.DataFrame:
     """ 
     This function performs resampling on chunks of the dataframe (based on uuid)
     to remove irregular time samples by resample to 5 day intervals and interpolating
     the additional fields.
+
+    Resampling is recommended if there no large gaps between extracted data. There will
+    be instances where this breaks.
     """
     if df["date"].dtype != "datetime64[ns]":
         # Convert date column to datetime if not already 
@@ -84,19 +101,21 @@ def date_resample(df: pd.DataFrame) -> pd.DataFrame:
               .asfreq()
         )
 
-        df["ndvi"] = df["ndvi"].interpolate()
+        df[vi] = df[vi].interpolate()
         df["uuid"] = df["uuid"].fillna(df["uuid"].mode()[0])
 
         return df.reset_index()
     else:
         return df
 
-def clean_ndvi_series(
+def clean_vi_series(
         df: pd.DataFrame,
-        fill_method: str="interpolate"
+        vi: str,
+        fill_method: str="interpolate",
+        date_resample: bool=True
     ) -> pd.DataFrame:
     """ 
-    Restructures the NDVI row-major table by melting the dataframe, in effect,
+    Restructures the VI row-major table by melting the dataframe, in effect,
     stack time-series for each uuid vertically.
     """
     df = df.copy()
@@ -119,16 +138,17 @@ def clean_ndvi_series(
         
         df.iloc[:, 1:] = df.iloc[:, 1:].apply(fill_dates, axis=1)
 
+    
     df_melted = (
-        df.melt(id_vars="uuid", var_name="date", value_name="ndvi")
-        .groupby("uuid", group_keys=False).apply(lambda row: row.sort_values(by="date", ascending=False))
+    df.melt(id_vars="uuid", var_name="date", value_name=vi)
     )
     df_melted["date"] = pd.to_datetime(df_melted["date"])
-    df_melted = df_melted.drop_duplicates(subset=["uuid", "date"], keep="first").reset_index(drop=True)
-    df_melted["ndvi"] = (
-        df_melted["ndvi"].apply(lambda x: 0 if x < 0 else x)
-                         .astype(float)
-    )
+
+    df_melted = (
+    df_melted.drop_duplicates(subset=["uuid", "date"], keep="first")
+             .sort_values(by=["uuid", "date"])
+             .reset_index(drop=True)
+    )   
 
     # Applying Savitzky-Golay filter for smoothing time-series data and resample time
     WINDOW_SIZE = 7
@@ -136,37 +156,47 @@ def clean_ndvi_series(
 
     groups = []
     for _, group in df_melted.groupby("uuid"):
-        group["ndvi"] = savgol_filter(group["ndvi"], WINDOW_SIZE, POLY_ORDER)
-        groups.append(date_resample(group))
+        group[vi] = savgol_filter(group[vi], WINDOW_SIZE, POLY_ORDER)
+
+        if date_resample:
+            groups.append(date_resample(group, vi))
+        else:
+            groups.append(group)
 
     df_smoothed = pd.concat(groups).reset_index(drop=True)
 
     """ 
-    The outliers are tagged applying the `find_outliers` function to the `ndvi` column
+    The outliers are tagged applying the `find_outliers` function to the `vi` column
     in uuid groups. Since we expect the outliers to be incorrect calculations arising
     from GEE aggregation, we should not remove them. Instead, they are set to the value
     at the previous date. 
     """
 
 
-    df_smoothed["outlier"] = df_smoothed.groupby("uuid")["ndvi"].transform(find_outliers)
+    df_smoothed["outlier"] = df_smoothed.groupby("uuid")[vi].transform(find_outliers)
 
     # Set outliers to NaN and then fill them using `bfill`
     #condition = df_melted["outlier"] == -1
-    df_smoothed.loc[df_smoothed["outlier"] == -1, "ndvi"] = np.nan
+    df_smoothed.loc[df_smoothed["outlier"] == -1, vi] = np.nan
 
     df_clean = (
         df_smoothed.bfill()
                 .drop(columns="outlier")
     )
-    # Even if there are negative NDVI after outlier removal, set them to 0
+ 
+    # Even if there are negative VI after outlier removal, set them to 0
     df_clean.loc[
-        df_clean["ndvi"] < 0, "ndvi"
-    ] = 0
+        df_clean[vi] < -1.0, vi
+    ] = -1.0
+    # Even if there are NDVI values over 1.0 after outlier removal, set them to 1.0
+    df_clean.loc[
+        df_clean[vi] > 1.0, vi
+    ] = 1.0
 
     # Check if cleaned data conforms to required schema
     try:
-        NDVIDateValidation.validate(df_clean, lazy=True) # Allow lazy evaluation
+        validator = VIDataValidation(vi)
+        validator.validate(df_clean)
         logging.info("Data validation passed")
 
         return df_clean
@@ -175,7 +205,11 @@ def clean_ndvi_series(
 
 if __name__ == "__main__":
     # Test
-    df = pd.read_csv("/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_raw/ndvi_series_Trans_Nzoia_1_tile_1.csv")
+    FILE_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_raw/ndvi_series_Kajiado_1_tile_0.csv"
+    df = pd.read_csv(FILE_PATH)
 
-    df_cleaned = clean_ndvi_series(df)
-    #df_cleaned.to_csv("df_clean.csv", index=False)
+    df_cleaned = clean_vi_series(df, "ndvi", date_resample=False)
+
+    # OUTPUT_NAME = f"{FILE_PATH.split('/')[-1].split('.')[0]}_clean.csv"
+    # df_cleaned.to_csv(OUTPUT_NAME, index=False)
+    print(df_cleaned)

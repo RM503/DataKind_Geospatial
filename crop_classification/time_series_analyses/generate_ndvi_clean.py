@@ -12,9 +12,6 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 def get_file_paths(regions: str | list[str], input_dir: str="ndvi_series_raw") -> list[str]:
-    if isinstance(regions, str):
-        # Convert region to a singleton list
-        regions = [regions]
 
     # Initialize an empty list to store file directories
     all_files = []
@@ -30,9 +27,9 @@ def clean_data(input_file_path: str, output_dir: str="ndvi_series_clean") -> Non
     logging.info(f"Processing file: {input_file_path}")
 
     df_tile = pd.read_csv(input_file_path)
-    df_tile_cleaned = preprocessing.clean_ndvi_series(df_tile)
+    df_tile_cleaned = preprocessing.clean_vi_series(df_tile, vi="ndvi", date_resample=False)
 
-    file_name = input_file_path.split("/")[-1]
+    file_name = input_file_path.split("/")[-1].split(".")[0]
     OUTPUT_FILE_PATH = f"{output_dir}/{file_name}_clean.csv"
 
     df_tile_cleaned.to_csv(OUTPUT_FILE_PATH, index=False)
@@ -43,6 +40,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--regions",
+        nargs="+",
         required=True,
         help="Enter the region(s) for cleaning. If multiple regions, enter a list."
     )
@@ -53,7 +51,7 @@ if __name__ == "__main__":
     file_paths = get_file_paths(regions)
 
     # Spawn multiple processes using ProcessPoolExecutor context manager
-    with ProcessPoolExecutor() as executor:
+    with ProcessPoolExecutor(max_workers=4) as executor:
         for path in file_paths:
             logging.info(f"Spawning process for {path}")
             executor.submit(clean_data, path)

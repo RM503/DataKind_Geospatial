@@ -133,6 +133,17 @@ class NDVIClassifier:
                 for _, path in tqdm(enumerate(path_list)):
                     logging.info(f"Working on {path}")
                     X, uuid_list = self.prepare_data(path)
+                    
+                    """ 
+                    The classifier was trained on 23 features. This is because one of the
+                    features in the training data was consistently NaN for all instances.
+                    However, there might be instances where this feature is not always NaN.
+                    In such cases, the classifier will not be able to perform inference. 
+                    In such cases, we consciously remove that column after pipeline transformation.
+                    """
+                    if X.shape[1] != 23:
+                        # Remove the 4th index column since that is the one that is predominantly all NaN
+                        X = np.delete(X, 4, axis=1)
 
                     y_preds = self.clf.predict(X)
                     predictions = pd.DataFrame(
@@ -161,7 +172,7 @@ class NDVIClassifier:
 
 if __name__ == "__main__":
     # Include tracking server information
-    mlflow.set_tracking_uri("http://127.0.0.1:8080")
+    mlflow.set_tracking_uri("http://127.0.0.1:5000")
     model_uri = 'runs:/d2401c44ac354a3bb386f1051c6cd247/timeseries_classification_XGB'
     run_id = model_uri.split("/")[1]
 
@@ -183,13 +194,13 @@ if __name__ == "__main__":
     params = caster.cast_params(params_logged)
 
     # Load trained xgboost model with optimal parameters
-    model_path = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/mlartifacts/449520651186519710/d2401c44ac354a3bb386f1051c6cd247/artifacts/timeseries_classification_XGB/model.xgb"
+    model_path = "../../mlartifacts/449520651186519710/d2401c44ac354a3bb386f1051c6cd247/artifacts/timeseries_classification_XGB/model.xgb"
     xgb_clf = XGBClassifier(**params)
     xgb_clf.load_model(model_path)
 
     #################################
-
-    file_paths = get_file_paths(["Trans_Nzoia_1", "Laikipia_1"], input_dir="ndvi_series_clean")
+    regions = ["Kajiado_2", "Machakos_1", "Mashuru_1"]
+    file_paths = get_file_paths(regions, input_dir="ndvi_series_clean")
 
     ndvi_clf = NDVIClassifier(file_paths, xgb_clf)
     
