@@ -60,7 +60,7 @@ def _(GoogleV3, gpd, pd):
         '''
         This function takes in a string and returns its longitude and latitude.
         '''
-        geolocator = GoogleV3(api_key='AIzaSyBXxVB4Xp3ol3_t7KAelHMTNlk4Gdb4XVM')
+        geolocator = GoogleV3(api_key=)
 
         loc = geolocator.geocode(x)
         lon = loc.longitude
