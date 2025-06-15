@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/9f6bbc9a591b45269b3a9c3407a6922c/artifacts
+end_time: 1746994150715
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 9f6bbc9a591b45269b3a9c3407a6922c
+run_name: selective-panda-996
+run_uuid: 9f6bbc9a591b45269b3a9c3407a6922c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994099532
+status: 3
+tags: []
+user_id: rafidmahbub

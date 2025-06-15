@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/325322bd1dc54db2b651e793b5e330b9/artifacts
+deleted_time: 1746975608164
+end_time: 1746974917938
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 325322bd1dc54db2b651e793b5e330b9
+run_name: stately-ant-960
+run_uuid: 325322bd1dc54db2b651e793b5e330b9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746974869079
+status: 3
+tags: []
+user_id: rafidmahbub

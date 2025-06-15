@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/efa0015e026e4799bc7799572d9f11e5/artifacts
+end_time: 1747060971707
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: efa0015e026e4799bc7799572d9f11e5
+run_name: overjoyed-squid-30
+run_uuid: efa0015e026e4799bc7799572d9f11e5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747060923472
+status: 3
+tags: []
+user_id: rafidmahbub

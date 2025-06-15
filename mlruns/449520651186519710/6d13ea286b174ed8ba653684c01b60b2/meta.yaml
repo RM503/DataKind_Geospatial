@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/6d13ea286b174ed8ba653684c01b60b2/artifacts
+end_time: 1747060396190
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 6d13ea286b174ed8ba653684c01b60b2
+run_name: wistful-robin-699
+run_uuid: 6d13ea286b174ed8ba653684c01b60b2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747060347669
+status: 3
+tags: []
+user_id: rafidmahbub

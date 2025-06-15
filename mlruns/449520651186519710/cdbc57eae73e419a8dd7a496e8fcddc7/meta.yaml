@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/cdbc57eae73e419a8dd7a496e8fcddc7/artifacts
+end_time: 1746060441690
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: cdbc57eae73e419a8dd7a496e8fcddc7
+run_name: delicate-lynx-473
+run_uuid: cdbc57eae73e419a8dd7a496e8fcddc7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746060419550
+status: 3
+tags: []
+user_id: rafidmahbub

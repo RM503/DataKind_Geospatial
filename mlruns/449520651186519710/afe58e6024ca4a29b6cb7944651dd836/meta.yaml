@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/afe58e6024ca4a29b6cb7944651dd836/artifacts
+end_time: 1746998609351
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: afe58e6024ca4a29b6cb7944651dd836
+run_name: stately-chimp-386
+run_uuid: afe58e6024ca4a29b6cb7944651dd836
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746998561508
+status: 3
+tags: []
+user_id: rafidmahbub

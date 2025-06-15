@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/dd94a9cc6444436cb5211e4b7aaf5f64/artifacts
+end_time: 1747938122839
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: dd94a9cc6444436cb5211e4b7aaf5f64
+run_name: bold-dolphin-198
+run_uuid: dd94a9cc6444436cb5211e4b7aaf5f64
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747938058684
+status: 3
+tags: []
+user_id: rafidmahbub

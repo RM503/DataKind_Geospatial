@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/e7b42b3f6e7c45018207512ae0fcf7fc/artifacts
+end_time: 1747061560925
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: e7b42b3f6e7c45018207512ae0fcf7fc
+run_name: defiant-foal-87
+run_uuid: e7b42b3f6e7c45018207512ae0fcf7fc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747061509521
+status: 3
+tags: []
+user_id: rafidmahbub

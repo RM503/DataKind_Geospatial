@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/3f197be3d52543b4aea26aaee1d339ad/artifacts
+end_time: 1746998418443
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 3f197be3d52543b4aea26aaee1d339ad
+run_name: brawny-fawn-876
+run_uuid: 3f197be3d52543b4aea26aaee1d339ad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746998371175
+status: 3
+tags: []
+user_id: rafidmahbub

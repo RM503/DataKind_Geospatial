@@ -1,0 +1,1 @@
+{'hidden_layer_sizes': 68, 'activation': 'relu', 'solver': 'sgd', 'alpha': 0.0018958212009402519, 'max_iter': 798}

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/4b47af28862042cc81f2daab2e528398/artifacts
+end_time: 1747925534823
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 4b47af28862042cc81f2daab2e528398
+run_name: bustling-wren-857
+run_uuid: 4b47af28862042cc81f2daab2e528398
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747925473389
+status: 3
+tags: []
+user_id: rafidmahbub

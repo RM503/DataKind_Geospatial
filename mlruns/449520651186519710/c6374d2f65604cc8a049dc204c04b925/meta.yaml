@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/c6374d2f65604cc8a049dc204c04b925/artifacts
+end_time: 1746913051283
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: c6374d2f65604cc8a049dc204c04b925
+run_name: gifted-fawn-649
+run_uuid: c6374d2f65604cc8a049dc204c04b925
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746913001679
+status: 3
+tags: []
+user_id: rafidmahbub

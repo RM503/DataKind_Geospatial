@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d520ede529704531a3116e5cc1a87065/artifacts
+end_time: 1746997077220
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d520ede529704531a3116e5cc1a87065
+run_name: receptive-trout-376
+run_uuid: d520ede529704531a3116e5cc1a87065
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746997031624
+status: 3
+tags: []
+user_id: rafidmahbub

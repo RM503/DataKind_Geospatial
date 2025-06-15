@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/c692048de06442129726b7d1e8d55cc6/artifacts
+end_time: 1747766465332
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: c692048de06442129726b7d1e8d55cc6
+run_name: bittersweet-vole-91
+run_uuid: c692048de06442129726b7d1e8d55cc6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747763722060
+status: 4
+tags: []
+user_id: rafidmahbub

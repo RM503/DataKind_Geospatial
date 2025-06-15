@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/c74c810256634660b5e9797d49f2a33e/artifacts
+end_time: 1747927844215
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: c74c810256634660b5e9797d49f2a33e
+run_name: capricious-stork-350
+run_uuid: c74c810256634660b5e9797d49f2a33e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747927779443
+status: 3
+tags: []
+user_id: rafidmahbub

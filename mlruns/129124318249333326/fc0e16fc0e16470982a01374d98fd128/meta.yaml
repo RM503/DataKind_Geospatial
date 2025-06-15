@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/fc0e16fc0e16470982a01374d98fd128/artifacts
+end_time: 1747933969716
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: fc0e16fc0e16470982a01374d98fd128
+run_name: agreeable-rook-512
+run_uuid: fc0e16fc0e16470982a01374d98fd128
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747933907312
+status: 3
+tags: []
+user_id: rafidmahbub

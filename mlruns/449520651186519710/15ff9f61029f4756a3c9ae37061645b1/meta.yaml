@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/15ff9f61029f4756a3c9ae37061645b1/artifacts
+end_time: 1746206658556
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 15ff9f61029f4756a3c9ae37061645b1
+run_name: delightful-fly-876
+run_uuid: 15ff9f61029f4756a3c9ae37061645b1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746206631566
+status: 3
+tags: []
+user_id: rafidmahbub

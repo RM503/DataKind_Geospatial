@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/abaf6416c54a4749ae73fb2da0c00e21/artifacts
+end_time: 1747926813080
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: abaf6416c54a4749ae73fb2da0c00e21
+run_name: adventurous-rat-731
+run_uuid: abaf6416c54a4749ae73fb2da0c00e21
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747926748676
+status: 3
+tags: []
+user_id: rafidmahbub

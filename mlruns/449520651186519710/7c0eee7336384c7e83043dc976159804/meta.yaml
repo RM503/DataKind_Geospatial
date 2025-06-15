@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/7c0eee7336384c7e83043dc976159804/artifacts
+end_time: 1746997031612
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 7c0eee7336384c7e83043dc976159804
+run_name: lyrical-toad-586
+run_uuid: 7c0eee7336384c7e83043dc976159804
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746996986813
+status: 3
+tags: []
+user_id: rafidmahbub

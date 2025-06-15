@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/3cded6e491e44ebb9fbc9acc7593d135/artifacts
+end_time: 1746139554449
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 3cded6e491e44ebb9fbc9acc7593d135
+run_name: zealous-sheep-42
+run_uuid: 3cded6e491e44ebb9fbc9acc7593d135
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139528116
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/9ce4ff9908a3489582fdbc3a0726fb9a/artifacts
+end_time: 1747931279550
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 9ce4ff9908a3489582fdbc3a0726fb9a
+run_name: crawling-foal-942
+run_uuid: 9ce4ff9908a3489582fdbc3a0726fb9a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747931214147
+status: 3
+tags: []
+user_id: rafidmahbub

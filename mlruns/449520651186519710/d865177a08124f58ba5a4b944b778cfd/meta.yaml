@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d865177a08124f58ba5a4b944b778cfd/artifacts
+end_time: 1746912024390
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d865177a08124f58ba5a4b944b778cfd
+run_name: kindly-mouse-282
+run_uuid: d865177a08124f58ba5a4b944b778cfd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746911963419
+status: 3
+tags: []
+user_id: rafidmahbub

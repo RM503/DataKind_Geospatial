@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/fce235ba6c694b4286fdab1af11a051e/artifacts
+end_time: 1747000097562
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: fce235ba6c694b4286fdab1af11a051e
+run_name: defiant-wren-385
+run_uuid: fce235ba6c694b4286fdab1af11a051e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747000047982
+status: 3
+tags: []
+user_id: rafidmahbub

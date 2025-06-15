@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/05e9f21b52874e35897dcd3c2d639595/artifacts
+deleted_time: 1746041161554
+end_time: 1746033798325
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 05e9f21b52874e35897dcd3c2d639595
+run_name: placid-ant-564
+run_uuid: 05e9f21b52874e35897dcd3c2d639595
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746033793433
+status: 4
+tags: []
+user_id: rafidmahbub

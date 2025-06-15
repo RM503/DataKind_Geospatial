@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/4b3a0593c7f641e4b92b615819a5d675/artifacts
+end_time: 1746060463630
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 4b3a0593c7f641e4b92b615819a5d675
+run_name: omniscient-mole-330
+run_uuid: 4b3a0593c7f641e4b92b615819a5d675
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746060441698
+status: 3
+tags: []
+user_id: rafidmahbub

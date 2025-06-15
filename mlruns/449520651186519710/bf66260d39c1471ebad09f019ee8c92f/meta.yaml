@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/bf66260d39c1471ebad09f019ee8c92f/artifacts
+end_time: 1747060875983
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: bf66260d39c1471ebad09f019ee8c92f
+run_name: stately-wasp-249
+run_uuid: bf66260d39c1471ebad09f019ee8c92f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747060828111
+status: 3
+tags: []
+user_id: rafidmahbub

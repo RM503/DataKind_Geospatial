@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/93a352cf906346c283b2befe0f7922ef/artifacts
+end_time: 1747054181755
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 93a352cf906346c283b2befe0f7922ef
+run_name: able-fawn-899
+run_uuid: 93a352cf906346c283b2befe0f7922ef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747054132315
+status: 3
+tags: []
+user_id: rafidmahbub

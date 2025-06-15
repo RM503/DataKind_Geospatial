@@ -112,7 +112,7 @@ def clean_vi_series(
         df: pd.DataFrame,
         vi: str,
         fill_method: str="interpolate",
-        date_resample: bool=True
+        resample_date: bool=True
     ) -> pd.DataFrame:
     """ 
     Restructures the VI row-major table by melting the dataframe, in effect,
@@ -158,7 +158,7 @@ def clean_vi_series(
     for _, group in df_melted.groupby("uuid"):
         group[vi] = savgol_filter(group[vi], WINDOW_SIZE, POLY_ORDER)
 
-        if date_resample:
+        if resample_date:
             groups.append(date_resample(group, vi))
         else:
             groups.append(group)
@@ -205,10 +205,10 @@ def clean_vi_series(
 
 if __name__ == "__main__":
     # Test
-    FILE_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndvi_series_raw/ndvi_series_Kajiado_1_tile_0.csv"
+    FILE_PATH = "/Users/rafidmahbub/Desktop/DataKind_Geospatial/crop_classification/time_series_analyses/ndmi_series_raw/ndmi_series_Trans_Nzoia_1_tile_0.csv"
     df = pd.read_csv(FILE_PATH)
 
-    df_cleaned = clean_vi_series(df, "ndvi", date_resample=False)
+    df_cleaned = clean_vi_series(df, "ndmi", resample_date=True)
 
     # OUTPUT_NAME = f"{FILE_PATH.split('/')[-1].split('.')[0]}_clean.csv"
     # df_cleaned.to_csv(OUTPUT_NAME, index=False)

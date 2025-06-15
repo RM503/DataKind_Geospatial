@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/832e4860c7ce4bcaafab2c5a6aa56d00/artifacts
+deleted_time: 1746823491083
+end_time: 1746822880901
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 832e4860c7ce4bcaafab2c5a6aa56d00
+run_name: rare-rat-362
+run_uuid: 832e4860c7ce4bcaafab2c5a6aa56d00
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746822845179
+status: 4
+tags: []
+user_id: rafidmahbub

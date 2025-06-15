@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/c14de0c5ca6449b691c076cd2d760236/artifacts
+end_time: 1747925473382
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: c14de0c5ca6449b691c076cd2d760236
+run_name: monumental-slug-312
+run_uuid: c14de0c5ca6449b691c076cd2d760236
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747925410993
+status: 3
+tags: []
+user_id: rafidmahbub

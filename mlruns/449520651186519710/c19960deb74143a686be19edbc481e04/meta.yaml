@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/c19960deb74143a686be19edbc481e04/artifacts
+end_time: 1746298195984
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: c19960deb74143a686be19edbc481e04
+run_name: likeable-hound-385
+run_uuid: c19960deb74143a686be19edbc481e04
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746298151025
+status: 3
+tags: []
+user_id: rafidmahbub

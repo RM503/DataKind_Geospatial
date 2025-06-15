@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/a8ee5eee285240368d252aea84aa1e14/artifacts
+deleted_time: 1746910856033
+end_time: 1746910812950
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: a8ee5eee285240368d252aea84aa1e14
+run_name: popular-stag-381
+run_uuid: a8ee5eee285240368d252aea84aa1e14
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746910742863
+status: 4
+tags: []
+user_id: rafidmahbub

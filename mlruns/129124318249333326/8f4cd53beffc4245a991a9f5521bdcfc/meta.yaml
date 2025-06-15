@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/8f4cd53beffc4245a991a9f5521bdcfc/artifacts
+end_time: 1747934790914
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 8f4cd53beffc4245a991a9f5521bdcfc
+run_name: agreeable-wren-97
+run_uuid: 8f4cd53beffc4245a991a9f5521bdcfc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747934727073
+status: 3
+tags: []
+user_id: rafidmahbub

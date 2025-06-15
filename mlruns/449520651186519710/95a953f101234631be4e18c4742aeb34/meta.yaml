@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/95a953f101234631be4e18c4742aeb34/artifacts
+end_time: 1746999499947
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 95a953f101234631be4e18c4742aeb34
+run_name: capricious-foal-314
+run_uuid: 95a953f101234631be4e18c4742aeb34
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746999447010
+status: 3
+tags: []
+user_id: rafidmahbub

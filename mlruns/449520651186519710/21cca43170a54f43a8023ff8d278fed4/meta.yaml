@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/21cca43170a54f43a8023ff8d278fed4/artifacts
+end_time: 1746227535401
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 21cca43170a54f43a8023ff8d278fed4
+run_name: chill-fowl-663
+run_uuid: 21cca43170a54f43a8023ff8d278fed4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746227508926
+status: 3
+tags: []
+user_id: rafidmahbub

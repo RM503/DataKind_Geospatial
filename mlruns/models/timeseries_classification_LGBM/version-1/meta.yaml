@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1747941356572
+current_stage: None
+description: ''
+last_updated_timestamp: 1747941356572
+name: timeseries_classification_LGBM
+run_id: b3f0b34854b143df962835ef31f755fe
+run_link: ''
+source: mlflow-artifacts:/129124318249333326/b3f0b34854b143df962835ef31f755fe/artifacts/timeseries_classification_LGBM
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/129124318249333326/b3f0b34854b143df962835ef31f755fe/artifacts/timeseries_classification_LGBM
+user_id: null
+version: 1

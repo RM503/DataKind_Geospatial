@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/129124318249333326
+creation_time: 1747925283169
+experiment_id: '129124318249333326'
+last_update_time: 1747925283169
+lifecycle_stage: active
+name: feature_based_classifier_upgraded

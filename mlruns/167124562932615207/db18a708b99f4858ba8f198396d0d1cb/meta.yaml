@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/db18a708b99f4858ba8f198396d0d1cb/artifacts
+deleted_time: 1747763666989
+end_time: 1747763195776
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: db18a708b99f4858ba8f198396d0d1cb
+run_name: omniscient-seal-853
+run_uuid: db18a708b99f4858ba8f198396d0d1cb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747763142083
+status: 3
+tags: []
+user_id: rafidmahbub

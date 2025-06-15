@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/ef720acd333545c09f995b39d2d79ded/artifacts
+end_time: 1746997166459
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: ef720acd333545c09f995b39d2d79ded
+run_name: colorful-sow-460
+run_uuid: ef720acd333545c09f995b39d2d79ded
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746997121958
+status: 3
+tags: []
+user_id: rafidmahbub

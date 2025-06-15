@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/e2d74a8bf6614c3481a7dd0c116e1f8c/artifacts
+end_time: 1747937989843
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: e2d74a8bf6614c3481a7dd0c116e1f8c
+run_name: suave-ant-942
+run_uuid: e2d74a8bf6614c3481a7dd0c116e1f8c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747937914270
+status: 3
+tags: []
+user_id: rafidmahbub

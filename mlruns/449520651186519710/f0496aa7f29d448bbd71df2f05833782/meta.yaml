@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f0496aa7f29d448bbd71df2f05833782/artifacts
+end_time: 1746998659631
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f0496aa7f29d448bbd71df2f05833782
+run_name: suave-sponge-551
+run_uuid: f0496aa7f29d448bbd71df2f05833782
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746998609364
+status: 3
+tags: []
+user_id: rafidmahbub

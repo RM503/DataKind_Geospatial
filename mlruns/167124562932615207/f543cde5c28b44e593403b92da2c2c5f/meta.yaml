@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/f543cde5c28b44e593403b92da2c2c5f/artifacts
+deleted_time: 1747763666983
+end_time: 1747763644132
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: f543cde5c28b44e593403b92da2c2c5f
+run_name: resilient-trout-828
+run_uuid: f543cde5c28b44e593403b92da2c2c5f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747763481318
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f679fb892bee4485ab7df864eb9f78bd/artifacts
+end_time: 1746206790805
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f679fb892bee4485ab7df864eb9f78bd
+run_name: clean-turtle-76
+run_uuid: f679fb892bee4485ab7df864eb9f78bd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746206284611
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/b5feb54f7e874aa4a8cfdd622cb51fab/artifacts
+deleted_time: 1747763666997
+end_time: 1747762778563
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: b5feb54f7e874aa4a8cfdd622cb51fab
+run_name: abundant-newt-664
+run_uuid: b5feb54f7e874aa4a8cfdd622cb51fab
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747762724114
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,21 @@
+artifact_path: timeseries_classification_MLP
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.8
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+mlflow_version: 2.21.3
+model_size_bytes: 564
+model_uuid: d97a9153f8494e5c8b9fa247b38f7722
+prompts: null
+run_id: c661d6d05bd64a58a1b1b4d96125533a
+utc_time_created: '2025-05-03 18:34:59.876888'

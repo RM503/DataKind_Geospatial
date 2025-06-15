@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/02d104475f70418c9461bab2af3cb285/artifacts
+end_time: 1746994644560
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 02d104475f70418c9461bab2af3cb285
+run_name: rogue-rat-953
+run_uuid: 02d104475f70418c9461bab2af3cb285
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994595829
+status: 3
+tags: []
+user_id: rafidmahbub

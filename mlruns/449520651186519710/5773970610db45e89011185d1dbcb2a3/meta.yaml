@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/5773970610db45e89011185d1dbcb2a3/artifacts
+end_time: 1746139700305
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 5773970610db45e89011185d1dbcb2a3
+run_name: unique-doe-719
+run_uuid: 5773970610db45e89011185d1dbcb2a3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139678171
+status: 3
+tags: []
+user_id: rafidmahbub

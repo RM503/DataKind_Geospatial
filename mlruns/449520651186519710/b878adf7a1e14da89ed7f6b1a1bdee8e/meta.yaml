@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/b878adf7a1e14da89ed7f6b1a1bdee8e/artifacts
+end_time: 1747055626083
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: b878adf7a1e14da89ed7f6b1a1bdee8e
+run_name: incongruous-lamb-251
+run_uuid: b878adf7a1e14da89ed7f6b1a1bdee8e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747055577779
+status: 3
+tags: []
+user_id: rafidmahbub

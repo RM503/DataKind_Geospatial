@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/a2fac31fd6e7458492232fb7fd398823/artifacts
+deleted_time: 1746996752967
+end_time: 1746996412764
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: a2fac31fd6e7458492232fb7fd398823
+run_name: upbeat-koi-188
+run_uuid: a2fac31fd6e7458492232fb7fd398823
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746996403524
+status: 4
+tags: []
+user_id: rafidmahbub

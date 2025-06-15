@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/53a1cffaff134b7497cc4ff4116e5e68/artifacts
+end_time: 1747941057226
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 53a1cffaff134b7497cc4ff4116e5e68
+run_name: adaptable-snail-593
+run_uuid: 53a1cffaff134b7497cc4ff4116e5e68
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747940992862
+status: 3
+tags: []
+user_id: rafidmahbub

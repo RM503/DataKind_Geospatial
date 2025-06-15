@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/4d2f9895eaba4cd1bc629a72abdb151a/artifacts
+end_time: 1746297052685
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 4d2f9895eaba4cd1bc629a72abdb151a
+run_name: languid-shark-628
+run_uuid: 4d2f9895eaba4cd1bc629a72abdb151a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746297007352
+status: 3
+tags: []
+user_id: rafidmahbub

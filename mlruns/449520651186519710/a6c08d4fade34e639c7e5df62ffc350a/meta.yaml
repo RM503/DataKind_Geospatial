@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/a6c08d4fade34e639c7e5df62ffc350a/artifacts
+end_time: 1746227508910
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: a6c08d4fade34e639c7e5df62ffc350a
+run_name: rebellious-tern-633
+run_uuid: a6c08d4fade34e639c7e5df62ffc350a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746227486365
+status: 3
+tags: []
+user_id: rafidmahbub

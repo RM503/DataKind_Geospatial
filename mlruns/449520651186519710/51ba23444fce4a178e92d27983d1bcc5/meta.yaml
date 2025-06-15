@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/51ba23444fce4a178e92d27983d1bcc5/artifacts
+end_time: 1747054717287
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 51ba23444fce4a178e92d27983d1bcc5
+run_name: capable-croc-438
+run_uuid: 51ba23444fce4a178e92d27983d1bcc5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747054670356
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/ee01dbb94892499fb013a9ee0e5a220b/artifacts
+end_time: 1747927584374
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: ee01dbb94892499fb013a9ee0e5a220b
+run_name: ambitious-quail-117
+run_uuid: ee01dbb94892499fb013a9ee0e5a220b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747927520605
+status: 3
+tags: []
+user_id: rafidmahbub

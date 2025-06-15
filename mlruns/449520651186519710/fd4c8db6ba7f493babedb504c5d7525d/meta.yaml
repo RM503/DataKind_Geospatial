@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/fd4c8db6ba7f493babedb504c5d7525d/artifacts
+end_time: 1746060510720
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: fd4c8db6ba7f493babedb504c5d7525d
+run_name: spiffy-ram-920
+run_uuid: fd4c8db6ba7f493babedb504c5d7525d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746060073907
+status: 3
+tags: []
+user_id: rafidmahbub

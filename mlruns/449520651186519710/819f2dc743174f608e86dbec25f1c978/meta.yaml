@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/819f2dc743174f608e86dbec25f1c978/artifacts
+end_time: 1746139795250
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 819f2dc743174f608e86dbec25f1c978
+run_name: clumsy-wren-912
+run_uuid: 819f2dc743174f608e86dbec25f1c978
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139772703
+status: 3
+tags: []
+user_id: rafidmahbub

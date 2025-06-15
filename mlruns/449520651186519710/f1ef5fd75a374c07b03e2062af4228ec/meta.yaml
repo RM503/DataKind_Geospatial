@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f1ef5fd75a374c07b03e2062af4228ec/artifacts
+end_time: 1746912828597
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f1ef5fd75a374c07b03e2062af4228ec
+run_name: blushing-gull-401
+run_uuid: f1ef5fd75a374c07b03e2062af4228ec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746912775267
+status: 3
+tags: []
+user_id: rafidmahbub

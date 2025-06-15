@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/b1bb558545694447afc1568f65267880/artifacts
+deleted_time: 1746996752964
+end_time: 1746996370587
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: b1bb558545694447afc1568f65267880
+run_name: marvelous-wasp-334
+run_uuid: b1bb558545694447afc1568f65267880
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746996361411
+status: 4
+tags: []
+user_id: rafidmahbub

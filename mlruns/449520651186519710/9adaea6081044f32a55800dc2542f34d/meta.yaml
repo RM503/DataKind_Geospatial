@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/9adaea6081044f32a55800dc2542f34d/artifacts
+deleted_time: 1746975608176
+end_time: 1746974617360
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 9adaea6081044f32a55800dc2542f34d
+run_name: charming-rook-560
+run_uuid: 9adaea6081044f32a55800dc2542f34d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746974570498
+status: 3
+tags: []
+user_id: rafidmahbub

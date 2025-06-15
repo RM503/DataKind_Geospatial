@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/656f10648f3d4afb9b350c26d605d1d0/artifacts
+end_time: 1746197017605
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 656f10648f3d4afb9b350c26d605d1d0
+run_name: polite-bass-196
+run_uuid: 656f10648f3d4afb9b350c26d605d1d0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746196994291
+status: 3
+tags: []
+user_id: rafidmahbub

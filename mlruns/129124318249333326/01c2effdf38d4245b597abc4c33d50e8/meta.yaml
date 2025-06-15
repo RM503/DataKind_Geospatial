@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/01c2effdf38d4245b597abc4c33d50e8/artifacts
+end_time: 1747927520598
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 01c2effdf38d4245b597abc4c33d50e8
+run_name: dapper-sheep-885
+run_uuid: 01c2effdf38d4245b597abc4c33d50e8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747927456498
+status: 3
+tags: []
+user_id: rafidmahbub

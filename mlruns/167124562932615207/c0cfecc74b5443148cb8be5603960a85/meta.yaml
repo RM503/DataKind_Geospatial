@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/c0cfecc74b5443148cb8be5603960a85/artifacts
+end_time: 1747766199178
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: c0cfecc74b5443148cb8be5603960a85
+run_name: whimsical-sloth-176
+run_uuid: c0cfecc74b5443148cb8be5603960a85
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747766145366
+status: 3
+tags: []
+user_id: rafidmahbub

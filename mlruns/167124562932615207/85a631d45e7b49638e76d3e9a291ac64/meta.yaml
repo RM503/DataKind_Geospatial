@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/85a631d45e7b49638e76d3e9a291ac64/artifacts
+end_time: 1747768086080
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 85a631d45e7b49638e76d3e9a291ac64
+run_name: welcoming-koi-60
+run_uuid: 85a631d45e7b49638e76d3e9a291ac64
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747768027836
+status: 3
+tags: []
+user_id: rafidmahbub

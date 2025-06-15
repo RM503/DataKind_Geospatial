@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/a2934c6eb0d040359643042eacf21f38/artifacts
+end_time: 1747768365989
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: a2934c6eb0d040359643042eacf21f38
+run_name: honorable-elk-509
+run_uuid: a2934c6eb0d040359643042eacf21f38
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747768309941
+status: 3
+tags: []
+user_id: rafidmahbub

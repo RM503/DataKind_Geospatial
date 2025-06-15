@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/9b91f4b07a3d41288aa74cfc0465643a/artifacts
+end_time: 1747940254934
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 9b91f4b07a3d41288aa74cfc0465643a
+run_name: hilarious-bee-376
+run_uuid: 9b91f4b07a3d41288aa74cfc0465643a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747940188938
+status: 3
+tags: []
+user_id: rafidmahbub

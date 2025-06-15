@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/a47e831bf52b4cb19b4eaa2a9f6f1f84/artifacts
+end_time: 1747060637393
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: a47e831bf52b4cb19b4eaa2a9f6f1f84
+run_name: adventurous-flea-106
+run_uuid: a47e831bf52b4cb19b4eaa2a9f6f1f84
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747060589446
+status: 3
+tags: []
+user_id: rafidmahbub

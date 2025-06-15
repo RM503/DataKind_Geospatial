@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/e26a621e53b545eabbf0ed9b602c7da5/artifacts
+end_time: 1747934854845
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: e26a621e53b545eabbf0ed9b602c7da5
+run_name: trusting-fly-776
+run_uuid: e26a621e53b545eabbf0ed9b602c7da5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747934790922
+status: 3
+tags: []
+user_id: rafidmahbub

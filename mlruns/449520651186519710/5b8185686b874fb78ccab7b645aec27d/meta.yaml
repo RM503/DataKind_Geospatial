@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/5b8185686b874fb78ccab7b645aec27d/artifacts
+end_time: 1746980178621
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 5b8185686b874fb78ccab7b645aec27d
+run_name: defiant-sloth-623
+run_uuid: 5b8185686b874fb78ccab7b645aec27d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746980130613
+status: 3
+tags: []
+user_id: rafidmahbub

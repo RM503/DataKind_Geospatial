@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/898a78fbeb3f47b686c46e6121193487/artifacts
+end_time: 1747941206605
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 898a78fbeb3f47b686c46e6121193487
+run_name: wistful-auk-273
+run_uuid: 898a78fbeb3f47b686c46e6121193487
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747941128710
+status: 3
+tags: []
+user_id: rafidmahbub

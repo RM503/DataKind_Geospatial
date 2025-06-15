@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/fcec8992ab734f4d9e1ebb367ebf09a8/artifacts
+end_time: 1747055737626
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: fcec8992ab734f4d9e1ebb367ebf09a8
+run_name: redolent-foal-59
+run_uuid: fcec8992ab734f4d9e1ebb367ebf09a8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747053264636
+status: 3
+tags: []
+user_id: rafidmahbub

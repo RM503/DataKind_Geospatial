@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/ba0b1b8eb8e04a9599e7b26a4e1a5da4/artifacts
+deleted_time: 1747763666983
+end_time: null
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: ba0b1b8eb8e04a9599e7b26a4e1a5da4
+run_name: adventurous-rat-780
+run_uuid: ba0b1b8eb8e04a9599e7b26a4e1a5da4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747763644139
+status: 1
+tags: []
+user_id: rafidmahbub

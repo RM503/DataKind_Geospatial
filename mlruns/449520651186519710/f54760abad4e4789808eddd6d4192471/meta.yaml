@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f54760abad4e4789808eddd6d4192471/artifacts
+end_time: 1746206683449
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f54760abad4e4789808eddd6d4192471
+run_name: resilient-sow-272
+run_uuid: f54760abad4e4789808eddd6d4192471
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746206658570
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f93ebf24f18c46bbbeb0bed7320033cb/artifacts
+end_time: 1746296778944
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f93ebf24f18c46bbbeb0bed7320033cb
+run_name: industrious-ape-35
+run_uuid: f93ebf24f18c46bbbeb0bed7320033cb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746296740485
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/4ceca3770b63419684627b3798d6b846/artifacts
+end_time: 1747926297835
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 4ceca3770b63419684627b3798d6b846
+run_name: stylish-worm-247
+run_uuid: 4ceca3770b63419684627b3798d6b846
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747926233135
+status: 3
+tags: []
+user_id: rafidmahbub

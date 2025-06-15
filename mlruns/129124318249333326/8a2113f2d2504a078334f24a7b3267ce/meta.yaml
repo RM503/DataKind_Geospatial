@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/8a2113f2d2504a078334f24a7b3267ce/artifacts
+end_time: 1747927263502
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 8a2113f2d2504a078334f24a7b3267ce
+run_name: capable-zebra-289
+run_uuid: 8a2113f2d2504a078334f24a7b3267ce
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747927199440
+status: 3
+tags: []
+user_id: rafidmahbub

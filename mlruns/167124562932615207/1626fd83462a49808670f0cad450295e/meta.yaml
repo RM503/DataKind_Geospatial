@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/1626fd83462a49808670f0cad450295e/artifacts
+end_time: 1747767746658
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 1626fd83462a49808670f0cad450295e
+run_name: ambitious-toad-472
+run_uuid: 1626fd83462a49808670f0cad450295e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747767693456
+status: 3
+tags: []
+user_id: rafidmahbub

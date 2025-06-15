@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/f48c6171158b46fa8f62e98c4bea863f/artifacts
+end_time: 1747938563512
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: f48c6171158b46fa8f62e98c4bea863f
+run_name: bold-duck-820
+run_uuid: f48c6171158b46fa8f62e98c4bea863f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747938494444
+status: 3
+tags: []
+user_id: rafidmahbub

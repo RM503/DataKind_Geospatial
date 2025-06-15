@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/bb25e931167042b49c397e61465ee911/artifacts
+end_time: 1746999654074
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: bb25e931167042b49c397e61465ee911
+run_name: nebulous-hawk-368
+run_uuid: bb25e931167042b49c397e61465ee911
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746999603364
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/41a5fb86d7dc470f8c8220061594c272/artifacts
+end_time: 1747764104932
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 41a5fb86d7dc470f8c8220061594c272
+run_name: charming-cub-917
+run_uuid: 41a5fb86d7dc470f8c8220061594c272
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747764048393
+status: 3
+tags: []
+user_id: rafidmahbub

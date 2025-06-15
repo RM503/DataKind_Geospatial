@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/b04af11eeab04fc89884fe17344b5834/artifacts
+end_time: 1747767855791
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: b04af11eeab04fc89884fe17344b5834
+run_name: resilient-cow-242
+run_uuid: b04af11eeab04fc89884fe17344b5834
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747767801611
+status: 3
+tags: []
+user_id: rafidmahbub

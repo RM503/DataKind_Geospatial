@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/c8fe6a63fb1044f89ebbe16c99313bf4/artifacts
+end_time: 1746912890212
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: c8fe6a63fb1044f89ebbe16c99313bf4
+run_name: useful-bass-418
+run_uuid: c8fe6a63fb1044f89ebbe16c99313bf4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746912828609
+status: 3
+tags: []
+user_id: rafidmahbub

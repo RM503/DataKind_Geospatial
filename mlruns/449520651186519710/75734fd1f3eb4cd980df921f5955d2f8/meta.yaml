@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/75734fd1f3eb4cd980df921f5955d2f8/artifacts
+deleted_time: 1746910856027
+end_time: 1746910812965
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 75734fd1f3eb4cd980df921f5955d2f8
+run_name: loud-snipe-959
+run_uuid: 75734fd1f3eb4cd980df921f5955d2f8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746910742830
+status: 4
+tags: []
+user_id: rafidmahbub

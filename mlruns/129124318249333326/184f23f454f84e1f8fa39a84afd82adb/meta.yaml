@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/184f23f454f84e1f8fa39a84afd82adb/artifacts
+end_time: 1747936332890
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 184f23f454f84e1f8fa39a84afd82adb
+run_name: agreeable-crow-263
+run_uuid: 184f23f454f84e1f8fa39a84afd82adb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747936261367
+status: 3
+tags: []
+user_id: rafidmahbub

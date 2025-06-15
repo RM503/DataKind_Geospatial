@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/d394be5ca74c4155aa6aa0650cbf3f38/artifacts
+end_time: 1747765882624
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: d394be5ca74c4155aa6aa0650cbf3f38
+run_name: adaptable-loon-128
+run_uuid: d394be5ca74c4155aa6aa0650cbf3f38
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747765829081
+status: 3
+tags: []
+user_id: rafidmahbub

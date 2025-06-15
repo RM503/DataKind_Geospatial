@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/14357818c37f4798b74766f7b5bdb769/artifacts
+end_time: 1746998323405
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 14357818c37f4798b74766f7b5bdb769
+run_name: clumsy-worm-423
+run_uuid: 14357818c37f4798b74766f7b5bdb769
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746998276410
+status: 3
+tags: []
+user_id: rafidmahbub

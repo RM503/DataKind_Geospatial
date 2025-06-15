@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/6629416867b14520b0012c15232bee0e/artifacts
+end_time: 1746112661483
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 6629416867b14520b0012c15232bee0e
+run_name: thoughtful-jay-72
+run_uuid: 6629416867b14520b0012c15232bee0e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746112638199
+status: 3
+tags: []
+user_id: rafidmahbub

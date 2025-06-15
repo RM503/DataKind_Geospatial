@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/ffe05da54ab549ed9753b9453a0a3d3d/artifacts
+end_time: 1746206604602
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: ffe05da54ab549ed9753b9453a0a3d3d
+run_name: agreeable-fawn-505
+run_uuid: ffe05da54ab549ed9753b9453a0a3d3d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746206577694
+status: 3
+tags: []
+user_id: rafidmahbub

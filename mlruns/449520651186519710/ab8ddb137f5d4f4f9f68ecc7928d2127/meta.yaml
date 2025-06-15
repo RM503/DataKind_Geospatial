@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/ab8ddb137f5d4f4f9f68ecc7928d2127/artifacts
+end_time: 1746912079694
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: ab8ddb137f5d4f4f9f68ecc7928d2127
+run_name: rogue-sheep-259
+run_uuid: ab8ddb137f5d4f4f9f68ecc7928d2127
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746912024404
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/faab3b99c9e44377a1c96e5d895150ae/artifacts
+end_time: 1746206787443
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: faab3b99c9e44377a1c96e5d895150ae
+run_name: amazing-toad-23
+run_uuid: faab3b99c9e44377a1c96e5d895150ae
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746206760588
+status: 3
+tags: []
+user_id: rafidmahbub

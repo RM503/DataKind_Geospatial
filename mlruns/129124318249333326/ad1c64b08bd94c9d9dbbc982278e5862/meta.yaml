@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/ad1c64b08bd94c9d9dbbc982278e5862/artifacts
+end_time: 1747934409009
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: ad1c64b08bd94c9d9dbbc982278e5862
+run_name: classy-tern-344
+run_uuid: ad1c64b08bd94c9d9dbbc982278e5862
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747934344989
+status: 3
+tags: []
+user_id: rafidmahbub

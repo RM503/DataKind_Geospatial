@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/8fd66e90be614e0ab04e67818dd31fb7/artifacts
+end_time: 1747934219484
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 8fd66e90be614e0ab04e67818dd31fb7
+run_name: enchanting-crab-946
+run_uuid: 8fd66e90be614e0ab04e67818dd31fb7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747934157618
+status: 3
+tags: []
+user_id: rafidmahbub

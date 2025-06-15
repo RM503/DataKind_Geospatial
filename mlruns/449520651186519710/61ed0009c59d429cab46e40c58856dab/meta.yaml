@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/61ed0009c59d429cab46e40c58856dab/artifacts
+deleted_time: 1746160180462
+end_time: 1746112781303
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 61ed0009c59d429cab46e40c58856dab
+run_name: auspicious-colt-760
+run_uuid: 61ed0009c59d429cab46e40c58856dab
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746112319163
+status: 4
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/c107b1cd892c40e483a6dee6f87c5382/artifacts
+deleted_time: 1746041161555
+end_time: 1746033708783
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: c107b1cd892c40e483a6dee6f87c5382
+run_name: rebellious-steed-952
+run_uuid: c107b1cd892c40e483a6dee6f87c5382
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746033703872
+status: 4
+tags: []
+user_id: rafidmahbub

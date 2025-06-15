@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/8d0cd7afba1f4c57ae304f1b8a209155/artifacts
+end_time: 1747767531811
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 8d0cd7afba1f4c57ae304f1b8a209155
+run_name: nebulous-stork-212
+run_uuid: 8d0cd7afba1f4c57ae304f1b8a209155
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747767469212
+status: 3
+tags: []
+user_id: rafidmahbub

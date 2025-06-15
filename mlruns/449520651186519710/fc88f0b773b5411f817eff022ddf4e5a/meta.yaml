@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/fc88f0b773b5411f817eff022ddf4e5a/artifacts
+end_time: 1747053440299
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: fc88f0b773b5411f817eff022ddf4e5a
+run_name: upset-kit-218
+run_uuid: fc88f0b773b5411f817eff022ddf4e5a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747053383476
+status: 3
+tags: []
+user_id: rafidmahbub

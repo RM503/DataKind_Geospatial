@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/485800865e134e479e41582bf95357b0/artifacts
+end_time: 1746995358849
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 485800865e134e479e41582bf95357b0
+run_name: lyrical-squirrel-501
+run_uuid: 485800865e134e479e41582bf95357b0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746995309654
+status: 3
+tags: []
+user_id: rafidmahbub

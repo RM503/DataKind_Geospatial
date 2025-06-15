@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/46405e75109840bb8d14dc5fe3707024/artifacts
+end_time: 1747938894728
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 46405e75109840bb8d14dc5fe3707024
+run_name: likeable-mouse-435
+run_uuid: 46405e75109840bb8d14dc5fe3707024
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747938826978
+status: 3
+tags: []
+user_id: rafidmahbub

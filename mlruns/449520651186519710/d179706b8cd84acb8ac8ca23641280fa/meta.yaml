@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d179706b8cd84acb8ac8ca23641280fa/artifacts
+end_time: 1746999803938
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d179706b8cd84acb8ac8ca23641280fa
+run_name: magnificent-bass-531
+run_uuid: d179706b8cd84acb8ac8ca23641280fa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746999753435
+status: 3
+tags: []
+user_id: rafidmahbub

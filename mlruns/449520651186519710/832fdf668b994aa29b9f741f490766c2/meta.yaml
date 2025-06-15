@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/832fdf668b994aa29b9f741f490766c2/artifacts
+deleted_time: 1746932100892
+end_time: 1746909294152
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 832fdf668b994aa29b9f741f490766c2
+run_name: serious-horse-660
+run_uuid: 832fdf668b994aa29b9f741f490766c2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746909267717
+status: 4
+tags: []
+user_id: rafidmahbub

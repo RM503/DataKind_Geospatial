@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/297a378815be4589b0f62175c58bbda0/artifacts
+end_time: 1746060485615
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 297a378815be4589b0f62175c58bbda0
+run_name: unequaled-lynx-277
+run_uuid: 297a378815be4589b0f62175c58bbda0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746060463636
+status: 3
+tags: []
+user_id: rafidmahbub

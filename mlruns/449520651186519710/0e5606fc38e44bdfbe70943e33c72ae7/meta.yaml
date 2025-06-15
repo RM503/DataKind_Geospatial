@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/0e5606fc38e44bdfbe70943e33c72ae7/artifacts
+end_time: 1746206550937
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 0e5606fc38e44bdfbe70943e33c72ae7
+run_name: vaunted-midge-3
+run_uuid: 0e5606fc38e44bdfbe70943e33c72ae7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746206525469
+status: 3
+tags: []
+user_id: rafidmahbub

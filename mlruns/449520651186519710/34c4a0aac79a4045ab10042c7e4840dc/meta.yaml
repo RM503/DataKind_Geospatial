@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/34c4a0aac79a4045ab10042c7e4840dc/artifacts
+end_time: 1746912611614
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 34c4a0aac79a4045ab10042c7e4840dc
+run_name: aged-rat-819
+run_uuid: 34c4a0aac79a4045ab10042c7e4840dc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746912548948
+status: 3
+tags: []
+user_id: rafidmahbub

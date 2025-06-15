@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/054cd7fecd884eea823338fa26690183/artifacts
+end_time: 1746227366437
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 054cd7fecd884eea823338fa26690183
+run_name: glamorous-skunk-163
+run_uuid: 054cd7fecd884eea823338fa26690183
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746227342626
+status: 3
+tags: []
+user_id: rafidmahbub

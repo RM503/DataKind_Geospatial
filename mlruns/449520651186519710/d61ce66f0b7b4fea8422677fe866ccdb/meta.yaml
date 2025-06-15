@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d61ce66f0b7b4fea8422677fe866ccdb/artifacts
+end_time: 1746298582758
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d61ce66f0b7b4fea8422677fe866ccdb
+run_name: agreeable-gnat-502
+run_uuid: d61ce66f0b7b4fea8422677fe866ccdb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746298543871
+status: 3
+tags: []
+user_id: rafidmahbub

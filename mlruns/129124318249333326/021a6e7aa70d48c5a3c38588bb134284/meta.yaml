@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/021a6e7aa70d48c5a3c38588bb134284/artifacts
+end_time: 1747932537468
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 021a6e7aa70d48c5a3c38588bb134284
+run_name: crawling-dolphin-135
+run_uuid: 021a6e7aa70d48c5a3c38588bb134284
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747932470136
+status: 3
+tags: []
+user_id: rafidmahbub

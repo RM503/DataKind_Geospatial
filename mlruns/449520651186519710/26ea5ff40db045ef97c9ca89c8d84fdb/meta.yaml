@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/26ea5ff40db045ef97c9ca89c8d84fdb/artifacts
+deleted_time: 1746975608169
+end_time: 1746974967067
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 26ea5ff40db045ef97c9ca89c8d84fdb
+run_name: calm-donkey-698
+run_uuid: 26ea5ff40db045ef97c9ca89c8d84fdb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746974917950
+status: 3
+tags: []
+user_id: rafidmahbub

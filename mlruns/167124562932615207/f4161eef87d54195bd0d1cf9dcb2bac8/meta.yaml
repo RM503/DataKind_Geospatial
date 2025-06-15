@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/f4161eef87d54195bd0d1cf9dcb2bac8/artifacts
+deleted_time: 1747763666986
+end_time: 1747763369063
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: f4161eef87d54195bd0d1cf9dcb2bac8
+run_name: amazing-roo-166
+run_uuid: f4161eef87d54195bd0d1cf9dcb2bac8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747763317020
+status: 3
+tags: []
+user_id: rafidmahbub

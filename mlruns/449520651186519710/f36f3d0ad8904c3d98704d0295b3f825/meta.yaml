@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f36f3d0ad8904c3d98704d0295b3f825/artifacts
+end_time: 1746979084285
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f36f3d0ad8904c3d98704d0295b3f825
+run_name: smiling-ape-924
+run_uuid: f36f3d0ad8904c3d98704d0295b3f825
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746979036732
+status: 3
+tags: []
+user_id: rafidmahbub

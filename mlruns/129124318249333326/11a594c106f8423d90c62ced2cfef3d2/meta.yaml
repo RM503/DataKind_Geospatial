@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/11a594c106f8423d90c62ced2cfef3d2/artifacts
+end_time: 1747939040499
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 11a594c106f8423d90c62ced2cfef3d2
+run_name: amazing-lamb-316
+run_uuid: 11a594c106f8423d90c62ced2cfef3d2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747938972746
+status: 3
+tags: []
+user_id: rafidmahbub

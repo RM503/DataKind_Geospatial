@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/7c4144c426ad42d4bb79f0aae52bd3a3/artifacts
+end_time: 1747769138032
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 7c4144c426ad42d4bb79f0aae52bd3a3
+run_name: adventurous-shad-195
+run_uuid: 7c4144c426ad42d4bb79f0aae52bd3a3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747769083257
+status: 3
+tags: []
+user_id: rafidmahbub

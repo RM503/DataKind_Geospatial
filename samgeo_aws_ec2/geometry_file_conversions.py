@@ -2,11 +2,9 @@
 Converts .gpkg to .csv and .kml files
 """
 import glob
-import pandas as pd 
 import geopandas as gpd
 import fiona
 fiona.supported_drivers['KML'] = 'rw'
-import argparse
 
 def convert_to_csv(gpkg_folder_path: str) -> None:
     if gpkg_folder_path.endswith('/'):
@@ -38,6 +36,8 @@ def convert_to_kml(gpkg_folder_path: str) -> None:
     
 
 if __name__ == "__main__":
+    import argparse
+
     parser = argparse.ArgumentParser()
     parser.add_argument('--gpkg_folder_path', required=True)
 

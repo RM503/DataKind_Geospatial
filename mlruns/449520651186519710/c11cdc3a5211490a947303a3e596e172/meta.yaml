@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/c11cdc3a5211490a947303a3e596e172/artifacts
+end_time: 1747055724601
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: c11cdc3a5211490a947303a3e596e172
+run_name: rare-bear-771
+run_uuid: c11cdc3a5211490a947303a3e596e172
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747055672998
+status: 3
+tags: []
+user_id: rafidmahbub

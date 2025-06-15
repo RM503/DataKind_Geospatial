@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/fad3cf01601e4812ba3c9216d6309160/artifacts
+end_time: 1746227416405
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: fad3cf01601e4812ba3c9216d6309160
+run_name: defiant-cub-858
+run_uuid: fad3cf01601e4812ba3c9216d6309160
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746227392482
+status: 3
+tags: []
+user_id: rafidmahbub

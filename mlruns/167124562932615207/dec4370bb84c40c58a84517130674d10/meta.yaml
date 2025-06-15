@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/dec4370bb84c40c58a84517130674d10/artifacts
+end_time: 1747768732531
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: dec4370bb84c40c58a84517130674d10
+run_name: able-fly-435
+run_uuid: dec4370bb84c40c58a84517130674d10
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747768671458
+status: 3
+tags: []
+user_id: rafidmahbub

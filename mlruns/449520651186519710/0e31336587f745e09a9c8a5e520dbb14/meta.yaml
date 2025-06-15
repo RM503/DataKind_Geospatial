@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/0e31336587f745e09a9c8a5e520dbb14/artifacts
+end_time: 1746112388981
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 0e31336587f745e09a9c8a5e520dbb14
+run_name: stylish-steed-143
+run_uuid: 0e31336587f745e09a9c8a5e520dbb14
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746112365929
+status: 3
+tags: []
+user_id: rafidmahbub

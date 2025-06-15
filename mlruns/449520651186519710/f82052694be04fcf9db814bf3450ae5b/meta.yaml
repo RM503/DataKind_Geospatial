@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f82052694be04fcf9db814bf3450ae5b/artifacts
+end_time: 1746912719685
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f82052694be04fcf9db814bf3450ae5b
+run_name: clean-squirrel-642
+run_uuid: f82052694be04fcf9db814bf3450ae5b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746912666316
+status: 3
+tags: []
+user_id: rafidmahbub

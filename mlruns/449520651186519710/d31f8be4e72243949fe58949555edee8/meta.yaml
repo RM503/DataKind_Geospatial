@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d31f8be4e72243949fe58949555edee8/artifacts
+end_time: 1746060507626
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d31f8be4e72243949fe58949555edee8
+run_name: resilient-seal-50
+run_uuid: d31f8be4e72243949fe58949555edee8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746060485623
+status: 3
+tags: []
+user_id: rafidmahbub

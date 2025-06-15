@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/79ef74895d4241be8815a770a2f8a243/artifacts
+deleted_time: 1746975608174
+end_time: 1746974719297
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 79ef74895d4241be8815a770a2f8a243
+run_name: dazzling-dog-893
+run_uuid: 79ef74895d4241be8815a770a2f8a243
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746974668573
+status: 3
+tags: []
+user_id: rafidmahbub

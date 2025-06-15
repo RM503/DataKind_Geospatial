@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/55bca36028e2425aafba2e6dee604514/artifacts
+end_time: 1746227804785
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 55bca36028e2425aafba2e6dee604514
+run_name: capable-shark-757
+run_uuid: 55bca36028e2425aafba2e6dee604514
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746227780609
+status: 3
+tags: []
+user_id: rafidmahbub

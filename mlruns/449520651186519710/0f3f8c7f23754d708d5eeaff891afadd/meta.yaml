@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/0f3f8c7f23754d708d5eeaff891afadd/artifacts
+end_time: 1747054904794
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 0f3f8c7f23754d708d5eeaff891afadd
+run_name: youthful-frog-462
+run_uuid: 0f3f8c7f23754d708d5eeaff891afadd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747054858413
+status: 3
+tags: []
+user_id: rafidmahbub

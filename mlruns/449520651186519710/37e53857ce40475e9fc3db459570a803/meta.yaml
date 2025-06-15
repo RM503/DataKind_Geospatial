@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/37e53857ce40475e9fc3db459570a803/artifacts
+end_time: 1746995309639
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 37e53857ce40475e9fc3db459570a803
+run_name: rambunctious-bee-378
+run_uuid: 37e53857ce40475e9fc3db459570a803
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746995262949
+status: 3
+tags: []
+user_id: rafidmahbub

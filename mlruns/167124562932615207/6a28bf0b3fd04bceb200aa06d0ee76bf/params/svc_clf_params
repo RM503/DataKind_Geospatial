@@ -1,0 +1,1 @@
+{'C': 0.33772809212999233, 'kernel': 'rbf', 'gamma': 'auto', 'class_weight': 'balanced', 'probability': True}

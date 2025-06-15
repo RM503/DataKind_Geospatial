@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/a03df9841bc84e3fb0c24d195e63f95a/artifacts
+end_time: 1746060180354
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: a03df9841bc84e3fb0c24d195e63f95a
+run_name: bedecked-rat-12
+run_uuid: a03df9841bc84e3fb0c24d195e63f95a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746060159090
+status: 3
+tags: []
+user_id: rafidmahbub

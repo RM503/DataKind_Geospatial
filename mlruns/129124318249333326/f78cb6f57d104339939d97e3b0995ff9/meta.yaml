@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/f78cb6f57d104339939d97e3b0995ff9/artifacts
+end_time: 1747927972581
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: f78cb6f57d104339939d97e3b0995ff9
+run_name: debonair-fish-583
+run_uuid: f78cb6f57d104339939d97e3b0995ff9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747927908021
+status: 3
+tags: []
+user_id: rafidmahbub

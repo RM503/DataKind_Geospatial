@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/ab69c9c4a2ff4bcba918da4672e2a742/artifacts
+end_time: 1747767358863
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: ab69c9c4a2ff4bcba918da4672e2a742
+run_name: hilarious-elk-821
+run_uuid: ab69c9c4a2ff4bcba918da4672e2a742
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747767301513
+status: 3
+tags: []
+user_id: rafidmahbub

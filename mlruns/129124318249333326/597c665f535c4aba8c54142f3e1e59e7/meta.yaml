@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/597c665f535c4aba8c54142f3e1e59e7/artifacts
+end_time: 1747940120484
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 597c665f535c4aba8c54142f3e1e59e7
+run_name: respected-croc-316
+run_uuid: 597c665f535c4aba8c54142f3e1e59e7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747940052841
+status: 3
+tags: []
+user_id: rafidmahbub

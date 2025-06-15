@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/97c496c188af4ae68f2313033520b1e4/artifacts
+end_time: 1746994051568
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 97c496c188af4ae68f2313033520b1e4
+run_name: dazzling-doe-358
+run_uuid: 97c496c188af4ae68f2313033520b1e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746993991037
+status: 3
+tags: []
+user_id: rafidmahbub

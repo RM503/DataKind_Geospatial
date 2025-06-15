@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/6fe4fa87c00443d08ce7832f73e4c02d/artifacts
+deleted_time: 1747762836622
+end_time: 1747762472391
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: 6fe4fa87c00443d08ce7832f73e4c02d
+run_name: overjoyed-gnu-593
+run_uuid: 6fe4fa87c00443d08ce7832f73e4c02d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747762472384
+status: 4
+tags: []
+user_id: rafidmahbub

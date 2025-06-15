@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/1d2c75dc6f304903ae97a43c2206142d/artifacts
+end_time: 1747925850513
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 1d2c75dc6f304903ae97a43c2206142d
+run_name: peaceful-grouse-590
+run_uuid: 1d2c75dc6f304903ae97a43c2206142d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747925788418
+status: 3
+tags: []
+user_id: rafidmahbub

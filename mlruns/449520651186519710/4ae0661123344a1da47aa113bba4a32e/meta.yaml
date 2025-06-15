@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/4ae0661123344a1da47aa113bba4a32e/artifacts
+end_time: 1746206384057
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 4ae0661123344a1da47aa113bba4a32e
+run_name: stately-bee-638
+run_uuid: 4ae0661123344a1da47aa113bba4a32e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746206358175
+status: 3
+tags: []
+user_id: rafidmahbub

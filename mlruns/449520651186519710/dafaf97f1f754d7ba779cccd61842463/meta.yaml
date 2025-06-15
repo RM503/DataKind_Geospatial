@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/dafaf97f1f754d7ba779cccd61842463/artifacts
+end_time: 1746997690176
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: dafaf97f1f754d7ba779cccd61842463
+run_name: hilarious-lark-876
+run_uuid: dafaf97f1f754d7ba779cccd61842463
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746996536586
+status: 3
+tags: []
+user_id: rafidmahbub

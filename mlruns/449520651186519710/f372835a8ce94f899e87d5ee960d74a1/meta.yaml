@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f372835a8ce94f899e87d5ee960d74a1/artifacts
+end_time: 1746060289441
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f372835a8ce94f899e87d5ee960d74a1
+run_name: bustling-shrimp-137
+run_uuid: f372835a8ce94f899e87d5ee960d74a1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746060268381
+status: 3
+tags: []
+user_id: rafidmahbub

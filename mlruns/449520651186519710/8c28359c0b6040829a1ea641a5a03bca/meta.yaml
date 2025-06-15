@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/8c28359c0b6040829a1ea641a5a03bca/artifacts
+end_time: 1746823455740
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 8c28359c0b6040829a1ea641a5a03bca
+run_name: thoughtful-midge-315
+run_uuid: 8c28359c0b6040829a1ea641a5a03bca
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746823428580
+status: 3
+tags: []
+user_id: rafidmahbub

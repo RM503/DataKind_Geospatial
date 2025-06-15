@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/cd6bddcf342a4016bbd30802ed100d06/artifacts
+end_time: 1746112456110
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: cd6bddcf342a4016bbd30802ed100d06
+run_name: carefree-fly-668
+run_uuid: cd6bddcf342a4016bbd30802ed100d06
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746112434454
+status: 3
+tags: []
+user_id: rafidmahbub

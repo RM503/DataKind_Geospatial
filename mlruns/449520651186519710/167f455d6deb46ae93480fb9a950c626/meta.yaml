@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/167f455d6deb46ae93480fb9a950c626/artifacts
+deleted_time: 1747003211024
+end_time: 1747002000018
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 167f455d6deb46ae93480fb9a950c626
+run_name: languid-moose-495
+run_uuid: 167f455d6deb46ae93480fb9a950c626
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747001949236
+status: 3
+tags: []
+user_id: rafidmahbub

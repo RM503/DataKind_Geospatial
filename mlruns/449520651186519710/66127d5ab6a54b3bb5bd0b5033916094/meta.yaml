@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/66127d5ab6a54b3bb5bd0b5033916094/artifacts
+end_time: 1746822880890
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 66127d5ab6a54b3bb5bd0b5033916094
+run_name: luxuriant-sponge-510
+run_uuid: 66127d5ab6a54b3bb5bd0b5033916094
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746822845188
+status: 4
+tags: []
+user_id: rafidmahbub

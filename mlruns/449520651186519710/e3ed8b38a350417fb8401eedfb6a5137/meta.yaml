@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/e3ed8b38a350417fb8401eedfb6a5137/artifacts
+end_time: 1746998947484
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: e3ed8b38a350417fb8401eedfb6a5137
+run_name: valuable-eel-482
+run_uuid: e3ed8b38a350417fb8401eedfb6a5137
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746998898968
+status: 3
+tags: []
+user_id: rafidmahbub

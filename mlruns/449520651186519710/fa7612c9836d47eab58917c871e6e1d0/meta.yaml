@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/fa7612c9836d47eab58917c871e6e1d0/artifacts
+end_time: 1747055294697
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: fa7612c9836d47eab58917c871e6e1d0
+run_name: fortunate-gull-316
+run_uuid: fa7612c9836d47eab58917c871e6e1d0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747055243702
+status: 3
+tags: []
+user_id: rafidmahbub

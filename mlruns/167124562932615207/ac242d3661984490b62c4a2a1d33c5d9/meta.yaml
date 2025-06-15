@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/ac242d3661984490b62c4a2a1d33c5d9/artifacts
+end_time: 1747764792717
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: ac242d3661984490b62c4a2a1d33c5d9
+run_name: fortunate-bat-781
+run_uuid: ac242d3661984490b62c4a2a1d33c5d9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747764740717
+status: 3
+tags: []
+user_id: rafidmahbub

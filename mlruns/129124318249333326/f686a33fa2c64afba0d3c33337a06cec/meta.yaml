@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/f686a33fa2c64afba0d3c33337a06cec/artifacts
+end_time: 1747926041420
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: f686a33fa2c64afba0d3c33337a06cec
+run_name: agreeable-fawn-699
+run_uuid: f686a33fa2c64afba0d3c33337a06cec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747925977882
+status: 3
+tags: []
+user_id: rafidmahbub

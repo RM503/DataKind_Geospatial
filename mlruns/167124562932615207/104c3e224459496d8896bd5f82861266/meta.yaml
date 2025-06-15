@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/104c3e224459496d8896bd5f82861266/artifacts
+end_time: 1747764740710
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 104c3e224459496d8896bd5f82861266
+run_name: ambitious-moose-333
+run_uuid: 104c3e224459496d8896bd5f82861266
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747764684246
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/8cf8bcae163c4b228417a63b66e1181b/artifacts
+end_time: 1746994099508
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 8cf8bcae163c4b228417a63b66e1181b
+run_name: calm-zebra-30
+run_uuid: 8cf8bcae163c4b228417a63b66e1181b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994051586
+status: 3
+tags: []
+user_id: rafidmahbub

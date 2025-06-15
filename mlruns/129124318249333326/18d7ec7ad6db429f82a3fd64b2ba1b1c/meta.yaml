@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/18d7ec7ad6db429f82a3fd64b2ba1b1c/artifacts
+end_time: 1747937122568
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 18d7ec7ad6db429f82a3fd64b2ba1b1c
+run_name: resilient-ant-684
+run_uuid: 18d7ec7ad6db429f82a3fd64b2ba1b1c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747937048513
+status: 3
+tags: []
+user_id: rafidmahbub

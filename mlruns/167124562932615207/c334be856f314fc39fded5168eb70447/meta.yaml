@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/c334be856f314fc39fded5168eb70447/artifacts
+deleted_time: 1747763666993
+end_time: 1747762886363
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: c334be856f314fc39fded5168eb70447
+run_name: adorable-stork-184
+run_uuid: c334be856f314fc39fded5168eb70447
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747762830200
+status: 3
+tags: []
+user_id: rafidmahbub

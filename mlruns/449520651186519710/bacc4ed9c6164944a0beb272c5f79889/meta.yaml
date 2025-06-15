@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/bacc4ed9c6164944a0beb272c5f79889/artifacts
+end_time: 1746284795707
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: bacc4ed9c6164944a0beb272c5f79889
+run_name: sincere-sheep-279
+run_uuid: bacc4ed9c6164944a0beb272c5f79889
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746284773146
+status: 3
+tags: []
+user_id: rafidmahbub

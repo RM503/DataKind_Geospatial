@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/bf7b5f45c6df42fc9a76bbd80f6fb1f4/artifacts
+end_time: 1747768671450
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: bf7b5f45c6df42fc9a76bbd80f6fb1f4
+run_name: whimsical-steed-818
+run_uuid: bf7b5f45c6df42fc9a76bbd80f6fb1f4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747768600673
+status: 3
+tags: []
+user_id: rafidmahbub

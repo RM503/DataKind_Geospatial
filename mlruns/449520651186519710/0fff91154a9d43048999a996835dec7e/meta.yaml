@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/0fff91154a9d43048999a996835dec7e/artifacts
+deleted_time: 1747003211023
+end_time: 1747001851137
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 0fff91154a9d43048999a996835dec7e
+run_name: thundering-snake-623
+run_uuid: 0fff91154a9d43048999a996835dec7e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747001803827
+status: 3
+tags: []
+user_id: rafidmahbub

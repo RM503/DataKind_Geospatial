@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/03c609721cea4caeb6ffa13a02262f39/artifacts
+end_time: 1747938192868
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 03c609721cea4caeb6ffa13a02262f39
+run_name: skittish-wren-554
+run_uuid: 03c609721cea4caeb6ffa13a02262f39
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747938122848
+status: 3
+tags: []
+user_id: rafidmahbub

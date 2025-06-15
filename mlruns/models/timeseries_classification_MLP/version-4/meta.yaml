@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1746913381641
+current_stage: None
+description: Single hidden layer MLP with increased training size
+last_updated_timestamp: 1746931691489
+name: timeseries_classification_MLP
+run_id: 52a4f2ea32da4f0f8c28d2848f2f8ed1
+run_link: ''
+source: mlflow-artifacts:/449520651186519710/52a4f2ea32da4f0f8c28d2848f2f8ed1/artifacts/timeseries_classification_MLP
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/449520651186519710/52a4f2ea32da4f0f8c28d2848f2f8ed1/artifacts/timeseries_classification_MLP
+user_id: null
+version: 4

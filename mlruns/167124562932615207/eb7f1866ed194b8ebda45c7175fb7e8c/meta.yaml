@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/eb7f1866ed194b8ebda45c7175fb7e8c/artifacts
+end_time: 1747765009188
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: eb7f1866ed194b8ebda45c7175fb7e8c
+run_name: casual-hound-595
+run_uuid: eb7f1866ed194b8ebda45c7175fb7e8c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747764954648
+status: 3
+tags: []
+user_id: rafidmahbub

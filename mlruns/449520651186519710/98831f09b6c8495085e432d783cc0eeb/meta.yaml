@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/98831f09b6c8495085e432d783cc0eeb/artifacts
+end_time: 1746995525180
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 98831f09b6c8495085e432d783cc0eeb
+run_name: righteous-shoat-122
+run_uuid: 98831f09b6c8495085e432d783cc0eeb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746993048406
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/7f598c8384bb4bc0be00f144d38f2158/artifacts
+end_time: 1747926426914
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 7f598c8384bb4bc0be00f144d38f2158
+run_name: chill-grub-203
+run_uuid: 7f598c8384bb4bc0be00f144d38f2158
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747926361789
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/49b19c0702bc4a2ca6d676f5a5392258/artifacts
+end_time: 1746227557820
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 49b19c0702bc4a2ca6d676f5a5392258
+run_name: adorable-grub-298
+run_uuid: 49b19c0702bc4a2ca6d676f5a5392258
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746227535412
+status: 3
+tags: []
+user_id: rafidmahbub

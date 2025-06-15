@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d4f419000952496d94f7ba47464f8078/artifacts
+end_time: 1747061947567
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d4f419000952496d94f7ba47464f8078
+run_name: likeable-toad-327
+run_uuid: d4f419000952496d94f7ba47464f8078
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747061900720
+status: 3
+tags: []
+user_id: rafidmahbub

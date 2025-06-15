@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/7597647d0c6d4ed2baec83e6087136ae/artifacts
+end_time: 1747934599218
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 7597647d0c6d4ed2baec83e6087136ae
+run_name: bustling-crow-521
+run_uuid: 7597647d0c6d4ed2baec83e6087136ae
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747934535628
+status: 3
+tags: []
+user_id: rafidmahbub

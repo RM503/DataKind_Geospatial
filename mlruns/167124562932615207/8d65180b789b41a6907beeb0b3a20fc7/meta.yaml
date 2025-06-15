@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/8d65180b789b41a6907beeb0b3a20fc7/artifacts
+end_time: 1747765274177
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 8d65180b789b41a6907beeb0b3a20fc7
+run_name: bold-snipe-690
+run_uuid: 8d65180b789b41a6907beeb0b3a20fc7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747765220573
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/51c875966d394a91af7d94d5e046c419/artifacts
+end_time: 1747767175050
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 51c875966d394a91af7d94d5e046c419
+run_name: resilient-hen-743
+run_uuid: 51c875966d394a91af7d94d5e046c419
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747767119315
+status: 3
+tags: []
+user_id: rafidmahbub

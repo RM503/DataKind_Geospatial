@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/22bd627c658b42bfb4c711298769d1e4/artifacts
+end_time: 1747926748669
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 22bd627c658b42bfb4c711298769d1e4
+run_name: exultant-loon-383
+run_uuid: 22bd627c658b42bfb4c711298769d1e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747926684721
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/d803e5df3afe4e1f8f69d443bb5d3f57/artifacts
+end_time: 1747938972738
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: d803e5df3afe4e1f8f69d443bb5d3f57
+run_name: gifted-donkey-976
+run_uuid: d803e5df3afe4e1f8f69d443bb5d3f57
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747938894736
+status: 3
+tags: []
+user_id: rafidmahbub

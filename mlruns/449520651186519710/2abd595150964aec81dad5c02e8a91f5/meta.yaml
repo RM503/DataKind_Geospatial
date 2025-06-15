@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/2abd595150964aec81dad5c02e8a91f5/artifacts
+end_time: 1747061853517
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 2abd595150964aec81dad5c02e8a91f5
+run_name: colorful-midge-494
+run_uuid: 2abd595150964aec81dad5c02e8a91f5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747061804949
+status: 3
+tags: []
+user_id: rafidmahbub

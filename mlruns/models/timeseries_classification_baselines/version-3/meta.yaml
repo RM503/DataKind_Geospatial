@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1746036599716
+current_stage: None
+description: ''
+last_updated_timestamp: 1746036599716
+name: timeseries_classification_baselines
+run_id: 205a010b59a043659a888b8888d7e728
+run_link: ''
+source: mlflow-artifacts:/449520651186519710/205a010b59a043659a888b8888d7e728/artifacts/timeseries_classification_baselines
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/449520651186519710/205a010b59a043659a888b8888d7e728/artifacts/timeseries_classification_baselines
+user_id: null
+version: 3

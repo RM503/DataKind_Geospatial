@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/6e9c2853c81946568e4541e65237b20e/artifacts
+end_time: 1747768478963
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 6e9c2853c81946568e4541e65237b20e
+run_name: persistent-goat-594
+run_uuid: 6e9c2853c81946568e4541e65237b20e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747768423293
+status: 3
+tags: []
+user_id: rafidmahbub

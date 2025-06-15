@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/be96c331b18f474598218b1f7e3b2bd1/artifacts
+end_time: 1746913222167
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: be96c331b18f474598218b1f7e3b2bd1
+run_name: caring-koi-16
+run_uuid: be96c331b18f474598218b1f7e3b2bd1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746913167997
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/4fe8f939700749f199da681886b85c3c/artifacts
+end_time: 1747059895860
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 4fe8f939700749f199da681886b85c3c
+run_name: rare-crow-529
+run_uuid: 4fe8f939700749f199da681886b85c3c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747059847411
+status: 3
+tags: []
+user_id: rafidmahbub

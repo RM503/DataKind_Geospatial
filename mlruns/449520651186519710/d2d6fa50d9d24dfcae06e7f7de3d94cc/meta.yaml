@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d2d6fa50d9d24dfcae06e7f7de3d94cc/artifacts
+end_time: 1746206334308
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d2d6fa50d9d24dfcae06e7f7de3d94cc
+run_name: burly-horse-723
+run_uuid: d2d6fa50d9d24dfcae06e7f7de3d94cc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746206307598
+status: 3
+tags: []
+user_id: rafidmahbub

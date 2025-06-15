@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/f1a098331dfb46809c821817f3d19238/artifacts
+end_time: 1747767301505
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: f1a098331dfb46809c821817f3d19238
+run_name: gifted-bear-488
+run_uuid: f1a098331dfb46809c821817f3d19238
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747767242539
+status: 3
+tags: []
+user_id: rafidmahbub

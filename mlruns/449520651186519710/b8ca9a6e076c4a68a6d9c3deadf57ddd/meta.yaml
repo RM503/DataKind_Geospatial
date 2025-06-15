@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/b8ca9a6e076c4a68a6d9c3deadf57ddd/artifacts
+end_time: 1746979832361
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: b8ca9a6e076c4a68a6d9c3deadf57ddd
+run_name: glamorous-swan-981
+run_uuid: b8ca9a6e076c4a68a6d9c3deadf57ddd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746979781288
+status: 3
+tags: []
+user_id: rafidmahbub

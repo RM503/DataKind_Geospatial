@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/c36b5d57141d4e50a7730aa13ec3b469/artifacts
+end_time: 1747769954836
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: c36b5d57141d4e50a7730aa13ec3b469
+run_name: righteous-zebra-182
+run_uuid: c36b5d57141d4e50a7730aa13ec3b469
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747767119286
+status: 4
+tags: []
+user_id: rafidmahbub

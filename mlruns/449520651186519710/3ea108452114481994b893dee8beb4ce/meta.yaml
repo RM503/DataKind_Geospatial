@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/3ea108452114481994b893dee8beb4ce/artifacts
+end_time: 1747055002923
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 3ea108452114481994b893dee8beb4ce
+run_name: auspicious-trout-36
+run_uuid: 3ea108452114481994b893dee8beb4ce
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747054953206
+status: 3
+tags: []
+user_id: rafidmahbub

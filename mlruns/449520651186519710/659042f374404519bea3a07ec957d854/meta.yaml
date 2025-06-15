@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/659042f374404519bea3a07ec957d854/artifacts
+end_time: 1746994346642
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 659042f374404519bea3a07ec957d854
+run_name: magnificent-carp-634
+run_uuid: 659042f374404519bea3a07ec957d854
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994298254
+status: 3
+tags: []
+user_id: rafidmahbub

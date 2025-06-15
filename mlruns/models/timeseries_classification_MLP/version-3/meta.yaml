@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1746909408915
+current_stage: None
+description: ''
+last_updated_timestamp: 1746909408915
+name: timeseries_classification_MLP
+run_id: e2d9aca27d524b2c84ea9d43b20dd3e6
+run_link: ''
+source: mlflow-artifacts:/449520651186519710/e2d9aca27d524b2c84ea9d43b20dd3e6/artifacts/timeseries_classification_MLP
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/449520651186519710/e2d9aca27d524b2c84ea9d43b20dd3e6/artifacts/timeseries_classification_MLP
+user_id: null
+version: 3

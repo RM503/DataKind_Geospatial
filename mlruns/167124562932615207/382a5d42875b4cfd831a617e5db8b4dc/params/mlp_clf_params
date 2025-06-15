@@ -1,0 +1,1 @@
+{'hidden_layer_sizes': 87, 'activation': 'relu', 'solver': 'adam', 'alpha': 0.0008947875003523201, 'max_iter': 397}

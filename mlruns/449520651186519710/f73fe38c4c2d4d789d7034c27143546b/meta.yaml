@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f73fe38c4c2d4d789d7034c27143546b/artifacts
+end_time: 1746139988521
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f73fe38c4c2d4d789d7034c27143546b
+run_name: debonair-penguin-668
+run_uuid: f73fe38c4c2d4d789d7034c27143546b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139965520
+status: 3
+tags: []
+user_id: rafidmahbub

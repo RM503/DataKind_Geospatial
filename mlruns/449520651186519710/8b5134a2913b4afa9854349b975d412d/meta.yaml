@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/8b5134a2913b4afa9854349b975d412d/artifacts
+end_time: 1746998999958
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 8b5134a2913b4afa9854349b975d412d
+run_name: tasteful-whale-882
+run_uuid: 8b5134a2913b4afa9854349b975d412d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746998947498
+status: 3
+tags: []
+user_id: rafidmahbub

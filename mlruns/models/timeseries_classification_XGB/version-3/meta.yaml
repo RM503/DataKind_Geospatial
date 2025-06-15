@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1747000691964
+current_stage: None
+description: ''
+last_updated_timestamp: 1747000691964
+name: timeseries_classification_XGB
+run_id: 7dca50269c4240a395e6ebdfbc42044a
+run_link: ''
+source: mlflow-artifacts:/449520651186519710/7dca50269c4240a395e6ebdfbc42044a/artifacts/timeseries_classification_XGB
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/449520651186519710/7dca50269c4240a395e6ebdfbc42044a/artifacts/timeseries_classification_XGB
+user_id: null
+version: 3

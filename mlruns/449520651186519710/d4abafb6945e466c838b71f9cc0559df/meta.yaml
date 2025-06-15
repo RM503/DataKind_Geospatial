@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d4abafb6945e466c838b71f9cc0559df/artifacts
+end_time: 1746296806601
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d4abafb6945e466c838b71f9cc0559df
+run_name: judicious-ox-693
+run_uuid: d4abafb6945e466c838b71f9cc0559df
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746296778956
+status: 3
+tags: []
+user_id: rafidmahbub

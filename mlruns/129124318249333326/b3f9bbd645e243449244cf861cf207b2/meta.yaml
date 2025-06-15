@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/b3f9bbd645e243449244cf861cf207b2/artifacts
+end_time: 1747932340134
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: b3f9bbd645e243449244cf861cf207b2
+run_name: carefree-stork-963
+run_uuid: b3f9bbd645e243449244cf861cf207b2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747932277056
+status: 3
+tags: []
+user_id: rafidmahbub

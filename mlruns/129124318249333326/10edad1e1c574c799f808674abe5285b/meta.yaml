@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/10edad1e1c574c799f808674abe5285b/artifacts
+end_time: 1747939916737
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 10edad1e1c574c799f808674abe5285b
+run_name: incongruous-bird-141
+run_uuid: 10edad1e1c574c799f808674abe5285b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747939849501
+status: 3
+tags: []
+user_id: rafidmahbub

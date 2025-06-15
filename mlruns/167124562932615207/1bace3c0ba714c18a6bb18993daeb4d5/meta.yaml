@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/1bace3c0ba714c18a6bb18993daeb4d5/artifacts
+deleted_time: 1747763666992
+end_time: 1747762940893
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: 1bace3c0ba714c18a6bb18993daeb4d5
+run_name: aged-worm-815
+run_uuid: 1bace3c0ba714c18a6bb18993daeb4d5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747762886370
+status: 3
+tags: []
+user_id: rafidmahbub

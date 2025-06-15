@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/7f1cc32cccc2482e84924786102109f7/artifacts
+end_time: 1746196628756
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 7f1cc32cccc2482e84924786102109f7
+run_name: gregarious-kite-718
+run_uuid: 7f1cc32cccc2482e84924786102109f7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746196606013
+status: 3
+tags: []
+user_id: rafidmahbub

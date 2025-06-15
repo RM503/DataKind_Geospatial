@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/73350c464e3d43ef815aa3c8411abace/artifacts
+end_time: 1746297264522
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 73350c464e3d43ef815aa3c8411abace
+run_name: nimble-trout-320
+run_uuid: 73350c464e3d43ef815aa3c8411abace
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746297228957
+status: 3
+tags: []
+user_id: rafidmahbub

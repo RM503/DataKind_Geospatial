@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f24bbfd6e34549a384a2268f63329897/artifacts
+end_time: 1746979982264
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f24bbfd6e34549a384a2268f63329897
+run_name: orderly-sloth-18
+run_uuid: f24bbfd6e34549a384a2268f63329897
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746979930795
+status: 3
+tags: []
+user_id: rafidmahbub

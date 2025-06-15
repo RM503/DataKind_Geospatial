@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/b3f0b34854b143df962835ef31f755fe/artifacts
+end_time: 1747941356575
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: b3f0b34854b143df962835ef31f755fe
+run_name: glamorous-duck-795
+run_uuid: b3f0b34854b143df962835ef31f755fe
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747937914262
+status: 3
+tags: []
+user_id: rafidmahbub

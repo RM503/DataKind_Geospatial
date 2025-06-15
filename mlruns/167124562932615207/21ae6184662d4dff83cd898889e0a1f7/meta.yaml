@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/21ae6184662d4dff83cd898889e0a1f7/artifacts
+end_time: 1747763886781
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 21ae6184662d4dff83cd898889e0a1f7
+run_name: sassy-snake-53
+run_uuid: 21ae6184662d4dff83cd898889e0a1f7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747763835730
+status: 3
+tags: []
+user_id: rafidmahbub

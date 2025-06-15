@@ -256,8 +256,8 @@ def main(index_type: str="ndvi") -> None:
     Main function for performing all previous tasks and uploading calculation results to Google Drive.
     """
     # Regions with good satellite images
-    #regions = ["Kajiado_1", "Kajiado_2", "Laikipia_1", "Machakos_1", "Mashuru_1", "Trans_Nzoia_1"]
-    regions = ["Kajiado_2", "Machakos_1"]
+    regions = ["Kajiado_1", "Kajiado_2", "Laikipia_1", "Machakos_1", "Mashuru_1"]
+
     tiles = [f"tile_{i}" for i in range(25)]
 
     GDF_DIR = "../../../samgeo_aws_ec2/vectors/"
@@ -300,4 +300,4 @@ def main(index_type: str="ndvi") -> None:
             task.start()
 
 if __name__ == "__main__":
-    main(index_type="ndvi")
+    main(index_type="ndmi")

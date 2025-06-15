@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/7b42649e55f9448c8beba305c2933123/artifacts
+deleted_time: 1747763666988
+end_time: 1747763265373
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: 7b42649e55f9448c8beba305c2933123
+run_name: intrigued-colt-882
+run_uuid: 7b42649e55f9448c8beba305c2933123
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747763195782
+status: 3
+tags: []
+user_id: rafidmahbub

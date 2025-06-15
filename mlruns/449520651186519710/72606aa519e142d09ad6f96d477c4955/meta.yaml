@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/72606aa519e142d09ad6f96d477c4955/artifacts
+deleted_time: 1746978619374
+end_time: 1746978600197
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 72606aa519e142d09ad6f96d477c4955
+run_name: salty-bass-495
+run_uuid: 72606aa519e142d09ad6f96d477c4955
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746978538588
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/3389f4a5ac314eada6054ed484ebec7a/artifacts
+end_time: 1746112781272
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 3389f4a5ac314eada6054ed484ebec7a
+run_name: able-hen-459
+run_uuid: 3389f4a5ac314eada6054ed484ebec7a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746112755645
+status: 3
+tags: []
+user_id: rafidmahbub

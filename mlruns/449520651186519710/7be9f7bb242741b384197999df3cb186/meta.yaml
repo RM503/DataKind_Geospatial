@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/7be9f7bb242741b384197999df3cb186/artifacts
+end_time: 1746284872190
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 7be9f7bb242741b384197999df3cb186
+run_name: rogue-gull-925
+run_uuid: 7be9f7bb242741b384197999df3cb186
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746284845872
+status: 3
+tags: []
+user_id: rafidmahbub

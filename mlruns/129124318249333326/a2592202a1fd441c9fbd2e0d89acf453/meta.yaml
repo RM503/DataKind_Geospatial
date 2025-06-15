@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/a2592202a1fd441c9fbd2e0d89acf453/artifacts
+end_time: 1747925977873
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: a2592202a1fd441c9fbd2e0d89acf453
+run_name: big-quail-545
+run_uuid: a2592202a1fd441c9fbd2e0d89acf453
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747925915957
+status: 3
+tags: []
+user_id: rafidmahbub

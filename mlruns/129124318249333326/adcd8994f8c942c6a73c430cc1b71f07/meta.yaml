@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/adcd8994f8c942c6a73c430cc1b71f07/artifacts
+end_time: 1747927136649
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: adcd8994f8c942c6a73c430cc1b71f07
+run_name: angry-perch-250
+run_uuid: adcd8994f8c942c6a73c430cc1b71f07
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747927071103
+status: 3
+tags: []
+user_id: rafidmahbub

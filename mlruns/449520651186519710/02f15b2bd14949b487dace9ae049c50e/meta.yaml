@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/02f15b2bd14949b487dace9ae049c50e/artifacts
+end_time: 1747000295833
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 02f15b2bd14949b487dace9ae049c50e
+run_name: righteous-donkey-289
+run_uuid: 02f15b2bd14949b487dace9ae049c50e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747000247768
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/9d1251287afb45d1bada4d6bc210e00c/artifacts
+deleted_time: 1746910856028
+end_time: 1746910478026
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 9d1251287afb45d1bada4d6bc210e00c
+run_name: thoughtful-wren-555
+run_uuid: 9d1251287afb45d1bada4d6bc210e00c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746910421168
+status: 4
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/c58878b8980d467b9ad465f190064dc5/artifacts
+end_time: 1747054374880
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: c58878b8980d467b9ad465f190064dc5
+run_name: traveling-stoat-717
+run_uuid: c58878b8980d467b9ad465f190064dc5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747054327298
+status: 3
+tags: []
+user_id: rafidmahbub

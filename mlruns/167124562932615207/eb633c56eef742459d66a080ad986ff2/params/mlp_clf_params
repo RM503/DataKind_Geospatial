@@ -1,0 +1,1 @@
+{'hidden_layer_sizes': 65, 'activation': 'logistic', 'solver': 'adam', 'alpha': 0.008266591930015669, 'max_iter': 293}

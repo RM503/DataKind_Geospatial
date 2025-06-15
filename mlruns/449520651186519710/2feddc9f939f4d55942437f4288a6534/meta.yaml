@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/2feddc9f939f4d55942437f4288a6534/artifacts
+deleted_time: 1746996744899
+end_time: 1746996412785
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 2feddc9f939f4d55942437f4288a6534
+run_name: wistful-ram-378
+run_uuid: 2feddc9f939f4d55942437f4288a6534
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746996403489
+status: 4
+tags: []
+user_id: rafidmahbub

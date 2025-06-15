@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/962e283a3c5b484897de1faee4183f2c/artifacts
+end_time: 1746196793264
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 962e283a3c5b484897de1faee4183f2c
+run_name: delicate-crow-15
+run_uuid: 962e283a3c5b484897de1faee4183f2c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746196673127
+status: 3
+tags: []
+user_id: rafidmahbub

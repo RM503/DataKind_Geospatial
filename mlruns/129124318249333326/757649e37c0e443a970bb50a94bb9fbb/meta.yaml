@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/757649e37c0e443a970bb50a94bb9fbb/artifacts
+end_time: 1747928498137
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 757649e37c0e443a970bb50a94bb9fbb
+run_name: stylish-loon-769
+run_uuid: 757649e37c0e443a970bb50a94bb9fbb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747925283260
+status: 3
+tags: []
+user_id: rafidmahbub

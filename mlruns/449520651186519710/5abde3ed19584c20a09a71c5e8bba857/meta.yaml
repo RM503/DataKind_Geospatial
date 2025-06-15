@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/5abde3ed19584c20a09a71c5e8bba857/artifacts
+end_time: 1746296488798
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 5abde3ed19584c20a09a71c5e8bba857
+run_name: serious-shrike-921
+run_uuid: 5abde3ed19584c20a09a71c5e8bba857
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746296458229
+status: 3
+tags: []
+user_id: rafidmahbub

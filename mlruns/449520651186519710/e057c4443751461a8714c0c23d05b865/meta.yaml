@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/e057c4443751461a8714c0c23d05b865/artifacts
+end_time: 1747053931241
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: e057c4443751461a8714c0c23d05b865
+run_name: hilarious-dog-949
+run_uuid: e057c4443751461a8714c0c23d05b865
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747053882537
+status: 3
+tags: []
+user_id: rafidmahbub

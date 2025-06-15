@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/cf1461c449b54a6fb765f2d43a11d87f/artifacts
+end_time: 1747932404619
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: cf1461c449b54a6fb765f2d43a11d87f
+run_name: carefree-crab-197
+run_uuid: cf1461c449b54a6fb765f2d43a11d87f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747932340141
+status: 3
+tags: []
+user_id: rafidmahbub

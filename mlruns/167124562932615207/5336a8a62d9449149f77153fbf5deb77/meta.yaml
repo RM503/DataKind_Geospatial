@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/5336a8a62d9449149f77153fbf5deb77/artifacts
+end_time: 1747765935010
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 5336a8a62d9449149f77153fbf5deb77
+run_name: worried-ant-228
+run_uuid: 5336a8a62d9449149f77153fbf5deb77
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747765882632
+status: 3
+tags: []
+user_id: rafidmahbub

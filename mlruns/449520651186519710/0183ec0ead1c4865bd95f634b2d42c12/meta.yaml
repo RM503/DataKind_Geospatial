@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/0183ec0ead1c4865bd95f634b2d42c12/artifacts
+end_time: 1747000047965
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 0183ec0ead1c4865bd95f634b2d42c12
+run_name: luminous-crab-427
+run_uuid: 0183ec0ead1c4865bd95f634b2d42c12
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746999999306
+status: 3
+tags: []
+user_id: rafidmahbub

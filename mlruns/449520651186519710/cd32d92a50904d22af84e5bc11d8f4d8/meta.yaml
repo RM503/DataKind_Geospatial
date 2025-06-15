@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/cd32d92a50904d22af84e5bc11d8f4d8/artifacts
+end_time: 1746995407291
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: cd32d92a50904d22af84e5bc11d8f4d8
+run_name: capable-penguin-688
+run_uuid: cd32d92a50904d22af84e5bc11d8f4d8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746995358865
+status: 3
+tags: []
+user_id: rafidmahbub

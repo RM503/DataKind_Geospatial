@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/dabcb3e3fc0b4565bb36e0b2127704e9/artifacts
+end_time: 1747000680198
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: dabcb3e3fc0b4565bb36e0b2127704e9
+run_name: popular-sponge-497
+run_uuid: dabcb3e3fc0b4565bb36e0b2127704e9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747000633174
+status: 3
+tags: []
+user_id: rafidmahbub

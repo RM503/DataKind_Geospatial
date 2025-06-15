@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/966bb03bce27492392b7392b70e6938b/artifacts
+end_time: 1746912490426
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 966bb03bce27492392b7392b70e6938b
+run_name: tasteful-hen-796
+run_uuid: 966bb03bce27492392b7392b70e6938b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746912429078
+status: 3
+tags: []
+user_id: rafidmahbub

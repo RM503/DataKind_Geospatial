@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/e233ddc4b5b14dd19cc2806419dba7a9/artifacts
+end_time: 1746997403471
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: e233ddc4b5b14dd19cc2806419dba7a9
+run_name: carefree-stag-8
+run_uuid: e233ddc4b5b14dd19cc2806419dba7a9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746997357697
+status: 3
+tags: []
+user_id: rafidmahbub

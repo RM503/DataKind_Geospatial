@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/d66a237874ff4eea87592bf70be1ee93/artifacts
+end_time: 1747769458948
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: d66a237874ff4eea87592bf70be1ee93
+run_name: melodic-hog-16
+run_uuid: d66a237874ff4eea87592bf70be1ee93
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747769406441
+status: 3
+tags: []
+user_id: rafidmahbub

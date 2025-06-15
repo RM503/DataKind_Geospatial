@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/ee69d056e9074f898660f14ed29ea2a7/artifacts
+end_time: 1746139819973
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: ee69d056e9074f898660f14ed29ea2a7
+run_name: agreeable-goose-886
+run_uuid: ee69d056e9074f898660f14ed29ea2a7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139795262
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f245fbb33980451290c7f2be9e187879/artifacts
+deleted_time: 1746975608160
+end_time: 1746975263784
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: f245fbb33980451290c7f2be9e187879
+run_name: welcoming-smelt-293
+run_uuid: f245fbb33980451290c7f2be9e187879
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746975214696
+status: 3
+tags: []
+user_id: rafidmahbub

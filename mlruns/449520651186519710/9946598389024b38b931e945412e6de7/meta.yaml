@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/9946598389024b38b931e945412e6de7/artifacts
+end_time: 1746227581215
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 9946598389024b38b931e945412e6de7
+run_name: rare-lark-313
+run_uuid: 9946598389024b38b931e945412e6de7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746227557838
+status: 3
+tags: []
+user_id: rafidmahbub

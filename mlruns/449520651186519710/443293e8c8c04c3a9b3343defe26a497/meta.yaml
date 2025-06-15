@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/443293e8c8c04c3a9b3343defe26a497/artifacts
+end_time: 1746060332724
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 443293e8c8c04c3a9b3343defe26a497
+run_name: exultant-ant-788
+run_uuid: 443293e8c8c04c3a9b3343defe26a497
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746060311158
+status: 3
+tags: []
+user_id: rafidmahbub

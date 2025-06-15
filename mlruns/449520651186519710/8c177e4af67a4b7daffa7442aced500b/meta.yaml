@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/8c177e4af67a4b7daffa7442aced500b/artifacts
+end_time: 1747060347653
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 8c177e4af67a4b7daffa7442aced500b
+run_name: grandiose-lark-93
+run_uuid: 8c177e4af67a4b7daffa7442aced500b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747060290862
+status: 3
+tags: []
+user_id: rafidmahbub

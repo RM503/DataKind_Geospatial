@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/a16b5019947b486ab2f57a6481b8557a/artifacts
+deleted_time: 1747002054293
+end_time: 1747002011767
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: a16b5019947b486ab2f57a6481b8557a
+run_name: bustling-doe-840
+run_uuid: a16b5019947b486ab2f57a6481b8557a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747001755598
+status: 3
+tags: []
+user_id: rafidmahbub

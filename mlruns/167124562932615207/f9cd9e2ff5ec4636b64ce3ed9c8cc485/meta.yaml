@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/f9cd9e2ff5ec4636b64ce3ed9c8cc485/artifacts
+end_time: 1747764262282
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: f9cd9e2ff5ec4636b64ce3ed9c8cc485
+run_name: bedecked-rook-558
+run_uuid: f9cd9e2ff5ec4636b64ce3ed9c8cc485
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747764212834
+status: 3
+tags: []
+user_id: rafidmahbub

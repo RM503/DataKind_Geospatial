@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/91476caf811e4c8a968a8ed861e220cb/artifacts
+end_time: 1746994200567
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 91476caf811e4c8a968a8ed861e220cb
+run_name: silent-slug-763
+run_uuid: 91476caf811e4c8a968a8ed861e220cb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994150728
+status: 3
+tags: []
+user_id: rafidmahbub

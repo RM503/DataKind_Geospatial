@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/850a156fd9b749cea4169b62ecb48b14/artifacts
+end_time: 1746993378087
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 850a156fd9b749cea4169b62ecb48b14
+run_name: handsome-gull-455
+run_uuid: 850a156fd9b749cea4169b62ecb48b14
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746993331997
+status: 3
+tags: []
+user_id: rafidmahbub

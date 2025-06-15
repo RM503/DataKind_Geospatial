@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/18e520e185b249bcb6f94be0ee992fd0/artifacts
+end_time: 1746999950113
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 18e520e185b249bcb6f94be0ee992fd0
+run_name: glamorous-kite-130
+run_uuid: 18e520e185b249bcb6f94be0ee992fd0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746999904147
+status: 3
+tags: []
+user_id: rafidmahbub

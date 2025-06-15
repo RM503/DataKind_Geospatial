@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d9a80dfe0a714e2e9c860417039cded1/artifacts
+end_time: 1747053982615
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d9a80dfe0a714e2e9c860417039cded1
+run_name: magnificent-newt-341
+run_uuid: d9a80dfe0a714e2e9c860417039cded1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747053931256
+status: 3
+tags: []
+user_id: rafidmahbub

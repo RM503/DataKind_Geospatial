@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/8b34c7819cda47e78698d2bd7d805189/artifacts
+end_time: 1747926103969
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 8b34c7819cda47e78698d2bd7d805189
+run_name: placid-stoat-692
+run_uuid: 8b34c7819cda47e78698d2bd7d805189
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747926041433
+status: 3
+tags: []
+user_id: rafidmahbub

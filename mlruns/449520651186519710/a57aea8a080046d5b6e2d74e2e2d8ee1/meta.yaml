@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/a57aea8a080046d5b6e2d74e2e2d8ee1/artifacts
+end_time: 1746994977636
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: a57aea8a080046d5b6e2d74e2e2d8ee1
+run_name: dashing-panda-471
+run_uuid: a57aea8a080046d5b6e2d74e2e2d8ee1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994928070
+status: 3
+tags: []
+user_id: rafidmahbub

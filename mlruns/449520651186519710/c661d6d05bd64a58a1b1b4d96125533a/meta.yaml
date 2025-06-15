@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/c661d6d05bd64a58a1b1b4d96125533a/artifacts
+end_time: 1746297302872
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: c661d6d05bd64a58a1b1b4d96125533a
+run_name: bright-roo-243
+run_uuid: c661d6d05bd64a58a1b1b4d96125533a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746296458221
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/88a88e64a4f04688a1d026c36cf38491/artifacts
+end_time: 1747931023047
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 88a88e64a4f04688a1d026c36cf38491
+run_name: tasteful-stoat-460
+run_uuid: 88a88e64a4f04688a1d026c36cf38491
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747930958560
+status: 3
+tags: []
+user_id: rafidmahbub

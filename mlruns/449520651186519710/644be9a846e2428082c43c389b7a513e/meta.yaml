@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/644be9a846e2428082c43c389b7a513e/artifacts
+end_time: 1746297228951
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 644be9a846e2428082c43c389b7a513e
+run_name: delicate-yak-334
+run_uuid: 644be9a846e2428082c43c389b7a513e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746297194930
+status: 3
+tags: []
+user_id: rafidmahbub

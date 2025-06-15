@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f12512436c444eb1bd6165ff7e14c68f/artifacts
+deleted_time: 1746975608173
+end_time: 1746974769012
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: f12512436c444eb1bd6165ff7e14c68f
+run_name: whimsical-skink-662
+run_uuid: f12512436c444eb1bd6165ff7e14c68f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746974719311
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/7d49a381abef4d94a3681c00ed9b6a00/artifacts
+end_time: 1746112594067
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 7d49a381abef4d94a3681c00ed9b6a00
+run_name: lyrical-bee-355
+run_uuid: 7d49a381abef4d94a3681c00ed9b6a00
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746112572181
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/94d7ecb12615417489d998c14a313e1e/artifacts
+end_time: 1746994549317
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 94d7ecb12615417489d998c14a313e1e
+run_name: victorious-panda-520
+run_uuid: 94d7ecb12615417489d998c14a313e1e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994502212
+status: 3
+tags: []
+user_id: rafidmahbub

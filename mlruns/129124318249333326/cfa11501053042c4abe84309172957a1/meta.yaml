@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/cfa11501053042c4abe84309172957a1/artifacts
+end_time: 1747926684715
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: cfa11501053042c4abe84309172957a1
+run_name: indecisive-shoat-482
+run_uuid: cfa11501053042c4abe84309172957a1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747926620498
+status: 3
+tags: []
+user_id: rafidmahbub

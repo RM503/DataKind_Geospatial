@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/265d8b365ef742f9bc5aa818c041d618/artifacts
+end_time: 1746227463633
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 265d8b365ef742f9bc5aa818c041d618
+run_name: crawling-bear-895
+run_uuid: 265d8b365ef742f9bc5aa818c041d618
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746227441388
+status: 3
+tags: []
+user_id: rafidmahbub

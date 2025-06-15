@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/2c799dbe4fd14a9fb3c01a8794dd1b77/artifacts
+end_time: 1747929376234
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 2c799dbe4fd14a9fb3c01a8794dd1b77
+run_name: wise-steed-280
+run_uuid: 2c799dbe4fd14a9fb3c01a8794dd1b77
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747929313110
+status: 3
+tags: []
+user_id: rafidmahbub

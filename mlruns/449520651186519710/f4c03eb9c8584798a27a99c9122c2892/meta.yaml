@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f4c03eb9c8584798a27a99c9122c2892/artifacts
+end_time: 1747000439993
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f4c03eb9c8584798a27a99c9122c2892
+run_name: gregarious-deer-921
+run_uuid: f4c03eb9c8584798a27a99c9122c2892
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747000391561
+status: 3
+tags: []
+user_id: rafidmahbub

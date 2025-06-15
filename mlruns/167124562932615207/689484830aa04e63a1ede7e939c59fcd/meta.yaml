@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/689484830aa04e63a1ede7e939c59fcd/artifacts
+end_time: 1747768925389
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 689484830aa04e63a1ede7e939c59fcd
+run_name: caring-mole-604
+run_uuid: 689484830aa04e63a1ede7e939c59fcd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747768868101
+status: 3
+tags: []
+user_id: rafidmahbub

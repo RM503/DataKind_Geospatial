@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/ba10e0de17a143eca9d028855c3f7409/artifacts
+end_time: 1746980382382
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: ba10e0de17a143eca9d028855c3f7409
+run_name: learned-shrimp-507
+run_uuid: ba10e0de17a143eca9d028855c3f7409
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746980332612
+status: 3
+tags: []
+user_id: rafidmahbub

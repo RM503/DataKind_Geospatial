@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/fa1654356ae5444bab123d43b757e2c9/artifacts
+end_time: 1746993838309
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: fa1654356ae5444bab123d43b757e2c9
+run_name: handsome-stoat-491
+run_uuid: fa1654356ae5444bab123d43b757e2c9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746993783995
+status: 3
+tags: []
+user_id: rafidmahbub

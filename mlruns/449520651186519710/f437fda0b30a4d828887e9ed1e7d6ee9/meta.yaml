@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f437fda0b30a4d828887e9ed1e7d6ee9/artifacts
+end_time: 1746296516031
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f437fda0b30a4d828887e9ed1e7d6ee9
+run_name: ambitious-grouse-780
+run_uuid: f437fda0b30a4d828887e9ed1e7d6ee9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746296488812
+status: 3
+tags: []
+user_id: rafidmahbub

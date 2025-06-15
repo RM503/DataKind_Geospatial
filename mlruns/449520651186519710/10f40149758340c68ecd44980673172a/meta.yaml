@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/10f40149758340c68ecd44980673172a/artifacts
+end_time: 1746196916796
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 10f40149758340c68ecd44980673172a
+run_name: fearless-frog-36
+run_uuid: 10f40149758340c68ecd44980673172a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746196891718
+status: 3
+tags: []
+user_id: rafidmahbub

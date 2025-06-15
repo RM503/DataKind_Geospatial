@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/55082dbaeea044bca2ca2e86e6f87ebd/artifacts
+end_time: 1747000585209
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 55082dbaeea044bca2ca2e86e6f87ebd
+run_name: rare-colt-715
+run_uuid: 55082dbaeea044bca2ca2e86e6f87ebd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747000537369
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -3,6 +3,8 @@ __pycache__/
 
 .DS_Store
 
+.vscode
+
 **/*.log
 
 env/
@@ -11,10 +13,17 @@ env/
 
 config.py
 
+crop_classification/time_series_analyses/evi_series_raw
+crop_classification/time_series_analyses/evi_series_clean
+crop_classification/time_series_analyses/ndmi_series_raw
+crop_classification/time_series_analyses/ndmi_series_clean
 crop_classification/time_series_analyses/ndvi_series_raw
-crop_classification/time_series_analyses/ndvi_series_cleaned
 crop_classification/time_series_analyses/ndvi_series_labeled
 crop_classification/time_series_analyses/ndvi_series.log
+crop_classification/time_series_analyses/ndvi_series_clean
+crop_classification/time_series_analyses/inference
+crop_classification/time_series_analyses/tests/data
+
 
 cloud_masked_composites/__pycache__
 cloud_masked_composites/.ipynb_checkpoints
@@ -25,6 +34,9 @@ cloud_masked_composites/sentinelhub/images
 cloud_masked_composites/sentinelhub/logs
 
 data/
+
+dashboards/assets/raw 
+dashboards/assets/processed
 
 geocoding/__pycache__
 geocoding/*.csv

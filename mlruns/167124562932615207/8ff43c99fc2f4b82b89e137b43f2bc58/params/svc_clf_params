@@ -1,0 +1,1 @@
+{'C': 0.019669870152009834, 'kernel': 'linear', 'gamma': 'scale', 'class_weight': 'balanced', 'probability': True}

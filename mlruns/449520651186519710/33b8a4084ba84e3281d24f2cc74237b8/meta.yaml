@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/33b8a4084ba84e3281d24f2cc74237b8/artifacts
+end_time: 1746060203062
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 33b8a4084ba84e3281d24f2cc74237b8
+run_name: worried-snipe-158
+run_uuid: 33b8a4084ba84e3281d24f2cc74237b8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746060180366
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/e47add614ece45dd91329bc65804ddc4/artifacts
+deleted_time: 1746975608173
+end_time: 1746974819716
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: e47add614ece45dd91329bc65804ddc4
+run_name: sedate-bass-720
+run_uuid: e47add614ece45dd91329bc65804ddc4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746974769029
+status: 3
+tags: []
+user_id: rafidmahbub

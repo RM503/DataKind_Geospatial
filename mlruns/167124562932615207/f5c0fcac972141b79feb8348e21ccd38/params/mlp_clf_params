@@ -1,0 +1,1 @@
+{'hidden_layer_sizes': 36, 'activation': 'tanh', 'solver': 'adam', 'alpha': 0.009773292642863817, 'max_iter': 328}

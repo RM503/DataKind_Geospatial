@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/f2c1d0539c444238a601ece2c50d4307/artifacts
+end_time: 1747764634374
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: f2c1d0539c444238a601ece2c50d4307
+run_name: treasured-wren-953
+run_uuid: f2c1d0539c444238a601ece2c50d4307
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747764581338
+status: 3
+tags: []
+user_id: rafidmahbub

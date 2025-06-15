@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/5e6c5d7c18a34461b434fc6bb5d98b97/artifacts
+deleted_time: 1747763666989
+end_time: 1747763090416
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: 5e6c5d7c18a34461b434fc6bb5d98b97
+run_name: gregarious-mule-903
+run_uuid: 5e6c5d7c18a34461b434fc6bb5d98b97
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747763041986
+status: 3
+tags: []
+user_id: rafidmahbub

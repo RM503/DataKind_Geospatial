@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/8e1bf199621f47c8909d1a8614e5b0ec/artifacts
+end_time: 1746913275866
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 8e1bf199621f47c8909d1a8614e5b0ec
+run_name: painted-asp-616
+run_uuid: 8e1bf199621f47c8909d1a8614e5b0ec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746913222178
+status: 3
+tags: []
+user_id: rafidmahbub

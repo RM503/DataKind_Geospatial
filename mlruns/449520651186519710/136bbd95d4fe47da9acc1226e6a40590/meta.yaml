@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/136bbd95d4fe47da9acc1226e6a40590/artifacts
+end_time: 1746999904132
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 136bbd95d4fe47da9acc1226e6a40590
+run_name: puzzled-worm-217
+run_uuid: 136bbd95d4fe47da9acc1226e6a40590
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746999852199
+status: 3
+tags: []
+user_id: rafidmahbub

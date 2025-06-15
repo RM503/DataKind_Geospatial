@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/04d529d48af34fc69245f748923a0ef2/artifacts
+end_time: 1746139678159
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 04d529d48af34fc69245f748923a0ef2
+run_name: unruly-loon-192
+run_uuid: 04d529d48af34fc69245f748923a0ef2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139652244
+status: 3
+tags: []
+user_id: rafidmahbub

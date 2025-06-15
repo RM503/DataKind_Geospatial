@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f7b15a38bd204132b57b7c309441e33a/artifacts
+end_time: 1747055577762
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f7b15a38bd204132b57b7c309441e33a
+run_name: delightful-whale-660
+run_uuid: f7b15a38bd204132b57b7c309441e33a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747055530264
+status: 3
+tags: []
+user_id: rafidmahbub

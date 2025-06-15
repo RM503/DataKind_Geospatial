@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/7a431d1a5a1c4ab6b6e2a633a2167508/artifacts
+end_time: 1747925915949
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 7a431d1a5a1c4ab6b6e2a633a2167508
+run_name: defiant-hen-210
+run_uuid: 7a431d1a5a1c4ab6b6e2a633a2167508
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747925850521
+status: 3
+tags: []
+user_id: rafidmahbub

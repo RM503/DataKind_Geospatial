@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/fa888c6695a242d599f6af4920a1bf32/artifacts
+end_time: 1747929177689
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: fa888c6695a242d599f6af4920a1bf32
+run_name: honorable-donkey-492
+run_uuid: fa888c6695a242d599f6af4920a1bf32
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747929110780
+status: 3
+tags: []
+user_id: rafidmahbub

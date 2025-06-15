@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/df0b5a56dcd14ad18c3d8ba15e89d5a0/artifacts
+end_time: 1746994832237
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: df0b5a56dcd14ad18c3d8ba15e89d5a0
+run_name: stately-ram-456
+run_uuid: df0b5a56dcd14ad18c3d8ba15e89d5a0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994785311
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -6,6 +6,7 @@ logging.basicConfig(level=logging.INFO)
 
 def aggregate_ts(
         region: str,
+        vi: str="ndvi",
         input_file_dir: str="../ndvi_series_clean/",
         output_file_dir: str=None
 ) -> None:
@@ -21,7 +22,8 @@ def aggregate_ts(
     if region not in ["Kajiado_1", "Kajiado_2", "Laikipia_1", "Machakos_1", "Mashuru_1", "Trans_Nzoia_1"]:
         logging.error(f"Invalid region: {region}")
 
-    file_paths = glob.glob(f"{input_file_dir}ndvi_series_{region}_*.csv")
+    base_file_name = f"{vi}_series"
+    file_paths = glob.glob(f"{input_file_dir}{base_file_name}_{region}_*.csv")
     if len(file_paths) == 0:
         logging.error(f"No files found for region {region} matching required pattern.")
 
@@ -47,6 +49,6 @@ def aggregate_ts(
     df = pd.concat(df_list).reset_index(drop=True)
 
     if output_file_dir is not None:
-        df.to_csv(f"{output_file_dir}ndvi_series_{region}_aggregated.csv")
+        df.to_csv(f"{output_file_dir}{base_file_name}_{region}_aggregated.csv")
     else:
-        df.to_csv(f"{input_file_dir}ndvi_series_{region}_aggregated.csv") 
+        df.to_csv(f"{input_file_dir}{base_file_name}_{region}_aggregated.csv") 

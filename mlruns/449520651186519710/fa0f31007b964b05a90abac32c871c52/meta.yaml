@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/fa0f31007b964b05a90abac32c871c52/artifacts
+end_time: 1746978939431
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: fa0f31007b964b05a90abac32c871c52
+run_name: righteous-mole-907
+run_uuid: fa0f31007b964b05a90abac32c871c52
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746978891728
+status: 3
+tags: []
+user_id: rafidmahbub

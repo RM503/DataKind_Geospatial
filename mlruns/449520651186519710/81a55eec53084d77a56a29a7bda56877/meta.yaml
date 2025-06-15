@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/81a55eec53084d77a56a29a7bda56877/artifacts
+end_time: 1747060188636
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 81a55eec53084d77a56a29a7bda56877
+run_name: powerful-cub-938
+run_uuid: 81a55eec53084d77a56a29a7bda56877
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747060138467
+status: 3
+tags: []
+user_id: rafidmahbub

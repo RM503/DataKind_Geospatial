@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/8ff43c99fc2f4b82b89e137b43f2bc58/artifacts
+end_time: 1747767242529
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 8ff43c99fc2f4b82b89e137b43f2bc58
+run_name: likeable-whale-572
+run_uuid: 8ff43c99fc2f4b82b89e137b43f2bc58
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747767175059
+status: 3
+tags: []
+user_id: rafidmahbub

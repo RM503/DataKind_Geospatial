@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/8befec60554e44e6863468951de4daa9/artifacts
+end_time: 1746912946303
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 8befec60554e44e6863468951de4daa9
+run_name: zealous-sponge-872
+run_uuid: 8befec60554e44e6863468951de4daa9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746912890224
+status: 3
+tags: []
+user_id: rafidmahbub

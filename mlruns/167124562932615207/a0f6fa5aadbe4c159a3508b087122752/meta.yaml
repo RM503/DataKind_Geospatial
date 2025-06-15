@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/a0f6fa5aadbe4c159a3508b087122752/artifacts
+end_time: 1747769030057
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: a0f6fa5aadbe4c159a3508b087122752
+run_name: useful-owl-709
+run_uuid: a0f6fa5aadbe4c159a3508b087122752
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747768978440
+status: 3
+tags: []
+user_id: rafidmahbub

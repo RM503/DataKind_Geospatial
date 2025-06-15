@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/acf5453f975941e09a111117cee56b5d/artifacts
+end_time: 1746196842548
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: acf5453f975941e09a111117cee56b5d
+run_name: sincere-shad-705
+run_uuid: acf5453f975941e09a111117cee56b5d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746196817755
+status: 3
+tags: []
+user_id: rafidmahbub

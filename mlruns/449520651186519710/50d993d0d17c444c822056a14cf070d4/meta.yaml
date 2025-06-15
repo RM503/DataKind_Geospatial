@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/50d993d0d17c444c822056a14cf070d4/artifacts
+end_time: 1747061900706
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 50d993d0d17c444c822056a14cf070d4
+run_name: amusing-rook-948
+run_uuid: 50d993d0d17c444c822056a14cf070d4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747061853530
+status: 3
+tags: []
+user_id: rafidmahbub

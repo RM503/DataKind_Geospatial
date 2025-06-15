@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/13949a5e465d44b5b669bc98622113ea/artifacts
+end_time: 1746192995042
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 13949a5e465d44b5b669bc98622113ea
+run_name: valuable-lynx-322
+run_uuid: 13949a5e465d44b5b669bc98622113ea
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746192970506
+status: 4
+tags: []
+user_id: rafidmahbub

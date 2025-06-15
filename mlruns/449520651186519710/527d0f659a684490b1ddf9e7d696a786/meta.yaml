@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/527d0f659a684490b1ddf9e7d696a786/artifacts
+end_time: 1746999603351
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 527d0f659a684490b1ddf9e7d696a786
+run_name: welcoming-bear-727
+run_uuid: 527d0f659a684490b1ddf9e7d696a786
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746999552556
+status: 3
+tags: []
+user_id: rafidmahbub

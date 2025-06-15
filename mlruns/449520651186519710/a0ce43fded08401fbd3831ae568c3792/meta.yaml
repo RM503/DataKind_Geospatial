@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/a0ce43fded08401fbd3831ae568c3792/artifacts
+end_time: 1746994595816
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: a0ce43fded08401fbd3831ae568c3792
+run_name: debonair-stag-913
+run_uuid: a0ce43fded08401fbd3831ae568c3792
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994549332
+status: 3
+tags: []
+user_id: rafidmahbub

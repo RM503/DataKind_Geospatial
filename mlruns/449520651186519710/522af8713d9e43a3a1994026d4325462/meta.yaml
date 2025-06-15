@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/522af8713d9e43a3a1994026d4325462/artifacts
+end_time: 1746298724574
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 522af8713d9e43a3a1994026d4325462
+run_name: upbeat-loon-137
+run_uuid: 522af8713d9e43a3a1994026d4325462
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746297959562
+status: 4
+tags: []
+user_id: rafidmahbub

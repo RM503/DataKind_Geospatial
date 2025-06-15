@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/5accf30886584d039448d3ca62d7cd15/artifacts
+end_time: 1747929247922
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 5accf30886584d039448d3ca62d7cd15
+run_name: caring-goat-595
+run_uuid: 5accf30886584d039448d3ca62d7cd15
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747929177696
+status: 3
+tags: []
+user_id: rafidmahbub

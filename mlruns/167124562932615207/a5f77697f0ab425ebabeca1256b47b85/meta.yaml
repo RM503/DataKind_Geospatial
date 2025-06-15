@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/a5f77697f0ab425ebabeca1256b47b85/artifacts
+end_time: 1747764212828
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: a5f77697f0ab425ebabeca1256b47b85
+run_name: useful-flea-125
+run_uuid: a5f77697f0ab425ebabeca1256b47b85
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747764156915
+status: 3
+tags: []
+user_id: rafidmahbub

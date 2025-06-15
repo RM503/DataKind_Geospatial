@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1746285081866
+current_stage: None
+description: ''
+last_updated_timestamp: 1746285081866
+name: timeseries_classification_RandomForest
+run_id: c2f87f4f626e4e72b114539530226791
+run_link: ''
+source: mlflow-artifacts:/449520651186519710/c2f87f4f626e4e72b114539530226791/artifacts/timeseries_classification_RandomForest
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/449520651186519710/c2f87f4f626e4e72b114539530226791/artifacts/timeseries_classification_RandomForest
+user_id: null
+version: 6

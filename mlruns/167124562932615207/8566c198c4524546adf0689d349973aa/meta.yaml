@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/8566c198c4524546adf0689d349973aa/artifacts
+end_time: 1747763940939
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 8566c198c4524546adf0689d349973aa
+run_name: melodic-ray-988
+run_uuid: 8566c198c4524546adf0689d349973aa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747763886787
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/12a6b7479c2842d190f99ccc82916b9f/artifacts
+end_time: 1747939712635
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 12a6b7479c2842d190f99ccc82916b9f
+run_name: angry-flea-143
+run_uuid: 12a6b7479c2842d190f99ccc82916b9f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747939644954
+status: 3
+tags: []
+user_id: rafidmahbub

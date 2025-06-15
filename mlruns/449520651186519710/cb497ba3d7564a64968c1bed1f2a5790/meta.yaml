@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/cb497ba3d7564a64968c1bed1f2a5790/artifacts
+end_time: 1746980984699
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: cb497ba3d7564a64968c1bed1f2a5790
+run_name: learned-skunk-632
+run_uuid: cb497ba3d7564a64968c1bed1f2a5790
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746980934182
+status: 3
+tags: []
+user_id: rafidmahbub

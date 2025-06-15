@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/8cc51f16fd62434584305bf9eb6cce97/artifacts
+end_time: 1747935737730
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 8cc51f16fd62434584305bf9eb6cce97
+run_name: upset-sloth-81
+run_uuid: 8cc51f16fd62434584305bf9eb6cce97
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747935655934
+status: 3
+tags: []
+user_id: rafidmahbub

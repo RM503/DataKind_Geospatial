@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/788a5e2ee5544bfe9816dcbe4f6100e7/artifacts
+end_time: 1747932148183
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 788a5e2ee5544bfe9816dcbe4f6100e7
+run_name: rogue-conch-445
+run_uuid: 788a5e2ee5544bfe9816dcbe4f6100e7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747931542520
+status: 3
+tags: []
+user_id: rafidmahbub

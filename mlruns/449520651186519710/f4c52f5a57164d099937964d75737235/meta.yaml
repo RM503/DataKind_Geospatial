@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f4c52f5a57164d099937964d75737235/artifacts
+deleted_time: 1747003211022
+end_time: 1747001949229
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: f4c52f5a57164d099937964d75737235
+run_name: rare-eel-276
+run_uuid: f4c52f5a57164d099937964d75737235
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747001900378
+status: 3
+tags: []
+user_id: rafidmahbub

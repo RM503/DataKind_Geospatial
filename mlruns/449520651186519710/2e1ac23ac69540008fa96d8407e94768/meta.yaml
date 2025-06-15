@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/2e1ac23ac69540008fa96d8407e94768/artifacts
+end_time: 1746993783980
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 2e1ac23ac69540008fa96d8407e94768
+run_name: gifted-lamb-855
+run_uuid: 2e1ac23ac69540008fa96d8407e94768
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746993732955
+status: 3
+tags: []
+user_id: rafidmahbub

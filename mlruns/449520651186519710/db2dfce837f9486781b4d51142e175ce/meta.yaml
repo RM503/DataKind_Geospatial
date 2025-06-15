@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/db2dfce837f9486781b4d51142e175ce/artifacts
+end_time: 1746979179801
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: db2dfce837f9486781b4d51142e175ce
+run_name: monumental-cub-56
+run_uuid: db2dfce837f9486781b4d51142e175ce
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746979131100
+status: 3
+tags: []
+user_id: rafidmahbub

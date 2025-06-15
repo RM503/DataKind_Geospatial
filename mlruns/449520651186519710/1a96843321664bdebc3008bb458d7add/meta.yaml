@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/1a96843321664bdebc3008bb458d7add/artifacts
+end_time: 1746297007341
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 1a96843321664bdebc3008bb458d7add
+run_name: amusing-kite-668
+run_uuid: 1a96843321664bdebc3008bb458d7add
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746296963432
+status: 3
+tags: []
+user_id: rafidmahbub

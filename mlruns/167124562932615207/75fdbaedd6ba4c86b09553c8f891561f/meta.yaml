@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/75fdbaedd6ba4c86b09553c8f891561f/artifacts
+end_time: 1747764156908
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 75fdbaedd6ba4c86b09553c8f891561f
+run_name: sincere-dolphin-286
+run_uuid: 75fdbaedd6ba4c86b09553c8f891561f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747764104940
+status: 3
+tags: []
+user_id: rafidmahbub

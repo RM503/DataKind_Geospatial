@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/8eefb2b56f3343d4bb01590710bf372c/artifacts
+end_time: 1747054475193
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 8eefb2b56f3343d4bb01590710bf372c
+run_name: upset-cub-684
+run_uuid: 8eefb2b56f3343d4bb01590710bf372c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747054422807
+status: 3
+tags: []
+user_id: rafidmahbub

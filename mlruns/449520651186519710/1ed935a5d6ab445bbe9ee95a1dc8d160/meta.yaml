@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/1ed935a5d6ab445bbe9ee95a1dc8d160/artifacts
+end_time: 1747055100468
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 1ed935a5d6ab445bbe9ee95a1dc8d160
+run_name: magnificent-bug-841
+run_uuid: 1ed935a5d6ab445bbe9ee95a1dc8d160
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747055052793
+status: 3
+tags: []
+user_id: rafidmahbub

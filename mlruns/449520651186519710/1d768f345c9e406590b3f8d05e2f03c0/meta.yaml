@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/1d768f345c9e406590b3f8d05e2f03c0/artifacts
+end_time: 1746284974577
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 1d768f345c9e406590b3f8d05e2f03c0
+run_name: defiant-shrew-539
+run_uuid: 1d768f345c9e406590b3f8d05e2f03c0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746284947943
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/6754b542439d49bab13222e2e93f598b/artifacts
+end_time: 1746993991023
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 6754b542439d49bab13222e2e93f598b
+run_name: redolent-wasp-49
+run_uuid: 6754b542439d49bab13222e2e93f598b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746993940052
+status: 3
+tags: []
+user_id: rafidmahbub

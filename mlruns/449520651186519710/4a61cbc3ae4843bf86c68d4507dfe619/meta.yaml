@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/4a61cbc3ae4843bf86c68d4507dfe619/artifacts
+end_time: 1747054572618
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 4a61cbc3ae4843bf86c68d4507dfe619
+run_name: bold-shrew-314
+run_uuid: 4a61cbc3ae4843bf86c68d4507dfe619
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747054523609
+status: 3
+tags: []
+user_id: rafidmahbub

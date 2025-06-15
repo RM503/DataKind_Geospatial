@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/3451e9670c0b4685b82c323b8108bbd5/artifacts
+end_time: 1747931542512
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 3451e9670c0b4685b82c323b8108bbd5
+run_name: industrious-wasp-528
+run_uuid: 3451e9670c0b4685b82c323b8108bbd5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747931477192
+status: 3
+tags: []
+user_id: rafidmahbub

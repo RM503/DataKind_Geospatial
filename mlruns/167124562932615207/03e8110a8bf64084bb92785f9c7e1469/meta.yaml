@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/03e8110a8bf64084bb92785f9c7e1469/artifacts
+end_time: 1747765608653
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 03e8110a8bf64084bb92785f9c7e1469
+run_name: righteous-snail-962
+run_uuid: 03e8110a8bf64084bb92785f9c7e1469
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747765555112
+status: 3
+tags: []
+user_id: rafidmahbub

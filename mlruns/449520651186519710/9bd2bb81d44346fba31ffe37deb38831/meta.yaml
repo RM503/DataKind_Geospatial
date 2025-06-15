@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/9bd2bb81d44346fba31ffe37deb38831/artifacts
+end_time: 1746981034519
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 9bd2bb81d44346fba31ffe37deb38831
+run_name: fearless-quail-735
+run_uuid: 9bd2bb81d44346fba31ffe37deb38831
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746980984715
+status: 3
+tags: []
+user_id: rafidmahbub

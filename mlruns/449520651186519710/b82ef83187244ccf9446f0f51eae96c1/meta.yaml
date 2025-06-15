@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/b82ef83187244ccf9446f0f51eae96c1/artifacts
+end_time: 1746139914977
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: b82ef83187244ccf9446f0f51eae96c1
+run_name: salty-smelt-18
+run_uuid: b82ef83187244ccf9446f0f51eae96c1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139890149
+status: 3
+tags: []
+user_id: rafidmahbub

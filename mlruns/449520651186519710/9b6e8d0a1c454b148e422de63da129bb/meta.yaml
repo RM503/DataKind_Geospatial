@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/9b6e8d0a1c454b148e422de63da129bb/artifacts
+end_time: 1746995025005
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 9b6e8d0a1c454b148e422de63da129bb
+run_name: sincere-bird-802
+run_uuid: 9b6e8d0a1c454b148e422de63da129bb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994977649
+status: 3
+tags: []
+user_id: rafidmahbub

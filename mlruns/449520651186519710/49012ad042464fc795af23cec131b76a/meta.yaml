@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/49012ad042464fc795af23cec131b76a/artifacts
+end_time: 1746297883049
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 49012ad042464fc795af23cec131b76a
+run_name: bold-turtle-963
+run_uuid: 49012ad042464fc795af23cec131b76a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746297883039
+status: 4
+tags: []
+user_id: rafidmahbub

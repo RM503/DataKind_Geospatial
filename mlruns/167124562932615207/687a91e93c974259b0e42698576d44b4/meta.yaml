@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/687a91e93c974259b0e42698576d44b4/artifacts
+end_time: 1747769787270
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 687a91e93c974259b0e42698576d44b4
+run_name: loud-whale-775
+run_uuid: 687a91e93c974259b0e42698576d44b4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747769717703
+status: 3
+tags: []
+user_id: rafidmahbub

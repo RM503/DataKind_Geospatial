@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/697d352b1a91431ab0386a9b23a0020f/artifacts
+deleted_time: 1747003211024
+end_time: 1747001803813
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 697d352b1a91431ab0386a9b23a0020f
+run_name: intrigued-boar-706
+run_uuid: 697d352b1a91431ab0386a9b23a0020f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747001755626
+status: 3
+tags: []
+user_id: rafidmahbub

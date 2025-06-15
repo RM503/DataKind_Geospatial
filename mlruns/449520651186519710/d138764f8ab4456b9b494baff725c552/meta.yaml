@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d138764f8ab4456b9b494baff725c552/artifacts
+end_time: 1746227703427
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d138764f8ab4456b9b494baff725c552
+run_name: secretive-kit-838
+run_uuid: d138764f8ab4456b9b494baff725c552
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746227679727
+status: 3
+tags: []
+user_id: rafidmahbub

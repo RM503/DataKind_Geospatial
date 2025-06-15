@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/5dcaccef7e1d47c495f84aa6ce75e90c/artifacts
+end_time: 1746998276394
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 5dcaccef7e1d47c495f84aa6ce75e90c
+run_name: kindly-moth-383
+run_uuid: 5dcaccef7e1d47c495f84aa6ce75e90c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746998227309
+status: 3
+tags: []
+user_id: rafidmahbub

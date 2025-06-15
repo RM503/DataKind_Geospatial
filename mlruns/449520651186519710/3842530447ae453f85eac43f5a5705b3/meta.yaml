@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/3842530447ae453f85eac43f5a5705b3/artifacts
+deleted_time: 1746975608165
+end_time: 1746975065935
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 3842530447ae453f85eac43f5a5705b3
+run_name: merciful-gnu-979
+run_uuid: 3842530447ae453f85eac43f5a5705b3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746975014037
+status: 3
+tags: []
+user_id: rafidmahbub

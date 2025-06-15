@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/1685242b737645b8b09c08d5edc383bf/artifacts
+end_time: 1746297100113
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 1685242b737645b8b09c08d5edc383bf
+run_name: spiffy-flea-88
+run_uuid: 1685242b737645b8b09c08d5edc383bf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746297052694
+status: 3
+tags: []
+user_id: rafidmahbub

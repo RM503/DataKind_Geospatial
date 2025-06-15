@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/2210e6fea77e4fc5a3eb3c6edd44481b/artifacts
+end_time: 1746296692523
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 2210e6fea77e4fc5a3eb3c6edd44481b
+run_name: traveling-bear-672
+run_uuid: 2210e6fea77e4fc5a3eb3c6edd44481b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746296662059
+status: 3
+tags: []
+user_id: rafidmahbub

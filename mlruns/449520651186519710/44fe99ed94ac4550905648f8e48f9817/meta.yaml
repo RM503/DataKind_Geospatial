@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/44fe99ed94ac4550905648f8e48f9817/artifacts
+end_time: 1746996851782
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 44fe99ed94ac4550905648f8e48f9817
+run_name: fun-cub-97
+run_uuid: 44fe99ed94ac4550905648f8e48f9817
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746996807181
+status: 3
+tags: []
+user_id: rafidmahbub

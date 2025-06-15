@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/be5f9ef030a34ab4862711f77592cc43/artifacts
+end_time: 1746112616195
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: be5f9ef030a34ab4862711f77592cc43
+run_name: salty-crane-191
+run_uuid: be5f9ef030a34ab4862711f77592cc43
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746112594082
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/1bb06833408549e0931e7d7cca734ba0/artifacts
+end_time: 1747939444489
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 1bb06833408549e0931e7d7cca734ba0
+run_name: delicate-quail-267
+run_uuid: 1bb06833408549e0931e7d7cca734ba0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747939375955
+status: 3
+tags: []
+user_id: rafidmahbub

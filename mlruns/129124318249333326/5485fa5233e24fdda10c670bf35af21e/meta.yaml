@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/5485fa5233e24fdda10c670bf35af21e/artifacts
+end_time: 1747935881454
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 5485fa5233e24fdda10c670bf35af21e
+run_name: mysterious-shrew-539
+run_uuid: 5485fa5233e24fdda10c670bf35af21e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747935806419
+status: 3
+tags: []
+user_id: rafidmahbub

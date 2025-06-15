@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/09681ce5c529447a89fb919709bb9786/artifacts
+end_time: 1747059800675
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 09681ce5c529447a89fb919709bb9786
+run_name: bedecked-mink-482
+run_uuid: 09681ce5c529447a89fb919709bb9786
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747059752593
+status: 3
+tags: []
+user_id: rafidmahbub

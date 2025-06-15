@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/616918be3ad8458caa19df29bcb9aa74/artifacts
+end_time: 1746998706820
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 616918be3ad8458caa19df29bcb9aa74
+run_name: nimble-snake-261
+run_uuid: 616918be3ad8458caa19df29bcb9aa74
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746998659647
+status: 3
+tags: []
+user_id: rafidmahbub

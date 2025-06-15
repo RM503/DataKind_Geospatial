@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/0aeb51c915c5429a8ace0f2d7f5ed170/artifacts
+end_time: 1746227780597
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 0aeb51c915c5429a8ace0f2d7f5ed170
+run_name: omniscient-cat-379
+run_uuid: 0aeb51c915c5429a8ace0f2d7f5ed170
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746227753680
+status: 3
+tags: []
+user_id: rafidmahbub

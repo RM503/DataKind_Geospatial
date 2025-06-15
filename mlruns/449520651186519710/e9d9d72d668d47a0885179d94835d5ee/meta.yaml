@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/e9d9d72d668d47a0885179d94835d5ee/artifacts
+end_time: 1747060828095
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: e9d9d72d668d47a0885179d94835d5ee
+run_name: selective-wolf-442
+run_uuid: e9d9d72d668d47a0885179d94835d5ee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747060780018
+status: 3
+tags: []
+user_id: rafidmahbub

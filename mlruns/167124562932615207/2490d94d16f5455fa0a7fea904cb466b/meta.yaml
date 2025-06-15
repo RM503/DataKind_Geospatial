@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/2490d94d16f5455fa0a7fea904cb466b/artifacts
+deleted_time: 1747763659073
+end_time: null
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: 2490d94d16f5455fa0a7fea904cb466b
+run_name: gaudy-mule-519
+run_uuid: 2490d94d16f5455fa0a7fea904cb466b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747762665217
+status: 1
+tags: []
+user_id: rafidmahbub

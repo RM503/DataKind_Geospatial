@@ -1,0 +1,1 @@
+{'C': 0.06797471018311413, 'kernel': 'poly', 'gamma': 'scale', 'class_weight': 'balanced', 'probability': True}

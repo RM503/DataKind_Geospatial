@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/94f186978d1541c5b6d314ed57ae3b06/artifacts
+end_time: 1747926877164
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 94f186978d1541c5b6d314ed57ae3b06
+run_name: delightful-sheep-483
+run_uuid: 94f186978d1541c5b6d314ed57ae3b06
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747926813086
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/01ee2787d5164ece9317b05e28aa7f8d/artifacts
+end_time: 1747927908015
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 01ee2787d5164ece9317b05e28aa7f8d
+run_name: traveling-panda-340
+run_uuid: 01ee2787d5164ece9317b05e28aa7f8d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747927844222
+status: 3
+tags: []
+user_id: rafidmahbub

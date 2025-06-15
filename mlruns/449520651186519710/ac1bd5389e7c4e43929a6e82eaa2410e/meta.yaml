@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/ac1bd5389e7c4e43929a6e82eaa2410e/artifacts
+end_time: 1747061117344
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: ac1bd5389e7c4e43929a6e82eaa2410e
+run_name: luxuriant-shrew-113
+run_uuid: ac1bd5389e7c4e43929a6e82eaa2410e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747061067963
+status: 3
+tags: []
+user_id: rafidmahbub

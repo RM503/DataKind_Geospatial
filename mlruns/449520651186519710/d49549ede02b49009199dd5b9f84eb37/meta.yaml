@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d49549ede02b49009199dd5b9f84eb37/artifacts
+end_time: 1746297299857
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d49549ede02b49009199dd5b9f84eb37
+run_name: nervous-shark-324
+run_uuid: d49549ede02b49009199dd5b9f84eb37
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746297264536
+status: 3
+tags: []
+user_id: rafidmahbub

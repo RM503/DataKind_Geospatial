@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/1aa00394dc354ebbb295822bfbda0d42/artifacts
+end_time: 1746993145024
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 1aa00394dc354ebbb295822bfbda0d42
+run_name: ambitious-smelt-647
+run_uuid: 1aa00394dc354ebbb295822bfbda0d42
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746993096165
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1747928498132
+current_stage: None
+description: ''
+last_updated_timestamp: 1747928498132
+name: timeseries_classification_SVC
+run_id: 757649e37c0e443a970bb50a94bb9fbb
+run_link: ''
+source: mlflow-artifacts:/129124318249333326/757649e37c0e443a970bb50a94bb9fbb/artifacts/timeseries_classification_SVC
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/129124318249333326/757649e37c0e443a970bb50a94bb9fbb/artifacts/timeseries_classification_SVC
+user_id: null
+version: 2

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/28605d727a0e4a35b2e34102147e00f3/artifacts
+end_time: 1746993889169
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 28605d727a0e4a35b2e34102147e00f3
+run_name: thundering-slug-942
+run_uuid: 28605d727a0e4a35b2e34102147e00f3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746993838322
+status: 3
+tags: []
+user_id: rafidmahbub

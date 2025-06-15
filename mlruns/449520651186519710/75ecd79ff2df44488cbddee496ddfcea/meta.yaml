@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/75ecd79ff2df44488cbddee496ddfcea/artifacts
+end_time: 1746196967622
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 75ecd79ff2df44488cbddee496ddfcea
+run_name: mercurial-sloth-85
+run_uuid: 75ecd79ff2df44488cbddee496ddfcea
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746196940789
+status: 3
+tags: []
+user_id: rafidmahbub

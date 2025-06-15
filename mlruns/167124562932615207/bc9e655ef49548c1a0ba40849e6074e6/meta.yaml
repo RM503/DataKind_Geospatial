@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/bc9e655ef49548c1a0ba40849e6074e6/artifacts
+end_time: 1747764954641
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: bc9e655ef49548c1a0ba40849e6074e6
+run_name: carefree-cub-388
+run_uuid: bc9e655ef49548c1a0ba40849e6074e6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747764901503
+status: 3
+tags: []
+user_id: rafidmahbub

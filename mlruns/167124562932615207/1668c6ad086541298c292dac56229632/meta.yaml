@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/1668c6ad086541298c292dac56229632/artifacts
+end_time: 1747768255406
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 1668c6ad086541298c292dac56229632
+run_name: agreeable-foal-668
+run_uuid: 1668c6ad086541298c292dac56229632
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747768198816
+status: 3
+tags: []
+user_id: rafidmahbub

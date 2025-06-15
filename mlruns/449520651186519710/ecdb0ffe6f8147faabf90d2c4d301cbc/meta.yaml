@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/ecdb0ffe6f8147faabf90d2c4d301cbc/artifacts
+end_time: 1746139772425
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: ecdb0ffe6f8147faabf90d2c4d301cbc
+run_name: suave-mink-520
+run_uuid: ecdb0ffe6f8147faabf90d2c4d301cbc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139750853
+status: 3
+tags: []
+user_id: rafidmahbub

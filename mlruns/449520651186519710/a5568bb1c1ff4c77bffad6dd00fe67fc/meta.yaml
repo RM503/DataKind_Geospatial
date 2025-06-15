@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/a5568bb1c1ff4c77bffad6dd00fe67fc/artifacts
+end_time: 1746996941629
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: a5568bb1c1ff4c77bffad6dd00fe67fc
+run_name: redolent-sponge-719
+run_uuid: a5568bb1c1ff4c77bffad6dd00fe67fc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746996896821
+status: 3
+tags: []
+user_id: rafidmahbub

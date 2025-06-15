@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/865fcbe109a442e1ac7d8fd0b9e89b74/artifacts
+end_time: 1747940656050
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 865fcbe109a442e1ac7d8fd0b9e89b74
+run_name: polite-zebra-57
+run_uuid: 865fcbe109a442e1ac7d8fd0b9e89b74
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747940592698
+status: 3
+tags: []
+user_id: rafidmahbub

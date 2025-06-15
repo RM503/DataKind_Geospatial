@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/bfc75e7062ad4d4f82080e92c03126f3/artifacts
+end_time: 1747767469203
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: bfc75e7062ad4d4f82080e92c03126f3
+run_name: defiant-mole-106
+run_uuid: bfc75e7062ad4d4f82080e92c03126f3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747767413027
+status: 3
+tags: []
+user_id: rafidmahbub

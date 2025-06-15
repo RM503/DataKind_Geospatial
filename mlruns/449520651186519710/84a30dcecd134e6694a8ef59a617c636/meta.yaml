@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/84a30dcecd134e6694a8ef59a617c636/artifacts
+deleted_time: 1747059625420
+end_time: 1747059561777
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 84a30dcecd134e6694a8ef59a617c636
+run_name: gifted-goose-61
+run_uuid: 84a30dcecd134e6694a8ef59a617c636
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747059552150
+status: 4
+tags: []
+user_id: rafidmahbub

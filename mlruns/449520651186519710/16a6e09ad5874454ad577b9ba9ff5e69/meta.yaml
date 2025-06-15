@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/16a6e09ad5874454ad577b9ba9ff5e69/artifacts
+end_time: 1746227727980
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 16a6e09ad5874454ad577b9ba9ff5e69
+run_name: sassy-jay-306
+run_uuid: 16a6e09ad5874454ad577b9ba9ff5e69
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746227703439
+status: 3
+tags: []
+user_id: rafidmahbub

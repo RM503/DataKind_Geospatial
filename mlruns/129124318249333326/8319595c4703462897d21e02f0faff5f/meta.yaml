@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/8319595c4703462897d21e02f0faff5f/artifacts
+end_time: 1747940052832
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 8319595c4703462897d21e02f0faff5f
+run_name: rebellious-moth-124
+run_uuid: 8319595c4703462897d21e02f0faff5f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747939983174
+status: 3
+tags: []
+user_id: rafidmahbub

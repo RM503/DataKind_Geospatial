@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/cce7412ef0a742ae9b41c60cb87ab715/artifacts
+deleted_time: 1746160180462
+end_time: 1746139451193
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: cce7412ef0a742ae9b41c60cb87ab715
+run_name: capable-boar-790
+run_uuid: cce7412ef0a742ae9b41c60cb87ab715
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139451071
+status: 4
+tags: []
+user_id: rafidmahbub

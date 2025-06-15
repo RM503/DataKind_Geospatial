@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f090b036ba01461dab1eb2e0fda03cd5/artifacts
+end_time: 1747060589433
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f090b036ba01461dab1eb2e0fda03cd5
+run_name: secretive-fly-59
+run_uuid: f090b036ba01461dab1eb2e0fda03cd5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747060541582
+status: 3
+tags: []
+user_id: rafidmahbub

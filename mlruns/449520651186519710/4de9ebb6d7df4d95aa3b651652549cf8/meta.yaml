@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/4de9ebb6d7df4d95aa3b651652549cf8/artifacts
+end_time: 1746060159083
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 4de9ebb6d7df4d95aa3b651652549cf8
+run_name: dazzling-stag-53
+run_uuid: 4de9ebb6d7df4d95aa3b651652549cf8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746060137807
+status: 3
+tags: []
+user_id: rafidmahbub

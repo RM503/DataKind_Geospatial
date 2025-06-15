@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/58cd38a70d0f482fb4db334685ebfd16/artifacts
+end_time: 1746999446995
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 58cd38a70d0f482fb4db334685ebfd16
+run_name: painted-fox-488
+run_uuid: 58cd38a70d0f482fb4db334685ebfd16
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746999398855
+status: 3
+tags: []
+user_id: rafidmahbub

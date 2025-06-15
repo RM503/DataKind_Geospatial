@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/b2ddb0b8de7545f68f6d1fa1ed432fd5/artifacts
+end_time: 1747766308590
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: b2ddb0b8de7545f68f6d1fa1ed432fd5
+run_name: mysterious-fox-347
+run_uuid: b2ddb0b8de7545f68f6d1fa1ed432fd5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747766254387
+status: 3
+tags: []
+user_id: rafidmahbub

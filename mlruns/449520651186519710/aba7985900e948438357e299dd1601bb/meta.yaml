@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/aba7985900e948438357e299dd1601bb/artifacts
+end_time: 1747000200237
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: aba7985900e948438357e299dd1601bb
+run_name: delightful-bass-351
+run_uuid: aba7985900e948438357e299dd1601bb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747000148274
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/4c2269d21cef46029e9036fc131109d3/artifacts
+deleted_time: 1746908636395
+end_time: 1746823894620
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 4c2269d21cef46029e9036fc131109d3
+run_name: nebulous-ant-69
+run_uuid: 4c2269d21cef46029e9036fc131109d3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746823865712
+status: 3
+tags: []
+user_id: rafidmahbub

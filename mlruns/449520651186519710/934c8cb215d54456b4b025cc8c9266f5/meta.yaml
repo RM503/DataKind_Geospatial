@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/934c8cb215d54456b4b025cc8c9266f5/artifacts
+end_time: 1746996986801
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 934c8cb215d54456b4b025cc8c9266f5
+run_name: bright-cub-432
+run_uuid: 934c8cb215d54456b4b025cc8c9266f5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746996941641
+status: 3
+tags: []
+user_id: rafidmahbub

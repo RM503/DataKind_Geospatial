@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/8db6274b863c401d9335c7abb6259aac/artifacts
+deleted_time: 1746975608176
+end_time: 1746974668560
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 8db6274b863c401d9335c7abb6259aac
+run_name: sedate-vole-781
+run_uuid: 8db6274b863c401d9335c7abb6259aac
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746974617368
+status: 3
+tags: []
+user_id: rafidmahbub

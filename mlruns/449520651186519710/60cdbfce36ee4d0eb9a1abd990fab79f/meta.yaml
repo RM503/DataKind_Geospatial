@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/60cdbfce36ee4d0eb9a1abd990fab79f/artifacts
+deleted_time: 1746996744901
+end_time: 1746996370611
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 60cdbfce36ee4d0eb9a1abd990fab79f
+run_name: thundering-owl-626
+run_uuid: 60cdbfce36ee4d0eb9a1abd990fab79f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746996361383
+status: 4
+tags: []
+user_id: rafidmahbub

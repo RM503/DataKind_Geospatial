@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/482221fc7f8d44f38e4e9f487e013069/artifacts
+end_time: 1746997678422
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 482221fc7f8d44f38e4e9f487e013069
+run_name: thoughtful-skunk-620
+run_uuid: 482221fc7f8d44f38e4e9f487e013069
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746997632064
+status: 3
+tags: []
+user_id: rafidmahbub

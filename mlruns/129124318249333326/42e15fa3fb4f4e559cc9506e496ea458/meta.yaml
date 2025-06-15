@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/42e15fa3fb4f4e559cc9506e496ea458/artifacts
+end_time: 1747928420019
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 42e15fa3fb4f4e559cc9506e496ea458
+run_name: unequaled-carp-941
+run_uuid: 42e15fa3fb4f4e559cc9506e496ea458
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747928357374
+status: 3
+tags: []
+user_id: rafidmahbub

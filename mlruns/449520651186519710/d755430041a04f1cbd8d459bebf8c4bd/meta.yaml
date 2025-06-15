@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d755430041a04f1cbd8d459bebf8c4bd/artifacts
+end_time: 1746997211497
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d755430041a04f1cbd8d459bebf8c4bd
+run_name: angry-bear-459
+run_uuid: d755430041a04f1cbd8d459bebf8c4bd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746997166465
+status: 3
+tags: []
+user_id: rafidmahbub

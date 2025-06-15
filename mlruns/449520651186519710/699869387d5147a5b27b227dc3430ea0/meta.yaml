@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/699869387d5147a5b27b227dc3430ea0/artifacts
+deleted_time: 1746978619375
+end_time: 1746978588491
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 699869387d5147a5b27b227dc3430ea0
+run_name: blushing-cow-828
+run_uuid: 699869387d5147a5b27b227dc3430ea0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746978538614
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/30f8b099993a4932b450ec0a7864618d/artifacts
+deleted_time: 1746974104324
+end_time: 1746974054271
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 30f8b099993a4932b450ec0a7864618d
+run_name: gentle-calf-440
+run_uuid: 30f8b099993a4932b450ec0a7864618d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746974049896
+status: 4
+tags: []
+user_id: rafidmahbub

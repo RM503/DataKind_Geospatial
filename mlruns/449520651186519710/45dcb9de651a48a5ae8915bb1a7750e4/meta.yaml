@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/45dcb9de651a48a5ae8915bb1a7750e4/artifacts
+end_time: 1746995262929
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 45dcb9de651a48a5ae8915bb1a7750e4
+run_name: sneaky-pig-155
+run_uuid: 45dcb9de651a48a5ae8915bb1a7750e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746995215689
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/edf1cdc3b4954d30b05bdb948ecfb05f/artifacts
+end_time: 1746206708839
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: edf1cdc3b4954d30b05bdb948ecfb05f
+run_name: amazing-mink-72
+run_uuid: edf1cdc3b4954d30b05bdb948ecfb05f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746206683459
+status: 3
+tags: []
+user_id: rafidmahbub

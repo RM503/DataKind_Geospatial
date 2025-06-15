@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/39842ecb796743d48566bd09685d205b/artifacts
+end_time: 1746298417720
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 39842ecb796743d48566bd09685d205b
+run_name: unleashed-flea-227
+run_uuid: 39842ecb796743d48566bd09685d205b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746298387427
+status: 3
+tags: []
+user_id: rafidmahbub

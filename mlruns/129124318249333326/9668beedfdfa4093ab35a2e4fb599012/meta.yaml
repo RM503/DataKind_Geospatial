@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/9668beedfdfa4093ab35a2e4fb599012/artifacts
+end_time: 1747939983165
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 9668beedfdfa4093ab35a2e4fb599012
+run_name: awesome-rook-80
+run_uuid: 9668beedfdfa4093ab35a2e4fb599012
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747939916745
+status: 3
+tags: []
+user_id: rafidmahbub

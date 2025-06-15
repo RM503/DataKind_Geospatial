@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/84493abecceb4ab9ba8fc3587d0d0077/artifacts
+end_time: 1746823338211
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 84493abecceb4ab9ba8fc3587d0d0077
+run_name: adventurous-foal-319
+run_uuid: 84493abecceb4ab9ba8fc3587d0d0077
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746823311851
+status: 3
+tags: []
+user_id: rafidmahbub

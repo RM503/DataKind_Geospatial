@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/7ebe2c6e83e84a8684fe34112f7bec83/artifacts
+end_time: 1746913328979
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 7ebe2c6e83e84a8684fe34112f7bec83
+run_name: nosy-doe-555
+run_uuid: 7ebe2c6e83e84a8684fe34112f7bec83
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746913275880
+status: 3
+tags: []
+user_id: rafidmahbub

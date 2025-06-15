@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d4a21cad405449a8887abb7ea114ff77/artifacts
+end_time: 1746995215670
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d4a21cad405449a8887abb7ea114ff77
+run_name: exultant-shrew-1
+run_uuid: d4a21cad405449a8887abb7ea114ff77
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746995167721
+status: 3
+tags: []
+user_id: rafidmahbub

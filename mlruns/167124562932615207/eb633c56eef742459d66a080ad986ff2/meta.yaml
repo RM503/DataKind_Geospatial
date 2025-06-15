@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/eb633c56eef742459d66a080ad986ff2/artifacts
+deleted_time: 1747763666985
+end_time: 1747763420729
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: eb633c56eef742459d66a080ad986ff2
+run_name: merciful-fawn-684
+run_uuid: eb633c56eef742459d66a080ad986ff2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747763369070
+status: 3
+tags: []
+user_id: rafidmahbub

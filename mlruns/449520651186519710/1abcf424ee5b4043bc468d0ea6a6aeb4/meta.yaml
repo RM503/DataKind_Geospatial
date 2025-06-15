@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/1abcf424ee5b4043bc468d0ea6a6aeb4/artifacts
+end_time: 1746996581772
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 1abcf424ee5b4043bc468d0ea6a6aeb4
+run_name: aged-foal-918
+run_uuid: 1abcf424ee5b4043bc468d0ea6a6aeb4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746996536612
+status: 3
+tags: []
+user_id: rafidmahbub

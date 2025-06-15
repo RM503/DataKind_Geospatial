@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/1afb47d62abd4af0aa008985834a9246/artifacts
+end_time: 1747939309376
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 1afb47d62abd4af0aa008985834a9246
+run_name: charming-squid-260
+run_uuid: 1afb47d62abd4af0aa008985834a9246
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747939241307
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,21 @@
+artifact_path: timeseries_classification_XGB
+flavors:
+  python_function:
+    data: model.xgb
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.11.8
+  xgboost:
+    code: null
+    data: model.xgb
+    model_class: xgboost.sklearn.XGBClassifier
+    model_format: xgb
+    xgb_version: 3.0.0
+mlflow_version: 2.21.3
+model_size_bytes: 402575
+model_uuid: a1eddc168c0f47de94e4522e47ab4a76
+prompts: null
+run_id: e3c123b019d84034ba7e45b0b8df0cf5
+utc_time_created: '2025-05-22 17:27:47.008985'

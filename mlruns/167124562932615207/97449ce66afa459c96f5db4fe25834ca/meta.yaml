@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/97449ce66afa459c96f5db4fe25834ca/artifacts
+end_time: 1747765331080
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 97449ce66afa459c96f5db4fe25834ca
+run_name: wistful-snipe-307
+run_uuid: 97449ce66afa459c96f5db4fe25834ca
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747765274187
+status: 3
+tags: []
+user_id: rafidmahbub

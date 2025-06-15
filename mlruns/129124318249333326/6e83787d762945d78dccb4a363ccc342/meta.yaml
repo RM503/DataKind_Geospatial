@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/6e83787d762945d78dccb4a363ccc342/artifacts
+end_time: 1747932663529
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 6e83787d762945d78dccb4a363ccc342
+run_name: bright-hog-636
+run_uuid: 6e83787d762945d78dccb4a363ccc342
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747932600916
+status: 3
+tags: []
+user_id: rafidmahbub

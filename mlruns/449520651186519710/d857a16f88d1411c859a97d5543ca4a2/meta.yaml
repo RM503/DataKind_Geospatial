@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d857a16f88d1411c859a97d5543ca4a2/artifacts
+end_time: 1746196651171
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d857a16f88d1411c859a97d5543ca4a2
+run_name: rare-jay-578
+run_uuid: d857a16f88d1411c859a97d5543ca4a2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746196628765
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d2401c44ac354a3bb386f1051c6cd247/artifacts
+end_time: 1747062102638
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d2401c44ac354a3bb386f1051c6cd247
+run_name: debonair-midge-940
+run_uuid: d2401c44ac354a3bb386f1051c6cd247
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747059657684
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/37c047c57f5f41cfaa260c04b79bffb0/artifacts
+end_time: 1746979430561
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 37c047c57f5f41cfaa260c04b79bffb0
+run_name: intelligent-fox-748
+run_uuid: 37c047c57f5f41cfaa260c04b79bffb0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746979380544
+status: 3
+tags: []
+user_id: rafidmahbub

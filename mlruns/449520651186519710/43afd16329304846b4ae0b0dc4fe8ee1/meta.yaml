@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/43afd16329304846b4ae0b0dc4fe8ee1/artifacts
+deleted_time: 1746975608167
+end_time: 1746975014024
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 43afd16329304846b4ae0b0dc4fe8ee1
+run_name: fearless-goat-55
+run_uuid: 43afd16329304846b4ae0b0dc4fe8ee1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746974967081
+status: 3
+tags: []
+user_id: rafidmahbub

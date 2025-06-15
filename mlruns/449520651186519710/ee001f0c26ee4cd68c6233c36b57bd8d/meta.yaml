@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/ee001f0c26ee4cd68c6233c36b57bd8d/artifacts
+deleted_time: 1746908636390
+end_time: 1746823928943
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: ee001f0c26ee4cd68c6233c36b57bd8d
+run_name: flawless-conch-791
+run_uuid: ee001f0c26ee4cd68c6233c36b57bd8d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746823777712
+status: 3
+tags: []
+user_id: rafidmahbub

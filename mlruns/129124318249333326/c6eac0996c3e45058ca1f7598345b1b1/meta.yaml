@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/c6eac0996c3e45058ca1f7598345b1b1/artifacts
+end_time: 1747925788407
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: c6eac0996c3e45058ca1f7598345b1b1
+run_name: victorious-mare-661
+run_uuid: c6eac0996c3e45058ca1f7598345b1b1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747925726576
+status: 3
+tags: []
+user_id: rafidmahbub

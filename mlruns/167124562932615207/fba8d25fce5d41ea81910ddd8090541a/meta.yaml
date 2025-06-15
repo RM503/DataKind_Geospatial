@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/fba8d25fce5d41ea81910ddd8090541a/artifacts
+end_time: 1747767641333
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: fba8d25fce5d41ea81910ddd8090541a
+run_name: abundant-eel-772
+run_uuid: fba8d25fce5d41ea81910ddd8090541a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747767583682
+status: 3
+tags: []
+user_id: rafidmahbub

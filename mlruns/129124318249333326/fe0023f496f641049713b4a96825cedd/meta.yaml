@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/fe0023f496f641049713b4a96825cedd/artifacts
+end_time: 1747925410983
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: fe0023f496f641049713b4a96825cedd
+run_name: capable-carp-604
+run_uuid: fe0023f496f641049713b4a96825cedd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747925347234
+status: 3
+tags: []
+user_id: rafidmahbub

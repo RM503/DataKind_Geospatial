@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/2a96f99e49b5458cbff0af0697d9fe43/artifacts
+end_time: 1747059989947
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 2a96f99e49b5458cbff0af0697d9fe43
+run_name: beautiful-whale-833
+run_uuid: 2a96f99e49b5458cbff0af0697d9fe43
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747059942276
+status: 3
+tags: []
+user_id: rafidmahbub

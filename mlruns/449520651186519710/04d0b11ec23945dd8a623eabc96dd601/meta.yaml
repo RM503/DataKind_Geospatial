@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/04d0b11ec23945dd8a623eabc96dd601/artifacts
+end_time: 1746296604248
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 04d0b11ec23945dd8a623eabc96dd601
+run_name: capricious-bass-303
+run_uuid: 04d0b11ec23945dd8a623eabc96dd601
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746296577325
+status: 3
+tags: []
+user_id: rafidmahbub

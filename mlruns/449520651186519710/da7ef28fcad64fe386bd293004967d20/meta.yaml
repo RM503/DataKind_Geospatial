@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/da7ef28fcad64fe386bd293004967d20/artifacts
+end_time: 1746227679712
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: da7ef28fcad64fe386bd293004967d20
+run_name: gaudy-fawn-715
+run_uuid: da7ef28fcad64fe386bd293004967d20
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746227656053
+status: 3
+tags: []
+user_id: rafidmahbub

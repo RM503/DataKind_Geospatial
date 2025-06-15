@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/79d7aca7935144539cfd16b4bf02e558/artifacts
+end_time: 1746284675035
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 79d7aca7935144539cfd16b4bf02e558
+run_name: abundant-cow-118
+run_uuid: 79d7aca7935144539cfd16b4bf02e558
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746284648072
+status: 3
+tags: []
+user_id: rafidmahbub

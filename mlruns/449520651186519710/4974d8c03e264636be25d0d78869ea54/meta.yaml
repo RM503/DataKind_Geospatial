@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/4974d8c03e264636be25d0d78869ea54/artifacts
+end_time: 1746994785295
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 4974d8c03e264636be25d0d78869ea54
+run_name: rebellious-hare-618
+run_uuid: 4974d8c03e264636be25d0d78869ea54
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994737467
+status: 3
+tags: []
+user_id: rafidmahbub

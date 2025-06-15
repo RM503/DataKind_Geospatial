@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d1852b3e3c534ab6b35bd01d75cd0ec1/artifacts
+end_time: 1746139605131
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: d1852b3e3c534ab6b35bd01d75cd0ec1
+run_name: orderly-squid-189
+run_uuid: d1852b3e3c534ab6b35bd01d75cd0ec1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139581147
+status: 3
+tags: []
+user_id: rafidmahbub

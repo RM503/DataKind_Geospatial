@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/7af0a5a5f72c447291b5d1e7f17d8c47/artifacts
+deleted_time: 1747763666994
+end_time: 1747762830193
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: 7af0a5a5f72c447291b5d1e7f17d8c47
+run_name: upbeat-shrike-824
+run_uuid: 7af0a5a5f72c447291b5d1e7f17d8c47
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747762778573
+status: 3
+tags: []
+user_id: rafidmahbub

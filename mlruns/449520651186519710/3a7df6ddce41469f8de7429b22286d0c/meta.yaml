@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/3a7df6ddce41469f8de7429b22286d0c/artifacts
+deleted_time: 1746975608157
+end_time: 1746975361120
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 3a7df6ddce41469f8de7429b22286d0c
+run_name: stylish-robin-385
+run_uuid: 3a7df6ddce41469f8de7429b22286d0c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746975313173
+status: 3
+tags: []
+user_id: rafidmahbub

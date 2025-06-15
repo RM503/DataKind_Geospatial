@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/8b525d6c82ae4795893dcb377d435395/artifacts
+end_time: 1746979930779
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 8b525d6c82ae4795893dcb377d435395
+run_name: casual-cod-727
+run_uuid: 8b525d6c82ae4795893dcb377d435395
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746979882081
+status: 3
+tags: []
+user_id: rafidmahbub

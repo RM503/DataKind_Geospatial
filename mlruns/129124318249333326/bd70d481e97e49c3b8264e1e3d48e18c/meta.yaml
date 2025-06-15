@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/bd70d481e97e49c3b8264e1e3d48e18c/artifacts
+end_time: 1747932277050
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: bd70d481e97e49c3b8264e1e3d48e18c
+run_name: bittersweet-fox-323
+run_uuid: bd70d481e97e49c3b8264e1e3d48e18c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747932212634
+status: 3
+tags: []
+user_id: rafidmahbub

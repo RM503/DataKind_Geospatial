@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/2c61bd61017040e4a15b03cda4983a1a/artifacts
+end_time: 1747768815080
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 2c61bd61017040e4a15b03cda4983a1a
+run_name: peaceful-cod-543
+run_uuid: 2c61bd61017040e4a15b03cda4983a1a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747768732541
+status: 3
+tags: []
+user_id: rafidmahbub

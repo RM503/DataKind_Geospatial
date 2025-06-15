@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/6bc2e516dc3c419fa4382da4928a493c/artifacts
+end_time: 1746112365908
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 6bc2e516dc3c419fa4382da4928a493c
+run_name: intelligent-goat-56
+run_uuid: 6bc2e516dc3c419fa4382da4928a493c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746112342486
+status: 3
+tags: []
+user_id: rafidmahbub

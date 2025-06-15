@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/172751f7cede4fc5b7795d1b5e451fa7/artifacts
+end_time: 1746298724559
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 172751f7cede4fc5b7795d1b5e451fa7
+run_name: sedate-donkey-736
+run_uuid: 172751f7cede4fc5b7795d1b5e451fa7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746298689681
+status: 3
+tags: []
+user_id: rafidmahbub

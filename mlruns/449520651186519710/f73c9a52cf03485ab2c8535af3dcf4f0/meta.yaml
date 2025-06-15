@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f73c9a52cf03485ab2c8535af3dcf4f0/artifacts
+deleted_time: 1746908636390
+end_time: 1746823865706
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: f73c9a52cf03485ab2c8535af3dcf4f0
+run_name: thundering-fox-943
+run_uuid: f73c9a52cf03485ab2c8535af3dcf4f0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746823839707
+status: 3
+tags: []
+user_id: rafidmahbub

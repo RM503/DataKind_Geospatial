@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/f6c85ae284c4433c80b8b87bdc02ae17/artifacts
+end_time: 1747939781533
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: f6c85ae284c4433c80b8b87bdc02ae17
+run_name: ambitious-mare-764
+run_uuid: f6c85ae284c4433c80b8b87bdc02ae17
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747939712643
+status: 3
+tags: []
+user_id: rafidmahbub

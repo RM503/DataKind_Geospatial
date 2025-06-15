@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/d34ba445b5c646429376f80ec8eacbd9/artifacts
+end_time: 1747936117824
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: d34ba445b5c646429376f80ec8eacbd9
+run_name: enthused-hen-485
+run_uuid: d34ba445b5c646429376f80ec8eacbd9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747936044800
+status: 3
+tags: []
+user_id: rafidmahbub

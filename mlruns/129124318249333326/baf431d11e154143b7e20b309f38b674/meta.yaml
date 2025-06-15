@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/baf431d11e154143b7e20b309f38b674/artifacts
+end_time: 1747930958551
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: baf431d11e154143b7e20b309f38b674
+run_name: victorious-moth-608
+run_uuid: baf431d11e154143b7e20b309f38b674
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747930591122
+status: 3
+tags: []
+user_id: rafidmahbub

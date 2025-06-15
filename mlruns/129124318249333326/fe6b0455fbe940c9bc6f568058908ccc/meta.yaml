@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/fe6b0455fbe940c9bc6f568058908ccc/artifacts
+end_time: 1747929441988
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: fe6b0455fbe940c9bc6f568058908ccc
+run_name: chill-gnat-94
+run_uuid: fe6b0455fbe940c9bc6f568058908ccc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747929376241
+status: 3
+tags: []
+user_id: rafidmahbub

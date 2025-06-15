@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/e5266e9690644dcb89a44ab569fc5b78/artifacts
+end_time: 1747938429497
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: e5266e9690644dcb89a44ab569fc5b78
+run_name: indecisive-fowl-496
+run_uuid: e5266e9690644dcb89a44ab569fc5b78
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747938322714
+status: 3
+tags: []
+user_id: rafidmahbub

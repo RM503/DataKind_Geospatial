@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/acff69d8edc346fd8b23df618107147e/artifacts
+end_time: 1746284998215
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: acff69d8edc346fd8b23df618107147e
+run_name: big-toad-144
+run_uuid: acff69d8edc346fd8b23df618107147e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746284974591
+status: 3
+tags: []
+user_id: rafidmahbub

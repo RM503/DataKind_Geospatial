@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/51047846281a452291fbbdb4ce1cbf28/artifacts
+deleted_time: 1746975608171
+end_time: 1746975313156
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 51047846281a452291fbbdb4ce1cbf28
+run_name: monumental-croc-992
+run_uuid: 51047846281a452291fbbdb4ce1cbf28
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746975263801
+status: 3
+tags: []
+user_id: rafidmahbub

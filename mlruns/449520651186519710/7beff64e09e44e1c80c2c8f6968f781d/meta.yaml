@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/7beff64e09e44e1c80c2c8f6968f781d/artifacts
+end_time: 1746993475686
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 7beff64e09e44e1c80c2c8f6968f781d
+run_name: funny-grub-970
+run_uuid: 7beff64e09e44e1c80c2c8f6968f781d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746993426980
+status: 3
+tags: []
+user_id: rafidmahbub

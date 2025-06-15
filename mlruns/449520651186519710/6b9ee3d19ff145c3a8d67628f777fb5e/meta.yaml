@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/6b9ee3d19ff145c3a8d67628f777fb5e/artifacts
+end_time: 1746112504220
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 6b9ee3d19ff145c3a8d67628f777fb5e
+run_name: awesome-roo-498
+run_uuid: 6b9ee3d19ff145c3a8d67628f777fb5e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746112479574
+status: 3
+tags: []
+user_id: rafidmahbub

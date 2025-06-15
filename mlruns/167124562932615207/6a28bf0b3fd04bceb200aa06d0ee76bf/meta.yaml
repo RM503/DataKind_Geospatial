@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/6a28bf0b3fd04bceb200aa06d0ee76bf/artifacts
+deleted_time: 1747763666990
+end_time: 1747763041980
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: 6a28bf0b3fd04bceb200aa06d0ee76bf
+run_name: loud-carp-96
+run_uuid: 6a28bf0b3fd04bceb200aa06d0ee76bf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747762989579
+status: 3
+tags: []
+user_id: rafidmahbub

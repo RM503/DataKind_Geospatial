@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/381f97f97d2d42f7b09ae4a90c107a90/artifacts
+end_time: 1747934282308
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 381f97f97d2d42f7b09ae4a90c107a90
+run_name: nosy-asp-613
+run_uuid: 381f97f97d2d42f7b09ae4a90c107a90
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747934219491
+status: 3
+tags: []
+user_id: rafidmahbub

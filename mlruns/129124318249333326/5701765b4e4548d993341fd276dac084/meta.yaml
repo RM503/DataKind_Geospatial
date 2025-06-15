@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/5701765b4e4548d993341fd276dac084/artifacts
+end_time: 1747936774082
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 5701765b4e4548d993341fd276dac084
+run_name: bouncy-mare-514
+run_uuid: 5701765b4e4548d993341fd276dac084
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747936696115
+status: 3
+tags: []
+user_id: rafidmahbub

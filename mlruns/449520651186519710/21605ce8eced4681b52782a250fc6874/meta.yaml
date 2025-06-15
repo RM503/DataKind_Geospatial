@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/21605ce8eced4681b52782a250fc6874/artifacts
+end_time: 1747053537203
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 21605ce8eced4681b52782a250fc6874
+run_name: rumbling-skink-8
+run_uuid: 21605ce8eced4681b52782a250fc6874
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747053488638
+status: 3
+tags: []
+user_id: rafidmahbub

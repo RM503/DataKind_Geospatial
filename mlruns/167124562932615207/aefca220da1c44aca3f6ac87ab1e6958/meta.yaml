@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/aefca220da1c44aca3f6ac87ab1e6958/artifacts
+end_time: 1747765723045
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: aefca220da1c44aca3f6ac87ab1e6958
+run_name: resilient-shad-66
+run_uuid: aefca220da1c44aca3f6ac87ab1e6958
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747765661519
+status: 3
+tags: []
+user_id: rafidmahbub

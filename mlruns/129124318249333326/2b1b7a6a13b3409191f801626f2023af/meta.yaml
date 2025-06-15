@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/2b1b7a6a13b3409191f801626f2023af/artifacts
+end_time: 1747932726854
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 2b1b7a6a13b3409191f801626f2023af
+run_name: zealous-shrike-773
+run_uuid: 2b1b7a6a13b3409191f801626f2023af
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747932663540
+status: 3
+tags: []
+user_id: rafidmahbub

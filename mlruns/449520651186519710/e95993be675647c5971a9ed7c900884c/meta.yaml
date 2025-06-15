@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/e95993be675647c5971a9ed7c900884c/artifacts
+end_time: 1746139629927
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: e95993be675647c5971a9ed7c900884c
+run_name: sassy-shad-938
+run_uuid: e95993be675647c5971a9ed7c900884c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139605138
+status: 3
+tags: []
+user_id: rafidmahbub

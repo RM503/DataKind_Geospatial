@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/288ad051b20b47649694a97cd327bfba/artifacts
+end_time: 1747939241300
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 288ad051b20b47649694a97cd327bfba
+run_name: suave-duck-831
+run_uuid: 288ad051b20b47649694a97cd327bfba
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747939172199
+status: 3
+tags: []
+user_id: rafidmahbub

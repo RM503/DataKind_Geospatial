@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/0b5d54f0e6864970886af362e59931ad/artifacts
+end_time: 1746822976916
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 0b5d54f0e6864970886af362e59931ad
+run_name: intrigued-wren-208
+run_uuid: 0b5d54f0e6864970886af362e59931ad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746822971176
+status: 4
+tags: []
+user_id: rafidmahbub

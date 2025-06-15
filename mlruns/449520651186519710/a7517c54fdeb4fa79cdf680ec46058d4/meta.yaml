@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/a7517c54fdeb4fa79cdf680ec46058d4/artifacts
+end_time: 1747054035045
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: a7517c54fdeb4fa79cdf680ec46058d4
+run_name: whimsical-goat-176
+run_uuid: a7517c54fdeb4fa79cdf680ec46058d4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747053982634
+status: 3
+tags: []
+user_id: rafidmahbub

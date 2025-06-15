@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/59ca6766b9974eeeb1486f53252660e4/artifacts
+end_time: 1747929504536
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 59ca6766b9974eeeb1486f53252660e4
+run_name: secretive-stoat-341
+run_uuid: 59ca6766b9974eeeb1486f53252660e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747929441997
+status: 3
+tags: []
+user_id: rafidmahbub

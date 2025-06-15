@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/d880a49ad64c4773a02d1e9b59297fa5/artifacts
+end_time: 1747769243604
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: d880a49ad64c4773a02d1e9b59297fa5
+run_name: dazzling-ray-831
+run_uuid: d880a49ad64c4773a02d1e9b59297fa5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747769191871
+status: 3
+tags: []
+user_id: rafidmahbub

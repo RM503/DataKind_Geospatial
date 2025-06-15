@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/9c587d30dee446e89572ce678881ac59/artifacts
+end_time: 1746979481984
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 9c587d30dee446e89572ce678881ac59
+run_name: receptive-perch-956
+run_uuid: 9c587d30dee446e89572ce678881ac59
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746979430576
+status: 3
+tags: []
+user_id: rafidmahbub

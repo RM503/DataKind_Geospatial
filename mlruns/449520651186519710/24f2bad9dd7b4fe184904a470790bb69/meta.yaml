@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/24f2bad9dd7b4fe184904a470790bb69/artifacts
+end_time: 1746206405980
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 24f2bad9dd7b4fe184904a470790bb69
+run_name: nimble-mouse-610
+run_uuid: 24f2bad9dd7b4fe184904a470790bb69
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746206384077
+status: 3
+tags: []
+user_id: rafidmahbub

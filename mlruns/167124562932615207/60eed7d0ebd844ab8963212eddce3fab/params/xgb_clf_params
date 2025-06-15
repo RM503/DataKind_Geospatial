@@ -1,0 +1,1 @@
+{'num_class': 4, 'objective': 'multi:softprob', 'n_estimators': 63, 'learning_rate': 0.2416630394107819, 'min_split_loss': 0.6453859539990163, 'max_depth': 8, 'max_delta_step': 3.293946239466062, 'reg_alpha': 4.7205857655193215, 'reg_lambda': 3.9757103037752772, 'subsample': 0.8321601921437572, 'colsample_bytree': 0.904501447854851, 'colsample_bylevel': 0.7564966166856961}

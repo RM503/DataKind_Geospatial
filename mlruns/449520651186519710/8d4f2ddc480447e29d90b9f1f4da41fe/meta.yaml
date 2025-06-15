@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/8d4f2ddc480447e29d90b9f1f4da41fe/artifacts
+end_time: 1746112434432
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 8d4f2ddc480447e29d90b9f1f4da41fe
+run_name: defiant-sponge-273
+run_uuid: 8d4f2ddc480447e29d90b9f1f4da41fe
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746112411985
+status: 3
+tags: []
+user_id: rafidmahbub

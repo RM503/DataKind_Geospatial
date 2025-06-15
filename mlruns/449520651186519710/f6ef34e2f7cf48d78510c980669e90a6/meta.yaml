@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/f6ef34e2f7cf48d78510c980669e90a6/artifacts
+end_time: 1746997494991
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: f6ef34e2f7cf48d78510c980669e90a6
+run_name: receptive-fly-527
+run_uuid: f6ef34e2f7cf48d78510c980669e90a6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746997449080
+status: 3
+tags: []
+user_id: rafidmahbub

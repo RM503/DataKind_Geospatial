@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/afc3c75e37a6460f92164a4b97814944/artifacts
+end_time: 1746033990089
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: afc3c75e37a6460f92164a4b97814944
+run_name: clean-fowl-495
+run_uuid: afc3c75e37a6460f92164a4b97814944
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746033964163
+status: 3
+tags: []
+user_id: rafidmahbub

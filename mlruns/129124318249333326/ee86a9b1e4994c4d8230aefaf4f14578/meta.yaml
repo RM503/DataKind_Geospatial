@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/ee86a9b1e4994c4d8230aefaf4f14578/artifacts
+end_time: 1747931344294
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: ee86a9b1e4994c4d8230aefaf4f14578
+run_name: worried-auk-816
+run_uuid: ee86a9b1e4994c4d8230aefaf4f14578
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747931279557
+status: 3
+tags: []
+user_id: rafidmahbub

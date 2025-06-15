@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/3e05b40df3034e00b772cb8c2a940efd/artifacts
+end_time: 1746996627140
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 3e05b40df3034e00b772cb8c2a940efd
+run_name: defiant-quail-950
+run_uuid: 3e05b40df3034e00b772cb8c2a940efd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746996581785
+status: 3
+tags: []
+user_id: rafidmahbub

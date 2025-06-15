@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/e6c11cea388146e79d6711b6906bfff4/artifacts
+end_time: 1747061410507
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: e6c11cea388146e79d6711b6906bfff4
+run_name: amusing-gull-212
+run_uuid: e6c11cea388146e79d6711b6906bfff4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747061360934
+status: 3
+tags: []
+user_id: rafidmahbub

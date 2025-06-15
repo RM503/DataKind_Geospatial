@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/7f1162e759584c1b8b2e46019f2ebcf2/artifacts
+end_time: 1747055148241
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 7f1162e759584c1b8b2e46019f2ebcf2
+run_name: painted-trout-891
+run_uuid: 7f1162e759584c1b8b2e46019f2ebcf2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747055100485
+status: 3
+tags: []
+user_id: rafidmahbub

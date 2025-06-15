@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/82ef8f000a5043a98333973399e380e4/artifacts
+end_time: 1747926555575
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 82ef8f000a5043a98333973399e380e4
+run_name: overjoyed-crow-142
+run_uuid: 82ef8f000a5043a98333973399e380e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747926491218
+status: 3
+tags: []
+user_id: rafidmahbub

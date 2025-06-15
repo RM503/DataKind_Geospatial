@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/b8e5f1b696c941949486ffecbfccc186/artifacts
+end_time: 1746139750842
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: b8e5f1b696c941949486ffecbfccc186
+run_name: victorious-croc-108
+run_uuid: b8e5f1b696c941949486ffecbfccc186
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139724109
+status: 3
+tags: []
+user_id: rafidmahbub

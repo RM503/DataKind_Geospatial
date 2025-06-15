@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/5502889d0da14966823e6add8bbf526c/artifacts
+end_time: 1747941274311
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 5502889d0da14966823e6add8bbf526c
+run_name: puzzled-ram-576
+run_uuid: 5502889d0da14966823e6add8bbf526c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747941206613
+status: 3
+tags: []
+user_id: rafidmahbub

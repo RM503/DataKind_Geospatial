@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/4287c10a173c4c3fa584e57444e522d1/artifacts
+end_time: 1746298232373
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 4287c10a173c4c3fa584e57444e522d1
+run_name: angry-mouse-769
+run_uuid: 4287c10a173c4c3fa584e57444e522d1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746298195993
+status: 3
+tags: []
+user_id: rafidmahbub

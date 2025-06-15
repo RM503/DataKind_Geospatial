@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d81343bfe2fb4485b31ad93f67060951/artifacts
+deleted_time: 1746975608179
+end_time: 1746974423516
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: d81343bfe2fb4485b31ad93f67060951
+run_name: learned-eel-296
+run_uuid: d81343bfe2fb4485b31ad93f67060951
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746974373165
+status: 3
+tags: []
+user_id: rafidmahbub

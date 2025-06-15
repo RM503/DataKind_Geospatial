@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/65aa6f22f4ab4e45960a98b8a735cc1e/artifacts
+end_time: 1746139841542
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 65aa6f22f4ab4e45960a98b8a735cc1e
+run_name: adventurous-rook-582
+run_uuid: 65aa6f22f4ab4e45960a98b8a735cc1e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139819983
+status: 3
+tags: []
+user_id: rafidmahbub

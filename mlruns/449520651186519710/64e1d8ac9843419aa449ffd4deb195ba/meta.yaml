@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/64e1d8ac9843419aa449ffd4deb195ba/artifacts
+end_time: 1746139724095
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 64e1d8ac9843419aa449ffd4deb195ba
+run_name: bittersweet-bee-961
+run_uuid: 64e1d8ac9843419aa449ffd4deb195ba
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139700505
+status: 3
+tags: []
+user_id: rafidmahbub

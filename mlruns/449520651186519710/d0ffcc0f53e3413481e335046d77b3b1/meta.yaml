@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/d0ffcc0f53e3413481e335046d77b3b1/artifacts
+deleted_time: 1746195813331
+end_time: 1746160324579
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: d0ffcc0f53e3413481e335046d77b3b1
+run_name: melodic-kite-51
+run_uuid: d0ffcc0f53e3413481e335046d77b3b1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746160301214
+status: 4
+tags: []
+user_id: rafidmahbub

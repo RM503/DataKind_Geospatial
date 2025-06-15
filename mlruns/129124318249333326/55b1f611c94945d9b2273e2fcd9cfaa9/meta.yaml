@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/55b1f611c94945d9b2273e2fcd9cfaa9/artifacts
+end_time: 1747925662919
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 55b1f611c94945d9b2273e2fcd9cfaa9
+run_name: clumsy-hog-75
+run_uuid: 55b1f611c94945d9b2273e2fcd9cfaa9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747925600414
+status: 3
+tags: []
+user_id: rafidmahbub

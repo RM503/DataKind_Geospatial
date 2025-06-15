@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/27140dc930b9422f87e0e3a3bb2a260c/artifacts
+deleted_time: 1747763666983
+end_time: 1747763481310
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: 27140dc930b9422f87e0e3a3bb2a260c
+run_name: thoughtful-shad-43
+run_uuid: 27140dc930b9422f87e0e3a3bb2a260c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747763420736
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/f3be0e72e9f545b68194481ac9908e79/artifacts
+end_time: 1747935257754
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: f3be0e72e9f545b68194481ac9908e79
+run_name: popular-rat-451
+run_uuid: f3be0e72e9f545b68194481ac9908e79
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747935186539
+status: 3
+tags: []
+user_id: rafidmahbub

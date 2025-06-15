@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/64174cb9d6ee47c9adfc8e5cc4781d22/artifacts
+end_time: 1747054422795
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 64174cb9d6ee47c9adfc8e5cc4781d22
+run_name: clumsy-deer-477
+run_uuid: 64174cb9d6ee47c9adfc8e5cc4781d22
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747054374899
+status: 3
+tags: []
+user_id: rafidmahbub

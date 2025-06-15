@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/57d9a506f60845f5a2a13dbc27033759/artifacts
+end_time: 1746979882064
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 57d9a506f60845f5a2a13dbc27033759
+run_name: clean-finch-543
+run_uuid: 57d9a506f60845f5a2a13dbc27033759
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746979832380
+status: 3
+tags: []
+user_id: rafidmahbub

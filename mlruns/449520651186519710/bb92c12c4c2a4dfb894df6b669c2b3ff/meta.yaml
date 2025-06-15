@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/bb92c12c4c2a4dfb894df6b669c2b3ff/artifacts
+end_time: 1746999398836
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: bb92c12c4c2a4dfb894df6b669c2b3ff
+run_name: funny-gnat-361
+run_uuid: bb92c12c4c2a4dfb894df6b669c2b3ff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746999349018
+status: 3
+tags: []
+user_id: rafidmahbub

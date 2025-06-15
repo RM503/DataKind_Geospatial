@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/721548a6337c497b86654d4129fd2689/artifacts
+deleted_time: 1747763666987
+end_time: 1747763317013
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: deleted
+run_id: 721548a6337c497b86654d4129fd2689
+run_name: tasteful-robin-22
+run_uuid: 721548a6337c497b86654d4129fd2689
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747763265380
+status: 3
+tags: []
+user_id: rafidmahbub

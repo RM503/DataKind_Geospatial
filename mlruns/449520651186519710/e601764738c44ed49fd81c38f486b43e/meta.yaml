@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/e601764738c44ed49fd81c38f486b43e/artifacts
+end_time: 1746981133392
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: e601764738c44ed49fd81c38f486b43e
+run_name: merciful-sponge-502
+run_uuid: e601764738c44ed49fd81c38f486b43e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746981084024
+status: 3
+tags: []
+user_id: rafidmahbub

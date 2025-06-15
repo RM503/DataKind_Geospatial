@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/205a010b59a043659a888b8888d7e728/artifacts
+end_time: 1746036599719
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 205a010b59a043659a888b8888d7e728
+run_name: illustrious-sow-938
+run_uuid: 205a010b59a043659a888b8888d7e728
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746036575454
+status: 3
+tags: []
+user_id: rafidmahbub

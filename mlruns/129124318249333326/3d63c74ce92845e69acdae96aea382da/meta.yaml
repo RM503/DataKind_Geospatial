@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/3d63c74ce92845e69acdae96aea382da/artifacts
+end_time: 1747926167244
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 3d63c74ce92845e69acdae96aea382da
+run_name: hilarious-bat-52
+run_uuid: 3d63c74ce92845e69acdae96aea382da
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747926103976
+status: 3
+tags: []
+user_id: rafidmahbub

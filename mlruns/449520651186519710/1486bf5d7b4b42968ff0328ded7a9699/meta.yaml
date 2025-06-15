@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/1486bf5d7b4b42968ff0328ded7a9699/artifacts
+end_time: 1746978841720
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 1486bf5d7b4b42968ff0328ded7a9699
+run_name: stylish-crow-8
+run_uuid: 1486bf5d7b4b42968ff0328ded7a9699
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746978793704
+status: 3
+tags: []
+user_id: rafidmahbub

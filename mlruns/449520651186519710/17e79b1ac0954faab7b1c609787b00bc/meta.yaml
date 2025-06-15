@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/17e79b1ac0954faab7b1c609787b00bc/artifacts
+deleted_time: 1746975608170
+end_time: 1746974869065
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 17e79b1ac0954faab7b1c609787b00bc
+run_name: rebellious-stag-639
+run_uuid: 17e79b1ac0954faab7b1c609787b00bc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746974819738
+status: 3
+tags: []
+user_id: rafidmahbub

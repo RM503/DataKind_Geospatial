@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/a45186b6c33c4d8fbaedc98e61604642/artifacts
+end_time: 1747938256908
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: a45186b6c33c4d8fbaedc98e61604642
+run_name: puzzled-lynx-287
+run_uuid: a45186b6c33c4d8fbaedc98e61604642
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747938192877
+status: 3
+tags: []
+user_id: rafidmahbub

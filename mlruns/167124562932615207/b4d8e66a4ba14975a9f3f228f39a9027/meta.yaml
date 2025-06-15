@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/b4d8e66a4ba14975a9f3f228f39a9027/artifacts
+end_time: 1747768309934
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: b4d8e66a4ba14975a9f3f228f39a9027
+run_name: wise-lynx-202
+run_uuid: b4d8e66a4ba14975a9f3f228f39a9027
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747768255416
+status: 3
+tags: []
+user_id: rafidmahbub

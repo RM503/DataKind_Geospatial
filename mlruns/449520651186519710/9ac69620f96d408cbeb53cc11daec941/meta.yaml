@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/9ac69620f96d408cbeb53cc11daec941/artifacts
+end_time: 1746112638184
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 9ac69620f96d408cbeb53cc11daec941
+run_name: nimble-wolf-719
+run_uuid: 9ac69620f96d408cbeb53cc11daec941
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746112616215
+status: 3
+tags: []
+user_id: rafidmahbub

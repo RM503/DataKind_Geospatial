@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/c4eeec5497db436282d9c389a8688b12/artifacts
+deleted_time: 1746975608176
+end_time: 1746974570482
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: c4eeec5497db436282d9c389a8688b12
+run_name: dapper-cod-621
+run_uuid: c4eeec5497db436282d9c389a8688b12
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746974521231
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/1a68a8265f534e8da5f55521b222dc83/artifacts
+end_time: 1747939644946
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: 1a68a8265f534e8da5f55521b222dc83
+run_name: thoughtful-squid-750
+run_uuid: 1a68a8265f534e8da5f55521b222dc83
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747939580430
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/3d6c1f079a8d4f3b8d1ee0ef1c4a358f/artifacts
+end_time: 1746139581137
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 3d6c1f079a8d4f3b8d1ee0ef1c4a358f
+run_name: handsome-robin-758
+run_uuid: 3d6c1f079a8d4f3b8d1ee0ef1c4a358f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746139554466
+status: 3
+tags: []
+user_id: rafidmahbub

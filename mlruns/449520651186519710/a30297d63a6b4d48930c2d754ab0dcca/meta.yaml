@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/a30297d63a6b4d48930c2d754ab0dcca/artifacts
+end_time: 1746994398845
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: a30297d63a6b4d48930c2d754ab0dcca
+run_name: clumsy-finch-215
+run_uuid: a30297d63a6b4d48930c2d754ab0dcca
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746994346668
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/47aafcc8975746369747f7c7e7c52905/artifacts
+deleted_time: 1746909484937
+end_time: 1746909406124
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: deleted
+run_id: 47aafcc8975746369747f7c7e7c52905
+run_name: amazing-crow-528
+run_uuid: 47aafcc8975746369747f7c7e7c52905
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746909381357
+status: 3
+tags: []
+user_id: rafidmahbub

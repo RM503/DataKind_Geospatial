@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/fe17d2d6d20146c4add3a3f72d011152/artifacts
+end_time: 1746999101318
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: fe17d2d6d20146c4add3a3f72d011152
+run_name: big-mole-703
+run_uuid: fe17d2d6d20146c4add3a3f72d011152
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746999050586
+status: 3
+tags: []
+user_id: rafidmahbub

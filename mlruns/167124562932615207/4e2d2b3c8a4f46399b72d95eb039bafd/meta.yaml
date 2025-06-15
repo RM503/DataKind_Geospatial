@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/167124562932615207/4e2d2b3c8a4f46399b72d95eb039bafd/artifacts
+end_time: 1747765387241
+entry_point_name: ''
+experiment_id: '167124562932615207'
+lifecycle_stage: active
+run_id: 4e2d2b3c8a4f46399b72d95eb039bafd
+run_name: masked-ant-449
+run_uuid: 4e2d2b3c8a4f46399b72d95eb039bafd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747765331087
+status: 3
+tags: []
+user_id: rafidmahbub

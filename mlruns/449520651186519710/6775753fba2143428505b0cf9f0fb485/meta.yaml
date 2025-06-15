@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/6775753fba2143428505b0cf9f0fb485/artifacts
+end_time: 1746284773131
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 6775753fba2143428505b0cf9f0fb485
+run_name: luxuriant-skunk-457
+run_uuid: 6775753fba2143428505b0cf9f0fb485
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746284749252
+status: 3
+tags: []
+user_id: rafidmahbub

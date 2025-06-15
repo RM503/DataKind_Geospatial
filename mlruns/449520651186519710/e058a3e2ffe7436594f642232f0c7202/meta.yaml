@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/e058a3e2ffe7436594f642232f0c7202/artifacts
+end_time: 1746284947929
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: e058a3e2ffe7436594f642232f0c7202
+run_name: dazzling-fly-979
+run_uuid: e058a3e2ffe7436594f642232f0c7202
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746284922002
+status: 3
+tags: []
+user_id: rafidmahbub

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/ae624f1786014cb9af8f17956cb0c9f1/artifacts
+end_time: 1747062090670
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: ae624f1786014cb9af8f17956cb0c9f1
+run_name: chill-dove-13
+run_uuid: ae624f1786014cb9af8f17956cb0c9f1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747062041343
+status: 3
+tags: []
+user_id: rafidmahbub

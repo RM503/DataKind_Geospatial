@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/e5b860769f3849ef898e89e4480f0f89/artifacts
+end_time: 1746196422714
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: e5b860769f3849ef898e89e4480f0f89
+run_name: gregarious-rat-89
+run_uuid: e5b860769f3849ef898e89e4480f0f89
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746196395279
+status: 4
+tags: []
+user_id: rafidmahbub

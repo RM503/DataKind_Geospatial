@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/129124318249333326/d8380fbf9a454acd94ebc40c8cf81f03/artifacts
+end_time: 1747935484650
+entry_point_name: ''
+experiment_id: '129124318249333326'
+lifecycle_stage: active
+run_id: d8380fbf9a454acd94ebc40c8cf81f03
+run_name: judicious-bee-140
+run_uuid: d8380fbf9a454acd94ebc40c8cf81f03
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747935356467
+status: 3
+tags: []
+user_id: rafidmahbub

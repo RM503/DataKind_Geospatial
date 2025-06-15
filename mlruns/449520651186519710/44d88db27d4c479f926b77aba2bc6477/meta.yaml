@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/44d88db27d4c479f926b77aba2bc6477/artifacts
+end_time: 1746298504868
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: 44d88db27d4c479f926b77aba2bc6477
+run_name: learned-midge-273
+run_uuid: 44d88db27d4c479f926b77aba2bc6477
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746298472723
+status: 3
+tags: []
+user_id: rafidmahbub

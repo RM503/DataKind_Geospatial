@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/449520651186519710/ff0288bc85f841f3a4e58a4d90c6a021/artifacts
+end_time: 1746996716920
+entry_point_name: ''
+experiment_id: '449520651186519710'
+lifecycle_stage: active
+run_id: ff0288bc85f841f3a4e58a4d90c6a021
+run_name: wise-shrike-626
+run_uuid: ff0288bc85f841f3a4e58a4d90c6a021
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746996671758
+status: 3
+tags: []
+user_id: rafidmahbub
