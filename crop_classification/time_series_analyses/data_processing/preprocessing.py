@@ -101,6 +101,7 @@ def date_resample(df: pd.DataFrame, vi: str) -> pd.DataFrame:
               .asfreq()
         )
 
+        # Fill the missing uuid by mode, since the function is applied in a groupby("uuid") setting
         df[vi] = df[vi].interpolate()
         df["uuid"] = df["uuid"].fillna(df["uuid"].mode()[0])
 
@@ -124,12 +125,17 @@ def clean_vi_series(
         df = df.drop(columns=["system:index", ".geo"]) # Remove useless columns
 
     if "uuid" in df.columns:
+        # Reorder columns
         new_cols = ["uuid"] + [col for col in df.columns if col != "uuid"]
         df = df.reindex(columns=new_cols)
     else:
         logging.error("No uuid column found")
 
-    # Isolate only the numerical portion of the dataframe
+    """
+    Here we isolate the numerical portion of the dataframe and the steps
+    will heavily depend on the format in which GEE saves the time-series data
+    and preceeding preprocessing steps.
+    """
     if fill_method == "interpolate":
         
         df.iloc[:, 1:] = df.iloc[:, 1:].interpolate(method="linear", axis=1)
@@ -138,19 +144,20 @@ def clean_vi_series(
         
         df.iloc[:, 1:] = df.iloc[:, 1:].apply(fill_dates, axis=1)
 
-    
+    # Convert data to long format by melting
     df_melted = (
-    df.melt(id_vars="uuid", var_name="date", value_name=vi)
+        df.melt(id_vars="uuid", var_name="date", value_name=vi)
     )
-    df_melted["date"] = pd.to_datetime(df_melted["date"])
+    df_melted["date"] = pd.to_datetime(df_melted["date"], format="%Y-%m-%d")
 
+    # Remove duplicates and sort by uuid and date
     df_melted = (
-    df_melted.drop_duplicates(subset=["uuid", "date"], keep="first")
-             .sort_values(by=["uuid", "date"])
-             .reset_index(drop=True)
+        df_melted.drop_duplicates(subset=["uuid", "date"], keep="first")
+                .sort_values(by=["uuid", "date"])
+                .reset_index(drop=True)
     )   
 
-    # Applying Savitzky-Golay filter for smoothing time-series data and resample time
+    # Applying Savitzky-Golay filter for smoothing time-series data and resample time (if required)
     WINDOW_SIZE = 7
     POLY_ORDER = 3
 
@@ -176,7 +183,7 @@ def clean_vi_series(
     df_smoothed["outlier"] = df_smoothed.groupby("uuid")[vi].transform(find_outliers)
 
     # Set outliers to NaN and then fill them using `bfill`
-    #condition = df_melted["outlier"] == -1
+    # condition = df_melted["outlier"] == -1
     df_smoothed.loc[df_smoothed["outlier"] == -1, vi] = np.nan
 
     df_clean = (
@@ -184,14 +191,11 @@ def clean_vi_series(
                 .drop(columns="outlier")
     )
  
-    # Even if there are negative VI after outlier removal, set them to 0
-    df_clean.loc[
-        df_clean[vi] < -1.0, vi
-    ] = -1.0
-    # Even if there are NDVI values over 1.0 after outlier removal, set them to 1.0
-    df_clean.loc[
-        df_clean[vi] > 1.0, vi
-    ] = 1.0
+    # This VI indices are between -1 to 1. More extreme values are capped appropriately.
+    
+    df_clean.loc[df_clean[vi] < -1.0, vi] = -1.0
+
+    df_clean.loc[df_clean[vi] > 1.0, vi] = 1.0
 
     # Check if cleaned data conforms to required schema
     try:

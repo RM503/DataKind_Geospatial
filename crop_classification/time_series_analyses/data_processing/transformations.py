@@ -1,3 +1,6 @@
+"""
+Scripts containing data transformations necessary for training
+"""
 import pandas as pd
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -54,11 +57,14 @@ def transform_data(df: pd.DataFrame, df_label: pd.DataFrame=None) -> pd.DataFram
 
     Returns: df_transformed - transformed dataframe following the sktime scitype
     """
-    if "Unnamed: 0" in df.columns:
-        df.drop(columns=["Unnamed: 0"], inplace=True)
+    
+    if df.columns.str.contains("Unnamed:").any():
+        # Unnamed: columns can appear if dataframes are saved without index=False
+        unnamed_cols = df.columns[df.columns.str.contains("Unnamed:")]
+        df = df.drop(columns=unnamed_cols)
 
     if df["date"].dtype != "datetime64[ns]":
-        df["date"] = pd.to_datetime(df["date"])
+        df["date"] = pd.to_datetime(df["date"], format="%Y-%m-%d")
 
     # Make sure date column in each uuid are monotonic increasing
     df = df.sort_values(by=["uuid", "date"], ascending=True).reset_index(drop=True)

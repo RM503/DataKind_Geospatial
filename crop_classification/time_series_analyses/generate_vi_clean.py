@@ -12,6 +12,15 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 def get_file_paths(regions: list[str], vi: str="ndvi", input_dir: str="ndvi_series_raw") -> list[str]:
+    """ 
+    This function obtains a list of file paths for a given VI type and region.
+
+    Args: (i) regions - a list (singlet or other) of regions
+          (ii) vi - the VI type; defaults to `NDVI`
+          (iii) input_dir - the input directory; defaults to `ndvi_series_raw`
+    
+    Returns: a list of file paths
+    """
 
     # Initialize an empty list to store file directories
     all_files = []
@@ -31,12 +40,22 @@ def get_file_paths(regions: list[str], vi: str="ndvi", input_dir: str="ndvi_seri
     return all_files
 
 def clean_data(input_file_path: str, vi: str="ndvi", output_dir: str="ndvi_series_clean") -> None:
+    """ 
+    This function cleans raw data provided by applying the preprocessing steps in `data_processing/preprocessing.py`
+    and saves them to the specified output directory.
+
+    Args: (i) input_file_path - the input file path
+          (ii) vi - the VI type; defaults to `NDVI`
+          (iii) output_dir - the output directory       
+
+    Returns: None
+    """
     if not os.path.exists(output_dir):
         os.makedirs(output_dir, exist_ok=True)
 
     logging.info(f"Processing file: {input_file_path}")
 
-    df_tile = pd.read_csv(input_file_path)
+    df_tile = pd.read_csv(input_file_path, parse_dates=["date"])
     df_tile_cleaned = preprocessing.clean_vi_series(df_tile, vi=vi, resample_date=True)
 
     file_name = input_file_path.split("/")[-1].split(".")[0]
@@ -47,6 +66,7 @@ def clean_data(input_file_path: str, vi: str="ndvi", output_dir: str="ndvi_serie
 if __name__ == "__main__":
     import argparse 
 
+    # Use argparse to pass in the arguments
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--regions",
