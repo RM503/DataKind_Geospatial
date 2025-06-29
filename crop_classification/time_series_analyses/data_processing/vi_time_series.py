@@ -16,7 +16,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("ndvi_series.log"),
+        logging.FileHandler("vi_series.log"),
         logging.StreamHandler()
     ]
 )
