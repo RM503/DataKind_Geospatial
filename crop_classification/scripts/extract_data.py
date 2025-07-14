@@ -1,7 +1,6 @@
 import pandas as pd
 import geopandas as gpd
 import dask.dataframe as dd
-import geopandas as gpd
 from scipy.signal import savgol_filter
 import logging 
 
