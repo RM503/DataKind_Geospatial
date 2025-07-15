@@ -1,3 +1,6 @@
+"""
+Script for extracting important farmland specific metrics using NDVI and NDMI
+"""
 import os
 import numpy as np
 import pandas as pd
@@ -13,7 +16,7 @@ sns.set_palette("bright")
 logging.basicConfig(level=logging.INFO)
 
 class Schema(pd.SchemaModel):
-    # Schema enforcement
+    # Schema enforcement for NDVI and NDMI time series data
     date: Series[pa.DateTime] = pa.Field(nullable=False)
     uuid: Series[str] = pd.Field(nullable=False)
     ndvi: Series[float] = pd.Field(ge=-1.0, le=1.0, nullable=False)
@@ -55,12 +58,6 @@ class ExtractNDVIData:
         """
         df = self.df_prepared
 
-        try:
-            df = df[df["polygon_type"]=="Farm"]
-        except KeyError as e:
-            logging.error("polygon_type column is not present in the dataframe.")
-            raise e
-
         peaks_date_dict = {} # dictionary for storing dates where NDVI peaks occur for uuid
         peaks_val_dict = {}
 
@@ -70,7 +67,7 @@ class ExtractNDVIData:
             peaks, _ = find_peaks(
                 group["ndvi"].values, 
                 height=(0.4, 1.0), 
-                prominence=0.10, 
+                prominence=0.20, 
                 distance=10
             )
             group["peak"] = np.isin(group.index, peaks).astype(int)
