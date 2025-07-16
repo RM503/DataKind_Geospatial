@@ -12,16 +12,23 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import logging 
 
-sns.set_palette("bright")
 logging.basicConfig(level=logging.INFO)
 
-class Schema(pd.SchemaModel):
+def ensure_dir_exists(dir: str) -> bool:
+    if not os.path.exists(dir):
+        logging.info("Creating export directory.")
+        os.makedirs(dir, exist_ok=True)
+        return True
+
+class Schema(pa.DataFrameModel):
     # Schema enforcement for NDVI and NDMI time series data
     date: Series[pa.DateTime] = pa.Field(nullable=False)
-    uuid: Series[str] = pd.Field(nullable=False)
-    ndvi: Series[float] = pd.Field(ge=-1.0, le=1.0, nullable=False)
-    ndmi: Series[float] = pd.Field(ge=-1.0, le=1.0, nullable=False)
-    polygon_type: Series[str] = pd.Field(isin=["Farm", "Field"], nullable=False)
+    uuid: Series[str] = pa.Field(nullable=False)
+
+    # Giving NDVI and NDMI a bit of leeway in bounds
+    ndvi: Series[float] = pa.Field(ge=-1.01, le=1.01, nullable=False)
+    ndmi: Series[float] = pa.Field(ge=-1.01, le=1.01, nullable=False)
+    polygon_type: Series[str] = pa.Field(isin=["Farm", "Field"], nullable=False)
 
 class ExtractNDVIData:
     def __init__(self, df: pd.DataFrame, region: str, validate_input: bool=True):
@@ -29,13 +36,25 @@ class ExtractNDVIData:
         if validate_input:
             try:
                 df = Schema(df)
-            except SchemaError as e:
-                logging.error("Data validation failed!")
-                raise e
+            except SchemaError as e_1:
+                if "null values" in str(e_1).lower():
+                    logging.info("NaN values encountered; imputing ...")
+                    df = self.impute_nan(df)
+
+                    try:
+                        df = Schema(df)
+                    except SchemaError as e_2:
+                        logging.error("Data validation failed even after imputation.")
+                        raise e_2
+                else:
+                    logging.error("Data validation failed for some other reason.")
+                    raise e_1
             
         self.df = df
         self.df_prepared = self._prepare_data() 
         self.region = region
+        self.DATA_DIR = f"vi_characteristics/{self.region}"
+        self.PLOT_DIR = f"plots/{self.region}"
 
     def _prepare_data(self) -> pd.DataFrame:
         df_copy = self.df.copy(deep=True)
@@ -50,6 +69,17 @@ class ExtractNDVIData:
             df_copy["date"] = pd.to_datetime(df_copy["date"])
 
         return df_copy
+    
+    def impute_nan(self, df: pd.DataFrame) -> pd.DataFrame:
+        df_to_impute = df
+        df_to_impute["ndvi"] = df_to_impute.groupby("uuid")["ndvi"].transform(
+            lambda x: x.bfill().ffill()
+        )
+        df_to_impute["ndmi"] = df_to_impute.groupby("uuid")["ndmi"].transform(
+            lambda x: x.bfill().ffill()
+        )
+
+        return df_to_impute
 
     def ndvi_peaks(self, export: bool=True) -> pd.DataFrame:
         """ 
@@ -123,21 +153,17 @@ class ExtractNDVIData:
         df_merged.drop(columns=["year"], inplace=True)
 
         if export:
-            if not os.path.exists(f"vi_characteristics/{self.region}"):
-                logging.info("Creating export directory.")
-                os.makedirs(f"vi_characteristics/{self.region}", exist_ok=True)
+            ensure_dir_exists(self.DATA_DIR)
+            ensure_dir_exists(self.PLOT_DIR)
             
-            df_merged.to_csv(f"vi_characteristics/{self.region}/ndvi_peaks_{self.region}.csv", index=False)
+            df_merged.to_csv(f"{self.DATA_DIR}/ndvi_peaks_{self.region}.csv", index=False)
 
-            # Export plots 
-            if not os.path.exists(f"plots/{self.region}"):
-                os.makedirs(f"plots/{self.region}", exist_ok=True)
-
-            sns.boxplot(df_merged, x="peak_position", y="ndvi_peak_value", hue="peak_position", edgecolor="k")
+            sns.boxplot(df_merged, x="peak_position", y="ndvi_peak_value", hue="peak_position", palette="bright")
             plt.xlabel("Position", fontsize=12)
             plt.ylabel("NDVI peak value", fontsize=12)
             plt.title("NDVI peaks in relation to occurrence during year", fontsize=14)
-            plt.savefig(f"plots/{self.region}/ndvi_peaks_boxplot_{self.region}.png", dpi=300, bbox_inches="tight")
+            plt.savefig(f"{self.PLOT_DIR}/ndvi_peaks_boxplot_{self.region}.png", dpi=300, bbox_inches="tight")
+            plt.clf()
 
         return df_merged
 
@@ -148,7 +174,7 @@ class ExtractNDVIData:
         aggregate the time-series data and make inferences about planting cycles and other
         important metrics.
 
-        Args: (i) df_peaks - the NDVI dataframe with annotated peaks
+        Args: (i) df_peaks - the NDVI dataframe with annotated peaks (output from `ndvi_peaks()`)
               (ii) export - whether or not the results are to be exported; defaults to True
 
         Returns: (i) df_annual_peaks_monthly - occurrences of NDVI peaks every month over the years
@@ -162,20 +188,30 @@ class ExtractNDVIData:
         # months through dt.month will be in the form of Int32
         if pd.api.types.is_integer_dtype(df_peaks["ndvi_peak_month"]):
             month_mapper = {
-                1: "January",
-                2: "February",
-                3: "March",
-                4: "April",
+                1: "Jan",
+                2: "Feb",
+                3: "Mar",
+                4: "Apr",
                 5: "May",
-                6: "June",
-                7: "July",
-                8: "August",
-                9: "September",
-                10: "October",
-                11: "November",
-                12: "December"
+                6: "Jun",
+                7: "Juy",
+                8: "Aug",
+                9: "Sep",
+                10: "Oct",
+                11: "Nov",
+                12: "Dec"
             }
             df_peaks["ndvi_peak_month"] = df_peaks["ndvi_peak_month"].map(month_mapper)
+
+            # The month names will not appear chronologically without setting their order
+            month_order = list(month_mapper.values())
+            df_peaks["ndvi_peak_month"] = pd.Categorical(
+                df_peaks["ndvi_peak_month"],
+                categories=month_order,
+                ordered=True
+            )
+
+            df_peaks = df_peaks.sort_values("ndvi_peak_month")
 
         # Number of monthly peaks over the years
         df_annual_peaks_monthly = df_peaks.groupby(["ndvi_peak_year", "ndvi_peak_month"]).agg(
@@ -192,28 +228,28 @@ class ExtractNDVIData:
         ).reset_index()
 
         if export:
-            if not os.path.exists(f"vi_characteristics/{self.region}"):
-                logging.info("Creating export directory.")
-                os.makedirs(f"vi_characteristics/{self.region}", exist_ok=True)
+            ensure_dir_exists(self.DATA_DIR)
+            ensure_dir_exists(self.PLOT_DIR)
             
-            df_annual_peaks_monthly.to_csv(f"vi_characteristics/{self.region}/ndvi_peaks_monthly_{self.region}.csv", index=False)
-            df_annual_cum_peaks.to_csv(f"vi_characteristics/{self.region}/ndvi_peaks_annual_{self.region}.csv", index=False)
-
-            if not os.path.exists(f"plots/{self.region}"):
-                os.makedirs(f"plots/{self.region}", exist_ok=True)
+            df_annual_peaks_monthly.to_csv(f"{self.DATA_DIR}/ndvi_peaks_monthly_{self.region}.csv", index=False)
+            df_annual_cum_peaks.to_csv(f"{self.DATA_DIR}/ndvi_peaks_annual_{self.region}.csv", index=False)
 
             # Export plots
-            sns.barplot(df_annual_peaks_monthly, x="ndvi_peak_month", hue="ndvi_peak_year", edgecolor="k")
+            sns.barplot(df_annual_peaks_monthly, x="ndvi_peak_month", y="ndvi_peaks_per_month", 
+                        hue="ndvi_peak_year", edgecolor="k", palette="bright")
             plt.xlabel("Month", fontsize=12)
             plt.ylabel("Number of NDVI peaks", fontsize=12)
             plt.title("Number of NDVI peaks per month", fontsize=14)
-            plt.savefig(f"plots/{self.region}/ndvi_peaks_monthly_{self.region}.png", dpi=300, bbox_inches="tight")
+            plt.savefig(f"{self.PLOT_DIR}/ndvi_peaks_monthly_{self.region}.png", dpi=300, bbox_inches="tight")
+            plt.clf()
 
-            sns.barplot(df_annual_cum_peaks, x="number_of_peaks_per_farm", hue="ndvi_peak_year", edgecolor="k")
+            sns.barplot(df_annual_cum_peaks, x="number_of_peaks_per_farm", y="uuid_count",
+                         hue="ndvi_peak_year", edgecolor="k", palette="bright")
             plt.xlabel("Number of annual NDVI peaks")
             plt.ylabel("Number of farms")
             plt.title("Distribution of number of annual NDVI peaks", fontsize=14)
-            plt.savefig(f"plots/{self.region}/ndvi_peaks_annual_{self.region}.png", dpi=300, bbox_inches="tight")
+            plt.savefig(f"{self.PLOT_DIR}/ndvi_peaks_annual_{self.region}.png", dpi=300, bbox_inches="tight")
+            plt.clf()
 
         return df_annual_peaks_monthly, df_annual_cum_peaks
     
@@ -230,8 +266,11 @@ class ExtractNDMIData:
         self.df = df
         self.df_prepared = self._prepare_data() 
         self.region = region
+        self.DATA_DIR = f"vi_characteristics/{self.region}"
+        self.PLOT_DIR = f"plots/{self.region}"
     
     def _prepare_data(self) -> pd.DataFrame:
+        # Checks for date column type and select Farm polygons
         df_copy = self.df.copy(deep=True)
 
         try:
@@ -249,7 +288,7 @@ class ExtractNDMIData:
         df = self.df_prepared 
 
         # Filter out high-NDMI farms based on threshold
-        df_high_ndmi = df[df["ndmi"] > ndmi_threshold]
+        df_high_ndmi = df[df["ndmi"] > ndmi_threshold].copy()
         df_high_ndmi["year"] = df_high_ndmi["date"].dt.year
 
         """ 
@@ -264,14 +303,10 @@ class ExtractNDMIData:
         ).reset_index()
         
         if export:
-            if not os.path.exists(f"vi_characteristics/{self.region}"):
-                logging.info("Creating export directory.")
-                os.makedirs(f"vi_characteristics/{self.region}", exist_ok=True)
+            ensure_dir_exists(self.DATA_DIR)
+            ensure_dir_exists(self.PLOT_DIR)
 
-            df_high_ndmi_days.to_csv(f"vi_characteristics/{self.region}/high_ndmi_days_{self.region}.csv", index=False)
-
-            if not os.path.exists(f"plots/{self.region}"):
-                os.makedirs(f"plots/{self.region}", exist_ok=True) 
+            df_high_ndmi_days.to_csv(f"{self.DATA_DIR}/high_ndmi_days_{self.region}.csv", index=False)
             
             fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
             sns.histplot(df_high_ndmi_days, y="high_ndmi_days", hue="year", multiple="stack", bins=40, palette="bright", ax=ax1)
@@ -283,6 +318,42 @@ class ExtractNDMIData:
             ax2.set_ylabel("Days", fontsize=12)
 
             fig.suptitle(r"Cumulative days with NDMI$\geq0.38$", fontsize=14)
-            plt.savefig(f"plots/{self.region}/high_ndmi_days_{self.region}.png", dpi=300, bbox_inches="tight")
+            plt.savefig(f"{self.PLOT_DIR}/high_ndmi_days_{self.region}.png", dpi=300, bbox_inches="tight")
+            plt.close(fig)
 
         return df_high_ndmi_days
+    
+    def peak_vi_distribution(self) -> pd.DataFrame:
+        df_subset = self.df_prepared.copy()
+        df_subset["year"] = df_subset["date"].dt.year 
+
+        df_grouped = df_subset.groupby(["uuid", "year"])[["ndvi", "ndmi"]].apply(lambda x: x.max())
+        df_grouped.rename(columns={"ndvi": "ndvi_max", "ndmi": "ndmi_max"}, inplace=True)
+
+        return df_grouped
+    
+    def moisture_content(self, export: bool=True) -> pd.DataFrame:
+        df_vi_peak = self.peak_vi_distribution().reset_index()
+
+        mean_ndmi_max = pd.DataFrame(df_vi_peak.groupby("uuid")["ndmi_max"].agg("mean"))
+        mean_ndmi_max["moisture_content"] = mean_ndmi_max["ndmi_max"].apply(
+            lambda x: "high" if x >=0.38 else "medium" if 0.25 <= x < 0.38 else "approaching low" if 0.20 <= x < 0.25 else "low"
+        )
+
+        moisture_content = mean_ndmi_max.groupby("moisture_content").agg(
+            counts=pd.NamedAgg("ndmi_max", aggfunc="count")
+        ).reset_index()
+
+        if export:
+            ensure_dir_exists(self.DATA_DIR)
+            ensure_dir_exists(self.PLOT_DIR)
+
+            moisture_content.to_csv(f"{self.DATA_DIR}/moisture_content_{self.region}.csv", index=False)
+
+            fig, ax = plt.subplots()
+
+            ax.pie(moisture_content["counts"], labels=moisture_content["moisture_content"], autopct="%1.1f%%")
+            ax.set_title("Inferred moisture content from NDMI")
+
+            plt.savefig(f"{self.PLOT_DIR}/moisture_content_{self.region}.png", dpi=300, bbox_inches="tight")
+            plt.clf()
