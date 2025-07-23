@@ -259,9 +259,25 @@ class ExtractNDMIData:
         if validate_input:
             try:
                 df = Schema(df)
-            except SchemaError as e:
-                logging.error("Data validation failed!")
-                raise e
+            except SchemaError as e_1:
+                if "null values" in str(e_1).lower():
+                    logging.info("NaN values encountered; imputing ...")
+                    df = self.impute_nan(df)
+
+                    try:
+                        df = Schema(df)
+                    except SchemaError as e_2:
+                        logging.error("Data validation failed even after imputation.")
+                        raise e_2
+                else:
+                    logging.error("Data validation failed for some other reason.")
+                    raise e_1
+            
+        self.df = df
+        self.df_prepared = self._prepare_data() 
+        self.region = region
+        self.DATA_DIR = f"vi_characteristics/{self.region}"
+        self.PLOT_DIR = f"plots/{self.region}"
             
         self.df = df
         self.df_prepared = self._prepare_data() 
@@ -283,6 +299,17 @@ class ExtractNDMIData:
             df_copy["date"] = pd.to_datetime(df_copy["date"])
 
         return df_copy
+    
+    def impute_nan(self, df: pd.DataFrame) -> pd.DataFrame:
+        df_to_impute = df
+        df_to_impute["ndvi"] = df_to_impute.groupby("uuid")["ndvi"].transform(
+            lambda x: x.bfill().ffill()
+        )
+        df_to_impute["ndmi"] = df_to_impute.groupby("uuid")["ndmi"].transform(
+            lambda x: x.bfill().ffill()
+        )
+
+        return df_to_impute
     
     def high_ndmi_days(self, ndmi_threshold: float=0.38, export: bool=True) -> pd.DataFrame:
         df = self.df_prepared 
@@ -323,12 +350,18 @@ class ExtractNDMIData:
 
         return df_high_ndmi_days
     
-    def peak_vi_distribution(self) -> pd.DataFrame:
+    def peak_vi_distribution(self, export : bool=True) -> pd.DataFrame:
         df_subset = self.df_prepared.copy()
         df_subset["year"] = df_subset["date"].dt.year 
 
         df_grouped = df_subset.groupby(["uuid", "year"])[["ndvi", "ndmi"]].apply(lambda x: x.max())
         df_grouped.rename(columns={"ndvi": "ndvi_max", "ndmi": "ndmi_max"}, inplace=True)
+        df_grouped.reset_index(inplace=True)
+
+        if export:
+            ensure_dir_exists(self.DATA_DIR)
+
+            df_grouped.to_csv(f"{self.DATA_DIR}/peak_vi_distribution_{self.region}.csv", index=False)
 
         return df_grouped
     

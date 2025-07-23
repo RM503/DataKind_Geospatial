@@ -1,15 +1,20 @@
+# Script for downloading bulk iSDA soil data
 import os
-from pystac import Item
-import numpy as np 
+import numpy as np
+import geopandas as gpd
+import numpy.ma as ma 
 from numpy.typing import NDArray
-import geopandas as gpd 
+from pystac import Item
 import rasterio as rio 
 from rasterio.transform import Affine, xy
+import pyproj
 from pyproj import Transformer
 from rasterstats import zonal_stats 
 import logging
 
 logging.basicConfig(level=logging.INFO)
+
+os.environ["PROJ_DATA"] = pyproj.datadir.get_data_dir()
 
 class ISDADataExtract:
     def __init__(
@@ -38,6 +43,7 @@ class ISDADataExtract:
 
         Returns: None
         """
+
         # x and y resolutions
         xres = (x[-1] - x[0])/len(x) 
         yres = (y[-1] - y[0])/len(y) 
@@ -59,9 +65,9 @@ class ISDADataExtract:
             "transform": transform
         }
 
-        output_dir = os.path.join("rasters", region)
+        output_dir = os.path.join("isda_data", region)
         os.makedirs(output_dir, exist_ok=True)
-        raster_path = os.path.join(output_dir, f"{qty_type}_{region}.tif")
+        raster_path = os.path.join(output_dir, f"{qty_type}.tif")
 
         with rio.open(raster_path, **params) as src: 
             for i in range(bands):
@@ -85,15 +91,18 @@ class ISDADataExtract:
         """
         asset_type = self.assets[self.qty_type]
         file_location = asset_type.assets["image"].href
-        
         with rio.open(file_location) as file:
             # The assets are in Mercator projection. The lat/lon bounding box corners
             # are appropriately converted.
-            transformer_to_crs = Transformer.from_crs("epsg:4326", file.crs)
+            transformer_to_crs = Transformer.from_crs("epsg:4326", file.crs, always_xy=True)
 
             # converting lat/lon to x and y for upper left and lower right corners
-            x_0, y_0 = transformer_to_crs.transform(self.start_lat_lon[0], self.start_lat_lon[1])
-            x_1, y_1 = transformer_to_crs.transform(self.end_lat_lon[0], self.end_lat_lon[1])
+            x_0, y_0 = transformer_to_crs.transform(
+                self.start_lat_lon[1], self.start_lat_lon[0]
+            )
+            x_1, y_1 = transformer_to_crs.transform(
+                self.end_lat_lon[1], self.end_lat_lon[0]
+            )
 
             # obtain pixel values associated with bounding box coordinates
             row_start, col_start = file.index(x_0, y_0)
@@ -122,7 +131,7 @@ class ISDADataExtract:
             _, y_coords = xy(transform, rows=rows, cols=0)  # all y for col 0
 
             # Broadcast into full grids
-            xs, ys = np.meshgrid(x_coords, y_coords)
+            xs, ys = np.meshgrid(x_coords, y_coords, indexing="ij")
 
             # Convert pixel CRS coordinates back to lat/lon
             transformer_to_latlon = Transformer.from_crs(file.crs, "epsg:4326", always_xy=True)
@@ -134,33 +143,51 @@ class ISDADataExtract:
                 'count': file.count,
                 'transform': file.window_transform(window)
         })
+        # There maybe invalid pixels with values of 255. These have to be masked
+
+        if 255 in arr:
+            arr = ma.masked_where(arr==255, arr)
+            arr = arr.filled(arr.mean())
         """
         Given how the data are stored, certain back-transformations are required to scale
         them properly.
         """
         conversion_funcs = {
-            "x": np.vectorize(lambda x: x),
-            "x/10": np.vectorize(lambda x: x/10, otypes=["float32"]),
-            "x/100": np.vectorize(lambda x: x/100, otypes=["float32"]),
-            "expm1(x/10)": np.vectorize(lambda x: np.expm1(x / 10), otypes=["float32"]),
-            "%3000": np.vectorize(lambda x: int(x%3000), otypes=["int16"])
+            "x": lambda x: x,
+            "x/10": lambda x: x / 10,
+            "x/100": lambda x: x / 100,
+            "expm1(x/10)": lambda x: np.expm1(x / 10),
+            "%3000": lambda x: x % 3000,
         }
-        
-        if asset_type.extra_fields["back-transformation"] is not None:
-            # Obtain the kind of back-transformation associated with type
-            conversion = asset_type.extra_fields["back-transformation"]
-            arr_transformed = conversion_funcs[conversion](arr)
+        vectorized = {k: np.vectorize(v, otypes=["float32" if "float" in str(v(1)).lower() else "int64"])
+                    for k, v in conversion_funcs.items()}
 
-            if write_to_raster:
-                self.write_raster(self.region, arr_transformed, lon_grid[0,:], lat_grid[:,0], self.qty_type)
+        conversion = asset_type.extra_fields.get("back-transformation")
+        arr_final = vectorized[conversion](arr) if conversion else arr # scaling, if necessary
 
-            return arr_transformed, new_profile, lon_grid, lat_grid
-        else:
-            if write_to_raster:
-                self.write_raster(self.region, arr, lon_grid[0,:], lat_grid[:,0], self.qty_type)
-            return arr, new_profile, lon_grid, lat_grid
+        if write_to_raster:
+            self.write_raster(self.region, arr_final, lon_grid[:, 0], lat_grid[0, :], self.qty_type)
 
-def data_within_polygons(gdf: gpd.GeoDataFrame, raster_file_paths: list[str], region: str="Trans_Nzoia_1") -> gpd.GeoDataFrame:
+        return arr_final, new_profile, lon_grid, lat_grid 
+    
+    
+def data_within_polygons(
+        gdf: gpd.GeoDataFrame, 
+        raster_file_paths: list[str], 
+        region: str,
+        return_data: bool=True
+    ) -> gpd.GeoDataFrame | None:
+    """
+    This function calculates the pixel means of the soil quantities within
+    each of the polygons present in the provided geodataframe.
+
+    Args: (i) gdf - geodataframe containing `Farm` polygons
+          (ii) raster_file_paths - a list of file paths to rasters of all relevel soil
+                                   quantities
+          (iii) region - one of the several distributor regions
+
+    Returns: geodataframe with all soil quantities for every `uuid` present in gdf.
+    """
     # Making a copy so that the original is not changed
     gdf_copied = (
         gdf.copy(deep=True)
@@ -187,5 +214,7 @@ def data_within_polygons(gdf: gpd.GeoDataFrame, raster_file_paths: list[str], re
             )
         means = [s["mean"] if s["mean"] is not None else np.nan for s in stats]
         gdf_copied[qty_name] = means
-
-    return gdf_copied
+    
+    gdf_copied.to_file(f"isda_data/{region}/soil_data_table.gpkg", driver="GPKG")
+    if return_data:
+        return gdf_copied

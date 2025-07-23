@@ -3,6 +3,7 @@ Script for generating MODIS and CHIRPS data on gridded region
 """
 import os 
 import dotenv
+from itertools import product
 import ee
 import numpy as np
 import geopandas as gpd
@@ -140,23 +141,27 @@ def generate_MODIS_timeseries(
     return img_collection.map(map_index).flatten()
 
 if __name__ == "__main__":
-    gdf = gpd.read_file("../inference/Trans_Nzoia_1_results_aggregated.gpkg")
-    grid = generate_pixel_grid(gdf, "Trans_Nzoia_1")
-    
-    grid["RoI"] = grid["geometry"].apply(return_ee_geometry)
-    geometries = gdf_to_FeatureCollection(grid)
+    regions = ["Kajiado_1", "Kajiado_2", "Laikipia_1"]
+    indices = ["ndvi", "lst", "pdsi"]
 
-    index_type = "pdsi"
-    img_collection = generate_MODIS_timeseries(geometries, index_type=index_type)
-    index_table = format_table(img_collection, "tile_name", "date", index_type)
+    for region, index in list(product(regions, indices)):
+        gdf = gpd.read_file(f"../inference/{region}_results_aggregated.gpkg")
+        grid = generate_pixel_grid(gdf, region)
+        
+        grid["RoI"] = grid["geometry"].apply(return_ee_geometry)
+        geometries = gdf_to_FeatureCollection(grid)
 
-    table_name = f"MODIS_{index_type}_series_Trans_Nzoia_1"
+        index_type = index
+        img_collection = generate_MODIS_timeseries(geometries, index_type=index_type)
+        index_table = format_table(img_collection, "tile_name", "date", index_type)
 
-    # Export as a table
-    task = ee.batch.Export.table.toDrive(
-        collection=index_table,
-        description=table_name,
-        folder="MODIS_time_series",
-        fileFormat="CSV"
-    )
-    task.start()
+        table_name = f"MODIS_{index_type}_series_{region}"
+
+        # Export as a table
+        task = ee.batch.Export.table.toDrive(
+            collection=index_table,
+            description=table_name,
+            folder="MODIS_time_series",
+            fileFormat="CSV"
+        )
+        task.start()

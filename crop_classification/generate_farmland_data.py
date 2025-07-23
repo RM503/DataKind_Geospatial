@@ -31,5 +31,4 @@ if __name__ == "__main__":
         _, _ = ndvi_data_extractor.ndvi_peak_annual_dists(df_peaks)
 
         ndmi_data_extractor = ExtractNDMIData(df_merged, region)
-        _ = ndmi_data_extractor.high_ndmi_days()
-        _ = ndmi_data_extractor.moisture_content()
+        _ = ndmi_data_extractor.peak_vi_distribution()
