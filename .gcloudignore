@@ -1,6 +1,0 @@
-env/
-__pycache__/
-cloud_masked_composites/
-samgeo_experiments/
-README.md 
-requirements.txt
