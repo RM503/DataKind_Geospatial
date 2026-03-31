@@ -41,7 +41,7 @@ def configure_logging(
         datefmt="%Y-%m-%d %H:%M:%S",
     )
 
-    logger = logging.getLogger("agent")
+    logger = logging.getLogger("project")
     logger.setLevel(level)
     logger.propagate = False
     logger.handlers.clear()
@@ -58,4 +58,4 @@ def configure_logging(
 
 
 def get_logger(name: str) -> logging.Logger:
-    return logging.getLogger(f"agent.{name}")
+    return logging.getLogger(f"project.{name}")
