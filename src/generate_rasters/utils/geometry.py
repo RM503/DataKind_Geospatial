@@ -1,25 +1,15 @@
 # Utility functions for generating raster images
+from __future__ import annotations
+
 import logging
 import os
-import time
-from typing import Generator
 
 import cv2
 import ee
 import numpy as np
 import geopandas as gpd
-import rasterio
-from sentinelhub import (
-    BBox,
-    CRS,
-    DataCollection,
-    MimeType,
-    SentinelHubRequest,
-    SHConfig,
-    bbox_to_dimensions,
-    geo_utils
-)
-from shapely import bounds, make_valid
+from sentinelhub import BBox, SHConfig, geo_utils
+from shapely import make_valid
 from shapely.geometry import MultiPolygon, Polygon
 from tqdm import tqdm
 
@@ -37,6 +27,7 @@ config = SHConfig(os.getenv("SENTINELHUB_USER"))
 
 def generate_covering_grid(
         gdf: gpd.GeoDataFrame,
+        *,
         crs: str = "EPSG:4326",
         buffer_distance: float=10_000,
         scale: int=5000
@@ -94,11 +85,7 @@ def generate_covering_grid(
 
     return gdf
 
-def generate_lon_lat(
-        aoi_bbox: BBox,
-        aoi_size: tuple,
-        resolution: int
-) -> tuple[np.ndarray, np.ndarray]:
+def generate_lon_lat(aoi_bbox: BBox, aoi_size: tuple, resolution: int) -> tuple[np.ndarray, np.ndarray]:
     """
     This function generates longitude and latitude axes from bounding box and resolution
     information to be used in the generation of raster tiles.
@@ -126,3 +113,20 @@ def generate_lon_lat(
     lon_degrees, lat_degrees = geo_utils.transform_point(lon, lat, bbox_utm.crs)
 
     return lon_degrees[0,:], lat_degrees[:,0]
+
+def edge_enhance(img: np.ndarray, kernel_size: int=11, wf: int=2) -> np.ndarray:
+    """
+    This function performs edge enhancement on input images by superposing a 
+    Gaussian blur subtracted version on top of the image.
+
+    Args:
+          img (np.ndarray): input image as numpy array
+          kernel_size (int): pixel area over which Gaussian blur is applied; defaults to 11 px
+          wf (int): a weight factor; defaults to 2
+
+    Returns: enhanced image as numpy array
+    """
+    img_blurred = cv2.GaussianBlur(img, (kernel_size, kernel_size), 0)
+
+    img_sharpened = img + wf * (img - img_blurred)
+    return img_sharpened
