@@ -18,7 +18,7 @@ logger = get_logger(__name__)
 @dataclass(frozen=True)
 class RasterTile:
     """
-    Holds raster tile information to be used in I/O operations
+    Container for a raster tile with its geographic axes.
 
     Attributes:
         img (np.ndarray): the tile array of shape (H, W, C)
@@ -32,6 +32,17 @@ class RasterTile:
     def __post_init__(self):
         if self.img.ndim != 3:
             raise ValueError(f"Image array must have 3 dimensions (H, W, C); got {self.img.ndim}")
+
+        height, width, _ = self.img.shape
+
+        if self.lats.ndim != 1:
+            raise ValueError(f"Lattitude axis must be 1D; got {self.lats.shape}D")
+        if self.lons.ndim != 1:
+            raise ValueError(f"Longitude axis must be 1D; got {self.lons.shape}D")
+        if len(self.lats) != height:
+            raise ValueError(f"Lattitude axis length {len(self.lats)} does not match image height {height}")
+        if len(self.lons) != width:
+            raise ValueError(f"Longitude axis length {len(self.lons)} does not match image width {width}")
 
 @dataclass
 class GeoTiffWriter:
@@ -64,9 +75,10 @@ class GeoTiffWriter:
             # Coerce output_dir to be Path object
             self.output_dir = Path(self.output_dir)
 
-    def to_buffer(self, tile: RasterTile) -> BytesIO:
+    def to_geotiff_buffer(self, tile: RasterTile) -> BytesIO:
         """
         Converts tile arrays into in-memory GeoTIFF buffer.
+        Necessary when GeoTIFFs are directly persisted to cloud.
 
         Args:
             tile (RasterTile): the raster tile array
@@ -80,7 +92,7 @@ class GeoTiffWriter:
         left, right = np.min(lons), np.max(lons)
         bottom, top = np.min(lats), np.max(lats)
 
-        img_3bands = np.stack((img[:, :, i] for i in range(img.shape[2])))
+        img_3bands = np.stack(( [img[:, :, i] for i in range(img.shape[2])] ))
 
         transform = rio.transform.from_bounds(
             left, bottom, right, top,
@@ -120,19 +132,17 @@ class GeoTiffWriter:
         if self.output_dir is None:
             raise ValueError("output_dir must be set to save locally.")
 
-        img, lats, lons = astuple(tile)
-
+        self.output_dir.mkdir(parents=True, exist_ok=True)
         output_path = self.output_dir / filename
-        output_path.mkdir(parents=True, exist_ok=True)
 
-        buffer = self.to_buffer(img, lats, lons, self.crs)
+        buffer = self.to_geotiff_buffer(tile)
         output_path.write_bytes(buffer.read())
 
         return output_path
 
     def upload(self, tile: RasterTile, filename: str) -> str:
         """
-        Writes an image array to a GeoTIFF file on disk.
+        Uploads GeoTIFF file to S3.
 
         Args:
             tile (RasterTile): the raster tile array
@@ -146,7 +156,7 @@ class GeoTiffWriter:
 
         s3_key = f"{self.s3_prefix}/{filename}".lstrip("/")
         self.s3_client.upload_fileobj(
-            self.to_buffer(tile),
+            self.to_geotiff_buffer(tile),
             self.bucket_name,
             s3_key,
             ExtraArgs={"ContentType": "image/tiff"}
@@ -155,10 +165,11 @@ class GeoTiffWriter:
         return s3_key
 
     def export(self, tile: RasterTile, filename: str) -> None:
+        """Export to whichever designation is configured."""
         if self.output_dir is not None:
             path = self.save(tile, filename)
-            logger.info(f"Saving {filename} to {path}")
+            logger.info(f"Saved {filename} to {path}")
 
         if self.bucket_name is not None:
             key = self.upload(tile, filename)
-            logger.info(f"Uploaded {filename} to {key}")
+            logger.info(f"Uploaded {filename} to s3://{self.bucket_name}{key}")

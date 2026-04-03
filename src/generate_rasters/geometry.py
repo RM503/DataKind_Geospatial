@@ -1,14 +1,13 @@
 # Utility functions for generating raster images
 from __future__ import annotations
 
-import logging
-import os
+from typing import Optional
 
 import cv2
 import ee
 import numpy as np
 import geopandas as gpd
-from sentinelhub import BBox, SHConfig, geo_utils
+from sentinelhub import BBox, geo_utils
 from shapely import make_valid
 from shapely.geometry import MultiPolygon, Polygon
 from tqdm import tqdm
@@ -17,13 +16,29 @@ from common.logging_config import get_logger
 
 logger = get_logger(__name__)
 
-# GEE configurations
-GEE_PROJECT = os.getenv("GEE_PROJECT")
-ee.Authenticate()
-ee.Initialize()
+_EE_INITIALIZED = False
 
-# SentinelHub configurations
-config = SHConfig(os.getenv("SENTINELHUB_USER"))
+def initialize_ee(project: Optional[str]=None) -> None:
+    """Initializes GEE once per process"""
+    global _EE_INITIALIZED
+    if _EE_INITIALIZED:
+        return
+    try:
+        if project:
+            ee.Initialize(project=project)
+        else:
+            ee.Initialize()
+        logger.info("Google Earth Engine initialized.")
+    except Exception:
+        logger.info("Google Earth Engine not initialized; attempting authentication.")
+        ee.Authenticate()
+        if project:
+            ee.Initialize(project=project)
+        else:
+            ee.Initialize()
+        logger.info("Google Earth Engine authenticated and initialized.")
+
+    _EE_INITIALIZED = True
 
 def generate_covering_grid(
         gdf: gpd.GeoDataFrame,
@@ -33,8 +48,7 @@ def generate_covering_grid(
         scale: int=5000
 ) -> gpd.GeoDataFrame:
     """
-    This function takes a geopandas dataframe and creates a covering grid of the AoI
-    buffer zone.
+    Creates a covering grid around each point using GEE.
 
     Args:
         gdf (geopandas.GeoDataFrame): the geopandas dataframe
@@ -50,12 +64,12 @@ def generate_covering_grid(
     gdf = gdf.copy()
 
     if gdf.crs is None:
-        logging.info(f"No CRS found for geodataframe; setting CRS to {crs}.")
+        logger.info(f"No CRS found for geodataframe; setting CRS to {crs}.")
         gdf = gdf.to_crs(crs)
 
     # Check for invalid geometries
     if (~gdf.geometry.is_valid()).any():
-        logging.info(f"Invalid geometry(ies) found; repairing them.")
+        logger.info(f"Invalid geometry(ies) found; repairing them.")
         gdf.geometry = gdf.geometry.apply(make_valid)
 
     gdf.tile_grids = None
@@ -84,6 +98,18 @@ def generate_covering_grid(
         gdf.at[idx, "tile_grids"] = MultiPolygon(polygons) if polygons else MultiPolygon()
 
     return gdf
+
+def has_empty_tile_grids(gdf: gpd.GeoDataFrame, col_name: str="tile_grids") -> bool:
+    """
+    Returns True if the tile grid column is missing, null or contains emptry geometries.
+    """
+    if col_name not in gdf.columns:
+        return True
+
+    if gdf[col_name].isna().any():
+        return True
+
+    return gdf[col_name].apply(lambda geom: geom.is_empty).any()
 
 def generate_lon_lat(aoi_bbox: BBox, aoi_size: tuple, resolution: int) -> tuple[np.ndarray, np.ndarray]:
     """

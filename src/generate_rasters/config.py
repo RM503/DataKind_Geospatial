@@ -61,7 +61,7 @@ class RasterGenerationConfig:
 
         return Path(__file__).resolve().parent / "evalscripts"
 
-def sentinelhub_config_name() -> Optional[str]:
+def get_sentinelhub_config_name() -> Optional[str]:
     """Returns SentinelHub config profile name, if available."""
     return os.getenv("SETINELHUB_USER")
 
