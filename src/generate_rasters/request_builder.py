@@ -62,7 +62,7 @@ def build_single_request(
         data_folder (Optional[Path]): the directory to export the requests to
     """
     # SentinelHub request body
-    evalscript = read_evalscript(path=evalscript_dir, name=evalscript_type)
+    evalscript = read_evalscript(evalscript_dir=evalscript_dir, evalscript_type=evalscript_type)
 
     xmin, ymin, xmax, ymax = tile.bounds
     aoi_bbox = BBox([xmin, ymin, xmax, ymax], CRS.WGS84)

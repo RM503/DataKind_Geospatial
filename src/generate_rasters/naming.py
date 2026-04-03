@@ -24,7 +24,7 @@ def append_running_count(gdf: gpd.GeoDataFrame, col_name: str, new_col_name: str
     """
     gdf = gdf.copy()
     gdf["running_count"] = gdf.groupby(col_name).cumcount() + 1
-    gdf[new_col_name] = gdf.apply(lambda row: f"{row['col_name']} {row['running_count']}", axis=1)
+    gdf[new_col_name] = gdf.apply(lambda row: f"{row[col_name]} {row['running_count']}", axis=1)
 
     return gdf.drop(columns=["running_count"])
 

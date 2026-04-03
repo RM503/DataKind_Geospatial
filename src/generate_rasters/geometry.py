@@ -45,7 +45,9 @@ def generate_covering_grid(
         *,
         crs: str = "EPSG:4326",
         buffer_distance: float=10_000,
-        scale: int=5000
+        scale: int=5000,
+        lon_col: str="Longitude",
+        lat_col: str="Latitude",
 ) -> gpd.GeoDataFrame:
     """
     Creates a covering grid around each point using GEE.
@@ -55,6 +57,8 @@ def generate_covering_grid(
         crs (str): the CRS of the geometry; defaults to EPSG:4326
         buffer_distance (float): the buffer distance in meters, defaults to 10_000
         scale (int): nominal grid scale passed to Earth Engine's coveringGrid
+        lon_col (str): column name for the longitude axis
+        lat_col (str): column name for the latitude axis
 
     Returns:
         (geopandas.GeoDataFrame): a copy of the geopandas dataframe with the a new
@@ -65,17 +69,20 @@ def generate_covering_grid(
 
     if gdf.crs is None:
         logger.info(f"No CRS found for geodataframe; setting CRS to {crs}.")
+        gdf = gdf.set_crs(crs)
+    elif gdf.crs != crs:
+        logger.info(f"Reprojecting from {gdf.crs} to {crs}.")
         gdf = gdf.to_crs(crs)
 
     # Check for invalid geometries
-    if (~gdf.geometry.is_valid()).any():
+    if (~gdf.geometry.is_valid).any():
         logger.info(f"Invalid geometry(ies) found; repairing them.")
         gdf.geometry = gdf.geometry.apply(make_valid)
 
     gdf.tile_grids = None
 
     for idx, row in tqdm(gdf.iterrows(), total=len(gdf)):
-        lon, lat = row["Longitude"], row["Latitude"]
+        lon, lat = row[lon_col], row[lat_col]
         center = ee.Geometry.Point([lon, lat])
         aoi = center.buffer(buffer_distance).bounds()
         covering_grid = aoi.coveringGrid(proj=crs, scale=scale)

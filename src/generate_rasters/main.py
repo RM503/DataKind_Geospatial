@@ -82,7 +82,6 @@ def generate_rasters_for_gdf(
     """
     validate_input_gdf(gdf, county_col=county_col, lon_col=lon_col, lat_col=lat_col)
 
-    # Initialize GEE only once
     initialize_ee()
 
     gdf_w_grids = generate_covering_grid(
@@ -115,7 +114,7 @@ def generate_rasters_for_gdf(
         region_name = row[f"{county_col}_enumerated"]
         subdir_name = slugify(region_name)
 
-        logger.info("Processing location: %s", region_name)
+        logger.info(f"Processing location: {region_name}")
 
         writer = build_writer(config=config, subdir_name=subdir_name)
 
