@@ -7,12 +7,16 @@ __pycache__/
 
 **/*.log
 
+*.egg-info/
+
 env/
 
-.env
+.venv/
 
-config.py
+.idea/
+.ropeproject/
 
+crop_classification/isda_data
 crop_classification/time_series_analyses/evi_series_raw
 crop_classification/time_series_analyses/evi_series_clean
 crop_classification/time_series_analyses/ndmi_series_raw
@@ -25,23 +29,18 @@ crop_classification/time_series_analyses/inference
 crop_classification/time_series_analyses/tests/data
 
 
-cloud_masked_composites/__pycache__
-cloud_masked_composites/.ipynb_checkpoints
-cloud_masked_composites/demo
-cloud_masked_composites/imagery/*
-!cloud_masked_composites/imagery/priority_distributors.png
-cloud_masked_composites/sentinelhub/images
-cloud_masked_composites/sentinelhub/logs
+cloud_masked_composites/
 
-data/
+/data/
 
-dashboards/assets/raw 
-dashboards/assets/processed
+dashboards/
 
 geocoding/__pycache__
 geocoding/*.csv
 geocoding/*.json
 geocoding/*.xlsx
+
+src/main.py
 
 tiled_images/
 
@@ -58,3 +57,6 @@ copernicus_hub_python_api.ipynb
 log.txt
 Dockerfile
 service_key_gcp.json
+
+mlartifacts
+mlruns
