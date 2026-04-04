@@ -6,7 +6,7 @@ from typing import Optional
 import geopandas as gpd
 from tqdm import tqdm
 
-from .config import RasterGenerationConfig
+from configs.raster_generation import RasterGenerationConfig
 from .geometry import has_empty_tile_grids, generate_covering_grid, initialize_ee
 from .io import GeoTiffWriter
 from .naming import append_running_count, slugify

@@ -16,7 +16,7 @@ from sentinelhub import (
 )
 from shapely.geometry import MultiPolygon, Polygon
 
-from .config import get_sentinelhub_config_name
+from configs.raster_generation import get_sentinelhub_config_name
 from .geometry import generate_lon_lat
 from .io import RasterTile
 from common.logging_config import get_logger
