@@ -1,3 +1,6 @@
+"""
+Base configurations for AWS and paths
+"""
 from __future__ import annotations
 
 import os
@@ -6,7 +9,7 @@ from pathlib import Path
 from typing import Optional
 
 @dataclass(slots=True)
-class BaseConfig:
+class AWSConfig:
     """
     Base configuration class for local AWS SageMaker jobs
 
@@ -14,8 +17,8 @@ class BaseConfig:
         region_name (str): AWS region name; defaults to 'us-east-1'
         profile_name (str): AWS profile name; defaults to 'default'
     """
-    region_name: str = os.getenv("AWS_REGION", "us-east-1")
-    profile_name: Optional[str] = os.getenv("AWS_PROFILE")
+    aws_region_name: str = os.getenv("AWS_REGION", "us-east-1")
+    aws_profile_name: Optional[str] = os.getenv("AWS_PROFILE")
 
 @dataclass(slots=True)
 class PathConfig:
