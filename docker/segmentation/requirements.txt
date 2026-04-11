@@ -1,0 +1,11 @@
+boto3
+sagemaker
+torch
+samgeo
+geopandas
+shapely
+fiona
+pyogrio
+rasterio
+pandas
+tqdm
