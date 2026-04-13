@@ -87,7 +87,7 @@ def segment_single_tile(tile_job: TileJob, config: SegmentationConfig, sam) -> T
         csv_path.unlink()
 
     return TileResult(
-        region=tile_job.tile_name,
+        region=tile_job.region,
         tile_name=tile_job.tile_name,
         csv_path=csv_path if config.io.emit_csv else None,
         gpkg_path=gpkg_path if config.io.emit_gpkg else None,
@@ -96,13 +96,15 @@ def segment_single_tile(tile_job: TileJob, config: SegmentationConfig, sam) -> T
 
 def upload_tile_outputs(s3_client: S3Client, config: SegmentationConfig, result: TileResult) -> None:
     """Uploads a tile output"""
-    region_prefix = f"{config.io.output_prefix.rstrip("/")}/{result.region}"
+    region_prefix = f"{config.io.output_prefix.rstrip('/')}/{result.region}"
+
+    logger.info(f"Uploading outputs for region={result.region}")
     
     if result.csv_path and result.csv_path.exists():
         upload_file(
             s3_client=s3_client,
             local_path=result.csv_path,
-            bucket=config.output_bucket,
+            bucket_name=config.output_bucket,
             key=f"{region_prefix}/csv/{result.csv_path.name}"
         )
 
@@ -110,7 +112,7 @@ def upload_tile_outputs(s3_client: S3Client, config: SegmentationConfig, result:
         upload_file(
             s3_client=s3_client,
             local_path=result.gpkg_path,
-            bucket=config.output_bucket,
+            bucket_name=config.output_bucket,
             key=f"{region_prefix}/gpkg/{result.gpkg_path.name}",
         )
 
@@ -118,7 +120,7 @@ def upload_tile_outputs(s3_client: S3Client, config: SegmentationConfig, result:
         upload_file(
             s3_client=s3_client,
             local_path=result.mask_tiff_path,
-            bucket=config.output_bucket,
+            bucket_name=config.output_bucket,
             key=f"{region_prefix}/mask_tiffs/{result.mask_tiff_path.name}",
         )
 
@@ -154,7 +156,7 @@ def run_region(config: SegmentationConfig, region: str) -> None:
         # download tiles to scratch_dir/region/inputs
         download_file(
             s3_client=s3_client,
-            bucket=config.input_bucket,
+            bucket_name=config.input_bucket,
             key=tile_job.s3_key,
             destination=tile_job.local_path
         )
@@ -165,7 +167,7 @@ def run_region(config: SegmentationConfig, region: str) -> None:
 
         if config.runtime.cleanup_local_files:
             try:
-                tile_job.local_path.unlike(missing_ok=True)
+                tile_job.local_path.unlink(missing_ok=True)
             except TypeError:
                 if tile_job.local_path.exists():
                     tile_job.local_path.unlink()
@@ -182,7 +184,7 @@ def run_all_regions(config: SegmentationConfig) -> list[str]:
     discovered_regions = discover_regions(
         s3_client=s3_client,
         bucket_name=config.input_bucket,
-        suffix=config.io.input_suffix
+        #suffix=config.io.input_suffix
     )
 
     if config.region_allowlist:
