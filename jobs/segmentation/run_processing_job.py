@@ -3,8 +3,8 @@ from __future__ import annotations
 import argparse 
 
 import boto3 
-import sagemaker 
-from sagemaker.core.processing import ScriptProcessor 
+from sagemaker.core.helper.session_helper import Session
+from sagemaker.core.processing import ScriptProcessor
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Submit a SageMaker processing job for SamGeo segmentation.")
@@ -37,9 +37,13 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> None:
     args = build_parser().parse_args()
+    print("✓ Args parsed", flush=True)
 
     boto_session = boto3.Session(region_name=args.region_name)
-    sagemaker_session = sagemaker.Session(boto_session=boto_session)
+    print("✓ Boto session created", flush=True)
+
+    sagemaker_session = Session(boto_session=boto_session)
+    print("✓ SageMaker session created", flush=True)
 
     processor = ScriptProcessor(
         role=args.role_arn,
@@ -51,11 +55,12 @@ def main() -> None:
         max_runtime_in_seconds=args.max_runtime_seconds,
         sagemaker_session=sagemaker_session
     )
+    print("✓ Processor created", flush=True)
 
     # These are commands that run inside the container
     # Runs src.segmentation.cli and appends arguments
     arguments = [
-        "-m", "src.segmentation.cli",
+        #"-m", "src.segmentation.cli",
         "--input-bucket", args.input_bucket,
         "--output-bucket", args.output_bucket,
         "--output-prefix", args.output_prefix,
@@ -64,7 +69,7 @@ def main() -> None:
     ]
 
     if args.params_path:
-        arguments.extend(["--params_path", args.params_path])
+        arguments.extend(["--params-path", args.params_path])
 
     if args.regions:
         arguments.extend(["--regions", args.regions])
@@ -78,6 +83,8 @@ def main() -> None:
     if args.emit_csv:
         arguments.append("--emit-csv")
 
+    print(f"✓ Submitting job with arguments: {arguments}", flush=True)
+
     processor.run(
         code="jobs/segmentation/processing_entry.py",
         job_name=args.job_name,
@@ -85,3 +92,6 @@ def main() -> None:
         wait=True,
         logs=True
     )
+
+if __name__ == "__main__":
+    main()
