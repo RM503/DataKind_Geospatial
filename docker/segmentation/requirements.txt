@@ -1,7 +1,8 @@
 boto3
+boto3-stubs[s3]
 sagemaker
 torch
-samgeo
+segment-geospatial
 geopandas
 shapely
 fiona
