@@ -60,3 +60,6 @@ service_key_gcp.json
 
 mlartifacts
 mlruns
+
+notebooks/samgeo_experiments/ground_truths
+notebooks/samgeo_experiments/validation

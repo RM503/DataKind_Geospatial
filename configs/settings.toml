@@ -1,0 +1,5 @@
+# AWS settings
+
+[s3.buckets]
+RAW_TIFFS="regenorganics-prioritydistributorbuffer-tiffs"
+DELINEATED_TIFFS="regenorganics-prioritydistributorbuffer-delineated"
