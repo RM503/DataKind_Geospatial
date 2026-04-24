@@ -5,12 +5,14 @@
 
 # === Raw === #
 "{index}_series_raw.{region}":
-  type: kedro.datasets.partitions.PartitionDataset
+  type: kedro.datasets.partitions.PartitionedDataset
   path: data/01_raw/{index}_series_raw/{region}
   dataset: pandas.CSVDataset
+  filename_suffix: ".csv"
 
 # === Clean === #
 "{index}_series_clean.{region}":
-  type: kedro.datasets.partitions.PartitionDataset
+  type: kedro.datasets.partitions.PartitionedDataset
   path: data/01_clean/{index}_series_clean/{region} 
   dataset: pandas.CSVDataset
+  filename_suffix: ".csv"

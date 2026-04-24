@@ -1,0 +1,17 @@
+vi_preprocessing_defaults: &vi_defaults
+  fill_method: interpolate
+  resample_date: true
+  resample_freq: 5D
+  smoothing_window: 7
+  smoothing_polyorder: 3
+  n_estimators: 150
+  outlier_contamination: 0.075
+  random_state: 10
+
+ndmi_preprocessing:
+  <<: *vi_defaults 
+  vi_colummn: ndmi
+
+ndvi_preprocessing:
+  <<: *vi_defaults
+  vi_column: ndvi
