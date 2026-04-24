@@ -1,0 +1,16 @@
+# Here you can define all your datasets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/catalog-data/introduction/#data-catalog
+
+# === Raw === #
+"{index}_series_raw.{region}":
+  type: kedro.datasets.partitions.PartitionDataset
+  path: data/01_raw/{index}_series_raw/{region}
+  dataset: pandas.CSVDataset
+
+# === Clean === #
+"{index}_series_clean.{region}":
+  type: kedro.datasets.partitions.PartitionDataset
+  path: data/01_clean/{index}_series_clean/{region} 
+  dataset: pandas.CSVDataset

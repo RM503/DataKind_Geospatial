@@ -1,47 +1,183 @@
-# Leveraging GIS and ML for improving circular economy prospects in Kenya
+# datakind-geospatial
 
-The effects of climate change have had a drastic impact on farmland productivity and crop yields across the world—especially for smallholder farms. Coupled with poor soil quality, farmers face an increasing challenge of staying competitive as markets become more dominated by commercial operations.
+[![Python](https://img.shields.io/badge/python-3.13%2B-blue.svg)](https://www.python.org/)
+[![Package manager: uv](https://img.shields.io/badge/package%20manager-uv-6e56cf.svg)](https://github.com/astral-sh/uv)
+[![Framework: Kedro](https://img.shields.io/badge/framework-Kedro-1.3.1-ffc900.svg)](https://kedro.org/)
+[![MLflow](https://img.shields.io/badge/tracking-MLflow-0194E2.svg)](https://mlflow.org/)
+[![Status](https://img.shields.io/badge/status-in%20progress-orange.svg)](#roadmap)
 
-In this project, **DataKind** partnered with **Regen Organics** to support a data-driven study of farmlands across Kenya, with the goal of improving circular economy outcomes (e.g., better targeting and evaluation of soil and farm interventions).
+Geospatial and machine learning workflows for DataKind's Kenya farmland analysis work, now being reorganized into a Kedro project.
 
-## Overview
+This README is intentionally incomplete. It is meant to give the team a usable project entry point while the new Kedro structure and pipeline docs are still being filled in.
 
-This repository brings together geospatial and machine learning pipelines used to:
+## Background
 
-- **Generate raster tiles** for target locations/regions from remote-sensing sources.
-- **Segment farmland-like polygons** from raster tiles using a SAM-based segmentation workflow (via `segment-geospatial` / SamGeo).
-- **Analyze vegetation index time series** (e.g., NDVI/NDMI/EVI) for delineated polygons and train **classification models** to filter polygons into useful categories (e.g., Farm vs Field vs Other/Tree).
-- **Postprocess and export results** by merging predictions back into geospatial datasets (GeoPackage) for downstream analysis and mapping.
+This repository supports geospatial analysis and modeling work related to farmland identification, vegetation-index analysis, and downstream classification workflows tied to circular economy outcomes in Kenya.
 
-## Repository layout (what to look at)
+Historically, the repo has contained a mix of standalone scripts, notebooks, experiment folders, and workflow-specific modules. It now also includes a Kedro project under `src/datakind_geospatial/` with shared config in `conf/`.
 
-- **`src/`**: the installable Python package (configured via `pyproject.toml` with `package-dir = "src"`).
-  - **`src/generate_rasters/`**: raster generation pipeline (Google Earth Engine initialization + request building + GeoTIFF writing). Entry logic lives in `src/generate_rasters/main.py`.
-  - **`src/segmentation/`**: segmentation pipeline and S3 I/O helpers (download tiles, run SAM-based segmentation, write outputs, upload artifacts). Core orchestration is in `src/segmentation/pipeline.py`.
-  - **`src/configs/`** and **`configs/`**: configuration objects and example settings (e.g., S3 bucket names in `configs/settings.toml`).
-- **`crop_classification/`**: analysis code and experiments for vegetation-index time-series and model training.
-  - **`crop_classification/time_series_analyses/`**: end-to-end NDVI/VI time-series workflows (cleaning, transformations, MLflow experiments, inference scripts, and postprocessing utilities).
-  - See **`crop_classification/README.md`** for more detail on the time-series classification workstream.
-- **`samgeo_aws_ec2/`**: notes and scripts for running segmentation workloads on AWS EC2 (GPU instances). See `samgeo_aws_ec2/README.md`.
+## What is in the repo
 
-## Typical workflow (high level)
+The current codebase appears to break down into a few main workstreams:
 
-- **Raster generation**: start from a table/GeoDataFrame of target locations → generate GeoTIFF tiles per region.
-- **Segmentation**: run SAM-based segmentation on tiles (often on GPU / EC2) → produce delineated polygons (GeoPackage/CSV/mask TIFF).
-- **Time-series + classification**: compute vegetation index (VI) time series per polygon (GEE export) → clean/resample/smooth → extract features (e.g., Catch22) → train/track models (MLflow/Optuna) → batch inference.
-- **Geospatial export**: merge predictions with polygon layers and attach time-series (nested format) for exploration and mapping.
+- `src/generate_rasters/`: utilities for building remote-sensing requests and generating raster assets.
+- `src/segmentation/`: SAM/SamGeo-based field segmentation pipeline, including S3 I/O and SageMaker-oriented processing code.
+- `crop_classification/`: vegetation-index time-series analysis, feature engineering, and crop or land-type classification experiments.
+- `labeling_widget/`: Gradio-based polygon labeling workflow for time-series review.
+- `samgeo_aws_ec2/`: older AWS EC2 notes and scripts for segmentation workloads.
+- `src/datakind_geospatial/`: Kedro package, CLI entrypoint, settings, pipeline registry, and new pipeline namespace.
 
-## Getting started (development)
+## Kedro addition
 
-- **Python**: the project targets **Python 3.13+** (see `pyproject.toml`).
-- **Install**: in editable mode from the repository root:
+The repository now includes Kedro project scaffolding:
+
+- `src/datakind_geospatial/__main__.py` exposes `datakind-geospatial` and `python -m datakind_geospatial`.
+- `src/datakind_geospatial/pipeline_registry.py` uses `find_pipelines()` and assembles a `__default__` pipeline.
+- `src/datakind_geospatial/pipelines/` is the new home for Kedro-managed pipelines.
+- `conf/base/` and `conf/local/` provide shared vs local configuration split.
+- `conf/base/catalog.yml` already defines partitioned datasets for raw and clean vegetation-index series.
+
+At the moment, the generated `data_processing` Kedro pipeline is still effectively a placeholder:
+
+- `src/datakind_geospatial/pipelines/data_processing/pipeline.py` returns an empty `Pipeline([])`.
+- `conf/base/parameters_data_processing.yml` is still boilerplate.
+
+That means the Kedro structure is present, but the migration of legacy workflows into Kedro pipelines is still in progress.
+
+## Project structure
+
+```text
+.
+├── conf/                         # Kedro configuration
+│   ├── base/
+│   └── local/
+├── configs/                      # Non-Kedro project configs used by legacy workflows
+├── crop_classification/          # Time-series analysis and ML experiments
+├── docker/                       # Container assets for processing jobs
+├── jobs/                         # Job entrypoints, including segmentation processing jobs
+├── labeling_widget/              # Gradio labeling application
+├── notebooks/                    # Exploratory and workflow notebooks
+├── samgeo_aws_ec2/               # EC2-era segmentation scripts and notes
+├── src/
+│   ├── classification/
+│   ├── common/
+│   ├── configs/
+│   ├── data/
+│   ├── datakind_geospatial/      # Kedro package
+│   ├── generate_rasters/
+│   └── segmentation/
+├── pyproject.toml
+└── uv.lock
+```
+
+## Setup
+
+### Requirements
+
+- Python `3.13+`
+- `uv` recommended for environment and dependency management
+- Credentials for whichever workflows you plan to run:
+  - Google Earth Engine
+  - AWS / S3 / SageMaker
+  - MLflow backend
+  - Supabase
+
+### Install
+
+```bash
+uv sync
+```
+
+If you prefer plain `pip`:
 
 ```bash
 python -m pip install -e .
 ```
 
-If you are using `uv`, you can also install/sync dependencies using your existing workflow (the repo includes a `uv.lock`).
+To include notebook dependencies:
 
-## Notes
+```bash
+uv sync --extra notebooks
+```
 
-- Some workflows rely on external services and credentials (e.g., Google Earth Engine authentication, AWS S3 access, and MLflow tracking URIs). Check the relevant module READMEs and configs for required environment setup.
+## Running the project
+
+### Kedro commands
+
+Run the Kedro project through the generated package entrypoint:
+
+```bash
+uv run datakind-geospatial run
+```
+
+Or:
+
+```bash
+uv run python -m datakind_geospatial run
+```
+
+Useful Kedro commands while the migration is underway:
+
+```bash
+uv run datakind-geospatial registry list
+uv run kedro catalog list
+uv run kedro viz
+```
+
+### Other workflows
+
+Some existing workflows are still script- or notebook-driven rather than Kedro-driven:
+
+- Segmentation job submission: see `jobs/segmentation/run_processing_job.py` and [src/segmentation/README.md](src/segmentation/README.md)
+- Crop classification experiments: see [crop_classification/README.md](crop_classification/README.md)
+- Labeling app: see [labeling_widget/README.md](labeling_widget/README.md)
+
+## Current dependencies
+
+The project currently pulls together tooling across:
+
+- Kedro, Kedro Viz, Kedro MLflow, and Kedro SageMaker
+- GeoPandas, Rasterio, Shapely, Fiona, PyProj
+- Earth Engine and Sentinel Hub clients
+- PyTorch and SAM-adjacent segmentation workflows
+- Scikit-learn, LightGBM, XGBoost, Optuna, sktime, statsmodels
+- MLflow for experiment tracking
+
+See [pyproject.toml](pyproject.toml) for the authoritative dependency list.
+
+## Configuration notes
+
+- Shared Kedro config lives in `conf/base/`.
+- Local and sensitive config belongs in `conf/local/` and should not be committed.
+- There is also a legacy `configs/` directory used by existing non-Kedro workflows.
+- `conf/base/catalog.yml` currently includes partitioned dataset definitions for raw and cleaned time-series data.
+
+## Known gaps
+
+- Pipeline-level documentation is still incomplete.
+- The new Kedro `data_processing` pipeline is scaffolded but not implemented yet.
+- The relationship between legacy scripts and future Kedro pipelines still needs to be documented clearly.
+- Testing, linting, and CI instructions are not documented here yet.
+- Example local setup for credentials is still missing.
+
+## Roadmap
+
+- [ ] Document how legacy workflows map into Kedro pipelines
+- [ ] Implement the first non-empty Kedro pipeline
+- [ ] Add dataset catalog and parameter docs
+- [ ] Add reproducible development and testing commands
+- [ ] Add architecture notes for raster generation, segmentation, and classification
+
+## References
+
+- [Kedro configuration notes](conf/README.md)
+- [Segmentation workflow notes](src/segmentation/README.md)
+- [Crop classification notes](crop_classification/README.md)
+- [Labeling widget notes](labeling_widget/README.md)
+
+## TODO
+
+- Add a clearer end-to-end workflow diagram
+- Add data folder conventions
+- Add sample commands for each major workflow
+- Add contributor guidance
