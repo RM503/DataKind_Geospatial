@@ -1,18 +1,25 @@
-# Here you can define all your datasets by using simple YAML syntax.
-#
-# Documentation for this file format can be found in "The Data Catalog"
-# Link: https://docs.kedro.org/en/stable/catalog-data/introduction/#data-catalog
-
 # === Raw === #
-"{index}_series_raw.{region}":
-  type: kedro.datasets.partitions.PartitionedDataset
-  path: data/01_raw/{index}_series_raw/{region}
+ndvi_series_raw:
+  type: kedro_datasets.partitions.PartitionedDataset
+  path: data/01_raw/ndvi_series_raw
+  dataset: pandas.CSVDataset
+  filename_suffix: ".csv"
+
+ndmi_series_raw:
+  type: kedro_datasets.partitions.PartitionedDataset
+  path: data/01_raw/ndmi_series_raw
   dataset: pandas.CSVDataset
   filename_suffix: ".csv"
 
 # === Clean === #
-"{index}_series_clean.{region}":
-  type: kedro.datasets.partitions.PartitionedDataset
-  path: data/01_clean/{index}_series_clean/{region} 
+ndvi_series_clean:
+  type: kedro_datasets.partitions.PartitionedDataset
+  path: data/02_clean/ndvi_series_clean 
+  dataset: pandas.CSVDataset
+  filename_suffix: ".csv"
+
+ndmi_series_clean:
+  type: kedro_datasets.partitions.PartitionedDataset
+  path: data/02_clean/ndmi_series_clean 
   dataset: pandas.CSVDataset
   filename_suffix: ".csv"
