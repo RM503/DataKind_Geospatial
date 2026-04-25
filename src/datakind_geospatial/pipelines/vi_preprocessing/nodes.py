@@ -1,4 +1,11 @@
-"""VI time-series data preprocessing node"""
+"""
+VI time-series data preprocessing node
+
+Exposes a single node for preprocessing VI time-series data of all
+kinds. Preprocessing steps consist of converting GEE native wide-form
+datasets into long-form, datetime resampling, outlier detection and
+smoothing along with validation of final cleaned data.
+"""
 from __future__ import annotations 
 
 import logging
@@ -67,6 +74,7 @@ def resample_vi_group(
     uuid: str,
     resample_freq: str
 ) -> pd.DataFrame:
+    """Resample dates and interpolate on groups."""
     out = group.set_index("date").resample(resample_freq).asfreq()
     out[vi_column] = out[vi_column].interpolate(method="linear")
     out["uuid"] = uuid 
