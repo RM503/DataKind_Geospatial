@@ -1,14 +1,16 @@
-"""Data preprocessing nodes"""
+"""VI time-series data preprocessing node"""
 from __future__ import annotations 
 
 import logging
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 import numpy as np 
 import pandas as pd
 import pandera as pa
 from scipy.signal import savgol_filter
 from sklearn.ensemble import IsolationForest
+from tqdm import tqdm
 
 from datakind_geospatial.data_validators.vi_validator import VIDataValidator
 
@@ -34,12 +36,13 @@ def find_outliers(
         random_state=random_state
     )
 
-    y_pred = model.fit(x)
+    y_pred = model.fit_predict(x)
     return y_pred
 
 def date_resample(df: pd.DataFrame, vi_column: str, resample_freq: str) -> pd.DataFrame:
+    """Resamples datetime in case of uneven intervals."""
     if df["date"].dtype != "datetime64[ns]":
-        df["date"] = pd.to_datetime(df["date"], coerce=True)
+        df["date"] = pd.to_datetime(df["date"], errors="coerce")
 
     # Check if there are multiple sampling intervals in the data
     # Resample to make uniform
@@ -53,7 +56,7 @@ def date_resample(df: pd.DataFrame, vi_column: str, resample_freq: str) -> pd.Da
 
         # Fill the missing uuid at resampled points
         df[vi_column] = df[vi_column].interpolate()
-        df["uuid"] = df["uuid"].fillna(df["uuid"].mode())[0]
+        df["uuid"] = df["uuid"].ffill().bfill()
 
         return df.reset_index()
     return df
@@ -99,10 +102,11 @@ def clean_vi_series(
     """
     df = df.copy() 
 
-    drop_cols = ["system:index", ",geo"]
-    if pd.Series(drop_cols).isin(df.columns).all():
+    drop_cols = ["system:index", ".geo", ",geo"]
+    existing_drop_cols = [col for col in drop_cols if col in df.columns]
+    if existing_drop_cols:
         logger.info("Removing unnecessary columns...")
-        df = df.drop(columns=drop_cols)
+        df = df.drop(columns=existing_drop_cols)
 
     if "uuid" in df.columns:
         # Re-order columns
@@ -111,7 +115,13 @@ def clean_vi_series(
     else:
         raise KeyError("Column 'uuid' was not found in dataframe.")
 
-    value_cols = df.columns.drop("uuid")
+    value_cols = pd.Index(
+        [col for col in df.columns.drop("uuid") if not pd.isna(pd.to_datetime(col, errors="coerce"))]
+    )
+    if value_cols.empty:
+        raise ValueError("No date-like VI time-series columns were found in dataframe.")
+
+    df[value_cols] = df[value_cols].apply(pd.to_numeric, errors="coerce")
 
     if fill_method == "interpolate":
         df[value_cols] = df[value_cols].interpolate(method="linear", axis=1).bfill(axis=1).ffill(axis=1)
@@ -130,6 +140,7 @@ def clean_vi_series(
           .reset_index(drop=True)
     )
 
+    # Apply smoothing and date-resampling by uuid group
     groups: list[pd.DataFrame] = []
     for uuid, group in df_melted.groupby("uuid", sort=False):
         group = group.copy()
@@ -171,14 +182,21 @@ def clean_vi_series(
         raise
 
 def preprocess_vi_timeseries(
-    raw_partitioned_data: dict[str, Callable[[], Any]], 
+    raw_partitioned_data: dict[str, Callable[[], pd.DataFrame]], 
     params: dict[str, Any]
 ) -> dict[str, pd.DataFrame]:
     """
-    Main entry-point for raw VI time-series data preprocessing pipeline
-    """
-    cleaned_vi_data_partitions: dict[str, pd.DataFrame] = {}
+    Main entry-point for raw VI time-series data preprocessing pipeline.
 
+    Args:
+        raw_partitioned_data (dict[str, Callable[[], pd.DataFrame]]): a Kedro partitioned dataset that is composed
+        of a dictionary containing dataset path key and load function
+        params (dict[str, Any]): preprocessing parameters
+
+    Returns:
+        (dict[str, pd.DataFrame]): preprocessed VI time-series dataframe for each key in partitioned dataset.
+    """
+    # Read parameters from conf/base/parameters.yml
     vi_column = params["vi_column"]
     fill_method = params.get("fill_method", "interpolate")
     resample_date = params.get("resample_date", True)
@@ -189,10 +207,30 @@ def preprocess_vi_timeseries(
     outlier_contamination = params.get("outlier_contamination", 0.075)
     random_state = params.get("random_state", 10)
 
-    for partition_idx, partition_load_func in raw_partitioned_data.items():
+    # Fine-grained control over region and tile partitions
+    selected_partitions = params.get("selected_partitions")
+    selected_regions = params.get("selected_regions")
+
+    cleaned_vi_data_partitions: dict[str, pd.DataFrame] = {}
+
+    # Iterate through the partitions
+    for partition_key, partition_load_func in tqdm(
+        raw_partitioned_data.items(),
+        total=len(raw_partitioned_data),
+        desc=f"Preprocessing {vi_column.upper()} partitions"
+    ):
+        if selected_partitions and partition_key not in selected_partitions:
+            continue
+
+        if selected_regions and not any(
+            partition_key.startswith(f"{region}/") for region in selected_regions
+        ):
+            continue
+        
+        logger.info(f"Processing file {partition_key}")
         raw_vi_data = partition_load_func()        
 
-        cleaned_vi_data = clean_vi_series(
+        cleaned_vi_data_partitions[partition_key] = clean_vi_series(
             df=raw_vi_data,
             vi_column=vi_column,
             fill_method=fill_method,
@@ -204,7 +242,5 @@ def preprocess_vi_timeseries(
             outlier_contamination=outlier_contamination,
             random_state=random_state
         )
-        
-        cleaned_vi_data_partitions[partition_idx] = cleaned_vi_data
     
     return cleaned_vi_data_partitions
