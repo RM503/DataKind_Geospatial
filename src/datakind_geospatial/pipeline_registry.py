@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from kedro.pipeline import Pipeline 
 
-from .pipelines.training.feature_engineering import create_feature_engineering_pipeline
+from .pipelines.feature_engineering.pipeline import create_feature_engineering_pipeline
 from .pipelines.vi_preprocessing.pipeline import create_vi_preprocessing_pipeline
 
 def register_pipelines() -> dict[str, Pipeline]:
