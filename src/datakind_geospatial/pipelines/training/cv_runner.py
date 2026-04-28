@@ -18,6 +18,22 @@ from .models.registry import get_classifier
 
 logger = logging.getLogger(__name__)
 
+def _align_labels_to_panel_order(
+    df_data: pd.DataFrame,
+    df_label: pd.DataFrame,
+) -> pd.DataFrame:
+    feature_uuid_order = pd.Index(df_data.index.get_level_values("uuid")).drop_duplicates()
+    labels_by_uuid = df_label.drop_duplicates(subset="uuid", keep="first").set_index("uuid")
+    missing_labels = feature_uuid_order.difference(labels_by_uuid.index)
+
+    if not missing_labels.empty:
+        raise ValueError(
+            "Training labels are missing UUIDs present in the feature panel: "
+            f"{missing_labels.tolist()}"
+        )
+
+    return labels_by_uuid.loc[feature_uuid_order].reset_index()
+
 def run_stratified_cv(
     model_name: str,
     df_data: pd.DataFrame,
@@ -48,16 +64,17 @@ def run_stratified_cv(
         dict[str, Any]: dictionary of training outcomes and metrics.
     """
     classifier_spec = get_classifier(model_name)
+    df_label_ordered = _align_labels_to_panel_order(df_data, df_label)
 
     # Generate arrays containing uuids and labels for uuid-aware splits
-    uuids = df_label["uuid"].to_numpy()
-    labels = df_label["class_encoded"].to_numpy()
+    uuids = df_label_ordered["uuid"].to_numpy()
+    labels = df_label_ordered["class_encoded"].to_numpy()
     classes = np.sort(np.unique(labels))
     class_to_position = {int(class_label): idx for idx, class_label in enumerate(classes)}
 
     skf = StratifiedKFold(n_splits=n_folds, shuffle=True, random_state=random_state)
-    oof_predictions = np.full(len(df_label), fill_value=-1, dtype=int)
-    oof_probabilities = np.zeros((len(df_label), len(classes)), dtype=float)
+    oof_predictions = np.full(len(df_label_ordered), fill_value=-1, dtype=int)
+    oof_probabilities = np.zeros((len(df_label_ordered), len(classes)), dtype=float)
     fold_metrics: list[dict[str, float | int]] = []
 
     for fold, (train_idx, valid_idx) in enumerate(skf.split(uuids, labels), start=1):
@@ -73,8 +90,12 @@ def run_stratified_cv(
             df_data.index.get_level_values("uuid").isin(valid_uuids)
         ]
 
-        y_train = df_label.loc[df_label["uuid"].isin(train_uuids), "class_encoded"].to_numpy()
-        y_valid = df_label.loc[df_label["uuid"].isin(valid_uuids), "class_encoded"].to_numpy()
+        y_train = df_label_ordered.loc[
+            df_label_ordered["uuid"].isin(train_uuids), "class_encoded"
+        ].to_numpy()
+        y_valid = df_label_ordered.loc[
+            df_label_ordered["uuid"].isin(valid_uuids), "class_encoded"
+        ].to_numpy()
 
         # build_sklearn_pipeline implements a list of feature engineering in a split aware manner
         feature_pipeline = build_sklearn_pipeline(feature_engineering_params)

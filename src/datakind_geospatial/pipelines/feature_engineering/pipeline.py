@@ -1,6 +1,6 @@
 from typing import Any 
 
-from kedro.pipeline import Pipeline, node, pipeline 
+from kedro.pipeline import Pipeline, node, pipeline
 
 from .nodes import encode_classes, reindex_data
 
@@ -20,6 +20,6 @@ def create_feature_engineering_pipeline(**kwargs: dict[str, Any]) -> Pipeline:
                 "train_label",
                 "params:feature_engineering.class_encodings"
             ],
-            outputs=["train_label_encoded"]
+            outputs="train_label_encoded"
         )
     ])

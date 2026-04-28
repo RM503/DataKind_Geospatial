@@ -22,6 +22,22 @@ from .utils import (
 
 logger = logging.getLogger(__name__)
 
+def _labels_for_panel_order(df_data: pd.DataFrame, df_label: pd.DataFrame) -> pd.Series:
+    feature_uuid_order = pd.Index(df_data.index.get_level_values("uuid")).drop_duplicates()
+    labels_by_uuid = (
+        df_label.drop_duplicates(subset="uuid", keep="first")
+        .set_index("uuid")["class_encoded"]
+    )
+    missing_labels = feature_uuid_order.difference(labels_by_uuid.index)
+
+    if not missing_labels.empty:
+        raise ValueError(
+            "Training labels are missing UUIDs present in the feature panel: "
+            f"{missing_labels.tolist()}"
+        )
+
+    return labels_by_uuid.loc[feature_uuid_order]
+
 
 def train_classifier(
     df_data: pd.DataFrame,
@@ -56,9 +72,16 @@ def train_classifier(
         mlflow.set_tracking_uri(tracking_uri)
         mlflow.set_experiment(experiment_name)
 
-    with mlflow.start_run(
-        run_name=training_params.get("run_name", f"{model_name}-training")
-    ) if mlflow_enabled else nullcontext() as active_run:
+    existing_run = mlflow.active_run()
+
+    if mlflow_enabled and existing_run is None:
+        run_context = mlflow.start_run(
+            run_name=training_params.get("run_name", f"{model_name}-training")
+        )
+    else:
+        run_context = nullcontext(existing_run)
+
+    with run_context as active_run:
         # Best model parameters depending on whether or not optimization is required
         best_model_params = select_model_params(
             model_name=model_name,
@@ -97,7 +120,7 @@ def train_classifier(
         final_pipeline = fit_final_pipeline(
             model_name=model_name,
             df_data=df_data,
-            labels=df_label["class_encoded"].to_numpy(),
+            labels=_labels_for_panel_order(df_data, df_label).to_numpy(),
             feature_engineering_params=feature_engineering_params,
             model_params=best_model_params,
             fit_params=classifier_params.get("fit_params", {}),

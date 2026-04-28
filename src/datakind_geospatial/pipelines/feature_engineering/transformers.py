@@ -1,7 +1,7 @@
 import logging
 from typing import Self
 
-import numpy as np 
+import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 
 logger = logging.getLogger(__name__)
@@ -21,7 +21,7 @@ class RemoveNanColumns(TransformerMixin, BaseEstimator):
 
         if len(nan_cols) > 0:
             logger.info("Removing columns with all NaN values.")
-        self.columns_to_drop = nan_cols 
+        self.columns_to_drop = nan_cols
         return self
 
     def transform(self, x: np.ndarray) -> np.ndarray:
@@ -32,7 +32,7 @@ class RemoveNanColumns(TransformerMixin, BaseEstimator):
 
     def _validate_input(self, x: np.ndarray) -> np.ndarray:
         if isinstance(x, np.ndarray):
-            return x 
+            return x
         else:
             raise TypeError(
                 f"Object '{x}' does not have the correct type;"

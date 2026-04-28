@@ -122,7 +122,7 @@ def build_sklearn_pipeline(params: dict[str, Any] | None=None) -> Pipeline:
 
     return Pipeline([
         ("catch22", Catch22(catch24=params.get("catch24", True))),
+        ("scale", MinMaxScaler()),
         ("remove_nan", RemoveNanColumns()),
         ("imputer", SimpleImputer(strategy=params.get("impute_strategy", "median"))),
-        ("scale", MinMaxScaler())
     ])
