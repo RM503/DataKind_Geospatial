@@ -11,7 +11,7 @@ def fit_one_fold(
     y_train: np.ndarray,
     x_valid: np.ndarray,
     y_valid: np.ndarray,
-    params: dict[str, Any],
+    params: dict[str, dict[str, Any]],
     *,
     use_eval_set: bool = False,
 ):
@@ -20,6 +20,8 @@ def fit_one_fold(
 
     model = model_builder(model_params)
 
+    # If `eval_set` is supported; will not work for SKLearn classifiers
+    # Will work for XGBoost, LightGBM, CatBoost
     if use_eval_set:
         fit_params.setdefault("eval_set", [(x_valid, y_valid)])
 

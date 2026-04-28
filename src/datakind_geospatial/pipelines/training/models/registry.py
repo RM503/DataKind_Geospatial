@@ -17,6 +17,15 @@ logger = logging.getLogger(__name__)
 
 @dataclass(frozen=True)
 class ClassifierSpec:
+    """
+    Classifier specification class
+
+    Attributes:
+        name (str): name of the classifier
+        build_model (Callable[[dict[str, Any]], Any]): classifier initialization
+        supports_predict_proba (bool): whether to support predicting probabilities
+        supports_eval_set (bool): whether to support evaluation set
+    """
     name: str 
     build_model: Callable[[dict[str, Any]], Any]
     supports_predict_proba: bool = True 
