@@ -20,3 +20,102 @@ ndvi_preprocessing:
   vi_column: ndvi
   selected_partitions: null 
   selected_regions: null
+
+# === Training === #
+feature_engineering:
+  reindex_train_data:
+    data: Trans_Nzoia_1_ndvi_train
+    label: Trans_Nzoia_1_label_train
+    value_column: ndvi
+  class_encodings:
+    Farm: 0
+    Field: 1
+    Other: 2
+    Tree: 3
+  sklearn_transformation_pipeline:
+    catch24: true 
+    impute_strategy: median
+
+training:
+  active_model: xgboost
+  run_name: timeseries-classification-local
+  target_label: 0
+  cv:
+    n_folds: 5
+    random_state: 42
+  hyperparameter_search:
+    enabled: true
+    direction: maximize
+    n_trials: 10
+
+    model:
+      xgboost:
+        search_space:
+          learning_rate:
+            type: float
+            low: 0.005
+            high: 0.3
+            log: true
+          min_split_loss:
+            type: int 
+            low: 0
+            high: 5
+          max_depth:
+            type: int
+            low: 3
+            high: 10
+          n_estimators:
+            type: int
+            low: 50
+            high: 300
+          subsample:
+            type: float
+            low: 0.6
+            high: 1.0
+          colsample_bytree:
+            type: float
+            low: 0.6
+            high: 1.0
+          reg_lambda:
+            type: int 
+            low: 0
+            high: 10
+          reg_alpha:
+            type: int 
+            low: 0
+            high: 10
+  mlflow:
+    enabled: true
+    tracking_uri: http://localhost:5000
+    experiment_name: timeseries_classification_local
+    artifact_path: timeseries_classifier
+    registered_model_name: null
+    log_model: true
+  classifiers:
+    xgboost:
+      model_params:
+        objective: multi:softprob
+        num_class: 4
+        n_estimators: 100
+        max_depth: 6
+        learning_rate: 0.1
+        subsample: 0.9
+        colsample_bytree: 0.8
+        random_state: 42
+        n_jobs: -1
+        verbose: 50
+      fit_params: {}
+    lightgbm:
+      model_params:
+        objective: multiclass
+        num_class: 4
+        n_estimators: 100
+        learning_rate: 0.1
+        num_leaves: 31
+        subsample: 0.9
+        colsample_bytree: 0.8
+        random_state: 42
+        n_jobs: -1
+        verbosity: -1
+
+      fit_params: {}

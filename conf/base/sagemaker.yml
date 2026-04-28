@@ -1,0 +1,18 @@
+aws:
+  bucket: S3_BUCKET_NAME
+  execution_role: AWS_EXECUTION_ROLE
+  resources:
+    __default__:
+      instance_count: 1
+      instance_type: ml.m5.large
+      timeout_seconds: 86400
+    training:
+      instance_count: 1
+      instance_type: ml.m5.xlarge
+      timeout_seconds: 86400
+  sagemaker:
+    pipeline_names_mapping:
+      training: "datakind-geospatial-training"
+docker:
+  image: SAGEMAKER_IMAGE_URI
+  working_directory: /home/sagemaker-user

@@ -23,3 +23,28 @@ ndmi_series_clean:
   path: data/02_clean/ndmi_series_clean 
   dataset: pandas.CSVDataset
   filename_suffix: ".csv"
+
+# === Geometry === #
+geometry:
+  type: kedro_datasets.partitions.PartitionedDataset
+  path: data/geometry
+  dataset: geopandas.GenericDataset
+  filename_suffix: ".gpkg"
+
+# === Train (dataset + labels) === #
+train_data:
+  type: kedro_datasets.partitions.PartitionedDataset
+  path: data/04_train
+  dataset: pandas.CSVDataset
+  filename_suffix: ".csv"
+  load_args: 
+    index_col: 0
+
+# === Training outputs === #
+training_summary:
+  type: json.JSONDataset
+  filepath: data/08_reporting/training_summary.json
+
+trained_classifier_pipeline:
+  type: pickle.PickleDataset
+  filepath: data/06_models/trained_classifier_pipeline.pkl
