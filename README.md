@@ -2,121 +2,75 @@
 
 [![Python](https://img.shields.io/badge/python-3.13%2B-blue.svg)](https://www.python.org/)
 [![Package manager: uv](https://img.shields.io/badge/package%20manager-uv-6e56cf.svg)](https://github.com/astral-sh/uv)
-[![Framework: Kedro](https://img.shields.io/badge/framework-Kedro-1.3.1-ffc900.svg)](https://kedro.org/)
 [![MLflow](https://img.shields.io/badge/tracking-MLflow-0194E2.svg)](https://mlflow.org/)
-[![Status](https://img.shields.io/badge/status-in%20progress-orange.svg)](#roadmap)
+[![Powered by Kedro](https://img.shields.io/badge/powered_by-kedro-ffc900?logo=kedro)](https://kedro.org)
 
-Geospatial and machine learning workflows for DataKind's Kenya farmland analysis work, now being reorganized into a Kedro project.
+Geospatial and machine learning workflows for DataKind's Kenya farmland analysis work. The repository includes legacy experiment code and a Kedro project for vegetation-index preprocessing, time-series feature engineering, and crop/land-cover classification.
 
-This README is intentionally incomplete. It is meant to give the team a usable project entry point while the new Kedro structure and pipeline docs are still being filled in.
-
-## Background
-
-This repository supports geospatial analysis and modeling work related to farmland identification, vegetation-index analysis, and downstream classification workflows tied to circular economy outcomes in Kenya.
-
-Historically, the repo has contained a mix of standalone scripts, notebooks, experiment folders, and workflow-specific modules. It now also includes a Kedro project under `src/datakind_geospatial/` with shared config in `conf/`.
-
-## What is in the repo
-
-The current codebase appears to break down into a few main workstreams:
-
-- `src/generate_rasters/`: utilities for building remote-sensing requests and generating raster assets.
-- `src/segmentation/`: SAM/SamGeo-based field segmentation pipeline, including S3 I/O and SageMaker-oriented processing code.
-- `crop_classification/`: vegetation-index time-series analysis, feature engineering, and crop or land-type classification experiments.
-- `labeling_widget/`: Gradio-based polygon labeling workflow for time-series review.
-- `samgeo_aws_ec2/`: older AWS EC2 notes and scripts for segmentation workloads.
-- `src/datakind_geospatial/`: Kedro package, CLI entrypoint, settings, pipeline registry, and new pipeline namespace.
-
-## Kedro addition
-
-The repository now includes Kedro project scaffolding:
-
-- `src/datakind_geospatial/__main__.py` exposes `datakind-geospatial` and `python -m datakind_geospatial`.
-- `src/datakind_geospatial/pipeline_registry.py` uses `find_pipelines()` and assembles a `__default__` pipeline.
-- `src/datakind_geospatial/pipelines/` is the new home for Kedro-managed pipelines.
-- `conf/base/` and `conf/local/` provide shared vs local configuration split.
-- `conf/base/catalog.yml` already defines partitioned datasets for raw and clean vegetation-index series.
-
-At the moment, the generated `data_processing` Kedro pipeline is still effectively a placeholder:
-
-- `src/datakind_geospatial/pipelines/data_processing/pipeline.py` returns an empty `Pipeline([])`.
-- `conf/base/parameters_data_processing.yml` is still boilerplate.
-
-That means the Kedro structure is present, but the migration of legacy workflows into Kedro pipelines is still in progress.
-
-## Project structure
+## Project Layout
 
 ```text
 .
-├── conf/                         # Kedro configuration
+├── conf/                         # Kedro catalog, parameters, credentials, logging
 │   ├── base/
 │   └── local/
-├── configs/                      # Non-Kedro project configs used by legacy workflows
-├── crop_classification/          # Time-series analysis and ML experiments
-├── docker/                       # Container assets for processing jobs
-├── jobs/                         # Job entrypoints, including segmentation processing jobs
-├── labeling_widget/              # Gradio labeling application
-├── notebooks/                    # Exploratory and workflow notebooks
-├── samgeo_aws_ec2/               # EC2-era segmentation scripts and notes
+├── crop_classification/          # Legacy time-series classification experiments
+├── data/                         # Kedro data layers, not committed
+├── notebooks/                    # Exploratory notebooks
 ├── src/
-│   ├── classification/
-│   ├── common/
-│   ├── configs/
-│   ├── data/
-│   ├── datakind_geospatial/      # Kedro package
-│   ├── generate_rasters/
-│   └── segmentation/
+│   ├── classification/           # Legacy/non-Kedro classification helpers
+│   ├── datakind_geospatial/      # Kedro project package
+│   ├── generate_rasters/         # Raster-generation utilities
+│   └── segmentation/             # Segmentation workflow code
 ├── pyproject.toml
 └── uv.lock
 ```
 
 ## Setup
 
-### Requirements
+Requirements:
 
 - Python `3.13+`
-- `uv` recommended for environment and dependency management
-- Credentials for whichever workflows you plan to run:
-  - Google Earth Engine
-  - AWS / S3 / SageMaker
-  - MLflow backend
-  - Supabase
+- `uv`
+- Workflow-specific credentials as needed for Earth Engine, AWS/S3/SageMaker, Supabase, or remote MLflow
 
-### Install
+Install the project:
 
 ```bash
 uv sync
 ```
 
-If you prefer plain `pip`:
-
-```bash
-python -m pip install -e .
-```
-
-To include notebook dependencies:
+Install notebook extras:
 
 ```bash
 uv sync --extra notebooks
 ```
 
-## Running the project
-
-### Kedro commands
-
-Run the Kedro project through the generated package entrypoint:
+Run Kedro commands through the project entrypoint:
 
 ```bash
-uv run datakind-geospatial run
+uv run datakind-geospatial --help
 ```
 
-Or:
+Equivalent module entrypoint:
 
 ```bash
-uv run python -m datakind_geospatial run
+uv run python -m datakind_geospatial --help
 ```
 
-Useful Kedro commands while the migration is underway:
+## Kedro Pipelines
+
+The active Kedro pipelines are registered in `src/datakind_geospatial/pipeline_registry.py`.
+
+| Pipeline | Command | Purpose |
+| --- | --- | --- |
+| `vi_preprocessing` | `uv run datakind-geospatial run --pipeline vi_preprocessing` | Cleans raw NDVI and NDMI partitioned time series. |
+| `feature_engineering` | `uv run datakind-geospatial run --pipeline feature_engineering` | Loads training time series and labels, reindexes panel data, and encodes classes. |
+| `training` | `uv run datakind-geospatial run --pipeline training` | Runs feature engineering plus classifier training. |
+| `classification_training` | `uv run datakind-geospatial run --pipeline classification_training` | Alias for the full classification training workflow. |
+| `__default__` | `uv run datakind-geospatial run` | Same as `classification_training`. |
+
+Useful inspection commands:
 
 ```bash
 uv run datakind-geospatial registry list
@@ -124,60 +78,262 @@ uv run kedro catalog list
 uv run kedro viz
 ```
 
-### Other workflows
+## Data Layout
 
-Some existing workflows are still script- or notebook-driven rather than Kedro-driven:
+The catalog is defined in `conf/base/catalog.yml`.
 
-- Segmentation job submission: see `jobs/segmentation/run_processing_job.py` and [src/segmentation/README.md](src/segmentation/README.md)
-- Crop classification experiments: see [crop_classification/README.md](crop_classification/README.md)
-- Labeling app: see [labeling_widget/README.md](labeling_widget/README.md)
+Expected inputs:
 
-## Current dependencies
+```text
+data/01_raw/ndvi_series_raw/*.csv
+data/01_raw/ndmi_series_raw/*.csv
+data/04_train/*.csv
+```
 
-The project currently pulls together tooling across:
+Training currently expects partition names configured in `conf/base/parameters.yml`:
 
-- Kedro, Kedro Viz, Kedro MLflow, and Kedro SageMaker
-- GeoPandas, Rasterio, Shapely, Fiona, PyProj
-- Earth Engine and Sentinel Hub clients
-- PyTorch and SAM-adjacent segmentation workflows
-- Scikit-learn, LightGBM, XGBoost, Optuna, sktime, statsmodels
-- MLflow for experiment tracking
+```yaml
+feature_engineering:
+  reindex_train_data:
+    data: Trans_Nzoia_1_ndvi_train
+    label: Trans_Nzoia_1_label_train
+    value_column: ndvi
+```
 
-See [pyproject.toml](pyproject.toml) for the authoritative dependency list.
+Outputs:
 
-## Configuration notes
+```text
+data/02_clean/ndvi_series_clean/
+data/02_clean/ndmi_series_clean/
+data/06_models/trained_classifier_pipeline.pkl
+data/08_reporting/training_summary.json
+```
 
-- Shared Kedro config lives in `conf/base/`.
-- Local and sensitive config belongs in `conf/local/` and should not be committed.
-- There is also a legacy `configs/` directory used by existing non-Kedro workflows.
-- `conf/base/catalog.yml` currently includes partitioned dataset definitions for raw and cleaned time-series data.
+## VI Preprocessing Workflow
 
-## Known gaps
+Run:
 
-- Pipeline-level documentation is still incomplete.
-- The new Kedro `data_processing` pipeline is scaffolded but not implemented yet.
-- The relationship between legacy scripts and future Kedro pipelines still needs to be documented clearly.
-- Testing, linting, and CI instructions are not documented here yet.
-- Example local setup for credentials is still missing.
+```bash
+uv run datakind-geospatial run --pipeline vi_preprocessing
+```
 
-## Roadmap
+Configuration lives under:
 
-- [ ] Document how legacy workflows map into Kedro pipelines
-- [ ] Implement the first non-empty Kedro pipeline
-- [ ] Add dataset catalog and parameter docs
-- [ ] Add reproducible development and testing commands
-- [ ] Add architecture notes for raster generation, segmentation, and classification
+```yaml
+ndvi_preprocessing:
+ndmi_preprocessing:
+```
+
+Both inherit defaults from `vi_preprocessing_defaults` in `conf/base/parameters.yml`. The pipeline supports partition and region filtering through:
+
+```yaml
+selected_partitions: null
+selected_regions: null
+```
+
+Set either value to a list when you want to process only a subset.
+
+## Classification Training Workflow
+
+Run the full training workflow:
+
+```bash
+uv run datakind-geospatial run --pipeline classification_training
+```
+
+This workflow performs:
+
+1. Load partitioned training data and labels from `data/04_train`.
+2. Reindex the time-series frame to an sktime-compatible panel index.
+3. Encode labels from configured class names to integers.
+4. Extract Catch22/Catch24 features.
+5. Run stratified cross-validation.
+6. Optionally run Optuna hyperparameter search.
+7. Fit a final sklearn pipeline on all training data.
+8. Save local Kedro outputs and log MLflow metrics/artifacts/model.
+
+Current class encoding:
+
+```yaml
+Farm: 0
+Field: 1
+Other: 2
+Tree: 3
+```
+
+The training code aligns labels to the feature panel UUID order before CV and final fitting. This is important because the panel can be sorted or filtered independently from the label CSV.
+
+## Model Configuration
+
+Model parameters live under:
+
+```yaml
+training:
+  active_model: xgboost
+  classifiers:
+    xgboost:
+    lightgbm:
+```
+
+Hyperparameter search is controlled by:
+
+```yaml
+training:
+  hyperparameter_search:
+    enabled: true
+    n_trials: 10
+```
+
+Disable search when you want to run the base model parameters directly:
+
+```yaml
+training:
+  hyperparameter_search:
+    enabled: false
+```
+
+## MLflow Workflow
+
+MLflow configuration lives under:
+
+```yaml
+training:
+  mlflow:
+    enabled: true
+    tracking_uri: http://localhost:5000
+    experiment_name: timeseries_classification_local
+    artifact_path: timeseries_classifier
+    registered_model_name: null
+    log_model: true
+```
+
+Start a local MLflow server from the repo root:
+
+```bash
+uv run mlflow ui --backend-store-uri ./mlruns --host 127.0.0.1 --port 5000
+```
+
+Then run training:
+
+```bash
+uv run datakind-geospatial run --pipeline classification_training
+```
+
+What gets logged:
+
+- Optuna trial runs log trial parameters and `trial.selection_metric`.
+- The final training run logs summary metrics, `training_summary.json`, `confusion_matrix.png`, and `precision_recall_curves.png`.
+- The final fitted sklearn pipeline is logged as an MLflow model named by `artifact_path`.
+
+With MLflow 3, logged models may appear under the run's **Models / Outputs** section instead of as a normal folder in the run artifact tree. On disk they can appear under:
+
+```text
+mlruns/<experiment_id>/models/<model_id>/artifacts/model.pkl
+```
+
+If Kedro or `kedro-mlflow` already has an active parent run, final artifacts may be logged to that active Kedro experiment while Optuna trials appear in `training.mlflow.experiment_name`. If the UI shows only `xgboost-trial-*` runs, check the `datakind_geospatial` experiment for the parent `classification_training` run.
+
+To register the model in the MLflow Model Registry, set:
+
+```yaml
+registered_model_name: timeseries_classifier
+```
+
+and rerun training.
+
+## Common Workflows
+
+Run the default classification workflow:
+
+```bash
+uv run datakind-geospatial run
+```
+
+Run only feature engineering:
+
+```bash
+uv run datakind-geospatial run --pipeline feature_engineering
+```
+
+Run training without MLflow:
+
+```yaml
+training:
+  mlflow:
+    enabled: false
+```
+
+Then:
+
+```bash
+uv run datakind-geospatial run --pipeline classification_training
+```
+
+Run a faster local smoke test by lowering trial count:
+
+```yaml
+training:
+  hyperparameter_search:
+    enabled: true
+    n_trials: 1
+```
+
+## Development Checks
+
+Compile the Kedro training package:
+
+```bash
+uv run python -m compileall -q src/datakind_geospatial/pipelines/training
+```
+
+Run linting on changed files:
+
+```bash
+uv run ruff check src/datakind_geospatial conf
+```
+
+Check git state before committing:
+
+```bash
+git status --short
+```
+
+## Legacy Workflows
+
+Some workflows are still maintained outside Kedro:
+
+- Legacy classification experiments: `crop_classification/time_series_analyses/mlflow_experiments/classification`
+- Segmentation workflow: `src/segmentation/`
+- Raster generation utilities: `src/generate_rasters/`
+- Exploratory workflows: `notebooks/`
+
+Use the Kedro pipelines for reproducible preprocessing and training where possible. Use legacy scripts as references for older experiments and comparison runs.
+
+## Configuration Notes
+
+- Shared configuration belongs in `conf/base/`.
+- Local credentials and machine-specific config belong in `conf/local/`.
+- Do not commit secrets.
+- The authoritative dependency list is `pyproject.toml`.
+
+## Troubleshooting
+
+No final plots in `timeseries_classification_local`:
+
+- Check whether the final run is in the `datakind_geospatial` experiment.
+- Trial runs named `xgboost-trial-*` do not log plots by default.
+- Final plots are named `confusion_matrix.png` and `precision_recall_curves.png`.
+
+Model not visible in the artifact tree:
+
+- In MLflow 3, check the run's **Models / Outputs** section.
+- On disk, check `mlruns/<experiment_id>/models/<model_id>/artifacts/model.pkl`.
+- Set `registered_model_name` if you need a Model Registry entry.
 
 ## References
 
-- [Kedro configuration notes](conf/README.md)
-- [Segmentation workflow notes](src/segmentation/README.md)
-- [Crop classification notes](crop_classification/README.md)
-- [Labeling widget notes](labeling_widget/README.md)
-
-## TODO
-
-- Add a clearer end-to-end workflow diagram
-- Add data folder conventions
-- Add sample commands for each major workflow
-- Add contributor guidance
+- `conf/base/catalog.yml`
+- `conf/base/parameters.yml`
+- `src/datakind_geospatial/pipeline_registry.py`
+- `src/datakind_geospatial/pipelines/`
+- `src/segmentation/README.md`

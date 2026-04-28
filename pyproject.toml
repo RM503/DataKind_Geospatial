@@ -25,6 +25,7 @@ dependencies = [
     "mapclassify>=2.10.0",
     "matplotlib>=3.10.8",
     "mlflow>=3.10.1",
+    "numba>=0.65.1",
     "numpy>=2.3,<2.4",
     "opencv-python>=4.13.0.92",
     "optuna>=4.8.0",
@@ -34,6 +35,7 @@ dependencies = [
     "pyproj>=3.7.2",
     "pystac>=1.14.3",
     "python-dotenv>=1.2.2",
+    "pyyaml>=6.0.3",
     "rasterio>=1.5.0",
     "rasterstats>=0.20.0",
     "sagemaker>=3.7.1",
@@ -59,6 +61,7 @@ notebooks = [
     "gradio>=6.12.0",
     "holoviews>=1.22.1",
     "ipykernel>=7.2.0",
+    "jupyterlab>=4.5.6",
 ]
 
 [project.scripts]
@@ -80,5 +83,19 @@ tools = "['None']"
 example_pipeline = "False"
 source_dir = "src"
 
+[tool.ruff]
+line-length = 100
+
 [tool.ruff.lint]
-ignore = ["E402"]
+ignore = ["E402", "PLR0913"]
+select = [
+    "F",   # Pyflakes
+    "W",   # pycodestyle
+    "E",   # pycodestyle
+    "UP",  # pyupgrade
+    "PL",  # Pylint
+    "T201", # Print Statement
+]
+
+[tool.kedro_telemetry]
+project_id = "16979dfd1418435e91d9106231cc94c0"

@@ -13,7 +13,11 @@ env/
 
 .env
 
+.ruff_cache/
+
 .venv/
+
+.viz/
 
 .idea/
 .ropeproject/
@@ -66,8 +70,12 @@ mlruns
 notebooks/samgeo_experiments/ground_truths
 notebooks/samgeo_experiments/validation
 
+conf/local/
+
 main.py
 
 geocoding
 
 misc_data
+
+samgeo_aws_ec2/
