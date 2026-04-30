@@ -5,7 +5,7 @@ from datetime import datetime
 
 import ee
 
-from .vegetation_indices import VegetationIndexSpec, get_vegetation_index
+from .vegetation_indices import VegetationIndexSpec
 from src.common.logging_config import get_logger
 from src.common.ee_initialize import initialize_ee
 

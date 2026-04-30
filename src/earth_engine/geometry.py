@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 import ee
 import geopandas as gpd
@@ -33,3 +34,16 @@ def gdf_to_feature_collection(gdf: gpd.GeoDataFrame) -> ee.FeatureCollection:
         features.append(feature)
 
     return ee.FeatureCollection(features)
+
+
+def prepare_gdf(path: Path) -> gpd.GeoDataFrame:
+    try:
+        gdf = (
+            gpd.read_file(path)
+               .to_crs(epsg=4326)
+               .assign(roi=lambda df: df.geometry.apply(return_ee_geometry))
+        )
+
+        return gdf
+    except FileNotFoundError:
+        raise FileNotFoundError(f"File not found at path: {path}")

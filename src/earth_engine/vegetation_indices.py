@@ -58,14 +58,14 @@ VEGETATION_INDEX_REGISTRY: dict[str, VegetationIndexSpec] = {
 }
 
 
-def get_vegetation_index(index_type: str) -> VegetationIndexSpec:
-    key = index_type.lower()
+def get_vegetation_index(index_name: str) -> VegetationIndexSpec:
+    key = index_name.lower()
 
     try:
         return VEGETATION_INDEX_REGISTRY[key]
     except KeyError as e:
         supported = ", ".join(VEGETATION_INDEX_REGISTRY.keys())
         raise ValueError(
-            f"Unsupported vegetation index: {index_type}. "
+            f"Unsupported vegetation index: {index_name}. "
             f"Supported indexes are: {supported}"
         ) from e
