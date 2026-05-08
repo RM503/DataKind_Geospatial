@@ -1,13 +1,24 @@
-from __future__ import annotations 
+"""
+CLI for submitting segmentation processing jobs through AWS Sagemaker's
+ScriptProcessor.
+"""
 
-import argparse 
+from __future__ import annotations
 
-import boto3 
+import argparse
+import logging
+
+import boto3
 from sagemaker.core.helper.session_helper import Session
 from sagemaker.core.processing import ScriptProcessor
 
+logger = logging.getLogger(__name__)
+
+
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Submit a SageMaker processing job for SamGeo segmentation.")
+    parser = argparse.ArgumentParser(
+        description="Submit a SageMaker processing job for SamGeo segmentation."
+    )
 
     parser.add_argument("--role-arn", required=True)
     parser.add_argument("--image-uri", required=True)
@@ -37,13 +48,13 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> None:
     args = build_parser().parse_args()
-    print("✓ Args parsed", flush=True)
+    logger.info("✅ Args parsed", flush=True)
 
     boto_session = boto3.Session(region_name=args.region_name)
-    print("✓ Boto session created", flush=True)
+    logger.info("✅ Boto session created", flush=True)
 
     sagemaker_session = Session(boto_session=boto_session)
-    print("✓ SageMaker session created", flush=True)
+    logger.info("✅ SageMaker session created", flush=True)
 
     processor = ScriptProcessor(
         role=args.role_arn,
@@ -55,7 +66,7 @@ def main() -> None:
         max_runtime_in_seconds=args.max_runtime_seconds,
         sagemaker_session=sagemaker_session
     )
-    print("✓ Processor created", flush=True)
+    logger.info("✅ Processor created", flush=True)
 
     # These are commands that run inside the container
     # Runs src.segmentation.cli and appends arguments
@@ -83,7 +94,7 @@ def main() -> None:
     if args.emit_csv:
         arguments.append("--emit-csv")
 
-    print(f"✓ Submitting job with arguments: {arguments}", flush=True)
+    logger.info(f"✅ Submitting job with arguments: {arguments}", flush=True)
 
     processor.run(
         code="jobs/segmentation/processing_entry.py",
