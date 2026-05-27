@@ -1,13 +1,16 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Optional
 
 import geopandas as gpd
 from tqdm import tqdm
 
 from configs.raster_generation import RasterGenerationConfig
-from .geometry import has_empty_tile_grids, generate_covering_grid, initialize_ee
+from .geometry import (
+    has_empty_tile_grids,
+    generate_covering_grid,
+    initialize_ee
+)
 from .io import GeoTiffWriter
 from .naming import append_running_count, slugify
 from .request_builder import fetch_tile, iter_requests
@@ -15,14 +18,17 @@ from common.logging_config import get_logger
 
 logger = get_logger(__name__)
 
-def build_writer(config: RasterGenerationConfig, subdir_name: Optional[str]=None) -> GeoTiffWriter:
+def build_writer(
+        config: RasterGenerationConfig,
+        subdir_name: str | None = None
+    ) -> GeoTiffWriter:
     """
     Builds a GeoTiffWriter object for a given config.
 
     Args:
         config (RasterGenerationConfig): the configuration for raster generation.
-        subdir_name (str, optional): the subdirectory to use for the output GeoTiffWriter (either local or S3);
-                                     defaults to None.
+        subdir_name (str, optional): the subdirectory to use for the output GeoTiffWriter
+            (either local or S3); defaults to None.
 
     Returns:
         GeoTiffWriter object
@@ -74,8 +80,8 @@ def generate_rasters_for_gdf(
         gdf (gpd.GeoDataFrame): the geodataframe containing locations for raster generation
         config (RasterGenerationConfig): the configuration for raster generation.
         county_col (str, optional): the name of the county column in the gdf. Defaults to "County".
-        lon_col (str, optional): the name of the longitude column in the gdf. Defaults to "Longitude".
-        lat_col (str, optional): the name of the latitude column in the gdf. Defaults to "Latitude".
+        lon_col (str, optional): name of the longitude column in the gdf. Defaults to "Longitude".
+        lat_col (str, optional): name of the latitude column in the gdf. Defaults to "Latitude".
 
     Returns:
         None

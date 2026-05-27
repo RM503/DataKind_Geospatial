@@ -1,11 +1,12 @@
-# I/O functionalities for GeoTIFF retrieval and saving in S3 buckets
+"""
+I/O functionalities for GeoTIFF retrieval and saving in S3 buckets
+"""
 
 from __future__ import annotations
 
 from dataclasses import astuple, dataclass, field
 from io import BytesIO
 from pathlib import Path
-from typing import Optional
 
 import boto3
 import numpy as np
@@ -14,6 +15,7 @@ import rasterio as rio
 from common.logging_config import get_logger
 
 logger = get_logger(__name__)
+
 
 @dataclass(frozen=True)
 class RasterTile:
@@ -28,9 +30,10 @@ class RasterTile:
     img: np.ndarray
     lats: np.ndarray
     lons: np.ndarray
+    required_ndim: int = 3
 
     def __post_init__(self):
-        if self.img.ndim != 3:
+        if self.img.ndim != self.required_ndim:
             raise ValueError(f"Image array must have 3 dimensions (H, W, C); got {self.img.ndim}")
 
         height, width, _ = self.img.shape
@@ -40,9 +43,14 @@ class RasterTile:
         if self.lons.ndim != 1:
             raise ValueError(f"Longitude axis must be 1D; got {self.lons.shape}D")
         if len(self.lats) != height:
-            raise ValueError(f"Lattitude axis length {len(self.lats)} does not match image height {height}")
+            raise ValueError(
+                f"Lattitude axis length {len(self.lats)} does not match image height {height}"
+            )
         if len(self.lons) != width:
-            raise ValueError(f"Longitude axis length {len(self.lons)} does not match image width {width}")
+            raise ValueError(
+                f"Longitude axis length {len(self.lons)} does not match image width {width}"
+            )
+
 
 @dataclass
 class GeoTiffWriter:
@@ -61,11 +69,11 @@ class GeoTiffWriter:
 
     # S3 config
     s3_client: object = field(default=None, repr=False)
-    bucket_name: Optional[str] = None
+    bucket_name: str | None = None
     s3_prefix: str = ""
 
     # Local save config
-    output_dir: Optional[Path] = None
+    output_dir: str | None = None
 
     def __post_init__(self):
         # Post initialization
@@ -92,7 +100,7 @@ class GeoTiffWriter:
         left, right = np.min(lons), np.max(lons)
         bottom, top = np.min(lats), np.max(lats)
 
-        img_3bands = np.stack(( [img[:, :, i] for i in range(img.shape[2])] ))
+        img_3bands = np.stack([img[:, :, i] for i in range(img.shape[2])])
 
         transform = rio.transform.from_bounds(
             left, bottom, right, top,

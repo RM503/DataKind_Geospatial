@@ -1,8 +1,6 @@
 # Utility functions for generating raster images
 from __future__ import annotations
 
-from typing import Optional
-
 import cv2
 import ee
 import numpy as np
@@ -18,7 +16,8 @@ logger = get_logger(__name__)
 
 _EE_INITIALIZED = False
 
-def initialize_ee(project: Optional[str]=None) -> None:
+
+def initialize_ee(project: str | None=None) -> None:
     """Initializes GEE once per process"""
     global _EE_INITIALIZED
     if _EE_INITIALIZED:
@@ -39,6 +38,7 @@ def initialize_ee(project: Optional[str]=None) -> None:
         logger.info("Google Earth Engine authenticated and initialized.")
 
     _EE_INITIALIZED = True
+
 
 def generate_covering_grid(
         gdf: gpd.GeoDataFrame,
@@ -76,7 +76,7 @@ def generate_covering_grid(
 
     # Check for invalid geometries
     if (~gdf.geometry.is_valid).any():
-        logger.info(f"Invalid geometry(ies) found; repairing them.")
+        logger.info("Invalid geometry(ies) found; repairing them.")
         gdf.geometry = gdf.geometry.apply(make_valid)
 
     gdf.tile_grids = None
@@ -106,6 +106,7 @@ def generate_covering_grid(
 
     return gdf
 
+
 def has_empty_tile_grids(gdf: gpd.GeoDataFrame, col_name: str="tile_grids") -> bool:
     """
     Returns True if the tile grid column is missing, null or contains emptry geometries.
@@ -118,7 +119,11 @@ def has_empty_tile_grids(gdf: gpd.GeoDataFrame, col_name: str="tile_grids") -> b
 
     return gdf[col_name].apply(lambda geom: geom.is_empty).any()
 
-def generate_lon_lat(aoi_bbox: BBox, aoi_size: tuple, resolution: int) -> tuple[np.ndarray, np.ndarray]:
+def generate_lon_lat(
+        aoi_bbox: BBox,
+        aoi_size: tuple,
+        resolution: int
+    ) -> tuple[np.ndarray, np.ndarray]:
     """
     This function generates longitude and latitude axes from bounding box and resolution
     information to be used in the generation of raster tiles.
@@ -147,9 +152,10 @@ def generate_lon_lat(aoi_bbox: BBox, aoi_size: tuple, resolution: int) -> tuple[
 
     return lon_degrees[0,:], lat_degrees[:,0]
 
+
 def edge_enhance(img: np.ndarray, kernel_size: int=11, wf: int=2) -> np.ndarray:
     """
-    This function performs edge enhancement on input images by superposing a 
+    This function performs edge enhancement on input images by superposing a
     Gaussian blur subtracted version on top of the image.
 
     Args:

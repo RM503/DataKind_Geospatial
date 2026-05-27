@@ -4,6 +4,7 @@ import re
 
 import geopandas as gpd
 
+
 def append_running_count(gdf: gpd.GeoDataFrame, col_name: str, new_col_name: str) -> gpd.GeoDataFrame:
     """
     Adds a 1-based running count within each `col_name` group and creates a
@@ -27,6 +28,7 @@ def append_running_count(gdf: gpd.GeoDataFrame, col_name: str, new_col_name: str
     gdf[new_col_name] = gdf.apply(lambda row: f"{row[col_name]} {row['running_count']}", axis=1)
 
     return gdf.drop(columns=["running_count"])
+
 
 def slugify(value: str) -> str:
     """Converts a string to a filesystem-friend slug."""
