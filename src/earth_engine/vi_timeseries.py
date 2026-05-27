@@ -1,3 +1,8 @@
+"""
+Main module for generating VI time-series data from Earth Engine, along with
+formatting final dataset shape.
+"""
+
 from __future__ import annotations
 
 import os
@@ -16,23 +21,24 @@ initialize_ee(os.getenv("GEE_PROJECT"))
 IMAGE_COLLECTION = "COPERNICUS/S2_SR_HARMONIZED"
 
 def mask_cloud_and_shadow(
-        img: ee.Image,
+        image: ee.Image,
         cloud_prob_thresh: int = 30,
         snow_prob_thresh: int = 30
 ) -> ee.Image:
-    cloud_prob = img.select("MSK_CLDPRB")
-    snow_prob = img.select("MSK_SNWPRB")
+    """Performs cloud and shadow masking."""
+    cloud_prob = image.select("MSK_CLDPRB")
+    snow_prob = image.select("MSK_SNWPRB")
     cloud = cloud_prob.lt(cloud_prob_thresh)
     snow = snow_prob.lt(snow_prob_thresh)
 
     # Use SCL to select shadows and cirrus cloud masks
-    scl = img.select("SCL")
+    scl = image.select("SCL")
     shadow_mask = scl.eq(3)
     cirrus_mask = scl.eq(10)
 
     mask = cloud.And(snow.And(cirrus_mask.neq(1))).And(shadow_mask.neq(1))
 
-    return img.updateMask(mask)
+    return image.updateMask(mask)
 
 
 def make_index_collection(
@@ -55,7 +61,9 @@ def make_index_collection(
     ).select(index_band_name)
 
     def map_index(image: ee.Image):
-        """Applies a reducer to each image in the collection and performs a spatial mean of the index."""
+        """
+        Applies a reducer to each image in the collection and performs a spatial mean of the index.
+        """
         stats= image.reduceRegions(
             collection=feature_collection,
             reducer=ee.Reducer.mean().setOutputs([index_band_name]),

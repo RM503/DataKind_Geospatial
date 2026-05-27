@@ -34,7 +34,8 @@ def run_ee_task(
         raise ValueError(f"Expected tile name column '{tile_col}' not found in GeoDataFrame.")
     tiles = gdf[tile_col].unique()
 
-    vi_spec: VegetationIndexSpec = get_vegetation_index(vi_index_name)
+    index_spec: VegetationIndexSpec = get_vegetation_index(vi_index_name)
+    index_spec.scale = scale # Overwrite default scale with user-provided value
 
     for tile in tiles:
         logger.info(f"Processing tile: {tile}")
@@ -42,15 +43,15 @@ def run_ee_task(
         geometries = gdf_to_feature_collection(gdf_tile)
 
         # Create the index image collection and format it for export
-        img_collection = make_index_collection(start_date, end_date, geometries, vi_spec)
-        index_table = format_table(img_collection, uuid_col, "date", vi_spec.band_name)
+        img_collection = make_index_collection(start_date, end_date, geometries, index_spec)
+        index_table = format_table(img_collection, uuid_col, "date", index_spec.band_name)
         # Prepare export task
-        table_name = f"{vi_spec.name}_series_{tile}"
+        table_name = f"{index_spec.name}_series_{tile}"
 
         task = ee.batch.Export.table.toDrive(
             collection=index_table,
             description=table_name,
-            folder=f"{vi_spec.name}_series",
+            folder=f"{index_spec.name}_series",
             fileFormat="CSV"
         )
         task.start()
@@ -81,3 +82,13 @@ def main() -> None:
 
         gdf = prepare_gdf(path)
         logger.info(f"Loaded {len(gdf)} geometries from {path}")
+
+        run_ee_task(
+            gdf=gdf,
+            vi_index_name=args.vi_index_name,
+            start_date=args.start_date,
+            end_date=args.end_date,
+            scale=args.scale
+        )
+if __name__ == "__main__":
+    main()

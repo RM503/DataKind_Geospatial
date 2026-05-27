@@ -1,3 +1,7 @@
+"""
+Module for registering VI indices.
+"""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -17,6 +21,7 @@ class VegetationIndexSpec:
     scale: int = 10
 
 
+# Define functional forms of registered indices
 def add_ndvi(img: ee.Image) -> ee.Image:
     ndvi = img.normalizedDifference(["B8", "B4"]).rename("ndvi")
     return img.addBands([ndvi])
@@ -39,6 +44,38 @@ def add_evi(img: ee.Image) -> ee.Image:
     return img.addBands([evi])
 
 
+def add_ndre(image: ee.Image) -> ee.Image:
+    ndre = image.normalizedDifference(["B8A", "B5"]).rename("NDRE")
+    return image.addBands(ndre)
+
+
+def add_savi(image: ee.Image, L: float = 0.5) -> ee.Image:
+    nir  = image.select("B8")
+    red  = image.select("B4")
+
+    savi = (
+        nir.subtract(red)
+           .divide(nir.add(red).add(L))
+           .multiply(1 + L)
+           .rename("SAVI")
+    )
+    return image.addBands(savi)
+
+
+def add_bsi(image: ee.Image) -> ee.Image:
+    swir1 = image.select("B11")
+    red   = image.select("B4")
+    nir   = image.select("B8")
+    blue  = image.select("B2")
+
+    numerator   = swir1.add(red).subtract(nir.add(blue))
+    denominator = swir1.add(red).add(nir.add(blue))
+
+    bsi = numerator.divide(denominator).rename("BSI")
+    return image.addBands(bsi)
+
+
+# Register vegetation indices
 VEGETATION_INDEX_REGISTRY: dict[str, VegetationIndexSpec] = {
     "ndvi": VegetationIndexSpec(
         name="ndvi",
@@ -54,11 +91,27 @@ VEGETATION_INDEX_REGISTRY: dict[str, VegetationIndexSpec] = {
         name="evi",
         band_name="evi",
         add_band=add_evi
+    ),
+    "ndre": VegetationIndexSpec(
+        name="ndre",
+        band_name="ndre",
+        add_band=add_ndmi
+    ),
+    "savi": VegetationIndexSpec(
+        name="savi",
+        band_name="savi",
+        add_band=add_savi
+    ),
+    "bsi": VegetationIndexSpec(
+        name="bsi",
+        band_name="bsi",
+        add_band=add_bsi
     )
 }
 
 
 def get_vegetation_index(index_name: str) -> VegetationIndexSpec:
+    """Returns `VegetationIndexSpec` for given index_name."""
     key = index_name.lower()
 
     try:
