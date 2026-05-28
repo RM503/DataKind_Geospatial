@@ -25,7 +25,17 @@ def mask_cloud_and_shadow(
         cloud_prob_thresh: int = 30,
         snow_prob_thresh: int = 30
 ) -> ee.Image:
-    """Performs cloud and shadow masking."""
+    """
+    Performs cloud and shadow masking on a single Earth Engine image.
+
+    Args:
+        (i) image (ee.Image): Earth Engine image on which masking should be performed
+        (ii) cloud_prob_thresh (int): Cloud probability threshold; defaults to 30
+        (iii) snow_prob_thresh (int): Snow probability threshold; defaults to 30
+
+    Returns:
+        (ee.Image): Earth Engine image with update masks.
+    """
     cloud_prob = image.select("MSK_CLDPRB")
     snow_prob = image.select("MSK_SNWPRB")
     cloud = cloud_prob.lt(cloud_prob_thresh)
@@ -47,6 +57,27 @@ def make_index_collection(
         feature_collection: ee.FeatureCollection,
         index_spec: VegetationIndexSpec
 ) -> ee.ImageCollection:
+    """
+    Builds a feature collection of vegetation-index means for each image and region.
+
+    Filters Sentinel-2 surface reflectance imagery to the requested date range and
+    feature bounds, applies cloud/shadow masking, adds the configured vegetation
+    index band, and computes the spatial mean for each feature in
+    `feature_collection`. The returned collection is flattened so each feature
+    represents one region-image observation with a `date` property.
+
+    Args:
+        (i) start_date (str): Start date for the image query in `YYYY-MM-DD` format.
+        (ii) end_date (str): End date for the image query in `YYYY-MM-DD` format.
+        (iii) feature_collection (ee.FeatureCollection): Regions over which index means
+            are reduced.
+        (iv) index_spec (VegetationIndexSpec): Vegetation index configuration, including
+            band name, band-generation function, and reduction scale.
+
+    Returns:
+        *ee.ImageCollection): Flattened Earth Engine collection of per-region,
+        per-date vegetation-index mean features.
+    """
     if datetime.strptime(start_date, "%Y-%m-%d") < datetime(2016, 6, 13):
         raise ValueError("Start date must be before end date.")
     if not isinstance(feature_collection, ee.FeatureCollection):
@@ -83,6 +114,25 @@ def format_table(
         col_id: str,
         index_name: str
 ) -> ee.FeatureCollection:
+    """
+    Pivots long vegetation-index observations into a wide feature collection.
+
+    Groups features by `row_id` and converts matching `col_id` values into
+    output properties containing the corresponding vegetation-index value. Missing
+    index values are filled with `-9999`, and numeric values are formatted to
+    three decimal places.
+
+    Args:
+        (i) table (ee.ImageCollection): Long-form collection containing one feature per
+            row/column vegetation-index observation.
+        (ii) row_id (str): Property used to identify each output row.
+        (iii) col_id (str): Property whose values become output column names.
+        (iv) index_name (str): Property containing the vegetation-index value to pivot.
+
+    Returns:
+        (ee.FeatureCollection): Wide-form collection with one feature per `row_id`
+        and one property per observed `col_id`.
+    """
     rows = table.distinct(row_id)
     condition = ee.Filter.equals(leftField=row_id, rightField=row_id)
     joined = ee.Join.saveAll("matches").apply(

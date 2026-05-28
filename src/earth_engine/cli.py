@@ -1,5 +1,6 @@
 """
-CLI entry-point for Earth Engine modules.
+CLI entry-point for Earth Engine modules. Runs tasks and exports VI timeseries
+data to Google Drive.
 """
 
 from __future__ import annotations
@@ -26,12 +27,32 @@ def run_ee_task(
         end_date: str,
         scale: int = 10
 ) -> None:
+    """
+    Starts Earth Engine table export tasks for vegetation-index time series.
+
+    Loads Earth Engine asset configuration, groups the input geometries by tile,
+    computes the requested vegetation index for each tile, pivots the resulting
+    time series into export-ready tables, and submits one CSV export task per
+    tile to Google Drive.
+
+    Args:
+        (i) gdf (gpd.GeoDataFrame): Input geometries and metadata prepared for Earth
+            Engine processing.
+        (ii) vi_index_name (str): Registered vegetation index name to compute.
+        (iii) start_date (str): Start date for the Sentinel-2 query in `YYYY-MM-DD`
+            format.
+        (iv) end_date (str): End date for the Sentinel-2 query in `YYYY-MM-DD`
+            format.
+        (v) scale (int): Earth Engine reduction scale in meters. Defaults to 10.
+    """
     config = load_assets_config()
     data_columns = config["geometry_assets"].get("data_columns", {})
     uuid_col = data_columns.get("uuid", "uuid")
     tile_col = data_columns.get("tile_name", "tile_name")
+
     if tile_col not in gdf.columns:
         raise ValueError(f"Expected tile name column '{tile_col}' not found in GeoDataFrame.")
+
     tiles = gdf[tile_col].unique()
 
     index_spec: VegetationIndexSpec = get_vegetation_index(vi_index_name)
@@ -59,6 +80,13 @@ def run_ee_task(
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """
+    Builds the command-line argument parser for Earth Engine processing.
+
+    Returns:
+        (argparse.ArgumentParser): Parser configured with vegetation-index, date
+        range, and scale options.
+    """
     parser = argparse.ArgumentParser(description="Run Earth Engine processing.")
 
     parser.add_argument("--vi_index_name", required=True)
@@ -72,6 +100,13 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> None:
+    """
+    Runs the Earth Engine CLI workflow.
+
+    Parses command-line arguments, resolves configured geometry asset paths,
+    prepares each geometry file, and launches Earth Engine export tasks for the
+    requested vegetation-index time series.
+    """
     parser = build_parser()
     args = parser.parse_args()
 
@@ -90,5 +125,7 @@ def main() -> None:
             end_date=args.end_date,
             scale=args.scale
         )
+
+
 if __name__ == "__main__":
     main()

@@ -16,7 +16,7 @@ DEFAULT_ASSETS_CONFIG_PATH = REPO_ROOT / "configs" / "earth_engine" / "assets.ym
 
 
 def load_assets_config(config_path: Path | str = DEFAULT_ASSETS_CONFIG_PATH) -> dict[str, Any]:
-    """Load the Earth Engine assets config outside Kedro's conf structure."""
+    """Loads the Earth Engine assets config outside Kedro's conf structure."""
     path = Path(config_path)
 
     with path.open("r", encoding="utf-8") as config_file:
@@ -29,7 +29,8 @@ def load_assets_config(config_path: Path | str = DEFAULT_ASSETS_CONFIG_PATH) -> 
 
 
 def resolve_geometry_paths(config_path: Path | str = DEFAULT_ASSETS_CONFIG_PATH) -> list[Path]:
-    """Return configured GPKG paths for either all assets or one selected asset."""
+    """Returns configured GPKG paths for either all assets or one selected asset."""
+    # Config fields
     config = load_assets_config(config_path)
     geometry_assets = config.get("geometry_assets", {})
     selection = geometry_assets.get("selection", {})
