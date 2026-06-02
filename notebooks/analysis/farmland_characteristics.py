@@ -525,10 +525,10 @@ def _(find_peaks, np, pd):
         )
         df_peaks_val_melted = (
             pd.melt(
-                df_peaks_date,
+                df_peaks_val,
                 id_vars="index",
                 var_name="uuid",
-                value_name="ndvi_peak_val"
+                value_name="ndvi_peak_value"
             ).dropna()
         )
 
@@ -542,9 +542,22 @@ def _(find_peaks, np, pd):
         ).drop(columns="index")
 
         df_merged = calculate_peak_position(df_merged)
+        df_merged["ndvi_peak_month"] = df_merged["ndvi_peak_date"].dt.month
+        df_merged["ndvi_peak_year"] = df_merged["ndvi_peak_date"].dt.year
+    
         return df_merged
 
     return (find_ndvi_peaks,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ### **Monthly distribution of NDVI peaks**
+
+    The bar chart below shows how NDVI peaks are distributed per month between 2020 and 2024. Even though imperfect, we clearly observe two periods during which the peak counts dominate over the rest. In Trans-Nzoia, growing seasons coincide with the long and short rain periods during summer and start of winter, which are clearly evident in the graph. Furthermore, the lean period before the onset of the summer growing season is also clearly seen.
+    """)
+    return
 
 
 @app.cell
@@ -557,6 +570,117 @@ def _(df_smoothed, find_ndvi_peaks):
     )
 
     df_ndvi_peaks.head()
+    return (df_ndvi_peaks,)
+
+
+@app.cell
+def _(df_ndvi_peaks, hv, pd):
+    hv.Bars(
+        df_ndvi_peaks.groupby(
+            ["ndvi_peak_year",
+             "ndvi_peak_month"]
+        ).agg(
+            ndvi_peaks_per_month=pd.NamedAgg(column="ndvi_peak_date", aggfunc="count")
+        ).reset_index(),
+        kdims=["ndvi_peak_month", "ndvi_peak_year"]
+    ).opts(
+        tools=["hover"],
+        height=500,
+        width=1000,
+        xrotation=90,
+        xlabel="Month",
+        ylabel="Total NDVI peaks",
+        title="Monthly distribution of NDVI peaks"
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ### **Peak spacing statistics**
+
+    For those farms with more than 2 detected peaks, it is of interest to check the statistics of the number of days between them. This is shown in the table below where the descriptive statistics of `dt` between peaks is calculated.
+    """)
+    return
+
+
+@app.cell
+def _(pd):
+    def ndvi_peaks_interval(
+        df_peaks: pd.DataFrame,
+        n_peaks: int = 3
+    ):
+        """
+        For farms with 2+ identified peaks, calculates the number of days betwee
+        peaks.
+        """
+        df = df_peaks.copy()
+        # Filters out dataframe to contain (uuid, year) with 3 or more peaks
+        # Keep only uuid-year groups with at least n_peaks
+        df_w_spacing = (
+            df.groupby(["uuid", "ndvi_peak_year"])
+              .filter(lambda x: len(x) >= n_peaks)
+              .copy()
+        )
+
+        # Sort so diff() compares consecutive peak dates correctly
+        df_w_spacing = df_w_spacing.sort_values(
+            ["uuid", "ndvi_peak_year", "ndvi_peak_date"]
+        )
+
+        # Difference between consecutive peaks within the same uuid-year
+        df_w_spacing["days_between_peaks"] = (
+            df_w_spacing
+            .groupby(["uuid", "ndvi_peak_year"])["ndvi_peak_date"]
+            .diff()
+            .dt.days
+        )
+
+        return df_w_spacing
+
+    return (ndvi_peaks_interval,)
+
+
+@app.cell
+def _(df_ndvi_peaks, ndvi_peaks_interval):
+    df_peaks_interval = ndvi_peaks_interval(df_ndvi_peaks)
+    return (df_peaks_interval,)
+
+
+@app.cell
+def _(df_peaks_interval):
+    df_peaks_interval.groupby("ndvi_peak_year")["days_between_peaks"].describe()
+    return
+
+
+@app.cell
+def _(pd):
+    def ndvi_peaks_per_farm(
+        df_peaks: pd.DataFrame
+    ) -> tuple[pd.DataFrame, pd.DataFrame]:
+        df_n_peaks_per_farm = (
+            df_peaks.groupby(["ndvi_peak_year", "uuid"])
+                    .agg(
+                        n_peaks_per_farm=pd.NamedAgg(
+                            column="ndvi_peak_date",
+                            aggfunc="count"
+                        )
+                    ).reset_index()
+        )
+
+        df_peaks_multiplicity = (
+            df_n_peaks_per_farm.groupby(["ndvi_peak_year", "n_peaks_per_farm"])
+                             .agg(
+                                 uuid_count=pd.NamedAgg(
+                                     column="uuid",
+                                     aggfunc="count"
+                                 )
+                             ).reset_index()
+        )
+
+        return df_n_peaks_per_farm, df_peaks_multiplicity
+
     return
 
 
