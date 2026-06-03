@@ -6,13 +6,13 @@ kinds. Preprocessing steps consist of converting GEE native wide-form
 datasets into long-form, datetime resampling, outlier detection and
 smoothing along with validation of final cleaned data.
 """
-from __future__ import annotations 
+from __future__ import annotations
 
 import logging
 from collections.abc import Callable
 from typing import Any
 
-import numpy as np 
+import numpy as np
 import pandas as pd
 import pandera as pa
 from scipy.signal import savgol_filter
@@ -29,16 +29,16 @@ def fill_dates(row: pd.Series) -> pd.Series:
     return row.bfill()
 
 def find_outliers(
-    col: pd.Series, 
+    col: pd.Series,
     n_estimators: int,
-    contamination: float, 
+    contamination: float,
     random_state: int
 ) -> np.ndarray:
     """Detects outliers on time-series using Isolation Forest method."""
     x = col.to_numpy().reshape(-1, 1)
 
     model = IsolationForest(
-        n_estimators=n_estimators, 
+        n_estimators=n_estimators,
         contamination=contamination,
         random_state=random_state
     )
@@ -77,7 +77,7 @@ def resample_vi_group(
     """Resample dates and interpolate on groups."""
     out = group.set_index("date").resample(resample_freq).asfreq()
     out[vi_column] = out[vi_column].interpolate(method="linear")
-    out["uuid"] = uuid 
+    out["uuid"] = uuid
 
     return out.reset_index()
 
@@ -234,9 +234,9 @@ def preprocess_vi_timeseries(
             partition_key.startswith(f"{region}/") for region in selected_regions
         ):
             continue
-        
+
         logger.info(f"Processing file {partition_key}")
-        raw_vi_data = partition_load_func()        
+        raw_vi_data = partition_load_func()
 
         cleaned_vi_data_partitions[partition_key] = clean_vi_series(
             df=raw_vi_data,
@@ -250,5 +250,5 @@ def preprocess_vi_timeseries(
             outlier_contamination=outlier_contamination,
             random_state=random_state
         )
-    
+
     return cleaned_vi_data_partitions
