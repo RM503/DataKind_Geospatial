@@ -1,13 +1,15 @@
-# datakind-geospatial
+# **datakind-geospatial**
 
 [![Python](https://img.shields.io/badge/python-3.13%2B-blue.svg)](https://www.python.org/)
 [![Package manager: uv](https://img.shields.io/badge/package%20manager-uv-6e56cf.svg)](https://github.com/astral-sh/uv)
 [![MLflow](https://img.shields.io/badge/tracking-MLflow-0194E2.svg)](https://mlflow.org/)
 [![Powered by Kedro](https://img.shields.io/badge/powered_by-kedro-ffc900?logo=kedro)](https://kedro.org)
 
-Geospatial and machine learning workflows for DataKind's Kenya farmland analysis work. The repository includes legacy experiment code and a Kedro project for vegetation-index preprocessing, time-series feature engineering, and crop/land-cover classification.
 
-## Project Layout
+## **Introduction**
+This repository contains eospatial and machine learning workflows for DataKind Singapore's project with Kenya-based Regen Organics. It includes legacy experiment code and a Kedro project for vegetation-index preprocessing, time-series feature engineering, and farmland classification.
+
+## **Project Layout**
 
 ```text
 .
@@ -26,7 +28,7 @@ Geospatial and machine learning workflows for DataKind's Kenya farmland analysis
 └── uv.lock
 ```
 
-## Setup
+## **Setup**
 
 Requirements:
 
@@ -58,9 +60,9 @@ Equivalent module entrypoint:
 uv run python -m datakind_geospatial --help
 ```
 
-## Kedro Pipelines
+## **Kedro Pipelines**
 
-The active Kedro pipelines are registered in `src/datakind_geospatial/pipeline_registry.py`.
+The active Kedro pipelines are registered in `src/datakind_geospatial/pipeline_registry.py`. As of now, the following pipelines are available in the project —
 
 | Pipeline | Command | Purpose |
 | --- | --- | --- |
@@ -78,7 +80,7 @@ uv run kedro catalog list
 uv run kedro viz
 ```
 
-## Data Layout
+## **Data Layout**
 
 The catalog is defined in `conf/base/catalog.yml`.
 
@@ -109,7 +111,7 @@ data/06_models/trained_classifier_pipeline.pkl
 data/08_reporting/training_summary.json
 ```
 
-## VI Preprocessing Workflow
+## **VI Preprocessing Workflow**
 
 Run:
 
@@ -133,7 +135,7 @@ selected_regions: null
 
 Set either value to a list when you want to process only a subset.
 
-## Classification Training Workflow
+## **Classification Training Workflow**
 
 Run the full training workflow:
 
@@ -163,7 +165,7 @@ Tree: 3
 
 The training code aligns labels to the feature panel UUID order before CV and final fitting. This is important because the panel can be sorted or filtered independently from the label CSV.
 
-## Model Configuration
+## **Model Configuration**
 
 Model parameters live under:
 
@@ -192,7 +194,7 @@ training:
     enabled: false
 ```
 
-## MLflow Workflow
+## **MLflow Workflow**
 
 MLflow configuration lives under:
 
@@ -241,7 +243,7 @@ registered_model_name: timeseries_classifier
 
 and rerun training.
 
-## Common Workflows
+## **Common Workflows**
 
 Run the default classification workflow:
 
@@ -278,7 +280,7 @@ training:
     n_trials: 1
 ```
 
-## Development Checks
+## **Development Checks**
 
 Compile the Kedro training package:
 
@@ -309,14 +311,14 @@ Some workflows are still maintained outside Kedro:
 
 Use the Kedro pipelines for reproducible preprocessing and training where possible. Use legacy scripts as references for older experiments and comparison runs.
 
-## Configuration Notes
+## **Configuration Notes**
 
 - Shared configuration belongs in `conf/base/`.
 - Local credentials and machine-specific config belong in `conf/local/`.
 - Do not commit secrets.
 - The authoritative dependency list is `pyproject.toml`.
 
-## Troubleshooting
+## **Troubleshooting**
 
 No final plots in `timeseries_classification_local`:
 
@@ -330,7 +332,7 @@ Model not visible in the artifact tree:
 - On disk, check `mlruns/<experiment_id>/models/<model_id>/artifacts/model.pkl`.
 - Set `registered_model_name` if you need a Model Registry entry.
 
-## References
+## **References**
 
 - `conf/base/catalog.yml`
 - `conf/base/parameters.yml`
